@@ -341,7 +341,7 @@ class MoLDecoder(nn.Module):
 
 
 class GMsT(nn.Module):
-    """granite.materials.smi-TED-Light 289M Parameters"""
+    """materials.smi-TED-Light 289M Parameters"""
 
     def __init__(self, config, vocab):
         super(GMsT, self).__init__()
@@ -379,4 +379,4 @@ class GMsT(nn.Module):
         cudnn.benchmark = False
 
     def __str__(self):
-        return 'GMsT-Light'
+        return 'smi-ted-Light'
