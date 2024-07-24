@@ -2,6 +2,8 @@ This repository provides pytorch source code associated with our publication, "A
 
 Paper: [Arxiv Link]()
 
+![ted-smi](images/smi-ted.png)
+
 # materials.smi-ted (smi-ted)
 
 Here, we introduce our large encoder-decoder chemical foundation models pre-trained on a curated dataset of 91 million SMILES samples sourced from PubChem, which is equivalent to 4 billion of molecular tokens. The proposed foundation model supports different complex tasks, including quantum property prediction, and offer flexibility with two main variants ($289M$ and $8\times289M$). Our experiments across multiple benchmark datasets validate the capacity of the proposed model in providing state-of-the-art results for different tasks.
@@ -75,6 +77,9 @@ The pre-training code provides an example of data processing and training of a m
 To pre-train the two variants of ted-smi model run:
 
 > bash run_model_light_training.sh
+
+or 
+
 > bash run_model_large_training.sh
 
 You can choose `train_model_D.py` to train just the Decoder part or `train_model_ED.py` to train both, encoder and decoder.
