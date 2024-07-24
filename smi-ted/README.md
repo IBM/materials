@@ -2,7 +2,7 @@
 
 This repository provides PyTorch source code associated with our publication, "A Large Encoder-Decoder Family of Foundation Models for Chemical Language".
 
-Paper: [Arxiv Link]()
+Paper: [Arxiv Link](paper/smi-ted_preprint.pdf)
 
 ![ted-smi](images/smi-ted.png)
 
