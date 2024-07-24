@@ -115,7 +115,7 @@ To load smi-ted, you can simply use:
 ```python
 model = load_smi_ted(
     folder='../inference/smi-ted_light',
-    ckpt_filename='smi-ted-Light_40.pt'
+    ckpt_filename='smi-ted_light.pt'
 )
 ```
 
@@ -123,13 +123,13 @@ To encode SMILES into embeddings, you can use:
 
 ```python
 with torch.no_grad():
-    encode_embeddings = model.encode(df['SMILES'], return_torch=True)
+    encoded_embeddings = model.encode(df['SMILES'], return_torch=True)
 ```
 For decoder, you can use the function, so you can return from embeddings to SMILES strings:
 
 ```python
 with torch.no_grad():
-    decoded_smiles = model.decode(encode_embeddings)
+    decoded_smiles = model.decode(encoded_embeddings)
 ```
 
 
