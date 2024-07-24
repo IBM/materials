@@ -2,9 +2,9 @@
 
 # Example of running python script in a batch mode
 
-#SBATCH -J GMsT-train
+#SBATCH -J smi-ted-train
 #SBATCH -t 6:00:00
-#SBATCH -o output_GMsT_light_epoch50_%j.out
+#SBATCH -o output_smi_ted_light_epoch50_%j.out
 #SBATCH --mem=64G 
 #SBATCH --nodes=6
 #SBATCH --ntasks=6
@@ -22,7 +22,7 @@ export LOGLEVEL=INFO
 # Load software
 # module load anaconda3
 source /home/.bashrc
-conda activate gmst-env
+conda activate smi-ted-env
 
 # Run python script
 srun torchrun \
@@ -51,7 +51,7 @@ srun torchrun \
         --checkpoint_every 10000 \
         --grad_acc 1 \
         --train_load 'pubchem' \
-        --GMsT_version 'v1' \
+        --smi_ted_version 'v1' \
         --data_root './pubchem/pubchem_rd-canonical_smiles.smi' \
         --save_checkpoint_path './light_checkpoints' \
         --load_checkpoint_path '' \

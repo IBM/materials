@@ -226,7 +226,7 @@ def get_parser(parser=None):
     #parser.add_argument("--aug", type=int, required=True)
     parser.add_argument("--dataset_name", type=str, required=False, default="sol")
     parser.add_argument("--measure_name", type=str, required=False, default="measure")
-    parser.add_argument("--GMsT_version", type=str, required=True, default="v1")
+    parser.add_argument("--smi_ted_version", type=str, required=True, default="v1")
     #parser.add_argument("--emb_type", type=str, required=True)
     #parser.add_argument("--checkpoints_folder", type=str, required=True)
     #parser.add_argument("--results_dir", type=str, required=True)

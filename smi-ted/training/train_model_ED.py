@@ -45,12 +45,12 @@ def load_train_objs(config):
     )
 
     # load model
-    if config.GMsT_version == 'v1':
-        from GMsT_light.load import GMsT
-    elif config.GMsT_version == 'v2':
-        from GMsT_large.load import GMsT
+    if config.smi_ted_version == 'v1':
+        from smi_ted_light.load import Smi_ted
+    elif config.smi_ted_version == 'v2':
+        from smi_ted_large.load import Smi_ted
     
-    model = GMsT(config, train_loader.get_vocab())
+    model = Smi_ted(config, train_loader.get_vocab())
     model.apply(model._init_weights)
 
     # load optimizer

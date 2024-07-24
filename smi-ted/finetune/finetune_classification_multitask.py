@@ -55,12 +55,12 @@ def main(config):
     df_test  = pd.read_csv(f"{config.data_root}/test.csv")
 
     # load model
-    if config.GMsT_version == 'v1':
-        from GMsT_light.load import load_GMsT
-    elif config.GMsT_version == 'v2':
-        from GMsT_large.load import load_GMsT
+    if config.smi_ted_version == 'v1':
+        from smi_ted_light.load import load_smi_ted
+    elif config.smi_ted_version == 'v2':
+        from smi_ted_large.load import load_smi_ted
 
-    model = load_GMsT(folder=config.model_path, ckpt_filename=config.ckpt_filename, n_output=len(targets))
+    model = load_smi_ted(folder=config.model_path, ckpt_filename=config.ckpt_filename, n_output=len(targets))
     model.net.apply(model._init_weights)
     print(model.net)
 

@@ -2,9 +2,9 @@
 
 This repository provides PyTorch source code associated with our publication, "A Large Encoder-Decoder Family of Foundation Models for Chemical Language".
 
-Paper: [Arxiv Link](paper/smi-ted_preprint.pdf)
+Paper: [Arxiv Link](paper/smi_ted_preprint.pdf)
 
-![ted-smi](images/smi-ted.png)
+![ted-smi](images/smi_ted.png)
 
 ## Introduction
 
@@ -32,8 +32,8 @@ Add the SMI-TED `pre-trained weights.pt` to the `inference/` or `finetune/` dire
 
 ```
 inference/
-├── smi-ted_light
-│   ├── smi-ted_light.pt
+├── smi_ted_light
+│   ├── smi_ted_light.pt
 │   ├── bert_vocab_curated.txt
 │   └── load.py
 ```
@@ -41,8 +41,8 @@ and/or:
 
 ```
 finetune/
-├── smi-ted_light
-│   ├── smi-ted_light.pt
+├── smi_ted_light
+│   ├── smi_ted_light.pt
 │   ├── bert_vocab_curated.txt
 │   └── load.py
 ```
@@ -101,21 +101,21 @@ Use `train_model_D.py` to train only the decoder or `train_model_ED.py` to train
 The finetuning datasets and environment can be found in the [finetune](finetune/) directory. After setting up the environment, you can run a finetuning task with:
 
 ```
-bash smi-ted_light/run_finetune_esol.sh
+bash smi_ted_light/run_finetune_esol.sh
 ```
 
 Finetuning training/checkpointing resources will be available in directories named `checkpoint_<measure_name>`.
 
 ## Feature Extraction
 
-The example notebook [smi-ted_encoder_decoder_example.ipynb](notebooks/smi-ted_encoder_decoder_example.ipynb) contains code to load checkpoint files and use the pre-trained model for encoder and decoder tasks. It also includes examples of classification and regression tasks.
+The example notebook [smi_ted_encoder_decoder_example.ipynb](notebooks/smi_ted_encoder_decoder_example.ipynb) contains code to load checkpoint files and use the pre-trained model for encoder and decoder tasks. It also includes examples of classification and regression tasks.
 
 To load smi-ted, you can simply use:
 
 ```python
 model = load_smi_ted(
-    folder='../inference/smi-ted_light',
-    ckpt_filename='smi-ted_light.pt'
+    folder='../inference/smi_ted_light',
+    ckpt_filename='smi_ted_light.pt'
 )
 ```
 

@@ -23,7 +23,7 @@ torchrun \
         --checkpoint_every 10000 \
         --grad_acc 1 \
         --train_load 'pubchem' \
-        --GMsT_version 'v1' \
+        --smi_ted_version 'v1' \
         --data_root './pubchem/pubchem_rd-canonical_smiles.smi' \
         --save_checkpoint_path './light_checkpoints' \
         --load_checkpoint_path '' \
