@@ -1,6 +1,5 @@
 # materials.smi-ted (smi-ted)
-Foundation Model for materials SMILES
-
+Here, we introduce our large encoder-decoder chemical foundation models pre-trained on a curated dataset of 91 million SMILES samples sourced from PubChem, which is equivalent to 4 billion of molecular tokens. The proposed foundation model supports different complex tasks, including quantum property prediction, and offer flexibility with two main variants (289M and $8\times289M$). Our experiments across multiple benchmark datasets validate the capacity of the proposed model in providing state-of-the-art results for different tasks.
 # Python Environment
 
 ## Conda Create and Activate Environment
