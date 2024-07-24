@@ -1,0 +1,32 @@
+#!/bin/bash
+torchrun \
+    --standalone \
+    --nnodes=1 \
+    --nproc_per_node=1 \
+    train_model_ED.py \
+        --device cuda \
+        --n_batch 288 \
+        --n_layer 12 \
+        --n_head 12 \
+        --n_embd 768 \
+        --max_len 202 \
+        --d_dropout 0.2 \
+        --lr_start 3e-5 \
+        --lr_multiplier 4 \
+        --lr_decoder 3e-5 \
+        --n_workers 1 \
+        --max_epochs 51 \
+        --gpu -1 \
+        --num_nodes 1 \
+        --num_feats 32 \
+        --root_dir . \
+        --checkpoint_every 10000 \
+        --grad_acc 1 \
+        --train_load 'pubchem' \
+        --GMsT_version 'v1' \
+        --data_root './pubchem/pubchem_rd-canonical_smiles.smi' \
+        --save_checkpoint_path './light_checkpoints' \
+        --load_checkpoint_path '' \
+        --rotate \
+        --debug \
+        --model_arch 'BERT__both_rotate' \
