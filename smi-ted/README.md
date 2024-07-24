@@ -110,6 +110,29 @@ Finetuning training/checkpointing resources will be available in directories nam
 
 The example notebook [smi-ted_encoder_decoder_example.ipynb](notebooks/smi-ted_encoder_decoder_example.ipynb) contains code to load checkpoint files and use the pre-trained model for encoder and decoder tasks. It also includes examples of classification and regression tasks.
 
+To load smi-ted, you can simply use:
+
+```python
+model = load_smi_ted(
+    folder='../inference/smi-ted_light',
+    ckpt_filename='smi-ted-Light_40.pt'
+)
+```
+
+To encode SMILES into embeddings, you can use:
+
+```python
+with torch.no_grad():
+    encode_embeddings = model.encode(df['SMILES'], return_torch=True)
+```
+For decoder, you can use the function, so you can return from embeddings to SMILES strings:
+
+```python
+with torch.no_grad():
+    decoded_smiles = model.decode(encode_embeddings)
+```
+
+
 ## Citations
 
 ```
