@@ -3,6 +3,7 @@
 This repository provides PyTorch source code associated with our publication, "A Large Encoder-Decoder Family of Foundation Models for Chemical Language".
 
 Paper: [Arxiv Link](paper/smi_ted_preprint.pdf)
+
 For model weights contact: eduardo.soares@ibm.com or evital@br.ibm.com .
 
 ![ted-smi](images/smi-ted.png)
