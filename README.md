@@ -1,6 +1,6 @@
 # Introduction to IBM's Foundation Models for Materials
 
-Welcome to IBM's series of large foundation models for sustainable materials. Our models span a variety of representations and modalities, including SMILES, SELFIES, atom positions, 3D energy grids, molecular graphs, and other formats. These models are designed to support and advance research in materials science and chemistry.
+Welcome to IBM's series of large foundation models for sustainable materials. Our models span a variety of representations and modalities, including SMILES, SELFIES, atom positions, 3D density grids, molecular graphs, and other formats. These models are designed to support and advance research in materials science and chemistry.
 
 ## Collaboration and Community
 
