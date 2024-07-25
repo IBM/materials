@@ -1,10 +1,10 @@
 # Introduction to IBM's Foundation Models for Materials
 
-Welcome to IBM's series of large foundation models for sustainable materials. Our models span a variety of representations and modalities, including SMILES, SELFIES, atom positions, 3D density grids, molecular graphs, and other formats. These models are designed to support and advance research in materials science and chemistry.
+Welcome to IBM's series of large foundation models for sustainable materials. Our models span a variety of representations and modalities, including SMILES, SELFIES, 3D atom positions, 3D density grids, molecular graphs, and other formats. These models are designed to support and advance research in materials science and chemistry.
 
 ## Collaboration and Community
 
-We strongly believe in the power of collaboration and community-driven development to propel AI forward. As such, we will be releasing our latest open innovations on this IBM GitHub organization page, with model weights available on our Hugging Face organization. We hope that the AI community will find our efforts useful and that our models will help fuel their research and innovation in the field of materials science.
+We strongly believe in the power of collaboration and community-driven development to propel AI forward. As such, we will be releasing our latest open innovations on this IBM GitHub organization page, with model weights available on our Hugging Face organization. We hope that the AI community will find our efforts useful and that our models help advance research and innovation in materials science.
 
 ## Repository Structure
 
