@@ -4,7 +4,7 @@ Welcome to IBM's series of large foundation models for sustainable materials. Ou
 
 ## Collaboration and Community
 
-We strongly believe in the power of collaboration and community-driven development to propel AI forward. As such, we will be releasing our latest open innovations on this IBM GitHub organization page, with model weights available on our Hugging Face organization. We hope that the AI community will find our efforts useful and that our models help advance research and innovation in materials science.
+We strongly believe in the power of collaboration and community-driven development to propel AI forward. As such, we will be releasing our latest open innovations on this IBM GitHub organization page, with model weights available on our Hugging Face organization [HuggingFace Link](https://huggingface.co/ibm/materials.smi-ted). We hope that the AI community will find our efforts useful and that our models help advance research and innovation in materials science.
 
 ## Repository Structure
 
