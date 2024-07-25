@@ -89,11 +89,11 @@ The pretraining code provides examples of data processing and model training on 
 To pre-train the two variants of the SMI-TED model, run:
 
 ```
-bash run_model_light_training.sh
+bash training/run_model_light_training.sh
 ```
 or
 ```
-bash run_model_large_training.sh
+bash training/run_model_large_training.sh
 ```
 
 Use `train_model_D.py` to train only the decoder or `train_model_ED.py` to train both the encoder and decoder.
@@ -103,7 +103,7 @@ Use `train_model_D.py` to train only the decoder or `train_model_ED.py` to train
 The finetuning datasets and environment can be found in the [finetune](finetune/) directory. After setting up the environment, you can run a finetuning task with:
 
 ```
-bash smi_ted_light/run_finetune_esol.sh
+bash finetune/smi_ted_light/esol/run_finetune_esol.sh
 ```
 
 Finetuning training/checkpointing resources will be available in directories named `checkpoint_<measure_name>`.
