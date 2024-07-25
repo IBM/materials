@@ -4,7 +4,9 @@ This repository provides PyTorch source code associated with our publication, "A
 
 Paper: [Arxiv Link](paper/smi_ted_preprint.pdf)
 
-For model weights contact: eduardo.soares@ibm.com or evital@br.ibm.com .
+HuggingFace: [HuggingFace Link](https://huggingface.co/ibm/materials.smi-ted)
+
+For more information contact: eduardo.soares@ibm.com or evital@br.ibm.com.
 
 ![ted-smi](images/smi-ted.png)
 
@@ -28,7 +30,7 @@ We present a large encoder-decoder chemical foundation model, SMILES-based Trans
 
 ### Pretrained Models and Training Logs
 
-We provide checkpoints of the SMI-TED model pre-trained on a dataset of ~91M molecules curated from PubChem. The pre-trained model shows competitive performance on classification and regression benchmarks from MoleculeNet. For model weights contact: eduardo.soares@ibm.com or evital@br.ibm.com .
+We provide checkpoints of the SMI-TED model pre-trained on a dataset of ~91M molecules curated from PubChem. The pre-trained model shows competitive performance on classification and regression benchmarks from MoleculeNet. For model weights: [HuggingFace Link](https://huggingface.co/ibm/materials.smi-ted)
 
 Add the SMI-TED `pre-trained weights.pt` to the `inference/` or `finetune/` directory according to your needs. The directory structure should look like the following:
 
@@ -110,7 +112,7 @@ Finetuning training/checkpointing resources will be available in directories nam
 
 ## Feature Extraction
 
-The example notebook [smi_ted_encoder_decoder_example.ipynb](notebooks/smi_ted_encoder_decoder_example.ipynb) contains code to load checkpoint files and use the pre-trained model for encoder and decoder tasks. It also includes examples of classification and regression tasks. For model weights contact: eduardo.soares@ibm.com or evital@br.ibm.com.
+The example notebook [smi_ted_encoder_decoder_example.ipynb](notebooks/smi_ted_encoder_decoder_example.ipynb) contains code to load checkpoint files and use the pre-trained model for encoder and decoder tasks. It also includes examples of classification and regression tasks. For model weights: [HuggingFace Link](https://huggingface.co/ibm/materials.smi-ted)
 
 To load smi-ted, you can simply use:
 
