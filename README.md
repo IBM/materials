@@ -34,4 +34,4 @@ We welcome contributions from the community! If you have any ideas, improvements
 
 ## Contact
 
-For any questions, suggestions, or feedback, please open an issue on GitHub or reach out to us directly through our contact information provided in the repository.
+For any questions, suggestions, or feedback, please open an issue on GitHub or reach out to us directly through our contact information: eduardo.soares@ibm.com or evital@br.ibm.com .

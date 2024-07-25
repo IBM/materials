@@ -3,12 +3,13 @@
 This repository provides PyTorch source code associated with our publication, "A Large Encoder-Decoder Family of Foundation Models for Chemical Language".
 
 Paper: [Arxiv Link](paper/smi_ted_preprint.pdf)
+For model weights contact: eduardo.soares@ibm.com or evital@br.ibm.com .
 
-![ted-smi](images/smi_ted.png)
+![ted-smi](images/smi-ted.png)
 
 ## Introduction
 
-We present a large encoder-decoder chemical foundation model, SMILES-based Transformer Encoder-Decoder (SMI-TED), pre-trained on a curated dataset of 91 million SMILES samples sourced from PubChem, equivalent to 4 billion molecular tokens. SMI-TED supports various complex tasks, including quantum property prediction, with two main variants ($289M$ and $8 \times 289M$). Our experiments across multiple benchmark datasets demonstrate state-of-the-art performance for various tasks.
+We present a large encoder-decoder chemical foundation model, SMILES-based Transformer Encoder-Decoder (SMI-TED), pre-trained on a curated dataset of 91 million SMILES samples sourced from PubChem, equivalent to 4 billion molecular tokens. SMI-TED supports various complex tasks, including quantum property prediction, with two main variants ($289M$ and $8 \times 289M$). Our experiments across multiple benchmark datasets demonstrate state-of-the-art performance for various tasks. For model weights contact: eduardo.soares@ibm.com or evital@br.ibm.com .
 
 ## Table of Contents
 
@@ -26,7 +27,7 @@ We present a large encoder-decoder chemical foundation model, SMILES-based Trans
 
 ### Pretrained Models and Training Logs
 
-We provide checkpoints of the SMI-TED model pre-trained on a dataset of ~91M molecules curated from PubChem. The pre-trained model shows competitive performance on classification and regression benchmarks from MoleculeNet.
+We provide checkpoints of the SMI-TED model pre-trained on a dataset of ~91M molecules curated from PubChem. The pre-trained model shows competitive performance on classification and regression benchmarks from MoleculeNet. For model weights contact: eduardo.soares@ibm.com or evital@br.ibm.com .
 
 Add the SMI-TED `pre-trained weights.pt` to the `inference/` or `finetune/` directory according to your needs. The directory structure should look like the following:
 
@@ -108,7 +109,7 @@ Finetuning training/checkpointing resources will be available in directories nam
 
 ## Feature Extraction
 
-The example notebook [smi_ted_encoder_decoder_example.ipynb](notebooks/smi_ted_encoder_decoder_example.ipynb) contains code to load checkpoint files and use the pre-trained model for encoder and decoder tasks. It also includes examples of classification and regression tasks.
+The example notebook [smi_ted_encoder_decoder_example.ipynb](notebooks/smi_ted_encoder_decoder_example.ipynb) contains code to load checkpoint files and use the pre-trained model for encoder and decoder tasks. It also includes examples of classification and regression tasks. For model weights contact: eduardo.soares@ibm.com or evital@br.ibm.com.
 
 To load smi-ted, you can simply use:
 
