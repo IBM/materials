@@ -2,7 +2,7 @@
 
 This repository provides PyTorch source code associated with our publication, "A Large Encoder-Decoder Family of Foundation Models for Chemical Language".
 
-**Paper:** [Arxiv Link](paper/smi_ted_preprint.pdf)
+**Paper:** [Arxiv Link](https://arxiv.org/abs/2407.20267)
 
 **HuggingFace:** [HuggingFace Link](https://huggingface.co/ibm/materials.smi-ted)
 
@@ -140,5 +140,14 @@ with torch.no_grad():
 ## Citations
 
 ```
-to include
+@misc{soares2024largeencoderdecoderfamilyfoundation,
+      title={A Large Encoder-Decoder Family of Foundation Models For Chemical Language}, 
+      author={Eduardo Soares and Victor Shirasuna and Emilio Vital Brazil and Renato Cerqueira and Dmitry Zubarev and Kristin Schmidt},
+      year={2024},
+      eprint={2407.20267},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2407.20267}, 
+}
+
 ```
