@@ -137,17 +137,3 @@ with torch.no_grad():
 ```
 
 
-## Citations
-
-```
-@misc{soares2024largeencoderdecoderfamilyfoundation,
-      title={A Large Encoder-Decoder Family of Foundation Models For Chemical Language}, 
-      author={Eduardo Soares and Victor Shirasuna and Emilio Vital Brazil and Renato Cerqueira and Dmitry Zubarev and Kristin Schmidt},
-      year={2024},
-      eprint={2407.20267},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2407.20267}, 
-}
-
-```
