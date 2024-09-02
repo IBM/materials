@@ -2,8 +2,10 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torch.utils.checkpoint as checkpoint
 from torch.utils.data import DataLoader
 from torch.nn.parallel import DistributedDataParallel as DDP
+from fast_transformers.masking import LengthMask
 
 # Standard library
 from tqdm import tqdm
@@ -262,6 +264,12 @@ class TrainerEncoderDecoder(Trainer):
         if self.local_rank == 0:
             loss_list.to_csv(os.path.join(self.config.save_checkpoint_path, f'training_loss_epoch{epoch}.csv'), index=False)
 
+    def custom(self, module):
+        def custom_forward(*inputs):
+            inputs = module(inputs[0])
+            return inputs
+        return custom_forward
+
     def _run_batch(self, batch_idx, bucket_idx_masked, bucket_targets, bucket_idx_not_masked):
         self.optimE.zero_grad(set_to_none=True)
         self.optimD.zero_grad(set_to_none=True)
@@ -292,7 +300,13 @@ class TrainerEncoderDecoder(Trainer):
                 for param in self.model.module.decoder.parameters():
                     param.requires_grad = False
 
-                logits = self.model.module.encoder(idx_masked)
+                # encoder forward
+                x = self.model.module.encoder.tok_emb(idx_masked)
+                x = self.model.module.encoder.drop(x)
+                x = checkpoint.checkpoint(self.custom(self.model.module.encoder.blocks), x)
+                logits = self.model.module.encoder.lang_model(x)
+
+                # loss function
                 logits = logits.view(-1, logits.size(-1))
                 targets = targets.view(-1)
                 errorE_tmp = self.criterionC(logits, targets) / len(bucket_idx_masked)
@@ -370,6 +384,12 @@ class TrainerDirectDecoder(Trainer):
         self.criterionC = nn.CrossEntropyLoss(ignore_index=-100)
         self.criterionR = nn.MSELoss()
 
+    def custom(self, module):
+        def custom_forward(*inputs):
+            inputs = module(inputs[0], length_mask=inputs[1])
+            return inputs
+        return custom_forward
+
     def _run_batch(self, bucket_idx_masked, bucket_targets, bucket_idx_not_masked):
         padding_idx = 2
         error = torch.zeros(1).to(self.local_rank)
@@ -385,7 +405,18 @@ class TrainerDirectDecoder(Trainer):
             mask = (idx_masked != padding_idx)
 
             # encoder forward
-            true_set, true_cte = self.model.module.encoder(idx_masked, mask=mask, inference=True)
+            x = self.model.module.encoder.tok_emb(idx_masked)
+            x = self.model.module.encoder.drop(x)
+            x = checkpoint.checkpoint(self.custom(self.model.module.encoder.blocks), x, LengthMask(mask.sum(-1), max_len=idx_masked.shape[1]))
+
+            # mean pooling
+            input_masked_expanded = mask.unsqueeze(-1).expand(x.size()).float()
+            sum_embeddings = torch.sum(x*input_masked_expanded, 1)
+            sum_mask = torch.clamp(input_masked_expanded.sum(1), min=1e-9)
+            true_set = sum_embeddings/sum_mask
+            true_cte = x
+            del x
+            torch.cuda.empty_cache()
 
             # add padding
             input_mask_expanded = mask.unsqueeze(-1).expand(true_cte.size()).float()
