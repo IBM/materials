@@ -58,22 +58,22 @@ Follow these steps to replicate our Conda environment and install the necessary 
 #### Create and Activate Conda Environment
 
 ```
-conda create --name smi-ted-env python=3.8.18
+conda create --name smi-ted-env python=3.10
 conda activate smi-ted-env
 ```
 
 #### Install Packages with Conda
 
 ```
-conda install pytorch=1.13.1 cudatoolkit=11.4 -c pytorch
-conda install numpy=1.23.5 pandas=2.0.3
-conda install rdkit=2021.03.5 -c conda-forge
+conda install pytorch=2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia
+conda install numpy=1.26.4 pandas=2.2.2
+conda install rdkit=2024.03.5 -c conda-forge
 ```
 
 #### Install Packages with Pip
 
 ```
-pip install transformers==4.6.0 pytorch-fast-transformers==0.4.0 torch-optimizer==0.3.0 datasets==1.6.2 scikit-learn==1.3.2 scipy==1.12.0 tqdm==4.66.1
+pip install transformers==4.44.0 pytorch-fast-transformers==0.4.0 torch-optimizer==0.3.0 datasets==2.16.1 scikit-learn==1.5.0 scipy==1.12.0 tqdm==4.66.4
 ```
 
 ## Pretraining
