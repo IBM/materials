@@ -10,6 +10,8 @@ from fast_transformers.masking import LengthMask
 # Standard library
 from tqdm import tqdm
 import pandas as pd
+import numpy as np
+import random
 import os
 
 
@@ -43,6 +45,7 @@ class Trainer:
         self.model = DDP(self.model, device_ids=[self.local_rank])
 
     def _load_checkpoint(self, checkpoint_path):
+        opt_dict = None
         loc = f"cuda:{self.local_rank}"
         ckpt_dict = torch.load(checkpoint_path, map_location=loc)
         if os.path.exists(os.path.join(self.save_checkpoint_path, 'OPTIMIZER_STATES.pt')):
