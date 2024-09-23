@@ -48,6 +48,7 @@ def main(config):
         seed=config.start_seed,
         checkpoints_folder=config.checkpoints_folder,
         device=device,
+        save_every_epoch=bool(config.save_every_epoch),
         save_ckpt=bool(config.save_ckpt)
     )
     trainer.compile(

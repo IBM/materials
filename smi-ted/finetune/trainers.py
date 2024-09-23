@@ -25,7 +25,7 @@ from utils import RMSE, sensitivity, specificity
 class Trainer:
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='rmse', seed=0, checkpoints_folder='./checkpoints', save_ckpt=True, device='cpu'):
+                 target_metric='rmse', seed=0, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
         # data
         self.df_train = raw_data[0]
         self.df_valid = raw_data[1]
@@ -40,6 +40,7 @@ class Trainer:
         self.target_metric = target_metric
         self.seed = seed
         self.checkpoints_folder = checkpoints_folder
+        self.save_every_epoch = save_every_epoch
         self.save_ckpt = save_ckpt
         self.device = device
         self._set_seed(seed)
@@ -81,7 +82,7 @@ class Trainer:
         self._print_configuration()
 
     def fit(self, max_epochs=500):
-        best_vloss = 1000
+        best_vloss = float('inf')
         best_vmetric = -1
 
         for epoch in range(1, max_epochs+1):
@@ -107,9 +108,9 @@ class Trainer:
                 print(f"[TEST] Evaluation {m.upper()}: {round(tst_metrics[m], 4)}")
 
             ############################### Save Finetune checkpoint #######################################
-            if (val_loss < best_vloss) and self.save_ckpt:
+            if ((val_loss < best_vloss) or self.save_every_epoch) and self.save_ckpt:
                 # remove old checkpoint
-                if best_vmetric != -1:
+                if best_vmetric != -1 and not self.save_every_epoch:
                     os.remove(os.path.join(self.checkpoints_folder, filename))
 
                 # filename
@@ -125,7 +126,7 @@ class Trainer:
                 pd.DataFrame(tst_preds).to_csv(
                     os.path.join(
                         self.checkpoints_folder, 
-                        f'{self.dataset_name}_{self.target if isinstance(self.target, str) else self.target[0]}_predict_test_seed{self.seed}.csv'), 
+                        f'{self.dataset_name}_{self.target if isinstance(self.target, str) else self.target[0]}_epoch={epoch}_predict_test_seed{self.seed}.csv'), 
                     index=False
                 )
 
@@ -198,9 +199,9 @@ class Trainer:
 class TrainerRegressor(Trainer):
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='rmse', seed=0, checkpoints_folder='./checkpoints', save_ckpt=True, device='cpu'):
+                 target_metric='rmse', seed=0, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
         super().__init__(raw_data, dataset_name, target, batch_size, hparams,
-                         target_metric, seed, checkpoints_folder, save_ckpt, device) 
+                         target_metric, seed, checkpoints_folder, save_every_epoch, save_ckpt, device) 
 
     def _train_one_epoch(self):
         running_loss = 0.0
@@ -277,9 +278,9 @@ class TrainerRegressor(Trainer):
 class TrainerClassifier(Trainer):
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='roc-auc', seed=0, checkpoints_folder='./checkpoints', save_ckpt=True, device='cpu'):
+                 target_metric='roc-auc', seed=0, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
         super().__init__(raw_data, dataset_name, target, batch_size, hparams,
-                         target_metric, seed, checkpoints_folder, save_ckpt, device) 
+                         target_metric, seed, checkpoints_folder, save_every_epoch, save_ckpt, device) 
 
     def _train_one_epoch(self):
         running_loss = 0.0
@@ -372,9 +373,9 @@ class TrainerClassifier(Trainer):
 class TrainerClassifierMultitask(Trainer):
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='roc-auc', seed=0, checkpoints_folder='./checkpoints', save_ckpt=True, device='cpu'):
+                 target_metric='roc-auc', seed=0, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
         super().__init__(raw_data, dataset_name, target, batch_size, hparams,
-                         target_metric, seed, checkpoints_folder, save_ckpt, device)
+                         target_metric, seed, checkpoints_folder, save_every_epoch, save_ckpt, device)
 
     def _prepare_data(self):
         # normalize dataset
