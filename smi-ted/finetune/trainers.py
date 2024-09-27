@@ -83,7 +83,6 @@ class Trainer:
 
     def fit(self, max_epochs=500):
         best_vloss = float('inf')
-        best_vmetric = -1
 
         for epoch in range(1, max_epochs+1):
             print(f'\n=====Epoch [{epoch}/{max_epochs}]=====')
@@ -92,47 +91,47 @@ class Trainer:
             self.model.to(self.device)
             self.model.train()
             train_loss = self._train_one_epoch()
-            print(f'Training loss: {round(train_loss, 6)}')
 
-            # Evaluate the model
+            # validation
             self.model.eval()
             val_preds, val_loss, val_metrics = self._validate_one_epoch(self.valid_loader)
-            tst_preds, tst_loss, tst_metrics = self._validate_one_epoch(self.test_loader)
-
-            print(f"Valid loss: {round(val_loss, 6)}")
             for m in val_metrics.keys():
                 print(f"[VALID] Evaluation {m.upper()}: {round(val_metrics[m], 4)}")
-            print("-"*32)
-            print(f"Test loss: {round(tst_loss, 6)}")
-            for m in tst_metrics.keys():
-                print(f"[TEST] Evaluation {m.upper()}: {round(tst_metrics[m], 4)}")
 
             ############################### Save Finetune checkpoint #######################################
             if ((val_loss < best_vloss) or self.save_every_epoch) and self.save_ckpt:
                 # remove old checkpoint
-                if best_vmetric != -1 and not self.save_every_epoch:
-                    os.remove(os.path.join(self.checkpoints_folder, filename))
+                if best_vloss != float('inf') and not self.save_every_epoch:
+                    os.remove(os.path.join(self.checkpoints_folder, self.last_filename))
 
                 # filename
                 model_name = f'{str(self.model)}-Finetune'
-                metric = round(tst_metrics[self.target_metric], 4)
-                filename = f"{model_name}_epoch={epoch}_{self.dataset_name}_seed{self.seed}_{self.target_metric}={metric}.pt"
+                self.last_filename = f"{model_name}_epoch={epoch}_{self.dataset_name}_seed{self.seed}_valloss={round(val_loss, 4)}.pt"
 
                 # save checkpoint
                 print('Saving checkpoint...')
-                self._save_checkpoint(epoch, filename)
-
-                # save predictions
-                pd.DataFrame(tst_preds).to_csv(
-                    os.path.join(
-                        self.checkpoints_folder, 
-                        f'{self.dataset_name}_{self.target if isinstance(self.target, str) else self.target[0]}_epoch={epoch}_predict_test_seed{self.seed}.csv'), 
-                    index=False
-                )
+                self._save_checkpoint(epoch, self.last_filename)
 
                 # update best loss
                 best_vloss = val_loss
-                best_vmetric = metric
+
+    def evaluate(self):
+        print("\n=====Test Evaluation=====")
+        self._load_checkpoint(self.last_filename)
+        self.model.eval()
+        tst_preds, tst_loss, tst_metrics = self._validate_one_epoch(self.test_loader)
+
+        # show metrics
+        for m in tst_metrics.keys():
+            print(f"[TEST] Evaluation {m.upper()}: {round(tst_metrics[m], 4)}")
+
+        # save predictions
+        pd.DataFrame(tst_preds).to_csv(
+            os.path.join(
+                self.checkpoints_folder, 
+                f'{self.dataset_name}_{self.target if isinstance(self.target, str) else self.target[0]}_predict_test_seed{self.seed}.csv'), 
+            index=False
+        )
 
     def _train_one_epoch(self):
         raise NotImplementedError
@@ -153,6 +152,11 @@ class Trainer:
         print('Train size:\t', self.df_train.shape[0])
         print('Valid size:\t', self.df_valid.shape[0])
         print('Test size:\t', self.df_test.shape[0])
+
+    def _load_checkpoint(self, filename):
+        ckpt_path = os.path.join(self.checkpoints_folder, filename)
+        ckpt_dict = torch.load(ckpt_path, map_location='cpu')
+        self.model.load_state_dict(ckpt_dict['MODEL_STATE'])
 
     def _save_checkpoint(self, current_epoch, filename):
         if not os.path.exists(self.checkpoints_folder):
@@ -206,7 +210,7 @@ class TrainerRegressor(Trainer):
     def _train_one_epoch(self):
         running_loss = 0.0
 
-        for data in tqdm(self.train_loader):
+        for idx, data in enumerate(pbar := tqdm(self.train_loader)):
             # Every data instance is an input + label pair
             smiles, targets = data
             targets = targets.clone().detach().to(self.device)
@@ -228,6 +232,11 @@ class TrainerRegressor(Trainer):
             # print statistics
             running_loss += loss.item()
 
+            # progress bar
+            pbar.set_description('[TRAINING]')
+            pbar.set_postfix(loss=running_loss/(idx+1))
+            pbar.refresh()
+
         return running_loss / len(self.train_loader)
 
     def _validate_one_epoch(self, data_loader):
@@ -236,7 +245,7 @@ class TrainerRegressor(Trainer):
         running_loss = 0.0
 
         with torch.no_grad():
-            for data in tqdm(data_loader):
+            for idx, data in enumerate(pbar := tqdm(data_loader)):
                 # Every data instance is an input + label pair
                 smiles, targets = data
                 targets = targets.clone().detach().to(self.device)
@@ -253,6 +262,11 @@ class TrainerRegressor(Trainer):
 
                 # print statistics
                 running_loss += loss.item()
+
+                # progress bar
+                pbar.set_description('[EVALUATION]')
+                pbar.set_postfix(loss=running_loss/(idx+1))
+                pbar.refresh()
 
         # Put together predictions and labels from batches
         preds = torch.cat(data_preds, dim=0).cpu().numpy()
@@ -272,7 +286,7 @@ class TrainerRegressor(Trainer):
             'spearman': spearman,
         }
 
-        return preds, running_loss / len(self.train_loader), metrics
+        return preds, running_loss / len(data_loader), metrics
 
 
 class TrainerClassifier(Trainer):
@@ -285,7 +299,7 @@ class TrainerClassifier(Trainer):
     def _train_one_epoch(self):
         running_loss = 0.0
 
-        for data in tqdm(self.train_loader):
+        for idx, data in enumerate(pbar := tqdm(self.train_loader)):
             # Every data instance is an input + label pair
             smiles, targets = data
             targets = targets.clone().detach().to(self.device)
@@ -307,6 +321,11 @@ class TrainerClassifier(Trainer):
             # print statistics
             running_loss += loss.item()
 
+            # progress bar
+            pbar.set_description('[TRAINING]')
+            pbar.set_postfix(loss=running_loss/(idx+1))
+            pbar.refresh()
+
         return running_loss / len(self.train_loader)
 
     def _validate_one_epoch(self, data_loader):
@@ -315,7 +334,7 @@ class TrainerClassifier(Trainer):
         running_loss = 0.0
 
         with torch.no_grad():
-            for data in tqdm(data_loader):
+            for idx, data in enumerate(pbar := tqdm(data_loader)):
                 # Every data instance is an input + label pair
                 smiles, targets = data
                 targets = targets.clone().detach().to(self.device)
@@ -332,6 +351,11 @@ class TrainerClassifier(Trainer):
 
                 # print statistics
                 running_loss += loss.item()
+
+                # progress bar
+                pbar.set_description('[EVALUATION]')
+                pbar.set_postfix(loss=running_loss/(idx+1))
+                pbar.refresh()
 
         # Put together predictions and labels from batches
         preds = torch.cat(data_preds, dim=0).cpu().numpy()
@@ -367,7 +391,7 @@ class TrainerClassifier(Trainer):
             'specificity': sp,
         }
 
-        return preds, running_loss / len(self.train_loader), metrics
+        return preds, running_loss / len(data_loader), metrics
 
 
 class TrainerClassifierMultitask(Trainer):
@@ -410,7 +434,7 @@ class TrainerClassifierMultitask(Trainer):
     def _train_one_epoch(self):
         running_loss = 0.0
 
-        for data in tqdm(self.train_loader):
+        for idx, data in enumerate(pbar := tqdm(self.train_loader)):
             # Every data instance is an input + label pair + mask
             smiles, targets, target_masks = data
             targets = targets.clone().detach().to(self.device)
@@ -433,6 +457,11 @@ class TrainerClassifierMultitask(Trainer):
             # print statistics
             running_loss += loss.item()
 
+            # progress bar
+            pbar.set_description('[TRAINING]')
+            pbar.set_postfix(loss=running_loss/(idx+1))
+            pbar.refresh()
+
         return running_loss / len(self.train_loader)
 
     def _validate_one_epoch(self, data_loader):
@@ -442,7 +471,7 @@ class TrainerClassifierMultitask(Trainer):
         running_loss = 0.0
 
         with torch.no_grad():
-            for data in tqdm(data_loader):
+            for idx, data in enumerate(pbar := tqdm(data_loader)):
                 # Every data instance is an input + label pair + mask
                 smiles, targets, target_masks = data
                 targets = targets.clone().detach().to(self.device)
@@ -461,6 +490,11 @@ class TrainerClassifierMultitask(Trainer):
 
                 # print statistics
                 running_loss += loss.item()
+
+                # progress bar
+                pbar.set_description('[EVALUATION]')
+                pbar.set_postfix(loss=running_loss/(idx+1))
+                pbar.refresh()
 
         # Put together predictions and labels from batches
         preds = torch.cat(data_preds, dim=0)
@@ -514,4 +548,4 @@ class TrainerClassifierMultitask(Trainer):
             'specificity': average_sp.item(),
         }
 
-        return preds, running_loss / len(self.train_loader), metrics
+        return preds, running_loss / len(data_loader), metrics

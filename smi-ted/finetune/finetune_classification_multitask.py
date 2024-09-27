@@ -89,6 +89,7 @@ def main(config):
         loss_fn=loss_function
     )
     trainer.fit(max_epochs=config.max_epochs)
+    trainer.evaluate()
 
 
 if __name__ == '__main__':
