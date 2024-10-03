@@ -28,7 +28,7 @@ def main(config):
     elif config.smi_ted_version == 'v2':
         from smi_ted_large.load import load_smi_ted
 
-    model = load_smi_ted(folder=config.model_path, ckpt_filename=config.ckpt_filename, n_output=config.n_output)
+    model = load_smi_ted(folder=config.model_path, ckpt_filename=config.ckpt_filename, n_output=config.n_output, eval=False)
     model.net.apply(model._init_weights)
     print(model.net)
 
@@ -48,6 +48,7 @@ def main(config):
         hparams=config,
         target_metric=config.target_metric,
         seed=config.start_seed,
+        smi_ted_version=config.smi_ted_version,
         checkpoints_folder=config.checkpoints_folder,
         device=device,
         save_every_epoch=bool(config.save_every_epoch),

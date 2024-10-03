@@ -14,6 +14,7 @@ import numpy as np
 import random
 import args
 import os
+import shutil
 from tqdm import tqdm
 
 # Machine Learning
@@ -25,7 +26,7 @@ from utils import RMSE, sensitivity, specificity
 class Trainer:
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='rmse', seed=0, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
+                 target_metric='rmse', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
         # data
         self.df_train = raw_data[0]
         self.df_valid = raw_data[1]
@@ -39,6 +40,7 @@ class Trainer:
         # config
         self.target_metric = target_metric
         self.seed = seed
+        self.smi_ted_version = smi_ted_version
         self.checkpoints_folder = checkpoints_folder
         self.save_every_epoch = save_every_epoch
         self.save_ckpt = save_ckpt
@@ -115,28 +117,52 @@ class Trainer:
                 # update best loss
                 best_vloss = val_loss
 
-    def evaluate(self):
-        print("\n=====Test Evaluation=====")
-        self._load_checkpoint(self.last_filename)
-        self.model.eval()
-        tst_preds, tst_loss, tst_metrics = self._validate_one_epoch(self.test_loader)
+    def evaluate(self, verbose=True):
+        if verbose:
+            print("\n=====Test Evaluation=====")
 
-        # show metrics
-        for m in tst_metrics.keys():
-            print(f"[TEST] Evaluation {m.upper()}: {round(tst_metrics[m], 4)}")
+        if self.smi_ted_version == 'v1':
+            import smi_ted_light.load as load
+        elif self.smi_ted_version == 'v2':
+            import smi_ted_large.load as load
+        else:
+            raise Exception('Please, specify the SMI-TED version: `v1` or `v2`.')
 
-        # save predictions
-        pd.DataFrame(tst_preds).to_csv(
-            os.path.join(
-                self.checkpoints_folder, 
-                f'{self.dataset_name}_{self.target if isinstance(self.target, str) else self.target[0]}_predict_test_seed{self.seed}.csv'), 
-            index=False
-        )
+        # copy vocabulary to checkpoint folder
+        if not os.path.exists(os.path.join(self.checkpoints_folder, 'bert_vocab_curated.txt')):
+            smi_ted_path = os.path.dirname(load.__file__)
+            shutil.copy(os.path.join(smi_ted_path, 'bert_vocab_curated.txt'), self.checkpoints_folder)
+
+        # load model for inference
+        model_inf = load.load_smi_ted(
+            folder=self.checkpoints_folder,
+            ckpt_filename=self.last_filename,
+            eval=True,
+        ).to(self.device)
+
+        # set model evaluation mode
+        model_inf.eval()
+
+        # evaluate on test set
+        tst_preds, tst_loss, tst_metrics = self._validate_one_epoch(self.test_loader, model_inf)
+
+        if verbose:
+            # show metrics
+            for m in tst_metrics.keys():
+                print(f"[TEST] Evaluation {m.upper()}: {round(tst_metrics[m], 4)}")
+
+            # save predictions
+            pd.DataFrame(tst_preds).to_csv(
+                os.path.join(
+                    self.checkpoints_folder, 
+                    f'{self.dataset_name}_{self.target if isinstance(self.target, str) else self.target[0]}_predict_test_seed{self.seed}.csv'), 
+                index=False
+            )
 
     def _train_one_epoch(self):
         raise NotImplementedError
 
-    def _validate_one_epoch(self, data_loader):
+    def _validate_one_epoch(self, data_loader, model=None):
         raise NotImplementedError
 
     def _print_configuration(self):
@@ -203,9 +229,9 @@ class Trainer:
 class TrainerRegressor(Trainer):
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='rmse', seed=0, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
+                 target_metric='rmse', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
         super().__init__(raw_data, dataset_name, target, batch_size, hparams,
-                         target_metric, seed, checkpoints_folder, save_every_epoch, save_ckpt, device) 
+                         target_metric, seed, smi_ted_version, checkpoints_folder, save_every_epoch, save_ckpt, device) 
 
     def _train_one_epoch(self):
         running_loss = 0.0
@@ -239,10 +265,12 @@ class TrainerRegressor(Trainer):
 
         return running_loss / len(self.train_loader)
 
-    def _validate_one_epoch(self, data_loader):
+    def _validate_one_epoch(self, data_loader, model=None):
         data_targets = []
         data_preds = []
         running_loss = 0.0
+
+        model = self.model if model is None else model
 
         with torch.no_grad():
             for idx, data in enumerate(pbar := tqdm(data_loader)):
@@ -251,8 +279,8 @@ class TrainerRegressor(Trainer):
                 targets = targets.clone().detach().to(self.device)
 
                 # Make predictions for this batch
-                embeddings = self.model.extract_embeddings(smiles).to(self.device)
-                predictions = self.model.net(embeddings).squeeze()
+                embeddings = model.extract_embeddings(smiles).to(self.device)
+                predictions = model.net(embeddings).squeeze()
 
                 # Compute the loss
                 loss = self.loss_fn(predictions, targets)
@@ -292,9 +320,9 @@ class TrainerRegressor(Trainer):
 class TrainerClassifier(Trainer):
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='roc-auc', seed=0, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
+                 target_metric='roc-auc', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
         super().__init__(raw_data, dataset_name, target, batch_size, hparams,
-                         target_metric, seed, checkpoints_folder, save_every_epoch, save_ckpt, device) 
+                         target_metric, seed, smi_ted_version, checkpoints_folder, save_every_epoch, save_ckpt, device) 
 
     def _train_one_epoch(self):
         running_loss = 0.0
@@ -328,10 +356,12 @@ class TrainerClassifier(Trainer):
 
         return running_loss / len(self.train_loader)
 
-    def _validate_one_epoch(self, data_loader):
+    def _validate_one_epoch(self, data_loader, model=None):
         data_targets = []
         data_preds = []
         running_loss = 0.0
+
+        model = self.model if model is None else model
 
         with torch.no_grad():
             for idx, data in enumerate(pbar := tqdm(data_loader)):
@@ -340,8 +370,8 @@ class TrainerClassifier(Trainer):
                 targets = targets.clone().detach().to(self.device)
 
                 # Make predictions for this batch
-                embeddings = self.model.extract_embeddings(smiles).to(self.device)
-                predictions = self.model.net(embeddings).squeeze()
+                embeddings = model.extract_embeddings(smiles).to(self.device)
+                predictions = model.net(embeddings).squeeze()
 
                 # Compute the loss
                 loss = self.loss_fn(predictions, targets.long())
@@ -397,9 +427,9 @@ class TrainerClassifier(Trainer):
 class TrainerClassifierMultitask(Trainer):
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='roc-auc', seed=0, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
+                 target_metric='roc-auc', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
         super().__init__(raw_data, dataset_name, target, batch_size, hparams,
-                         target_metric, seed, checkpoints_folder, save_every_epoch, save_ckpt, device)
+                         target_metric, seed, smi_ted_version, checkpoints_folder, save_every_epoch, save_ckpt, device)
 
     def _prepare_data(self):
         # normalize dataset
@@ -464,11 +494,13 @@ class TrainerClassifierMultitask(Trainer):
 
         return running_loss / len(self.train_loader)
 
-    def _validate_one_epoch(self, data_loader):
+    def _validate_one_epoch(self, data_loader, model=None):
         data_targets = []
         data_preds = []
         data_masks = []
         running_loss = 0.0
+
+        model = self.model if model is None else model
 
         with torch.no_grad():
             for idx, data in enumerate(pbar := tqdm(data_loader)):
@@ -477,8 +509,8 @@ class TrainerClassifierMultitask(Trainer):
                 targets = targets.clone().detach().to(self.device)
 
                 # Make predictions for this batch
-                embeddings = self.model.extract_embeddings(smiles).to(self.device)
-                predictions = self.model.net(embeddings, multitask=True).squeeze()
+                embeddings = model.extract_embeddings(smiles).to(self.device)
+                predictions = model.net(embeddings, multitask=True).squeeze()
                 predictions = predictions * target_masks.to(self.device)
 
                 # Compute the loss

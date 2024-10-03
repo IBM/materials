@@ -318,7 +318,7 @@ class Net(nn.Module):
 
 class MoLEncoder(nn.Module):
 
-    def __init__(self, config, n_vocab):
+    def __init__(self, config, n_vocab, eval=False):
         super(MoLEncoder, self).__init__()
 
         # embeddings
@@ -337,7 +337,7 @@ class MoLEncoder(nn.Module):
             # unless we do deterministic_eval here, we will have random outputs
             feature_map=partial(GeneralizedRandomFeatures, 
                                 n_dims=config['num_feats'], 
-                                deterministic_eval=False),
+                                deterministic_eval=eval),
             activation='gelu'
         )
         self.blocks = builder.get()
@@ -361,7 +361,7 @@ class MoLDecoder(nn.Module):
 class Smi_ted(nn.Module):
     """materials.smi-ted-Light 289M Parameters"""
 
-    def __init__(self, tokenizer, config=None):
+    def __init__(self, tokenizer, config=None, eval=False):
         super(Smi_ted, self).__init__()
 
         # configuration
@@ -373,11 +373,11 @@ class Smi_ted(nn.Module):
 
         # instantiate modules
         if self.config:
-            self.encoder = MoLEncoder(self.config, self.n_vocab)
+            self.encoder = MoLEncoder(self.config, self.n_vocab, eval=eval)
             self.decoder = MoLDecoder(self.n_vocab, self.config['max_len'], self.config['n_embd'])
             self.net = Net(self.config['n_embd'], n_output=self.config['n_output'], dropout=self.config['dropout'])
     
-    def load_checkpoint(self, ckpt_path, n_output):
+    def load_checkpoint(self, ckpt_path, n_output, eval=False):
         # load checkpoint file
         checkpoint = torch.load(ckpt_path, map_location=torch.device('cpu'))
 
@@ -388,7 +388,7 @@ class Smi_ted(nn.Module):
         self._set_seed(self.config['seed'])
 
         # instantiate modules
-        self.encoder = MoLEncoder(self.config, self.n_vocab)
+        self.encoder = MoLEncoder(self.config, self.n_vocab, eval=eval)
         self.decoder = MoLDecoder(self.n_vocab, self.max_len, self.n_embd)
         self.net = Net(self.n_embd, n_output=self.config['n_output'] if 'n_output' in self.config else n_output, dropout=self.config['dropout'])
 
@@ -493,11 +493,12 @@ class Smi_ted(nn.Module):
 def load_smi_ted(folder="./smi_ted_light", 
               ckpt_filename="smi-ted-Light_40.pt",
               vocab_filename="bert_vocab_curated.txt",
-              n_output=1
+              n_output=1,
+              eval=False
               ):
     tokenizer = MolTranBertTokenizer(os.path.join(folder, vocab_filename))
     model = Smi_ted(tokenizer)
-    model.load_checkpoint(os.path.join(folder, ckpt_filename), n_output)
+    model.load_checkpoint(os.path.join(folder, ckpt_filename), n_output, eval=eval)
     print('Vocab size:', len(tokenizer.vocab))
     print(f'[FINETUNE MODE - {str(model)}]')
     return model
