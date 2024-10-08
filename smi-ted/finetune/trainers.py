@@ -580,4 +580,4 @@ class TrainerClassifierMultitask(Trainer):
             'specificity': average_sp.item(),
         }
 
-        return preds, running_loss / len(data_loader), metrics
+        return preds.cpu().numpy(), running_loss / len(data_loader), metrics
