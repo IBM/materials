@@ -377,7 +377,7 @@ class Smi_ted(nn.Module):
             self.decoder = MoLDecoder(self.n_vocab, self.config['max_len'], self.config['n_embd'])
             self.net = Net(self.config['n_embd'], n_output=self.config['n_output'], dropout=self.config['dropout'])
     
-    def load_checkpoint(self, ckpt_path, n_outputm eval=False):
+    def load_checkpoint(self, ckpt_path, n_output, eval=False):
         # load checkpoint file
         checkpoint = torch.load(ckpt_path, map_location=torch.device('cpu'))
 
