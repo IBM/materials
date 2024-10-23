@@ -72,7 +72,7 @@ class Encoder():
         if self.add_eos == True:
             char = char + ['<eos>']
 
-        return torch.tensor([self.char2id[word] for word in char])
+        return torch.tensor([self.char2id.get(word, self.char2id["<unk>"]) for word in char])
 
     def encoder(self, tokens):
         #return *map(lambda x: self.encode(x), tokens)
