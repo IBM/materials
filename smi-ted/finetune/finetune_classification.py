@@ -48,6 +48,7 @@ def main(config):
         seed=config.start_seed,
         smi_ted_version=config.smi_ted_version,
         checkpoints_folder=config.checkpoints_folder,
+        restart_filename=config.restart_filename,
         device=device,
         save_every_epoch=bool(config.save_every_epoch),
         save_ckpt=bool(config.save_ckpt)

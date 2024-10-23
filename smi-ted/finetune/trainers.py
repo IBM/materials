@@ -26,7 +26,7 @@ from utils import RMSE, sensitivity, specificity
 class Trainer:
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='rmse', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
+                 target_metric='rmse', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', restart_filename=None, save_every_epoch=False, save_ckpt=True, device='cpu'):
         # data
         self.df_train = raw_data[0]
         self.df_valid = raw_data[1]
@@ -42,6 +42,8 @@ class Trainer:
         self.seed = seed
         self.smi_ted_version = smi_ted_version
         self.checkpoints_folder = checkpoints_folder
+        self.restart_filename = restart_filename
+        self.start_epoch = 1
         self.save_every_epoch = save_every_epoch
         self.save_ckpt = save_ckpt
         self.device = device
@@ -82,11 +84,14 @@ class Trainer:
         self.optimizer = optimizer
         self.loss_fn = loss_fn
         self._print_configuration()
+        if self.restart_filename:
+            self._load_checkpoint(self.restart_filename)
+            print('Checkpoint restored!')
 
     def fit(self, max_epochs=500):
         best_vloss = float('inf')
 
-        for epoch in range(1, max_epochs+1):
+        for epoch in range(self.start_epoch, max_epochs+1):
             print(f'\n=====Epoch [{epoch}/{max_epochs}]=====')
 
             # training
@@ -183,6 +188,7 @@ class Trainer:
         ckpt_path = os.path.join(self.checkpoints_folder, filename)
         ckpt_dict = torch.load(ckpt_path, map_location='cpu')
         self.model.load_state_dict(ckpt_dict['MODEL_STATE'])
+        self.start_epoch = ckpt_dict['EPOCHS_RUN'] + 1
 
     def _save_checkpoint(self, current_epoch, filename):
         if not os.path.exists(self.checkpoints_folder):
@@ -229,9 +235,9 @@ class Trainer:
 class TrainerRegressor(Trainer):
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='rmse', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
+                 target_metric='rmse', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', restart_filename=None, save_every_epoch=False, save_ckpt=True, device='cpu'):
         super().__init__(raw_data, dataset_name, target, batch_size, hparams,
-                         target_metric, seed, smi_ted_version, checkpoints_folder, save_every_epoch, save_ckpt, device) 
+                         target_metric, seed, smi_ted_version, checkpoints_folder, restart_filename, save_every_epoch, save_ckpt, device) 
 
     def _train_one_epoch(self):
         running_loss = 0.0
@@ -320,9 +326,9 @@ class TrainerRegressor(Trainer):
 class TrainerClassifier(Trainer):
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='roc-auc', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
+                 target_metric='roc-auc', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', restart_filename=None, save_every_epoch=False, save_ckpt=True, device='cpu'):
         super().__init__(raw_data, dataset_name, target, batch_size, hparams,
-                         target_metric, seed, smi_ted_version, checkpoints_folder, save_every_epoch, save_ckpt, device) 
+                         target_metric, seed, smi_ted_version, checkpoints_folder, restart_filename, save_every_epoch, save_ckpt, device) 
 
     def _train_one_epoch(self):
         running_loss = 0.0
@@ -427,9 +433,9 @@ class TrainerClassifier(Trainer):
 class TrainerClassifierMultitask(Trainer):
 
     def __init__(self, raw_data, dataset_name, target, batch_size, hparams,
-                 target_metric='roc-auc', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', save_every_epoch=False, save_ckpt=True, device='cpu'):
+                 target_metric='roc-auc', seed=0, smi_ted_version=None, checkpoints_folder='./checkpoints', restart_filename=None, save_every_epoch=False, save_ckpt=True, device='cpu'):
         super().__init__(raw_data, dataset_name, target, batch_size, hparams,
-                         target_metric, seed, smi_ted_version, checkpoints_folder, save_every_epoch, save_ckpt, device)
+                         target_metric, seed, smi_ted_version, checkpoints_folder, restart_filename, save_every_epoch, save_ckpt, device)
 
     def _prepare_data(self):
         # normalize dataset

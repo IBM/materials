@@ -304,6 +304,7 @@ def get_parser(parser=None):
     # parser.add_argument("--patience_epochs", type=int, required=True)
     parser.add_argument("--model_path", type=str, default="./smi_ted/")
     parser.add_argument("--ckpt_filename", type=str, default="smi_ted_Light_40.pt")
+    parser.add_argument("--restart_filename", type=str, default="")
     # parser.add_argument('--n_output', type=int, default=1)
     parser.add_argument("--save_every_epoch", type=int, default=0)
     parser.add_argument("--save_ckpt", type=int, default=1)
