@@ -6,13 +6,13 @@ import torch.nn.functional as F
 import torch.backends.cudnn as cudnn
 
 # Transformers
-from fast_transformers.attention import AttentionLayer
-from fast_transformers.events import QKVEvent
-from fast_transformers.transformers import TransformerEncoder, TransformerEncoderLayer
-from fast_transformers.builders.transformer_builders import BaseTransformerEncoderBuilder
-from fast_transformers.builders.attention_builders import AttentionBuilder
-from fast_transformers.feature_maps import GeneralizedRandomFeatures
-from fast_transformers.masking import LengthMask
+from .fast_transformers.attention import AttentionLayer
+from .fast_transformers.events import QKVEvent
+from .fast_transformers.transformers import TransformerEncoder, TransformerEncoderLayer
+from .fast_transformers.builders.transformer_builders import BaseTransformerEncoderBuilder
+from .fast_transformers.builders.attention_builders import AttentionBuilder
+from .fast_transformers.feature_maps import GeneralizedRandomFeatures
+from .fast_transformers.masking import LengthMask
 from transformers import BertTokenizer
 
 # Data

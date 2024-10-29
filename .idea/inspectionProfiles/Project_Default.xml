@@ -1,0 +1,29 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="16">
+            <item index="0" class="java.lang.String" itemvalue="accelerate" />
+            <item index="1" class="java.lang.String" itemvalue="matplotlib" />
+            <item index="2" class="java.lang.String" itemvalue="torch-geometric" />
+            <item index="3" class="java.lang.String" itemvalue="torchinfo" />
+            <item index="4" class="java.lang.String" itemvalue="caikit" />
+            <item index="5" class="java.lang.String" itemvalue="pytorch-fast-transformers" />
+            <item index="6" class="java.lang.String" itemvalue="e3nn" />
+            <item index="7" class="java.lang.String" itemvalue="rdkit" />
+            <item index="8" class="java.lang.String" itemvalue="PyImpetus" />
+            <item index="9" class="java.lang.String" itemvalue="torch-scatter" />
+            <item index="10" class="java.lang.String" itemvalue="torch-nl" />
+            <item index="11" class="java.lang.String" itemvalue="torch-sparse" />
+            <item index="12" class="java.lang.String" itemvalue="mordred" />
+            <item index="13" class="java.lang.String" itemvalue="xgboost" />
+            <item index="14" class="java.lang.String" itemvalue="mamba-ssm" />
+            <item index="15" class="java.lang.String" itemvalue="evaluate" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
