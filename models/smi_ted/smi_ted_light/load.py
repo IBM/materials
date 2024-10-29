@@ -14,6 +14,7 @@ from .fast_transformers.builders.attention_builders import AttentionBuilder
 from .fast_transformers.feature_maps import GeneralizedRandomFeatures
 from .fast_transformers.masking import LengthMask
 from transformers import BertTokenizer
+from huggingface_hub import hf_hub_download
 
 # Data
 import numpy as np
@@ -606,7 +607,11 @@ def load_smi_ted(folder="./smi_ted_light",
               ):
     tokenizer = MolTranBertTokenizer(os.path.join(folder, vocab_filename))
     model = Smi_ted(tokenizer)
-    model.load_checkpoint(os.path.join(folder, ckpt_filename))
+
+    repo_id = "ibm/materials.smi-ted"
+    filename = "smi-ted-Light_40.pt"
+    file_path = hf_hub_download(repo_id=repo_id, filename=filename)
+    model.load_checkpoint(file_path)
     model.eval()
     print('Vocab size:', len(tokenizer.vocab))
     print(f'[INFERENCE MODE - {str(model)}]')

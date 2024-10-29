@@ -18,6 +18,8 @@ from typing_extensions import Self
 from .graph_grammar.io.smi import hg_to_mol
 from .models.mhgvae import GrammarGINVAE
 
+from huggingface_hub import hf_hub_download
+
 
 class PretrainedModelWrapper:
     model: GrammarGINVAE
@@ -75,7 +77,15 @@ class PretrainedModelWrapper:
 def load(model_name: str = "mhg_model/pickles/mhggnn_pretrained_model_0724_2023.pickle") -> Optional[
     PretrainedModelWrapper]:
 
-    try:
+    repo_id = "ibm/materials.mhg-ged"
+    filename = "mhggnn_pretrained_model_0724_2023.pickle"
+    file_path = hf_hub_download(repo_id=repo_id, filename=filename)
+    with open(file_path, "rb") as f:
+        model_dict = pickle.load(f)
+        return PretrainedModelWrapper(model_dict)
+
+
+    """try:
         if os.path.isfile(model_name):
             with open(model_name, "rb") as f:
                 model_dict = pickle.load(f)
@@ -89,5 +99,5 @@ def load(model_name: str = "mhg_model/pickles/mhggnn_pretrained_model_0724_2023.
             if os.path.isfile(file):
                 with open(file, "rb") as f:
                     model_dict = pickle.load(f)
-                    return PretrainedModelWrapper(model_dict)
-        return None
+                    return PretrainedModelWrapper(model_dict)"""
+    return None
