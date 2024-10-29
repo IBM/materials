@@ -1,0 +1,7 @@
+networkx>=2.8
+numpy<2.0.0,>=1.23.5
+pandas>=1.5.3
+rdkit-pypi<2023.9.6,>=2022.9.4
+torch>=2.0.0
+torchinfo>=1.8.0
+torch-geometric>=2.3.1
