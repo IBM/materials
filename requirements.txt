@@ -1,0 +1,25 @@
+matplotlib==3.9.2
+numpy>=1.26.1, <2.0.0
+scipy>=1.12.0
+torch>=2.1.0
+torchinfo>=1.8.0
+torch-geometric>=2.3.1
+pandas>=1.5.3
+pyarrow>=14.0.1
+scikit-learn>=1.5.0
+xgboost==1.6.2
+rdkit>=2024.3.5
+networkx>=2.8
+datasets>=2.13.1
+evaluate>=0.4.0
+selfies>=2.1.0
+transformers>=4.38
+requests>=2.32.2
+urllib3>=2.2.2
+aiohttp>=3.10.2
+zipp>=3.19.1
+umap-learn
+torch-optimizer
+tqdm>=4.66.4
+pytorch-fast-transformers
+
