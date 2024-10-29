@@ -328,14 +328,19 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
             reducer = umap.UMAP(metric='euclidean', n_neighbors=10, n_components=2, low_memory=True, min_dist=0.1,
                                 verbose=False)
             n_samples = np.minimum(1000, len(x_batch))
-            features_umap = reducer.fit_transform(x_batch[:n_samples])
+
             try:x = y_batch.values[:n_samples]
             except: x = y_batch[:n_samples]
             index_0 = [index for index in range(len(x)) if x[index] == 0]
             index_1 = [index for index in range(len(x)) if x[index] == 1]
 
-            class_0 = features_umap[index_0]
-            class_1 = features_umap[index_1]
+            try:
+                features_umap = reducer.fit_transform(x_batch[:n_samples])
+                class_0 = features_umap[index_0]
+                class_1 = features_umap[index_1]
+            except:
+                class_0 = []
+                class_1 = []
             print("Generating latent plots : Done")
 
         #vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
@@ -361,16 +366,23 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
             print("Generating latent plots")
             reducer = umap.UMAP(metric='euclidean', n_neighbors=  10, n_components=2, low_memory=True, min_dist=0.1, verbose=False)
             n_samples = np.minimum(1000,len(x_batch))
-            features_umap = reducer.fit_transform(x_batch[:n_samples])
+
             try:
                 x = y_batch.values[:n_samples]
             except:
                 x = y_batch[:n_samples]
-            index_0 = [index for index in range(len(x)) if x[index] == 0]
-            index_1 = [index for index in range(len(x)) if x[index] == 1]
 
-            class_0 = features_umap[index_0]
-            class_1 = features_umap[index_1]
+            try:
+                features_umap = reducer.fit_transform(x_batch[:n_samples])
+                index_0 = [index for index in range(len(x)) if x[index] == 0]
+                index_1 = [index for index in range(len(x)) if x[index] == 1]
+
+                class_0 = features_umap[index_0]
+                class_1 = features_umap[index_1]
+            except:
+                class_0 = []
+                class_1 = []
+
             print("Generating latent plots : Done")
 
         #vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
@@ -395,14 +407,19 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
         reducer = umap.UMAP(metric='euclidean', n_neighbors=10, n_components=2, low_memory=True, min_dist=0.1,
                             verbose=False)
         n_samples = np.minimum(1000, len(x_batch))
-        features_umap = reducer.fit_transform(x_batch[:n_samples])
+
         try: x = y_batch.values[:n_samples]
         except: x = y_batch[:n_samples]
         #index_0 = [index for index in range(len(x)) if x[index] == 0]
         #index_1 = [index for index in range(len(x)) if x[index] == 1]
 
-        class_0 = features_umap#[index_0]
-        class_1 = features_umap#[index_1]
+        try:
+            features_umap = reducer.fit_transform(x_batch[:n_samples])
+            class_0 = features_umap#[index_0]
+            class_1 = features_umap#[index_1]
+        except:
+            class_0 = []
+            class_1 = []
         print("Generating latent plots : Done")
         
         return result, RMSE_score,y_batch_test, y_prob, class_0, class_1

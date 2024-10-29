@@ -130,7 +130,11 @@ except:
 
 # Load images for selection
 def load_image(path):
-    return Image.open(smiles_image_mapping[path]["image"])# Image.1open(path)
+    try:
+        return Image.open(smiles_image_mapping[path]["image"])# Image.1open(path)
+    except:
+        pass
+
 
 
 # Function to handle image selection
