@@ -38,8 +38,8 @@ Each folder represents a different chemical representation and architecture type
 | Model            |Description|
 |------------------|-----------|
 | SMI-TED [\[HuggingFace\]](https://huggingface.co/ibm/materials.smi-ted) | SMILES-based Transformer Encoder-Decoder (SMILES-TED) is an encoder-decoder model pre-trained on a curated dataset of 91 million SMILES samples sourced from PubChem, equivalent to 4 billion molecular tokens. SMI-TED supports various complex tasks, including quantum property prediction, with two main variants ($289M$ and $8 \times 289M$). |
-| SELFIES-TED [\[HuggingFace\]](https://huggingface.co/ibm/materials.mhg-ged) | SELFIES-based Transformer Encoder-Decoder (SELFIES-TED) is an encoder-decoder model based on BART that not only learns molecular representations but also auto-regressively generates molecules. Pre-trained on a dataset of ~1B molecules from PubChem and Zinc-22 |
-| MHG-GED [\[HuggingFace\]](https://huggingface.co/ibm/materials.selfies-ted) | Molecular Hypergraph Grammar with Graph-based Encoder Decoder (MHG-GED) is an autoencoder that combines a GNN-based encoder with a sequential MHG-based decoder. The GNN encodes molecular input to achieve strong predictive performance on molecular graphs, while the MHG decodes structurally valid molecules. Pre-trained on a dataset of ~1.34M molecules curated from PubChem|
+| SELFIES-TED [\[HuggingFace\]](https://huggingface.co/ibm/materials.selfies-ted) | SELFIES-based Transformer Encoder-Decoder (SELFIES-TED) is an encoder-decoder model based on BART that not only learns molecular representations but also auto-regressively generates molecules. Pre-trained on a dataset of ~1B molecules from PubChem and Zinc-22 |
+| MHG-GED [\[HuggingFace\]](https://huggingface.co/ibm/materials.mhg-ged) | Molecular Hypergraph Grammar with Graph-based Encoder Decoder (MHG-GED) is an autoencoder that combines a GNN-based encoder with a sequential MHG-based decoder. The GNN encodes molecular input to achieve strong predictive performance on molecular graphs, while the MHG decodes structurally valid molecules. Pre-trained on a dataset of ~1.34M molecules curated from PubChem|
 
 
 
