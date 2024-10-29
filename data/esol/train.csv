@@ -1,0 +1,855 @@
+,selfies,prop,smiles
+0,[O] [C] [C] [O] [C] [Branch2] [Ring2] [Ring1] [O] [C] [C] [O] [C] [Branch1] [#C] [O] [C] [Branch1] [Ring1] [C] [#N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring2] [Ring1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring2] [Ring1] [=N] [O],-0.974,OCC3OC(OCC2OC(OC(C#N)c1ccccc1)C(O)C(O)C2O)C(O)C(O)C3O 
+1,[C] [C] [O] [C] [=C] [C] [=Ring1] [Branch1] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.885,Cc1occc1C(=O)Nc2ccccc2
+2,[C] [C] [Branch1] [C] [C] [=C] [C] [C] [C] [Branch1] [C] [C] [=C] [C] [=O],-2.579,CC(C)=CCCC(C)=CC(=O)
+3,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=C],-6.617999999999999,c1ccc2c(c1)ccc3c2ccc4c5ccccc5ccc43
+4,[C] [C] [=C] [S] [C] [=Ring1] [Branch1],-2.232,c1ccsc1
+5,[C] [=C] [C] [=C] [S] [C] [=N] [C] [Ring1] [Branch1] [=C] [Ring1] [=Branch2],-2.733,c2ccc1scnc1c2 
+6,[Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [Branch2] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [C] [=C] [Ring1] [#Branch1] [Cl],-6.545,Clc1cc(Cl)c(c(Cl)c1)c2c(Cl)cccc2Cl
+7,[C] [C] [C] [C] [C] [C] [Branch1] [S] [C] [C] [C] [=C] [C] [Branch1] [C] [O] [=C] [C] [=C] [Ring1] [O] [Ring1] [#Branch1] [C] [Ring1] [#C] [C] [C] [C] [Ring2] [Ring1] [C] [O],-4.138,CC12CCC3C(CCc4cc(O)ccc34)C2CCC1O
+8,[C] [O] [C] [=C] [C] [O] [C] [C] [O] [C] [=C] [C] [C] [Branch2] [Ring1] [N] [O] [C] [Ring1] [Branch1] [=C] [C] [=C] [Ring1] [=Branch2] [C] [=Branch1] [C] [=O] [C] [Ring1] [=C] [C] [=Ring2] [Ring1] [C] [C] [=C] [Ring2] [Ring1] [=Branch1] [O] [C] [C] [Branch1] [C] [C] [=C],-5.246,COc5cc4OCC3Oc2c1CC(Oc1ccc2C(=O)C3c4cc5OC)C(C)=C 
+9,[O] [=C] [C] [C] [C] [N] [Ring1] [Branch1],0.243,O=C1CCCN1
+10,[Cl] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-4.063,Clc1ccc2ccccc2c1
+11,[C] [C] [C] [C] [=C],-2.01,CCCC=C
+12,[C] [C] [C] [Branch1] [N] [C] [=Branch1] [C] [=O] [N] [C] [N] [C] [Ring1] [#Branch1] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.897,CCC1(C(=O)NCNC1=O)c2ccccc2
+13,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C],-5.45,CCCCCCCCCCCCCC
+14,[C] [C] [Branch1] [C] [C] [Cl],-1.585,CC(C)Cl
+15,[C] [C] [C] [Branch1] [C] [C] [C] [O],-1.027,CCC(C)CO
+16,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [O] [C] [=C] [C] [Branch1] [C] [C] [=N] [C] [=Branch1] [Ring2] [=N] [Ring1] [#Branch1] [C] [Branch1] [C] [C] [C],-3.989,CCOP(=S)(OCC)Oc1cc(C)nc(n1)C(C)C
+17,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [Branch1] [C] [C] [O],-3.096,CCCCCCCCCC(C)O
+18,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch2] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2] [Cl],-6.627000000000001,Clc1ccc(c(Cl)c1)c2c(Cl)ccc(Cl)c2Cl 
+19,[O] [=C] [NH1] [C] [C] [C] [C] [C] [=Ring1] [Branch1] [C] [=Branch1] [C] [=O] [N] [Ring1] [#Branch2] [C] [C] [C] [C] [C] [C] [Ring1] [=Branch1],-3.355,O=c2[nH]c1CCCc1c(=O)n2C3CCCCC3
+20,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [S] [C] [S] [C] [C],-3.747,CCOP(=S)(OCC)SCSCC
+21,[C] [C] [O] [C] [=C] [C] [=C] [Branch1] [#Branch1] [N] [C] [=Branch1] [C] [=O] [C] [C] [=C] [Ring1] [#Branch2],-2.342,CCOc1ccc(NC(=O)C)cc1
+22,[C] [C] [C] [C] [C] [C] [C] [O],-1.751,CCCCCCCO
+23,[C] [N] [C] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C] [N] [=C] [NH1] [C] [=Ring1] [Branch1] [C] [Ring1] [O] [=O],-1.452,Cn1c(=O)n(C)c2nc[nH]c2c1=O
+24,[Cl] [C] [Branch1] [C] [Cl] [=C] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-6.553,ClC(Cl)=C(c1ccc(Cl)cc1)c2ccc(Cl)cc2
+25,[C] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C],-2.608,CCCCCCCC(=O)OC
+26,[C] [C] [C] [=C] [C] [=C] [Branch1] [Ring1] [C] [C] [C] [=C] [Ring1] [Branch2],-3.633,CCc1ccc(CC)cc1
+27,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [S] [C] [S] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-4.367,CCOP(=S)(OCC)SCSC(C)(C)C
+28,[C] [O] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [Branch2] [Ring1] [C] [O] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch1] [=C] [Ring1] [P],-4.229,COC(=O)Nc1cccc(OC(=O)Nc2cccc(C)c2)c1
+29,[Cl] [C] [=Branch1] [C] [=C] [Cl],-1.939,ClC(=C)Cl
+30,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Ring1] [=Branch2],-4.478,Cc1cccc2c1Cc3ccccc32
+31,[N] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.857,N(c1ccccc1)c2ccccc2
+32,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [S] [C] [C] [C] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.297,CN(C)C(=O)SCCCCOc1ccccc1
+33,[C] [C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Branch1] [O] [C] [C] [C] [S] [C] [C] [=Branch1] [C] [=O] [N] [C] [C] [C] [C] [C] [Ring1] [=Branch1] [C],-4.637,CCCOP(=S)(OCCC)SCC(=O)N1CCCCC1C
+34,[C] [C] [C] [C] [C] [C] [C] [I],-3.904,CCCCCCCI
+35,[C] [=C] [Branch1] [C] [Cl] [C] [=C] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.685,c1c(Cl)cccc1c2ccccc2
+36,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [Branch1] [=Branch1] [C] [C] [C] [Ring1] [Ring2] [C] [=Branch1] [C] [=O] [N] [Ring1] [O],-0.527,O=C2NC(=O)C1(CCC1)C(=O)N2
+37,[C] [C] [Branch1] [C] [C] [C] [C] [C] [C] [Branch1] [C] [C] [C] [C] [Ring1] [#Branch1] [O],-2.782,CC(C)C1CCC(C)CC1O 
+38,[C] [C] [Branch1] [C] [C] [O] [C] [=O],-0.684,CC(C)OC=O
+39,[C] [C] [C] [C] [C] [C] [Branch1] [C] [C] [O],-1.6780000000000002,CCCCCC(C)O
+40,[C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [#Branch1],-3.012,CC(=O)Nc1ccc(Br)cc1
+41,[C] [=C] [Branch1] [C] [C] [C] [=C] [N] [=C] [Branch1] [C] [C] [C] [=C] [C] [Ring1] [#Branch1] [=C] [Ring1] [N],-3.342,c2c(C)cc1nc(C)ccc1c2 
+42,[C] [C] [C] [C] [C] [C] [C] [#C],-2.509,CCCCCCC#C
+43,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [=C] [Ring1] [#C] [Ring1] [#Branch2],-5.568,c1ccc2c(c1)ccc3c4ccccc4ccc23
+44,[C] [C] [C] [Branch1] [C] [C] [N] [C] [=Branch1] [C] [=O] [NH1] [C] [Branch1] [C] [C] [=C] [Branch1] [C] [Br] [C] [Ring1] [=Branch2] [=O],-3.419,CCC(C)n1c(=O)[nH]c(C)c(Br)c1=O 
+45,[Cl] [C] [=C] [C] [=C] [C] [=Branch1] [Branch1] [=C] [Ring1] [=Branch1] [Cl] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-7.185,Clc1cccc(c1Cl)c2c(Cl)c(Cl)cc(Cl)c2Cl 
+46,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O],-2.281,Cc1ccccc1O
+47,[C] [C] [Branch1] [C] [C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-3.631,CC(C)CCC(C)(C)C
+48,[C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [=C] [Ring1] [#Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring2] [Ring1] [C] [Ring1] [=Branch1],-5.931,Cc1cc2c3ccccc3ccc2c4ccccc14
+49,[C] [C] [C] [C] [=Branch1] [C] [=O] [C],-0.846,CCCC(=O)C
+50,[Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [=Branch1] [Branch1] [=C] [Ring1] [Branch2] [Cl] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-8.304,Clc1cc(Cl)c(Cl)c(c1Cl)c2c(Cl)c(Cl)cc(Cl)c2Cl 
+51,[C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [C],-1.545,CCCOC(=O)CC
+52,[C] [C] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [F] [C] [Branch1] [P] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Ring1] [N] [Ring1] [#Branch1] [C] [C] [Ring2] [Ring1] [C] [C] [C] [Branch1] [C] [O] [C] [Ring2] [Ring1] [=Branch1] [Branch1] [C] [O] [C] [=Branch1] [C] [=O] [C] [O],-2.734,CC34CC(O)C1(F)C(CCC2=CC(=O)C=CC12C)C3CC(O)C4(O)C(=O)CO
+53,[C] [C] [N] [C] [=N] [C] [Branch1] [C] [Cl] [=N] [C] [=Branch1] [Ring2] [=N] [Ring1] [#Branch1] [N] [Branch1] [Ring1] [C] [C] [C] [C],-3.233,CCNc1nc(Cl)nc(n1)N(CC)CC
+54,[N] [C] [=Branch1] [C] [=O] [C] [=C] [N] [=C] [C] [=N] [Ring1] [=Branch1],-0.674,NC(=O)c1cnccn1
+55,[C] [C] [C] [Branch1] [C] [Br] [Branch1] [Ring1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [Branch1] [C] [N] [=O],-2.198,CCC(Br)(CC)C(=O)NC(N)=O
+56,[Cl] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl],-4.984,Clc1ccccc1c2ccccc2Cl 
+57,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [Ring2] [C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.36,O=C1NC(=O)NC(=O)C1(CC=C)c1ccccc1
+58,[C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C],-1.899,CCCCC(=O)OCC
+59,[O] [=C] [N] [Branch1] [N] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [Ring2] [N] [Ring1] [#C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.1530000000000005,O=C1N(COC(=O)CCCCC)C(=O)C(N1)(c2ccccc2)c3ccccc3
+60,[Cl] [C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [Cl],-5.7620000000000005,Clc1cccc(c1)c2cc(Cl)ccc2Cl 
+61,[C] [C] [C] [Br],-1.949,CCCBr
+62,[C] [C] [C] [C] [C] [O] [C] [Branch1] [=Branch2] [C] [N] [C] [=N] [C] [=N] [Ring1] [Branch1] [Branch1] [Ring2] [O] [Ring1] [O] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [Cl],-4.603,CCCC1COC(Cn2cncn2)(O1)c3ccc(Cl)cc3Cl
+63,[C] [C] [=N] [C] [=N] [C] [=N] [C] [=C] [N] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-1.24,Cc1ncnc2nccnc12
+64,[N] [C] [=Branch1] [C] [=S] [N],0.3289999999999999,NC(=S)N
+65,[C] [C] [=C] [C] [=C] [Branch1] [C] [C] [C] [=C] [Ring1] [#Branch1],-3.035,Cc1ccc(C)cc1
+66,[C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [C],-3.6010000000000004,CCc1ccccc1CC
+67,[Cl] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-4.215,ClC(Cl)(Cl)C(Cl)(Cl)Cl
+68,[C] [C] [Branch1] [C] [C] [C] [Branch2] [Ring1] [=C] [C] [=Branch1] [C] [=O] [O] [C] [Branch1] [Ring1] [C] [#N] [C] [=C] [C] [=C] [C] [Branch1] [#Branch2] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [=C] [Ring1] [=N] [C] [=C] [C] [=C] [Branch1] [#Branch1] [O] [C] [Branch1] [C] [F] [F] [C] [=C] [Ring1] [#Branch2],-6.877999999999999,CC(C)C(C(=O)OC(C#N)c1cccc(Oc2ccccc2)c1)c3ccc(OC(F)F)cc3
+69,[C] [C] [N] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring1] [P] [Ring1] [=Branch1],-4.423,CCN2c1cc(Cl)ccc1NC(=O)c3cccnc23 
+70,[C] [C] [C] [C] [Branch1] [C] [C] [C] [Branch1] [Ring2] [C] [C] [=C] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=S] [N] [C] [Ring1] [O] [=O],-3.063,CCCC(C)C1(CC=C)C(=O)NC(=S)NC1=O 
+71,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [N] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-4.957,c1ccc2c(c1)c3cccc4cccc2c34
+72,[C] [C] [C] [O] [C] [Branch1] [C] [C] [C],-1.354,CCCOC(C)C
+73,[C] [C] [=C] [C] [Branch1] [C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [O],-4.147,Cc1cc(C)c2ccccc2c1
+74,[C] [C] [C] [=Branch1] [P] [=C] [Branch1] [Ring1] [C] [C] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1],-5.074,CCC(=C(CC)c1ccc(O)cc1)c2ccc(O)cc2 
+75,[C] [Branch1] [Ring1] [C] [#N] [=C] [Branch1] [C] [Cl] [C] [Branch1] [Ring1] [C] [#N] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [Ring1] [=N],-3.995,c1(C#N)c(Cl)c(C#N)c(Cl)c(Cl)c(Cl)1
+76,[C] [O] [C] [Ring1] [Ring1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.826,C1OC1c2ccccc2 
+77,[C] [C] [C] [C] [C] [C] [Branch1] [P] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [O] [Ring1] [#Branch1] [C] [C] [Ring1] [S] [C] [C] [C] [Ring2] [Ring1] [Ring1] [C] [=Branch1] [C] [=O] [C] [O],-3.939,CC12CCC3C(CCC4=CC(=O)CCC34C)C2CCC1C(=O)CO
+78,[C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring1] [=Branch2] [O],0.601,C1OC(O)C(O)C(O)C1O
+79,[Cl] [C] [Cl],-1.156,ClCCl
+80,[C] [C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-4.1,CCc1cccc2ccccc12
+81,[C] [O] [C] [=O],-0.048,COC=O
+82,[C] [C] [=C] [NH1] [C] [=Branch1] [C] [=O] [NH1] [C] [Ring1] [#Branch1] [=O],-0.78,Cc1c[nH]c(=O)[nH]c1=O 
+83,[C] [C] [Branch1] [C] [C] [C],-1.891,CC(C)C
+84,[O] [C] [C] [O] [C] [Branch1] [=Branch2] [C] [Branch1] [C] [O] [C] [Ring1] [=Branch1] [O] [N] [C] [=N] [C] [=C] [Branch1] [C] [O] [N] [=C] [N] [=C] [Ring1] [#Branch2] [Ring1] [#Branch1],-0.8340000000000001,OCC1OC(C(O)C1O)n2cnc3c(O)ncnc23
+85,[C] [C] [C] [C] [C],-2.261,CCCCC
+86,[C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O],-1.991,c1ccccc1O
+87,[N] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [Ring1] [#Branch2] [=C] [Ring1] [=C],-3.789,Nc3ccc2cc1ccccc1cc2c3 
+88,[C] [=C] [C] [=C] [C] [=N] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-2.531,c1ccc2cnccc2c1
+89,[C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [S] [C] [C] [=Branch1] [C] [=O] [N] [Branch1] [=Branch1] [C] [Branch1] [C] [C] [C] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-5.106,COP(=S)(OC)SCC(=O)N(C(C)C)c1ccc(Cl)cc1
+90,[C] [C] [C] [C] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.22,CCCCCCc1ccccc1
+91,[Cl] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.5280000000000005,Clc1ccccc1c2ccccc2
+92,[C] [C] [C] [C] [=Branch1] [C] [=C] [C],-2.3480000000000003,CCCC(=C)C
+93,[C] [C] [Branch1] [C] [C] [C] [Branch1] [C] [C] [C] [Branch1] [C] [C] [C],-3.276,CC(C)C(C)C(C)C
+94,[Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-5.167999999999999,Clc1cc(Cl)c(Cl)c(Cl)c1Cl
+95,[C] [C] [C] [C] [C] [C] [C] [C] [C] [=C],-3.781,CCCCCCCCC=C
+96,[C] [C] [Branch1] [C] [C] [C] [Branch1] [#Branch1] [C] [=C] [Branch1] [C] [Cl] [Cl] [C] [Ring1] [Branch2] [C] [=Branch1] [C] [=O] [O] [C] [Branch1] [Ring1] [C] [#N] [C] [=C] [C] [=C] [Branch1] [C] [F] [C] [Branch1] [#Branch2] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [=C] [Ring1] [=C],-6.84,CC1(C)C(C=C(Cl)Cl)C1C(=O)OC(C#N)c2ccc(F)c(Oc3ccccc3)c2
+97,[C] [=C] [C] [=N] [C] [=C] [Ring1] [=Branch1],-1.481,c1ccncc1
+98,[C] [C] [C] [C] [C] [C] [C] [Br],-3.366,CCCCCCCBr
+99,[C] [C] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [F] [C] [Branch1] [P] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [N] [Ring1] [#Branch1] [C] [C] [Ring2] [Ring1] [C] [C] [C] [C] [Ring2] [Ring1] [Branch1] [Branch1] [C] [O] [C] [=Branch1] [C] [=O] [C] [O],-3.172,CC34CC(O)C1(F)C(CCC2=CC(=O)CCC12C)C3CCC4(O)C(=O)CO 
+100,[C] [C] [S] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O] [C] [=Branch1] [C] [=O] [N] [C],-2.855,CCSCc1ccccc1OC(=O)NC 
+101,[C] [C] [=C] [C] [C] [Branch1] [Branch1] [C] [C] [Ring1] [=Branch1] [C] [Branch1] [C] [C] [=C],-3.429,CC1=CCC(CC1)C(C)=C
+102,[C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Ring1] [=Branch2],-3.057,C1Cc2ccccc2C1
+103,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [Branch1] [Branch1] [C] [C] [Ring1] [Ring1] [C] [=Branch1] [C] [=O] [N] [Ring1] [#Branch2],-0.088,O=C2NC(=O)C1(CC1)C(=O)N2 
+104,[Cl] [C] [=C] [C] [=C] [C] [Branch1] [C] [I] [=C] [Ring1] [#Branch1],-4.384,Clc1cccc(I)c1
+105,[Br] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-4.434,Brc1cccc2ccccc12
+106,[C] [C] [/C] [=C] [/C],-2.076,CC/C=C/C
+107,[C] [C] [=C] [C] [=C] [C] [Branch1] [C] [C] [=N] [Ring1] [#Branch1],-2.0980000000000003,Cc1cccc(C)n1
+108,[Cl] [C] [=C] [Branch1] [C] [Cl] [Cl],-2.312,ClC=C(Cl)Cl
+109,[N] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-2.721,Nc1cccc2ccccc12
+110,[O] [C] [=N] [C] [=C] [N] [=C] [C] [=N] [C] [Ring1] [=Branch1] [=N] [Ring1] [#Branch2],-1.404,Oc2ncc1nccnc1n2
+111,[C] [O],0.441,CO
+112,[C] [C] [C] [Branch1] [Branch2] [C] [C] [C] [Branch1] [C] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [N] [C] [Ring1] [=N] [=O],-2.312,CCC1(CCC(C)C)C(=O)NC(=O)NC1=O
+113,[C] [C] [C] [=Branch1] [C] [=O] [C],-0.491,CCC(=O)C
+114,[F] [C] [=C] [NH1] [C] [=Branch1] [C] [=O] [NH1] [C] [Ring1] [#Branch1] [=O],-0.792,Fc1c[nH]c(=O)[nH]c1=O 
+115,[N] [C] [=N] [C] [=N] [C] [N] [Branch1] [Branch2] [C] [=C] [C] [Ring1] [=Branch2] [=Ring1] [Branch1] [C] [O] [C] [Branch1] [Ring1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring1] [Branch2] [O],-0.892,Nc1ncnc2n(ccc12)C3OC(CO)C(O)C3O 
+116,[O] [C] [=C] [C] [=C] [C] [Branch1] [C] [O] [=C] [Ring1] [#Branch1],-1.59,Oc1cccc(O)c1
+117,[C] [C] [C] [C] [C] [C] [O],-1.3969999999999998,CCCCCCO
+118,[C] [C] [C] [C] [C] [Cl],-2.294,CCCCCCl
+119,[C] [=C] [C] [=C],-1.376,C=CC=C
+120,[O] [C] [=C] [C] [=C] [C] [C] [C] [C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-3.0860000000000003,Oc2ccc1CCCCc1c2 
+121,[N] [C] [=Branch1] [C] [=O] [C] [Cl],-0.106,NC(=O)CCl 
+122,[C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [I] [C] [=C] [Ring1] [Branch2] [Cl],-6.148,COP(=S)(OC)Oc1cc(Cl)c(I)cc1Cl
+123,[C] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-3.297,Cc1ccc(Cl)cc1
+124,[C] [C] [=C] [C] [=C] [Branch2] [Ring1] [=C] [O] [P] [=Branch1] [C] [=O] [Branch1] [=N] [O] [C] [=C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch1] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [C] [=C] [Ring2] [Ring1] [=Branch2],-6.39,Cc1ccc(OP(=O)(Oc2cccc(C)c2)Oc3ccccc3C)cc1
+125,[C] [C] [C] [C] [C] [C] [=O],-1.457,CCCCCC=O
+126,[C] [C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [C] [N] [C] [=C] [Ring1] [#Branch1],-3.039,CCCCOC(=O)c1ccc(N)cc1
+127,[O] [C] [=C] [C] [Branch1] [C] [C] [=C] [C] [=C] [Ring1] [#Branch1] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Branch1] [C] [N] [=C] [N] [=C] [Ring2] [Ring1] [Ring1] [Ring1] [#Branch1],-3.049,O2c1cc(C)ccc1N(C)C(=O)c3cc(N)cnc23 
+128,[C] [C] [Branch1] [C] [C] [=C] [C] [C] [/C] [Branch1] [C] [C] [=C] [\C] [O],-2.603,CC(C)=CCC/C(C)=C\CO
+129,[O] [=C] [N] [Branch1] [=C] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [Ring2] [N] [Ring1] [P] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.84,O=C1N(COC(=O)CCCCCCC)C(=O)C(N1)(c2ccccc2)c3ccccc3
+130,[Cl] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2] [Cl],-4.546,Clc1ccc(Cl)c(Cl)c1Cl
+131,[C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [Branch2] [C] [O] [C] [Branch1] [C] [N] [=O] [C] [O] [C] [Branch1] [C] [N] [=O],-1.376,CCCC(C)(COC(N)=O)COC(N)=O 
+132,[C] [C] [=Branch1] [C] [=O] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [C] [Branch1] [C] [O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [C] [C] [Ring2] [Ring1] [Ring1] [Ring1] [S] [C],-4.342,CC(=O)C3CCC4C2CC=C1CC(O)CCC1(C)C2CCC34C 
+133,[O] [=C] [N] [Branch1] [=N] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [Ring2] [N] [Ring1] [S] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.496,O=C1N(COC(=O)CCCCCC)C(=O)C(N1)(c2ccccc2)c3ccccc3
+134,[C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [Ring1] [=Branch2],-2.015,CC1=CC(=O)CC(C)(C)C1 
+135,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [Ring1] [C] [C] [C] [Branch1] [C] [C] [C] [C],-1.958,O=C1NC(=O)NC(=O)C1(CC)C(C)CC
+136,[C] [C] [C] [C] [C] [=Branch1] [C] [=O] [C] [C] [C] [C],-2.329,CCCCC(=O)CCCC
+137,[C] [C] [C] [Branch1] [N] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [Ring1] [#Branch1] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.591,CCC1(CCC(=O)NC1=O)c2ccccc2 
+138,[C] [C] [C] [Branch1] [C] [C] [C] [C],-2.6,CCC(C)CC
+139,[C] [C] [O] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [O] [C] [C] [=C] [C] [=C] [C] [Branch1] [#Branch2] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [=C] [Ring1] [=N],-6.896,CCOc1ccc(cc1)C(C)(C)COCc3cccc(Oc2ccccc2)c3
+140,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [C] [Branch1] [C] [C] [=N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Ring1] [O] [=O],-3.881,Cc1ccccc1n3c(C)nc2ccccc2c3=O
+141,[Cl] [C] [C] [#N],-0.4479999999999999,ClCC#N
+142,[C] [C] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [Ring1] [#Branch1] [C] [C] [C] [C] [Ring1] [O] [C] [C] [C] [Branch1] [C] [C] [C] [Ring1] [#Branch1] [C] [C] [C] [Ring1] [=Branch1] [Branch1] [C] [O] [C] [#C],-3.858,CC12CCC(=O)C=C1CCC3C2CCC4(C)C3CCC4(O)C#C 
+143,[C] [=C] [C] [=N] [N] [=C] [Ring1] [=Branch1],-0.619,c1ccnnc1
+144,[Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2],-4.621,Clc1cc(Cl)c(Cl)c(Cl)c1
+145,[C] [C] [Branch1] [C] [O] [C] [C] [C] [Branch1] [C] [C] [C] [C] [C] [C] [C] [Branch1] [C] [C] [C] [Branch1] [C] [C] [C] [C] [O] [C] [C] [Branch1] [C] [C] [C] [C] [Ring1] [#Branch1] [O] [C] [Ring1] [N] [C] [C] [Ring1] [S] [C] [Ring2] [Ring1] [Ring2] [C] [=C] [Ring2] [Ring1] [=Branch2] [Ring2] [Ring1] [=C],-5.681,C1C(O)CCC2(C)CC3CCC4(C)C5(C)CC6OCC(C)CC6OC5CC4C3C=C21
+146,[N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O],-1.465,Nc1ccccc1O
+147,[C] [C] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C],-3.3160000000000003,CCCCCCCCC(=O)OCC
+148,[C] [O] [C] [C] [=Branch1] [C] [=O] [N] [Branch1] [O] [C] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C] [=C] [Branch1] [C] [C] [C] [=C] [C] [=C] [Ring1] [#Branch1] [C],-2.87,COCC(=O)N(C(C)C(=O)OC)c1c(C)cccc1C 
+149,[C] [N] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O] [C] [Branch1] [C] [C] [C],-2.4090000000000003,CNC(=O)Oc1ccccc1OC(C)C
+150,[C] [C] [C] [Branch1] [C] [C] [Cl],-1.94,CCC(C)Cl
+151,[O] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-3.08,Oc1ccc2ccccc2c1
+152,[C] [C] [Branch1] [C] [C] [O] [C] [=C] [C] [=Branch1] [#Branch2] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [Cl] [N] [N] [=C] [Branch1] [=Branch1] [O] [C] [Ring1] [Branch1] [=O] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-5.265,CC(C)Oc1cc(c(Cl)cc1Cl)n2nc(oc2=O)C(C)(C)C
+153,[C] [C] [C] [C] [C] [#C],-1.801,CCCCC#C
+154,[C] [C] [C] [C] [C] [C] [C] [C] [#C],-2.864,CCCCCCCC#C
+155,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl],-3.297,Cc1ccccc1Cl
+156,[C] [C] [Branch1] [C] [C] [O] [C] [Branch1] [C] [C] [C],-1.281,CC(C)OC(C)C
+157,[N] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [C] [N] [C] [=C] [Ring1] [#Branch1],-2.464,Nc1ccc(cc1)S(=O)(=O)c2ccc(N)cc2
+158,[C] [N] [N],0.5429999999999999,CNN
+159,[C] [C] [#C],-0.672,CC#C
+160,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [O] [N] [=C] [Branch1] [Ring1] [C] [#N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.557,CCOP(=S)(OCC)ON=C(C#N)c1ccccc1
+161,[C] [C] [N] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [O] [C] [=Branch1] [N] [=C] [C] [=Branch1] [C] [=O] [O] [C] [Branch1] [C] [C] [C] [C],-2.826,CCNP(=S)(OC)OC(=CC(=O)OC(C)C)C
+162,[C] [=C] [C] [=O],-0.184,C=CC=O
+163,[O] [=C] [NH1] [C] [=N] [C] [N] [=C] [NH1] [C] [Ring1] [=Branch2] [=Ring1] [Branch1],-0.6559999999999999,O=c1[nH]cnc2nc[nH]c12 
+164,[O] [C] [=C] [C] [=C] [N] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-2.725,Oc2ccc1ncccc1c2 
+165,[F] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.514,Fc1ccccc1
+166,[C] [C] [C] [Cl],-1.585,CCCCl
+167,[C] [C] [O] [C] [=Branch1] [C] [=O] [C],-0.77,CCOC(=O)C
+168,[C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-2.938,CCCC(C)(C)C
+169,[C] [C] [C] [C] [C] [Branch1] [Branch1] [C] [C] [Ring1] [=Branch1] [C] [Branch1] [C] [C] [Branch1] [C] [C] [O] [Ring1] [#Branch2],-2.579,CC12CCC(CC1)C(C)(C)O2 
+170,[C] [C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C] [C] [C],-4.726,CCCCOC(=O)CCCCCCCCC(=O)OCCCC
+171,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-5.299,Clc1ccc(cc1)c2ccc(Cl)cc2 
+172,[C] [C] [=C] [C] [=C] [N] [=C] [Ring1] [=Branch1] [C],-2.067,Cc1cccnc1C
+173,[C] [C] [=Branch1] [C] [=C] [C] [C] [C] [=C] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2],-2.042,CC(=C)C1CC=C(C)C(=O)C1
+174,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [S] [C] [S] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-5.827999999999999,CCOP(=S)(OCC)SCSc1ccc(Cl)cc1
+175,[C] [O] [C] [=C] [C] [=Branch1] [O] [=C] [C] [Branch1] [Ring1] [O] [C] [=C] [Ring1] [Branch2] [O] [C] [C] [C] [Branch1] [#Branch1] [C] [O] [C] [Ring1] [Branch1] [=O] [C] [Branch2] [Ring1] [#Branch1] [O] [C] [O] [C] [C] [O] [C] [Branch1] [C] [C] [O] [C] [Ring1] [#Branch1] [C] [Branch1] [C] [O] [C] [Ring1] [N] [O] [C] [=C] [C] [O] [C] [O] [C] [=Ring1] [Branch1] [C] [=C] [Ring2] [Ring1] [#C] [Ring1] [=Branch2],-3.292,COc1cc(cc(OC)c1O)C6C2C(COC2=O)C(OC4OC3COC(C)OC3C(O)C4O)c7cc5OCOc5cc67
+176,[C] [=C] [C] [=C] [C] [=C] [C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Branch1] [=N] [C] [=Branch1] [Branch1] [=C] [Ring2] [Ring1] [C] [C] [Ring1] [P] [=Ring1] [=N] [=C] [Ring1] [=Branch2] [Ring1] [=N],-6.007000000000001,c1cc2cccc3c4cccc5cccc(c(c1)c23)c54
+177,[C] [=C] [Branch1] [C] [Br] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [O] [Ring1] [=Branch1],-4.434,c1c(Br)ccc2ccccc12 
+178,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [O] [C] [N] [=C] [Branch1] [C] [Cl] [N] [Branch1] [Ring2] [N] [=Ring1] [=Branch1] [C] [Branch1] [C] [C] [C],-3.76,CCOP(=S)(OCC)Oc1nc(Cl)n(n1)C(C)C
+179,[C] [C] [=Branch1] [C] [=C] [C] [=C],-1.714,CC(=C)C=C
+180,[C] [C] [Branch1] [C] [C] [=C] [C] [C] [C] [Branch1] [C] [O] [Branch1] [C] [C] [C] [=C],-2.399,CC(C)=CCCC(O)(C)C=C
+181,[C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [O] [C] [=C] [C] [=C] [Branch1] [Ring1] [S] [C] [C] [Branch1] [C] [C] [=C] [Ring1] [=Branch2],-4.265,COP(=S)(OC)Oc1ccc(SC)c(C)c1
+182,[O] [C] [C] [C] [C] [C] [C] [Ring1] [=Branch1],-1.261,OC1CCCCC1
+183,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [C] [C] [C] [C] [=C],-1.013,O=C1NC(=O)NC(=O)C1(C)CC=C
+184,[C] [C] [C] [C] [C] [C] [Branch1] [P] [C] [C] [C] [C] [C] [Branch1] [C] [O] [C] [C] [C] [Ring1] [O] [Ring1] [#Branch1] [C] [C] [Ring1] [S] [C] [C] [C] [Ring2] [Ring1] [Ring1] [=O],-3.882,CC34CCC1C(CCC2CC(O)CCC12C)C3CCC4=O
+185,[O] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [O],0.647,OCC(O)C(O)C(O)C(O)CO 
+186,[C] [C] [N] [C] [=N] [C] [Branch1] [C] [Cl] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [Ring1] [O],-3.069,CCNc1nc(Cl)nc(NC(C)C)n1
+187,[N] [C] [=Branch1] [C] [=S] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.7009999999999998,NC(=S)Nc1ccccc1
+188,[C] [C] [C] [C] [=Branch1] [C] [=O] [C] [C] [C],-1.62,CCCC(=O)CCC
+189,[C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-1.25,CC(=O)C(C)(C)C
+190,[O] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-2.761,Oc1ccc(Cl)cc1
+191,[O] [=C] [C] [C] [C] [C] [C] [Ring1] [=Branch1],-0.996,O=C1CCCCC1
+192,[C] [C] [=C] [C] [=C] [C] [Branch1] [C] [N] [=C] [Ring1] [#Branch1],-1.954,Cc1cccc(N)c1
+193,[Cl] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [C] [#N],-2.019,ClC(Cl)(Cl)C#N
+194,[C] [N] [C] [C] [=N] [N] [Branch2] [Ring1] [Ring1] [C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [F] [Branch1] [C] [F] [F] [C] [=Branch1] [C] [=O] [C] [=Ring1] [P] [Cl],-4.029,CNc2cnn(c1cccc(c1)C(F)(F)F)c(=O)c2Cl
+195,[C] [C] [N] [Branch1] [Ring1] [C] [C] [C] [=N] [C] [Branch1] [C] [Cl] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [Ring1] [O],-3.497,CCN(CC)c1nc(Cl)nc(NC(C)C)n1
+196,[C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [C] [N] [C] [=C] [Ring1] [#Branch1],-2.383,CCOC(=O)c1ccc(N)cc1
+197,[Cl] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2],-4.083,Clc1ccc(Cl)c(Cl)c1
+198,[C] [C] [=N] [N] [=C] [C] [N] [=C] [Branch1] [#Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [N] [Ring2] [Ring1] [=Branch1] [Ring2] [Ring1] [Ring1],-3.948,Cc3nnc4CN=C(c1ccccc1Cl)c2cc(Cl)ccc2n34
+199,[C] [C] [N] [C] [=N] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring1] [P] [Ring1] [=Branch1],-2.794,CCN2c1ncccc1N(C)C(=O)c3cccnc23 
+200,[C] [S] [C],-0.758,CSC
+201,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Br],-3.667,Cc1ccccc1Br
+202,[C] [C] [O] [C] [=Branch1] [C] [=O] [N],-0.218,CCOC(=O)N
+203,[C] [C] [=Branch1] [C] [=O] [O] [C] [Branch2] [Ring2] [Ring2] [C] [C] [C] [C] [C] [=C] [Branch1] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [=N] [C] [C] [C] [Ring2] [Ring1] [Ring2] [Ring1] [P] [C] [C] [Branch1] [C] [C] [=O],-4.417,CC(=O)OC3(CCC4C2C=C(C)C1=CC(=O)CCC1(C)C2CCC34C)C(C)=O 
+204,[C] [C] [Branch1] [C] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [C] [C],-1.6469999999999998,CC(C)C(O)C(C)C
+205,[C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-3.468,c1ccc2ccccc2c1
+206,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [Branch1] [Ring2] [N] [Ring1] [=Branch1] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.057,O=C1NC(=O)C(N1)(c2ccccc2)c3ccccc3
+207,[C] [O] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [=N] [C] [=C] [C] [=C] [Branch1] [Ring1] [O] [C] [C] [=C] [Ring1] [Branch2] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-5.537999999999999,COc1ccc(cc1)C(c2ccc(OC)cc2)C(Cl)(Cl)Cl
+208,[O] [=C] [N] [Branch1] [O] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [Ring2] [N] [Ring1] [=C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.81,O=C1N(COC(=O)CCCC)C(=O)C(N1)(c2ccccc2)c3ccccc3
+209,[O] [C] [Branch1] [=Branch2] [C] [N] [C] [=N] [C] [=N] [Ring1] [Branch1] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [F] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [F],-3.569,OC(Cn1cncn1)(c2ccc(F)cc2)c3ccccc3F
+210,[C] [C] [=Branch1] [C] [=O] [O] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [O] [C] [Branch2] [Ring2] [#Branch1] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [Branch1] [C] [F] [C] [Branch1] [C] [O] [C] [C] [Ring2] [Ring1] [=Branch1] [Ring2] [Ring1] [C] [C] [O] [C] [Branch1] [C] [C] [=O],-3.876,CC(=O)OCC(=O)C3(O)C(CC4C2CCC1=CC(=O)C=CC1(C)C2(F)C(O)CC34C)OC(C)=O 
+211,[C] [C] [C] [C] [Br],-2.303,CCCCBr
+212,[Br] [C] [=C] [C] [Branch1] [C] [Br] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [Branch2] [Br],-6.001,Brc1cc(Br)c(Br)cc1Br
+213,[C] [C] [Branch1] [C] [C] [C] [C] [=Branch1] [C] [=O] [C],-1.1840000000000002,CC(C)CC(=O)C
+214,[C] [C] [S] [C] [=Branch1] [C] [=O] [N] [Branch1] [Ring1] [C] [C] [C] [C] [C] [C] [C] [C] [Ring1] [=Branch1],-3.35,CCSC(=O)N(CC)C1CCCCC1 
+215,[C] [C] [Branch1] [C] [C] [C] [Branch1] [#Branch1] [C] [=C] [Branch1] [C] [Br] [Br] [C] [Ring1] [Branch2] [C] [=Branch1] [C] [=O] [O] [C] [Branch1] [Ring1] [C] [#N] [C] [=C] [C] [=C] [C] [Branch1] [#Branch2] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [=C] [Ring1] [=N],-7.44,CC1(C)C(C=C(Br)Br)C1C(=O)OC(C#N)c2cccc(Oc3ccccc3)c2
+216,[C] [C] [C] [Branch1] [C] [C] [C] [Branch1] [Ring2] [C] [C] [=C] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [N] [C] [Ring1] [O] [=O],-2.06,CCC(C)C1(CC=C)C(=O)NC(=O)NC1=O
+217,[I] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-4.888999999999999,Ic1cccc2ccccc12
+218,[O] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [O],0.647,OCC(O)C(O)C(O)C(O)CO
+219,[C] [C] [S],-0.968,CCS
+220,[Cl] [C] [C] [Branch1] [C] [Cl] [Cl],-1.961,ClCC(Cl)Cl
+221,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [Branch1] [C] [C] [=N] [N] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.141,CN(C)C(=O)Oc1cc(C)nn1c2ccccc2
+222,[N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O],-1.942,NC(=O)c1ccccc1O
+223,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [=Branch1] [C] [Branch1] [C] [C] [C] [C] [Branch1] [C] [C] [C],-1.942,O=C1NC(=O)NC(=O)C1(C(C)C)C(C)C
+224,[C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C],-3.2960000000000003,CCc1ccccc1C
+225,[C] [C] [C] [C] [C] [C] [C] [Cl],-3.003,CCCCCCCCl
+226,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [Ring1] [C] [C] [C] [C],-1.265,O=C1NC(=O)NC(=O)C1(CC)CC
+227,[C] [Branch1] [#Branch2] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.301,C(Cc1ccccc1)c2ccccc2
+228,[C] [C] [N] [C] [=C] [C] [Branch1] [Ring1] [O] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [=Branch2] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring2] [Ring1] [Ring1] [Ring1] [=Branch1],-4.228,CCN2c1cc(OC)cc(C)c1NC(=O)c3cccnc23 
+229,[C] [C] [=C] [C] [=C] [C] [Branch1] [=N] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Ring1] [#Branch2] [=C] [Ring1] [=C],-4.87,Cc1ccc2c(ccc3ccccc32)c1
+230,[C] [C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [O] [C] [C] [C] [C],-4.378,CCCCOC(=O)c1ccccc1C(=O)OCCCC 
+231,[C] [O] [C] [=C] [Branch1] [C] [O] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch2] [Cl],-4.299,COc1c(O)c(Cl)c(Cl)c(Cl)c1Cl 
+232,[C] [C] [C] [C] [C] [C] [=Branch1] [S] [=C] [C] [C] [=C] [C] [Branch1] [C] [O] [=C] [C] [=C] [Ring1] [O] [Ring1] [#Branch1] [C] [Ring1] [#C] [C] [C] [C] [Ring2] [Ring1] [C] [=O],-3.555,CC34CCC1C(=CCc2cc(O)ccc12)C3CCC4=O
+233,[C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [N] [N] [Branch1] [Ring1] [C] [=O] [C] [=N] [C] [Branch1] [C] [Cl] [=C] [C] [Branch1] [Ring1] [O] [C] [=N] [Ring1] [=Branch2],-3.719,CCOC(=O)c1ccccc1S(=O)(=O)NN(C=O)c2nc(Cl)cc(OC)n2
+234,[C] [C] [C] [C] [C] [C] [Cl],-2.648,CCCCCCCl
+235,[Cl] [C] [=C] [C] [=Branch1] [=N] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2] [Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-8.468,Clc1cc(c(Cl)c(Cl)c1Cl)c2cc(Cl)c(Cl)c(Cl)c2Cl
+236,[O] [C] [C] [O] [C] [Branch1] [Ring1] [C] [O] [Branch2] [Ring2] [#Branch2] [O] [C] [O] [C] [Branch2] [Ring1] [=Branch1] [C] [O] [C] [O] [C] [Branch1] [Ring1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring1] [#Branch2] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring2] [Ring1] [Branch1] [O] [C] [Branch1] [C] [O] [C] [Ring2] [Ring1] [#C] [O],0.496,OCC1OC(CO)(OC2OC(COC3OC(CO)C(O)C(O)C3O)C(O)C(O)C2O)C(O)C1O
+237,[C] [C] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring1] [P] [Ring1] [=Branch1],-3.471,CCN2c1ccccc1N(C)C(=O)c3cccnc23 
+238,[C] [C] [Branch1] [C] [Cl] [Cl],-1.5759999999999998,CC(Cl)Cl
+239,[N] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [S] [Branch1] [C] [N] [=Branch1] [C] [=O] [=O],-0.954,Nc1ccc(cc1)S(N)(=O)=O
+240,[Cl] [C] [C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [Ring1] [#Branch2] [Cl],-4.009,ClC1C(Cl)C(Cl)C(Cl)C(Cl)C1Cl
+241,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [O] [C] [Branch1] [C] [C] [C],-4.538,CCOP(=S)(NC(C)C)Oc1ccccc1C(=O)OC(C)C
+242,[Cl] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [Cl],-4.008,Clc1cccc(Cl)c1Cl
+243,[Cl] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-2.607,ClC(Cl)(Cl)Cl
+244,[C] [C] [Branch1] [C] [O] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [C] [C] [Ring1] [S] [Ring2] [Ring1] [Ring2] [C],-4.073,CC1(O)CCC2C3CCC4=CC(=O)CCC4(C)C3CCC21C
+245,[C] [C] [O] [C] [=C] [C] [=C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [N] [=O] [C] [=C] [Ring1] [#Branch2],-2.167,CCOc1ccc(NC(N)=O)cc1
+246,[C] [/C] [C] [C] [C] [Branch1] [C] [\C] [C] [C] [Ring1] [#Branch1],-3.305,C/C1CCC(\C)CC1
+247,[C] [=C] [N] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=N] [C] [=C] [C] [=C] [Ring1] [O] [Ring1] [=Branch1],-2.994,c1cnc2c(c1)ccc3ncccc23
+248,[C] [O] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-0.984,COC(C)(C)C
+249,[C] [O] [C] [=C] [C] [=C] [Branch1] [Ring2] [C] [=C] [C] [C] [=C] [Ring1] [=Branch2],-3.254,COc1ccc(C=CC)cc1
+250,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [O],-4.94,CCCCCCCCCCCCCCCCO
+251,[O] [=C] [C] [=C] [NH1] [C] [=Branch1] [C] [=O] [NH1] [Ring1] [#Branch1],-0.441,O=c1cc[nH]c(=O)[nH]1 
+252,[N] [C] [=N] [C] [=N] [C] [N] [=C] [NH1] [C] [Ring1] [=Branch2] [=Ring1] [Branch1],-1.255,Nc1ncnc2nc[nH]c12 
+253,[C] [O] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [O] [Branch1] [=Branch1] [C] [C] [C] [Ring1] [Ring1] [C] [=C] [N] [=C] [N] [=C] [Ring1] [=Branch1],-2.181,COc1ccc(cc1)C(O)(C2CC2)c3cncnc3 
+254,[C] [C] [C] [Branch1] [#C] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [N] [C] [Ring1] [Branch2] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.272,CCC1(C(=O)NC(=O)NC1=O)c2ccccc2 
+255,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [Cl],-5.686,Clc1ccc(cc1)c2cccc(Cl)c2Cl 
+256,[C] [C] [Branch1] [C] [C] [C] [=C] [C] [=C] [Branch1] [O] [N] [C] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C] [C] [=C] [Ring1] [N],-2.867,CC(C)c1ccc(NC(=O)N(C)C)cc1
+257,[C] [C] [N] [Branch1] [Ring1] [C] [C] [C] [=Branch1] [C] [=O] [C] [S] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [N] [=N] [Ring1] [#Branch1],-2.231,CCN(CC)C(=O)CSc1ccc(Cl)nn1
+258,[C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [O],-1.365,CCC(C)(C)CO
+259,[C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [C],-1.899,CCCOC(=O)CCC
+260,[C] [C] [Branch1] [C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [#Branch1] [O] [C] [Branch1] [C] [C] [C] [S] [C] [C] [N] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.99,CC(C)OP(=S)(OC(C)C)SCCNS(=O)(=O)c1ccccc1
+261,[C] [C] [C] [C] [C] [C] [C] [Ring1] [#Branch1],-2.9160000000000004,C1CCCCCC1
+262,[C] [C] [C] [O] [C] [=O],-0.757,CCCOC=O
+263,[C] [C] [Branch1] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C],-3.585,CC(C)c1ccccc1C
+264,[N] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1],-2.392,Nc1cccc(Cl)c1
+265,[C] [C] [Branch1] [C] [C] [C] [C] [Branch1] [C] [C] [C],-2.938,CC(C)CC(C)C
+266,[C] [C] [O] [C] [O] [C] [=C] [C] [=C] [Branch1] [#Branch2] [O] [S] [Branch1] [C] [C] [=Branch1] [C] [=O] [=O] [C] [=C] [Ring1] [O] [C] [Ring1] [=C] [Branch1] [C] [C] [C],-3.184,CCOC2Oc1ccc(OS(C)(=O)=O)cc1C2(C)C
+267,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [F] [Branch1] [C] [F] [F],-3.065,CN(C)C(=O)Nc1cccc(c1)C(F)(F)F
+268,[O] [C] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring1] [=Branch2] [O],0.501,OCC1OC(O)C(O)C(O)C1O
+269,[C] [C] [=C] [C] [=C] [C] [Branch1] [C] [O] [=C] [Ring1] [#Branch1],-2.313,Cc1cccc(O)c1
+270,[C] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Ring1] [=Branch2] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=Branch1] [Ring2] [=C] [Ring1] [#Branch1] [S] [Branch1] [C] [N] [=Branch1] [C] [=O] [=O],-4.345,CC2Cc1ccccc1N2NC(=O)c3ccc(Cl)c(c3)S(N)(=O)=O 
+271,[C] [C] [C] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C] [C] [Branch1] [C] [C] [C] [=C] [C] [=C] [C] [Branch1] [C] [C] [C] [Branch1] [P] [C] [C] [C] [C] [C] [Branch1] [C] [O] [C] [C] [=Branch1] [C] [=O] [O] [Ring1] [Branch2] [C] [Ring2] [Ring1] [=Branch1] [Ring1] [P],-4.731,CCC(C)C(=O)OC2CC(C)C=C3C=CC(C)C(CCC1CC(O)CC(=O)O1)C23 
+272,[C] [C] [C] [Branch1] [#C] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [N] [C] [Ring1] [Branch2] [=O] [C] [=C] [C] [C] [C] [C] [C] [Ring1] [#Branch1] [C] [Ring1] [Branch1],-2.781,CCC1(C(=O)NC(=O)NC1=O)C2=CCC3CCC2C3
+273,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C],-3.671,CCCCCCCCCC(=O)OCC
+274,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.847,CN(C)C(=O)Nc1ccccc1
+275,[C] [C] [C] [O] [C] [C],-1.072,CCCOCC
+276,[C] [C] [Branch1] [C] [C] [O],-0.261,CC(C)O
+277,[C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-3.802,Cc1ccc2ccccc2c1
+278,[Cl] [C] [Branch1] [C] [Br] [Br],-2.54,ClC(Br)Br
+279,[C] [C] [C] [Branch1] [P] [C] [Branch1] [Ring1] [C] [C] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1],-4.854,CCC(C(CC)c1ccc(O)cc1)c2ccc(O)cc2
+280,[C] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [Branch1] [N] [S] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [O] [C] [C] [=Branch1] [C] [=O] [O] [C] [C],-3.391,CCOC(=O)CC(SP(=S)(OC)OC)C(=O)OCC
+281,[Cl] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.887,ClCc1ccccc1
+282,[C] [/C] [=C] [/C] [=O],-0.604,C/C=C/C=O
+283,[C] [O] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [Branch1] [C] [Br] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2],-3.938,CON(C)C(=O)Nc1ccc(Br)c(Cl)c1
+284,[C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Branch1] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#C] [Ring1] [=Branch1],-5.228,Cc1c2ccccc2c(C)c3ccccc13
+285,[C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C],-1.899,CCCCCC(=O)OC
+286,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [Branch1] [Branch2] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [N] [N] [=C] [Branch1] [=Branch1] [O] [C] [Ring1] [Branch1] [=O] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-3.831,CN(C)C(=O)Nc1ccc(c(Cl)c1)n2nc(oc2=O)C(C)(C)C
+287,[C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [Branch1] [C] [F] [C] [=C] [Ring1] [#Branch1],-2.181,CC(=O)Nc1ccc(F)cc1
+288,[C] [=C] [N] [=C] [N] [=C] [Ring1] [=Branch1],-0.884,c1cncnc1
+289,[C] [C] [C] [=Branch1] [C] [=O] [O] [C],-0.836,CCC(=O)OC
+290,[C] [N] [C] [C] [Branch1] [C] [O] [N] [Branch1] [Branch1] [C] [Ring1] [=Branch1] [=O] [C] [=N] [N] [=C] [Branch1] [Ring2] [S] [Ring1] [Branch1] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-2.398,CN1CC(O)N(C1=O)c2nnc(s2)C(C)(C)C
+291,[I] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.8,Ic1ccccc1
+292,[C] [C] [N] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch2] [Ring1] [Branch1] [C] [=C] [Ring1] [#Branch1] [C] [=Branch1] [C] [=O] [N] [Ring1] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [S] [Branch1] [C] [N] [=Branch1] [C] [=O] [=O],-3.777,CC2Nc1cc(Cl)c(cc1C(=O)N2c3ccccc3C)S(N)(=O)=O 
+293,[C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O] [C] [C] [Branch1] [C] [O] [C] [O] [C] [Branch1] [C] [N] [=O],-1.4280000000000002,COc1ccccc1OCC(O)COC(N)=O
+294,[C] [C] [C] [C] [O] [C] [N] [Branch1] [#Branch1] [C] [=Branch1] [C] [=O] [C] [Cl] [C] [=C] [Branch1] [Ring1] [C] [C] [C] [=C] [C] [=C] [Ring1] [Branch2] [C] [C],-4.347,CCCCOCN(C(=O)CCl)c1c(CC)cccc1CC 
+295,[O] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [Cl],-3.144,Oc1cccc(Cl)c1Cl
+296,[C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C],-1.1909999999999998,CCCC(=O)OC
+297,[C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2],-3.644,CCC(=O)Nc1ccc(Cl)c(Cl)c1
+298,[N] [C] [=N] [C] [Branch1] [C] [N] [=C] [N] [=C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [N] [=N] [C] [Ring1] [=N] [=N] [Ring2] [Ring1] [C],-3.051,Nc3nc(N)c2nc(c1ccccc1)c(N)nc2n3
+299,[C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C],-2.254,CCCCCC(=O)OCC
+300,[O] [C] [C] [Branch1] [C] [O] [C] [O] [C] [O] [C] [Branch1] [=Branch2] [O] [C] [Ring1] [Branch1] [C] [Ring1] [Branch2] [O] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-1.887,OCC(O)C2OC1OC(OC1C2O)C(Cl)(Cl)Cl 
+301,[C] [O] [C] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [Ring1] [=C],-3.448,COc1nc(NC(C)C)nc(NC(C)C)n1
+302,[C] [C] [C] [C] [C] [C] [C] [=C],-3.073,CCCCCCC=C
+303,[C] [C] [=C] [C] [=C] [Branch1] [C] [N] [C] [=C] [Ring1] [#Branch1],-1.954,Cc1ccc(N)cc1
+304,[N] [C] [=N] [C] [=C] [S] [Ring1] [Branch1],-1.226,Nc1nccs1 
+305,[C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O] [C] [=Branch1] [C] [=O] [N] [C],-1.947,c1ccccc1(OC(=O)NC)
+306,[C] [C] [C] [C] [Branch1] [C] [O] [C] [C],-1.324,CCCC(O)CC
+307,[C] [=C] [C] [=C] [C] [Branch1] [C] [O] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [Ring1] [O] [=C] [Ring1] [#C],-4.148,c3ccc2c(O)c1ccccc1cc2c3 
+308,[C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [Ring1] [#Branch2] [=C] [Ring1] [=C],-4.87,Cc1ccc2cc3ccccc3cc2c1
+309,[C] [C] [=C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch1] [C],-3.312,Cc1cccc(C)c1C
+310,[C] [N] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [=C] [Branch1] [=Branch1] [N] [Branch1] [C] [C] [C] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch2],-2.677,CNC(=O)Oc1ccc(N(C)C)c(C)c1
+311,[C] [C] [C] [C] [C] [C] [C] [C] [Branch1] [C] [C] [O],-2.387,CCCCCCCC(C)O
+312,[C] [N] [Branch2] [Ring1] [Branch1] [C] [=Branch1] [C] [=O] [N] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.863,CN(C(=O)NC(C)(C)c1ccccc1)c2ccccc2
+313,[C] [C] [C] [C] [=Branch1] [C] [=O] [C] [C],-1.266,CCCC(=O)CC
+314,[O] [C] [=C] [Branch1] [C] [Br] [C] [=C] [Branch1] [Ring1] [C] [#N] [C] [=C] [Ring1] [=Branch2] [Br],-3.793,Oc1c(Br)cc(C#N)cc1Br 
+315,[Cl] [C] [=C] [C] [=C] [Branch1] [=Branch1] [C] [=C] [Ring1] [=Branch1] [Cl] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-5.223,Clc1ccc(cc1Cl)c2ccccc2 
+316,[C] [N] [Branch2] [Ring1] [Ring2] [C] [=Branch1] [C] [=O] [C] [O] [C] [=N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [S] [Ring1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.504,CN(C(=O)COc1nc2ccccc2s1)c3ccccc3
+317,[O] [C] [=C] [C] [=C] [C] [=N] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-2.725,Oc1cccc2ncccc12 
+318,[C] [C] [=C] [Branch1] [#Branch1] [S] [C] [C] [O] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.927,CC1=C(SCCO1)C(=O)Nc2ccccc2
+319,[C] [C] [O] [C] [=C] [C] [=C] [N] [=C] [Branch1] [Branch2] [S] [C] [Ring1] [Branch1] [=C] [Ring1] [=Branch2] [S] [Branch1] [C] [N] [=Branch1] [C] [=O] [=O],-3.085,CCOc2ccc1nc(sc1c2)S(N)(=O)=O 
+320,[O] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch2] [Cl],-4.835,Oc1c(Cl)c(Cl)c(Cl)c(Cl)c1Cl
+321,[Cl] [C] [Br],-1.519,ClCBr
+322,[C] [C] [=Branch1] [C] [=O] [O] [C] [C] [=Branch1] [C] [=O] [C] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [C] [C] [Ring2] [Ring1] [Ring1] [Ring1] [S] [C],-4.472,CC(=O)OCC(=O)C3CCC4C2CCC1=CC(=O)CCC1(C)C2CCC34C 
+323,[N] [C] [=Branch1] [C] [=O] [N] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.509,NC(=O)NCc1ccccc1 
+324,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [Branch1] [C] [C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2],-3.048,CN(C)C(=O)Nc1ccc(C)c(Cl)c1
+325,[C] [O] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2],-3.5810000000000004,CON(C)C(=O)Nc1ccc(Cl)c(Cl)c1
+326,[O] [C] [C] [C] [C] [C] [C] [C] [Ring1] [#Branch1],-1.7,OC1CCCCCC1
+327,[C] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [O] [C] [Branch1] [Ring1] [C] [O] [N] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [Cl] [Cl],-1.936,CS(=O)(=O)c1ccc(cc1)C(O)C(CO)NC(=O)C(Cl)Cl 
+328,[C] [C] [C] [C] [Branch1] [C] [C] [C] [Branch1] [Ring1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=S] [N] [C] [Ring1] [#Branch2] [=O],-2.96,CCCC(C)C1(CC)C(=O)NC(=S)NC1=O 
+329,[C] [C] [=Branch1] [C] [=O] [N] [C] [=N] [N] [=C] [Branch1] [Ring2] [S] [Ring1] [Branch1] [S] [Branch1] [C] [N] [=Branch1] [C] [=O] [=O],-0.7929999999999999,CC(=O)Nc1nnc(s1)S(N)(=O)=O 
+330,[Cl] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [C] [C] [C] [Branch1] [Branch1] [C] [=C] [Ring1] [Branch1] [C] [Ring1] [#Branch1] [C] [Ring1] [=N] [Branch1] [C] [Cl] [C] [Ring1] [N] [Branch1] [C] [Cl] [Cl],-5.511,ClC1=C(Cl)C2(Cl)C3C4CC(C=C4)C3C1(Cl)C2(Cl)Cl
+331,[C] [C] [C] [O] [C] [Ring1] [Branch1],-0.62,C1CCOC1
+332,[Cl] [C] [=C] [C] [=C] [C] [=Branch1] [Branch1] [=C] [Ring1] [=Branch1] [Cl] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [Cl],-6.079,Clc1cccc(c1Cl)c2cccc(Cl)c2Cl
+333,[C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [N] [Branch1] [S] [N] [Branch1] [Branch1] [C] [Ring1] [=Branch1] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.0760000000000005,CCCCC1C(=O)N(N(C1=O)c2ccccc2)c3ccccc3 
+334,[C] [C] [N] [Branch1] [Ring1] [C] [C] [C] [=N] [C] [Branch1] [C] [Cl] [=N] [C] [=Branch1] [Ring2] [=N] [Ring1] [#Branch1] [N] [Branch1] [Ring1] [C] [C] [C] [C],-3.663,CCN(CC)c1nc(Cl)nc(n1)N(CC)CC
+335,[Cl] [C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [S] [N] [C] [=Branch1] [C] [=O] [C] [C] [C] [=C] [C] [C] [Ring1] [=Branch1] [C] [Ring1] [#Branch2] [=O],-4.365,ClC(Cl)C(Cl)(Cl)SN2C(=O)C1CC=CCC1C2=O 
+336,[O] [C] [N] [=C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [N] [C] [Ring2] [Ring1] [C] [=O],-3.517,OC3N=C(c1ccccc1)c2cc(Cl)ccc2NC3=O 
+337,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [Branch2] [C] [Branch1] [C] [C] [C] [C] [C] [C] [C] [=C],-2.415,O=C1NC(=O)NC(=O)C1(C(C)CCC)CC=C
+338,[C] [Branch1] [C] [O] [=C] [Branch1] [C] [C] [C] [=C] [C] [Branch1] [=Branch1] [C] [Branch1] [C] [C] [C] [=C] [Ring1] [O],-3.224,c1(O)c(C)ccc(C(C)C)c1
+339,[Cl] [C] [Branch1] [P] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [Ring1] [Branch2] [Cl] [C] [Branch1] [C] [Cl] [C] [Ring1] [=Branch2] [Branch1] [C] [Cl] [C] [Ring1] [=Branch2] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [C] [Ring1] [N] [Ring1] [#Branch2] [Cl],-5.112,ClC1(C(=O)C2(Cl)C3(Cl)C14Cl)C5(Cl)C2(Cl)C3(Cl)C(Cl)(Cl)C45Cl
+340,[C] [C] [N] [Branch1] [Ring1] [C] [C] [C] [=Branch1] [C] [=S] [S] [S] [C] [=Branch1] [C] [=S] [N] [Branch1] [Ring1] [C] [C] [C] [C],-3.862,CCN(CC)C(=S)SSC(=S)N(CC)CC
+341,[C] [C] [C] [C] [C] [C] [Ring1] [=Branch1],-2.477,C1CCCCC1
+342,[Cl] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [Branch1] [=Branch2] [C] [=Branch1] [Branch1] [=C] [Ring1] [#Branch1] [Cl] [Cl] [C] [Branch1] [C] [Cl] [C] [=Branch1] [=N] [=C] [Branch1] [C] [Cl] [C] [=Branch1] [Branch1] [=C] [Ring1] [#Branch1] [Cl] [Cl] [Cl],-7.848,ClC1=C(Cl)C(Cl)(C(=C1Cl)Cl)C2(Cl)C(=C(Cl)C(=C2Cl)Cl)Cl
+343,[C] [C] [C] [C] [C] [=C] [Branch1] [S] [C] [=C] [C] [=C] [C] [Branch1] [C] [O] [=C] [C] [=C] [Ring1] [O] [Ring1] [#Branch1] [C] [Ring1] [#C] [C] [C] [C] [Ring2] [Ring1] [C] [=O],-3.927,CC34CCc1c(ccc2cc(O)ccc12)C3CCC4=O
+344,[C] [C] [C] [C] [C] [C] [C] [C] [O],-2.105,CCCCCCCCO
+345,[C] [C] [S] [C] [C],-1.598,CCSCC
+346,[Cl] [C] [C] [Cl],-1.374,ClCCCl
+347,[C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [Cl],-2.278,CCC(C)(C)Cl
+348,[Cl] [C] [C] [Br],-1.7380000000000002,ClCCBr
+349,[C] [C] [N] [C] [=N] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Branch1] [Ring1] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring2] [Ring1] [C] [Ring1] [=Branch1],-3.125,CCN2c1ncccc1N(CC)C(=O)c3cccnc23 
+350,[Cl] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.975,Clc1ccccc1
+351,[C] [C] [C] [C] [C] [C] [C] [C] [=C],-3.427,CCCCCCCC=C
+352,[Br] [C] [=C] [C] [=C] [Branch1] [C] [I] [C] [=C] [Ring1] [#Branch1],-4.754,Brc1ccc(I)cc1
+353,[C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [O] [C] [C],-1.308,CCC(C)(O)CC
+354,[C] [C] [C] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.899,CCCCCc1ccccc1
+355,[C] [C] [=Branch1] [C] [=O] [O] [C] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [C] [C] [Ring2] [Ring1] [Ring1] [Ring1] [S] [C],-4.449,CC(=O)OC3CCC4C2CCC1=CC(=O)CCC1(C)C2CCC34C 
+356,[C] [C] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [P] [Ring1] [=Branch1],-4.007,CCN2c1ccccc1N(C)C(=O)c3ccccc23 
+357,[C] [C] [C] [C] [C] [Branch1] [C] [C] [O],-1.324,CCCCC(C)O
+358,[C] [C] [C] [C] [C] [C] [C] [C] [Ring1] [Branch1],-3.16,CCCC1CCCC1
+359,[C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [N] [=C] [N] [Ring1] [Branch1] [C] [Branch1] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.359,CCOC(=O)c1cncn1C(C)c2ccccc2
+360,[C] [=C] [C] [=C] [O] [C] [=N] [C] [Ring1] [Branch1] [=C] [Ring1] [=Branch2],-2.214,c2ccc1ocnc1c2
+361,[C] [C] [C] [C] [C] [O],-1.042,CCCCCO
+362,[C] [C] [N] [Branch1] [Ring1] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.16,CCN(CC)c1ccccc1
+363,[F] [C] [=C] [C] [=C] [C] [Branch1] [C] [F] [=C] [Ring1] [#Branch1],-2.636,Fc1cccc(F)c1
+364,[Cl] [C] [C] [C] [#N],-0.522,ClCCC#N 
+365,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [Ring1] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.272,O=C1NC(=O)NC(=O)C1(CC)c1ccccc1
+366,[C] [N] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [=C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [O] [C] [Ring1] [O] [=Ring1] [#Branch1],-3.05,CNC(=O)Oc1cccc2CC(C)(C)Oc12
+367,[C] [C] [=C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch1] [O],-2.589,Cc1cccc(C)c1O
+368,[C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.033,c1ccccc1C(O)c2ccccc2
+369,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C],-3.3160000000000003,CCCCCCCCCC(=O)OC
+370,[C] [C] [Branch1] [C] [C] [C] [Br],-2.2880000000000003,CC(C)CBr
+371,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [=N] [C] [=Branch1] [#Branch2] [=N] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch1] [C] [N] [Branch1] [C] [C] [C],-2.34,CN(C)C(=O)Oc1nc(nc(C)c1C)N(C)C
+372,[C] [C] [C] [C] [C] [C] [Br],-3.012,CCCCCCBr
+373,[C] [C] [C] [C] [Branch1] [C] [C] [C],-2.6,CCCC(C)C
+374,[C] [C] [=C] [Branch1] [C] [F] [C] [Branch1] [C] [F] [=C] [Branch2] [Ring1] [#C] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [Branch1] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [F] [Branch1] [C] [F] [F] [C] [Ring1] [#Branch2] [Branch1] [C] [C] [C] [C] [Branch1] [C] [F] [=C] [Ring2] [Ring1] [=Branch2] [F],-6.339,Cc1c(F)c(F)c(COC(=O)C2C(C=C(Cl)C(F)(F)F)C2(C)C)c(F)c1F
+375,[C] [C] [C] [=C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch1] [N] [Branch1] [Branch2] [C] [Branch1] [C] [C] [C] [O] [C] [C] [=Branch1] [C] [=O] [C] [Cl],-3.431,CCc1cccc(C)c1N(C(C)COC)C(=O)CCl 
+376,[N] [C] [N] [=C] [NH1] [N] [=Ring1] [Branch1],-0.674,Nc1nc[nH]n1
+377,[Br] [C] [Branch1] [C] [Br] [Br],-2.904,BrC(Br)Br
+378,[C] [O] [P] [=Branch1] [C] [=O] [Branch1] [Ring1] [O] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-1.866,COP(=O)(OC)C(O)C(Cl)(Cl)Cl
+379,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [S] [C] [N] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [O] [Ring1] [#Branch1],-5.024,CCOP(=S)(OCC)SCn1c(=O)oc2cc(Cl)ccc12
+380,[O] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.699,OCc1ccccc1
+381,[O] [=C] [C] [Branch1] [#C] [C] [C] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Ring1] [#Branch2] [=C] [Branch1] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O] [Ring2] [Ring1] [Branch1],-5.194,O=c2c(C3CCCc4ccccc43)c(O)c1ccccc1o2 
+382,[O] [C] [=C] [C] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [#Branch1],-3.132,Oc1ccc(Br)cc1
+383,[C] [C] [Branch1] [C] [C] [Br],-1.949,CC(C)Br
+384,[C] [C] [Branch1] [C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-3.276,CC(C)CC(C)(C)C
+385,[O] [C] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-6.268,OC(c1ccc(Cl)cc1)(c2ccc(Cl)cc2)C(Cl)(Cl)Cl
+386,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [S] [C] [Branch1] [Ring1] [C] [Cl] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Ring1] [#Branch2] [=O],-5.026,CCOP(=S)(OCC)SC(CCl)N2C(=O)c1ccccc1C2=O
+387,[Br] [C] [=C] [C] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [#Branch1],-4.298,Brc1ccc(Br)cc1
+388,[C] [N] [C] [=Branch1] [C] [=O] [O] [N] [Branch1] [#C] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2] [C] [Ring1] [=C] [=O],-3.6010000000000004,Cn2c(=O)on(c1ccc(Cl)c(Cl)c1)c2=O
+389,[O] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.701,Oc1ccc(cc1)c2ccccc2
+390,[C] [C] [=C] [Branch1] [#Branch1] [C] [C] [C] [O] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.83,CC1=C(CCCO1)C(=O)Nc2ccccc2 
+391,[C] [C] [O] [C] [=C],-0.857,CCOC=C
+392,[C] [O] [C] [=N] [C] [=N] [C] [=N] [C] [=C] [N] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-1.589,COc1ncnc2nccnc12 
+393,[C] [C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [O] [C] [C],-2.017,CCCCC(C)(O)CC
+394,[O] [=C] [N] [Branch1] [Branch2] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [Ring2] [N] [Ring1] [O] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.7230000000000003,O=C1N(COC(=O)C)C(=O)C(N1)(c2ccccc2)c3ccccc3
+395,[C] [O] [C] [=N] [C] [=C] [N] [=C] [C] [=N] [C] [Ring1] [=Branch1] [=N] [Ring1] [#Branch2],-1.589,COc2ncc1nccnc1n2
+396,[C] [N] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [O] [C] [C] [O] [Ring1] [Branch1],-1.614,CNC(=O)Oc1ccccc1C2OCCO2
+397,[C] [N] [Branch1] [N] [C] [=Branch1] [C] [=O] [N] [C] [C] [Branch1] [C] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [Ring1] [=N],-1.508,C1N(C(=O)NCC(C)C)C(=O)NC1
+398,[C] [C] [O] [C] [=Branch1] [C] [=O] [N] [C] [C] [O] [C] [=C] [C] [=C] [Branch1] [#Branch2] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [Ring1] [=N],-4.662,CCOC(=O)NCCOc2ccc(Oc1ccccc1)cc2
+399,[C] [C] [=Branch1] [C] [=O] [N] [Branch1] [S] [S] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [C] [N] [C] [=C] [Ring1] [#Branch1] [C] [O] [N] [=C] [Branch1] [C] [C] [C] [=Ring1] [=Branch1] [C],-2.024,CC(=O)N(S(=O)c1ccc(N)cc1)c2onc(C)c2C 
+400,[Cl] [C] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-2.794,ClCC(Cl)(Cl)Cl
+401,[C] [C] [C] [C] [C] [C] [C] [Ring1] [=Branch1] [N] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.779,CC1CCCCC1NC(=O)Nc2ccccc2
+402,[Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2],-4.159,Clc1cc(Cl)cc(Cl)c1
+403,[O] [=C] [C] [=C] [C] [=C] [O] [Ring1] [Branch1],-1.391,O=Cc1ccco1
+404,[C] [C] [Branch1] [C] [C] [C] [C] [O],-1.027,CC(C)CCO
+405,[O] [=C] [C] [=C] [C] [=C] [O] [C] [O] [C] [Ring1] [Branch1] [=C] [Ring1] [=Branch2],-2.033,O=Cc2ccc1OCOc1c2 
+406,[C] [C] [=Branch1] [C] [=C] [C],-1.5730000000000002,CC(=C)C
+407,[O] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.999,O=Cc1ccccc1
+408,[C] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [N] [Branch2] [Ring1] [=C] [S] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [=C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [O] [C] [=Ring1] [#Branch1] [Ring1] [O] [C] [Branch1] [C] [C] [C],-5.132999999999999,CCOC(=O)CCN(SN(C)C(=O)Oc1cccc2CC(C)(C)Oc21)C(C)C
+409,[O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring1] [P] [Ring1] [=Branch1],-2.7710000000000004,O2c1ccccc1N(C)C(=O)c3cccnc23 
+410,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=N] [Ring1] [=Branch1],-4.125,C1c2ccccc2c3ccccc13
+411,[C] [C] [C] [C] [C] [C] [C] [Ring1] [=Branch1],-2.891,CC1CCCCC1
+412,[N] [C] [=Branch1] [C] [=N] [N] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [C] [N] [C] [=C] [Ring1] [#Branch1],-0.706,NC(=N)NS(=O)(=O)c1ccc(N)cc1 
+413,[C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1],-2.441,COC(=O)c1ccc(O)cc1
+414,[C] [C] [C] [C] [C] [O] [Ring1] [Branch1],-1.034,CC1CCCO1
+415,[C] [C] [C] [C] [C] [C] [Branch1] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=Branch1] [N] [=C] [Ring1] [Branch2] [C] [Ring1] [N] [O] [C] [Ring1] [#C] [=O] [C],-2.43,CC3C2CCC1(C)C=CC(=O)C(=C1C2OC3=O)C
+416,[O] [C] [C] [O] [C] [Branch1] [N] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring1] [P] [O],-0.975,OCC2OC(Oc1ccccc1CO)C(O)C(O)C2O
+417,[C] [C] [N] [C] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [C] [Branch1] [Ring1] [S] [C] [=N] [Ring1] [N],-3.43,CCNc1nc(NC(C)C)nc(SC)n1
+418,[C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [O] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [C] [C] [Ring1] [S] [Ring2] [Ring1] [Ring2] [C],-3.876,CC(=O)C1(O)CCC2C3CCC4=CC(=O)CCC4(C)C3CCC21C
+419,[C] [C] [C] [C] [Branch1] [C] [C] [O],-0.97,CCCC(C)O
+420,[O] [C] [Branch1] [=N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.148,OC(C(=O)c1ccccc1)c2ccccc2
+421,[C] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [Branch1] [C] [C] [=C] [Ring1] [Branch2],-2.6210000000000004,Cc1ccc(O)c(C)c1
+422,[C] [C] [=C] [Branch1] [C] [N] [C] [=Branch1] [C] [=O] [N] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Ring1] [=N] [C],-1.192,Cc2c(N)c(=O)n(c1ccccc1)n2C
+423,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch2] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [Cl],-6.23,Clc1ccc(c(Cl)c1)c2cc(Cl)ccc2Cl 
+424,[C] [C] [N] [C] [=N] [C] [Branch1] [#Branch2] [N] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [=N] [C] [Branch1] [Ring1] [S] [C] [=N] [Ring1] [=N],-3.75,CCNc1nc(NC(C)(C)C)nc(SC)n1
+425,[C] [C] [=N] [C] [=C] [N] [=C] [C] [=N] [C] [Ring1] [=Branch1] [=N] [Ring1] [#Branch2],-1.24,Cc2ncc1nccnc1n2
+426,[C] [C] [C] [C] [C] [=N] [O] [C] [=Ring1] [Branch1] [C] [=C] [Ring1] [=Branch2] [C] [C] [C] [C] [Ring1] [=N] [C] [C] [C] [Branch1] [C] [C] [C] [Ring1] [#Branch1] [C] [C] [C] [Ring1] [=Branch1] [Branch1] [C] [O] [C] [#C],-4.557,CC23Cc1cnoc1C=C2CCC4C3CCC5(C)C4CCC5(O)C#C
+427,[C] [C] [C] [C] [I],-2.841,CCCCI
+428,[Br] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-4.434,Brc1ccc2ccccc2c1
+429,[C] [C] [O] [C] [Branch1] [#Branch2] [C] [C] [Branch1] [C] [O] [C] [Ring1] [#Branch1] [O] [O] [C] [C] [Branch1] [C] [O] [C] [C] [Branch1] [=Branch1] [O] [C] [Ring1] [#Branch1] [C] [O] [C] [C] [Branch1] [C] [O] [C] [C] [Branch2] [Branch1] [Branch1] [O] [C] [C] [C] [C] [Branch1] [C] [C] [C] [Branch2] [Ring2] [Branch1] [C] [C] [C] [C] [Ring1] [#Branch1] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [C] [C] [Branch1] [=Branch2] [C] [C] [C] [Ring1] [O] [Ring1] [=Branch1] [O] [C] [=C] [C] [=Branch1] [C] [=O] [O] [C] [Ring1] [=Branch1] [C] [Ring2] [Ring1] [O] [O] [C] [Ring2] [Ring2] [Ring1] [C],-5.312,CC1OC(CC(O)C1O)OC2C(O)CC(OC2C)OC8C(O)CC(OC7CCC3(C)C(CCC4C3CC(O)C5(C)C(CCC45O)C6=CC(=O)OC6)C7)OC8C 
+430,[F] [C] [Branch1] [C] [F] [Branch1] [C] [F] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.099,FC(F)(F)c1ccccc1
+431,[C] [C] [C] [C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [O] [C] [C] [C] [C] [C] [C],-5.757999999999999,CCCCCCOC(=O)c1ccccc1C(=O)OCCCCCC
+432,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [S] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-4.597,c1ccc2c(c1)sc3ccccc23
+433,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch2] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2] [Cl],-6.709,Clc1ccc(c(Cl)c1)c2ccc(Cl)c(Cl)c2Cl 
+434,[C] [C] [=Branch1] [C] [=O] [C] [C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [Branch1] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O] [C] [Ring1] [O] [=O],-3.913,CC(=O)CC(c1ccccc1)c3c(O)c2ccccc2oc3=O 
+435,[C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.645,c1ccccc1C(O)C(O)c2ccccc2
+436,[C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [O] [C],-2.347,COC(=O)c1ccccc1C(=O)OC
+437,[C] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C],-2.962,CCCCCCCC(=O)OCC
+438,[C] [C] [S] [S] [C] [C],-2.364,CCSSCC
+439,[C] [C] [O] [C] [C] [O] [C] [C],-0.833,CCOCCOCC
+440,[Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [Branch2] [Cl],-4.621,Clc1cc(Cl)c(Cl)cc1Cl
+441,[N] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [Branch1] [C] [N] [C] [=C] [Ring1] [#Branch1],-2.613,Nc1ccc(cc1)c2ccc(N)cc2
+442,[C] [C] [C] [C] [C] [C] [=C],-2.718,CCCCCC=C
+443,[C] [C] [C] [C] [C] [=C] [Branch1] [C] [C] [N] [=C] [Branch1] [Ring2] [N] [C] [C] [NH1] [C] [Ring1] [#Branch2] [=O],-2.732,CCCCc1c(C)nc(NCC)[nH]c1=O
+444,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [Ring1] [C] [C] [C] [Branch1] [C] [C] [C] [C] [C],-2.312,O=C1NC(=O)NC(=O)C1(CC)C(C)CCC
+445,[N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl],-2.392,Nc1ccccc1Cl
+446,[C] [O] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1],-3.057,COc1cccc(Cl)c1
+447,[C] [C] [C] [C] [N] [Branch1] [Ring1] [C] [C] [C] [=Branch1] [C] [=O] [S] [C] [C] [C],-3.131,CCCCN(CC)C(=O)SCCC
+448,[C] [C] [C] [C] [O] [C] [=O],-1.111,CCCCOC=O
+449,[C] [C] [C] [C] [Branch1] [C] [O] [C] [C] [Branch1] [P] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Ring1] [O] [Ring1] [#Branch1] [C] [C] [Ring1] [P] [C] [C] [C] [Ring2] [Ring1] [Ring2] [Branch1] [C] [O] [C] [=Branch1] [C] [=O] [C] [O],-2.974,CC12CC(O)C3C(CCC4=CC(=O)C=CC34C)C2CCC1(O)C(=O)CO
+450,[C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-5.7410000000000005,c1ccc(cc1)c2ccc(cc2)c3ccccc3
+451,[O] [C] [=C] [C] [=C] [Branch1] [Ring1] [C] [=O] [C] [=C] [Ring1] [Branch2],-2.003,Oc1ccc(C=O)cc1
+452,[C] [Br],-1.109,CBr
+453,[C] [C] [=Branch1] [C] [=O] [C] [C] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [C] [=C] [Branch1] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O] [C] [Ring1] [O] [=O],-4.553999999999999,CC(=O)CC(c1ccc(Cl)cc1)c2c(O)c3ccccc3oc2=O
+454,[N] [C] [C] [Branch1] [C] [C] [=C] [NH1] [C] [=Branch1] [C] [=O] [N] [=Ring1] [Branch2],-0.257,Nc1c(C)c[nH]c(=O)n1 
+455,[C] [=C] [Branch1] [#C] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [I] [C] [=C] [C] [=C] [Ring1] [S],-4.245,c1c(NC(=O)c2ccccc2(I))cccc1
+456,[C] [C] [=C] [C] [N] [=C] [C] [=Branch1] [C] [=O] [NH1] [C] [=Branch1] [C] [=O] [N] [=C] [Ring1] [Branch2] [N] [Branch1] [S] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [O] [C] [=Ring2] [Ring1] [Branch1] [C] [=C] [Ring2] [Ring1] [=Branch2] [C],-1.865,Cc3cc2nc1c(=O)[nH]c(=O)nc1n(CC(O)C(O)C(O)CO)c2cc3C
+457,[F] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Br],-3.467,Fc1ccccc1Br
+458,[C] [C] [Branch1] [C] [C] [C] [Branch1] [#Branch1] [C] [=C] [Branch1] [C] [Cl] [Cl] [C] [Ring1] [Branch2] [C] [=Branch1] [C] [=O] [O] [C] [C] [=C] [C] [=C] [C] [Branch1] [#Branch2] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [=C] [Ring1] [=N],-7.129,CC1(C)C(C=C(Cl)Cl)C1C(=O)OCc2cccc(Oc3ccccc3)c2
+459,[O] [=C] [N] [Branch1] [=Branch2] [C] [O] [C] [=Branch1] [C] [=O] [C] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [Ring2] [N] [Ring1] [N] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.128,O=C1N(COC(=O)CC)C(=O)C(N1)(c2ccccc2)c3ccccc3
+460,[C] [C] [C] [C] [C] [Ring1] [Branch1],-2.0380000000000003,C1CCCC1
+461,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N],-1.922,Cc1ccccc1N
+462,[C] [Branch1] [Ring1] [O] [C] [=C] [C] [=C] [Branch1] [Ring2] [C] [C] [=C] [C] [=C] [Ring1] [O],-3.074,c1(OC)ccc(CC=C)cc1
+463,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [Branch1] [#C] [O] [C] [=Branch1] [C] [=O] [N] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [=C] [Ring1] [=C],-2.655,CN(C)C(=O)Nc1cccc(OC(=O)NC(C)(C)C)c1 
+464,[C] [C] [Branch1] [C] [C] [C] [=C],-1.994,CC(C)C=C
+465,[O] [C] [=C] [C] [=C] [C] [=N] [Ring1] [=Branch1],-1.655,Oc1ccccn1
+466,[C] [C],-1.132,CC
+467,[Cl] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl],-3.482,Clc1ccccc1Cl
+468,[S] [C] [=N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [S] [Ring1] [=Branch2],-3.411,Sc2nc1ccccc1s2 
+469,[Cl] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Branch1] [=Branch2] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch2] [Cl],-9.589,Clc1c(Cl)c(Cl)c(c(Cl)c1Cl)c2c(Cl)c(Cl)c(Cl)c(Cl)c2Cl 
+470,[C] [O] [C] [=C] [O] [C] [=C] [C] [Ring1] [Branch1] [=C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [O] [C] [Ring1] [=C] [=Ring1] [#Branch1],-3.25,COc2c1occc1cc3ccc(=O)oc23 
+471,[C] [C] [=Branch1] [C] [=O] [N],0.494,CC(=O)N
+472,[C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-3.802,Cc1cccc2ccccc12
+473,[C] [C] [N] [Branch1] [Ring1] [C] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [C] [O] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-4.088,CCN(CC)C(=O)C(C)Oc1cccc2ccccc12 
+474,[C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-1.2919999999999998,CC(O)C(C)(C)C
+475,[C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C],-1.545,CCCC(=O)OCC
+476,[C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Ring1] [O] [=O],-2.667,CC2=CC(=O)c1ccccc1C2=O 
+477,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Ring1] [O],-4.518,c1ccc2c(c1)ccc3ccccc32
+478,[C] [C] [=C] [C] [=N] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch1],-2.0980000000000003,Cc1ccnc(C)c1
+479,[C] [C] [C] [C] [C] [C] [C] [C] [C] [O],-2.46,CCCCCCCCCO
+480,[Br] [C] [Br],-1.883,BrCBr
+481,[C] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [Branch1] [C] [F] [C] [Branch1] [C] [O] [C] [C] [Ring2] [Ring1] [C] [Branch1] [C] [C] [C] [Ring2] [Ring1] [=Branch1] [Branch1] [C] [O] [C] [=Branch1] [C] [=O] [C] [O],-3.4,CC1CC2C3CCC4=CC(=O)C=CC4(C)C3(F)C(O)CC2(C)C1(O)C(=O)CO
+482,[C] [C] [=C] [C] [=C] [C] [=C] [Branch1] [C] [C] [C] [=C] [C] [Ring1] [#Branch1] [=C] [Ring1] [O],-4.147,Cc1ccc2cc(C)ccc2c1
+483,[C] [C] [S] [C] [=Branch1] [C] [=O] [N] [Branch1] [#Branch1] [C] [C] [Branch1] [C] [C] [C] [C] [C] [Branch1] [C] [C] [C],-3.4530000000000003,CCSC(=O)N(CC(C)C)CC(C)C
+484,[C] [C] [C] [C] [Cl],-1.94,CCCCCl
+485,[Cl] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [C] [Branch1] [Ring2] [N] [C] [=O] [N] [C] [=C] [N] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [Ring2] [N] [C] [=O] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-3.715,ClC(Cl)(Cl)C(NC=O)N1C=CN(C=C1)C(NC=O)C(Cl)(Cl)Cl 
+486,[N] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [=C] [Ring1] [#Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring2] [Ring1] [C] [Ring1] [=Branch1],-4.849,Nc3cc2c1ccccc1ccc2c4ccccc34 
+487,[C] [C] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=S] [C] [=C] [C] [=C] [N] [=C] [Ring1] [P] [Ring1] [=Branch1],-4.227,CCN2c1ccccc1N(C)C(=S)c3cccnc23 
+488,[C] [C] [N] [C] [=Branch1] [C] [=S] [N] [C] [C],-1.028,CCNC(=S)NCC
+489,[O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2] [Cl],-3.78,Oc1cc(Cl)cc(Cl)c1Cl
+490,[C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C],-1.545,CCCCC(=O)OC
+491,[N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.632,Nc1ccccc1
+492,[C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [O] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-3.682,C1=Cc2cccc3cccc1c23
+493,[C] [C] [N] [C] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [C] [Branch1] [Ring1] [O] [C] [=N] [Ring1] [N],-3.185,CCNc1nc(NC(C)C)nc(OC)n1
+494,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#C] [C] [Ring1] [N] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-6.007000000000001,c1ccc2c(c1)cc3ccc4cccc5ccc2c3c45
+495,[C] [C] [Br],-1.529,CCBr
+496,[C] [C] [C] [#C] [C] [C],-1.933,CCC#CCC
+497,[C] [C] [O] [C] [Branch1] [#Branch2] [C] [C] [Branch1] [C] [O] [C] [Ring1] [#Branch1] [O] [O] [C] [C] [Branch1] [C] [O] [C] [C] [Branch1] [=Branch1] [O] [C] [Ring1] [#Branch1] [C] [O] [C] [C] [Branch1] [C] [O] [C] [C] [Branch2] [Branch1] [C] [O] [C] [C] [C] [C] [Branch1] [C] [C] [C] [Branch2] [Ring2] [C] [C] [C] [C] [C] [Ring1] [#Branch1] [C] [C] [C] [Branch1] [C] [C] [C] [Branch1] [=Branch2] [C] [C] [C] [Ring1] [#Branch2] [Ring1] [=Branch1] [O] [C] [=C] [C] [=Branch1] [C] [=O] [O] [C] [Ring1] [=Branch1] [C] [Ring2] [Ring1] [#Branch2] [O] [C] [Ring2] [Ring2] [C] [C],-6.114,CC1OC(CC(O)C1O)OC2C(O)CC(OC2C)OC8C(O)CC(OC7CCC3(C)C(CCC4C3CCC5(C)C(CCC45O)C6=CC(=O)OC6)C7)OC8C 
+498,[C] [C] [C] [=Branch1] [C] [=C] [C],-1.994,CCC(=C)C
+499,[O] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [S] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1],-4.59,Oc1ccc(cc1)C2(OC(=O)c3ccccc23)c4ccc(O)cc4 
+500,[Br] [C] [=C] [C] [Branch1] [C] [Br] [=C] [C] [Branch1] [C] [Br] [=C] [Ring1] [Branch2],-5.27,Brc1cc(Br)cc(Br)c1
+501,[C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [Branch2] [Cl],-5.247000000000001,COP(=S)(OC)Oc1cc(Cl)c(Cl)cc1Cl
+502,[C] [C] [=C] [C] [=Branch1] [C] [=O] [NH1] [C] [=Branch1] [C] [=S] [NH1] [Ring1] [Branch2],-0.547,Cc1cc(=O)[nH]c(=S)[nH]1
+503,[C] [O] [C] [=C] [C] [Branch1] [Ring2] [C] [C] [=C] [=C] [C] [=C] [Ring1] [=Branch2] [O],-2.675,COc1cc(CC=C)ccc1O
+504,[C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=C] [C] [Ring1] [=N] [=C] [Ring1] [O] [Ring1] [#Branch1],-4.957,c1cc2ccc3cccc4ccc(c1)c2c34
+505,[C] [C] [Branch1] [C] [C] [C] [O] [N] [Branch1] [O] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl] [C] [Ring1] [=C] [=O],-3.077,CC1(C)CON(Cc2ccccc2Cl)C1=O
+506,[C] [C] [C] [C] [O] [C] [C] [O],-0.775,CCCCOCCO
+507,[C] [C] [C] [C] [C] [Branch1] [C] [O] [C] [C] [Ring1] [#Branch1] [C] [C] [C] [C] [Ring1] [O] [C] [C] [C] [Branch1] [C] [C] [C] [Ring1] [#Branch1] [C] [C] [C] [Ring1] [=Branch1] [=O],-3.882,CC12CCC(O)CC1CCC3C2CCC4(C)C3CCC4=O
+508,[F] [C] [Branch1] [C] [F] [Branch1] [C] [F] [C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [N] [C] [C] [Branch1] [Ring1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [Ring1] [Branch2] [=O],-4.749,FC(F)(F)c1cccc(c1)N2CC(CCl)C(Cl)C2=O
+509,[C] [=C] [C] [=C] [N] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-2.6630000000000003,c1ccc2ncccc2c1
+510,[C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Branch1] [C] [O] [=C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [=C] [Ring1] [=Branch2],-1.913,COC(=O)c1cc(O)c(O)c(O)c1 
+511,[O] [C] [Branch1] [=Branch2] [C] [N] [C] [=N] [C] [=N] [Ring1] [Branch1] [Branch1] [=Branch2] [C] [N] [C] [=N] [C] [=N] [Ring1] [Branch1] [C] [=C] [C] [=C] [Branch1] [C] [F] [C] [=C] [Ring1] [#Branch1] [F],-2.418,OC(Cn1cncn1)(Cn2cncn2)c3ccc(F)cc3F 
+512,[Cl] [C] [=C] [C] [=C] [O] [C] [=Branch1] [C] [=O] [NH1] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2],-2.679,Clc2ccc1oc(=O)[nH]c1c2
+513,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch2] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch2] [Cl],-7.898,Clc1ccc(c(Cl)c1)c2c(Cl)c(Cl)c(Cl)c(Cl)c2Cl
+514,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [=Branch1] [C] [=O] [C] [=Branch1] [C] [=O] [N] [Ring1] [=Branch2],0.436,O=C1NC(=O)C(=O)C(=O)N1 
+515,[Cl] [C] [C] [C] [Cl],-1.618,ClCCCCl
+516,[F] [C] [=C] [C] [=C] [C] [Branch1] [C] [Br] [=C] [Ring1] [#Branch1],-3.467,Fc1cccc(Br)c1
+517,[Cl] [C] [=C] [C] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [#Branch1],-3.928,Clc1ccc(Br)cc1
+518,[C] [C] [Branch1] [C] [C] [C] [Branch1] [C] [C] [C],-2.584,CC(C)C(C)C
+519,[C] [C] [C] [=C],-1.655,CCC=C
+520,[N] [C] [C] [=C] [NH1] [C] [=Branch1] [C] [=O] [N] [=Ring1] [#Branch1],0.051,Nc1cc[nH]c(=O)n1 
+521,[F] [C] [Branch1] [C] [F] [Branch1] [C] [Cl] [C] [Branch1] [C] [F] [Branch1] [C] [Cl] [Cl],-3.077,FC(F)(Cl)C(F)(Cl)Cl
+522,[Cl] [C] [Branch1] [C] [Cl] [C] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl],-6.007999999999999,ClC(Cl)C(c1ccc(Cl)cc1)c2ccccc2Cl 
+523,[C] [C] [C] [C] [C] [C] [Branch1] [P] [C] [C] [=C] [C] [C] [Branch1] [C] [O] [C] [C] [C] [Ring1] [O] [Ring1] [#Branch1] [C] [C] [Ring1] [S] [C] [C] [C] [Ring2] [Ring1] [Ring1] [=O],-3.564,CC34CCC1C(CC=C2CC(O)CCC12C)C3CCC4=O
+524,[C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=Branch1] [Branch1] [=C] [Ring2] [Ring1] [C] [C] [Ring1] [P] [=C] [Ring1] [#C] [C] [Ring1] [=N] [=C] [Ring1] [O] [Ring1] [#Branch1],-6.446000000000001,c1cc2ccc3ccc4ccc5cccc6c(c1)c2c3c4c56
+525,[C] [C] [Branch1] [Ring1] [O] [C] [=C] [Branch1] [Ring1] [O] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C] [Ring1] [=Branch1] [C] [=Ring1] [=C],-0.825,c1c(OC)c(OC)C2C(=O)OCC2c1
+526,[O] [C] [C] [Branch1] [C] [O] [C] [O],0.688,OCC(O)CO
+527,[C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O],-1.941,COc1ccccc1O 
+528,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [O] [C] [=N] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [Branch2] [Cl],-4.972,CCOP(=S)(OCC)Oc1nc(Cl)c(Cl)cc1Cl 
+529,[C] [C] [=C] [C] [=Branch1] [C] [=O] [N] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Ring1] [N] [C],-1.733,Cc1cc(=O)n(c2ccccc2)n1C
+530,[C] [C] [N] [C] [=N] [C] [Branch1] [C] [Cl] [=N] [C] [Branch1] [Ring2] [N] [C] [C] [=N] [Ring1] [#Branch2],-2.8110000000000004,CCNc1nc(Cl)nc(NCC)n1 
+531,[C] [S] [C] [=N] [C] [=Branch1] [=N] [=N] [C] [=Branch1] [Ring2] [=N] [Ring1] [=Branch1] [N] [Branch1] [C] [C] [C] [N] [Branch1] [C] [C] [C],-2.689,CSc1nc(nc(n1)N(C)C)N(C)C
+532,[C] [=C],-0.815,C=C
+533,[C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [C] [O],-1.365,CC(C)(C)CCO
+534,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [Ring1] [C] [C] [C] [C] [=C],-1.368,O=C1NC(=O)NC(=O)C1(CC)CC=C
+535,[O] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2] [Cl],-3.705,Oc1ccc(Cl)c(Cl)c1Cl
+536,[C] [O] [C] [=C] [C] [=C] [Branch2] [Ring1] [=Branch1] [O] [C] [=C] [C] [=C] [Branch1] [O] [N] [C] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C] [C] [=C] [Ring1] [N] [C] [=C] [Ring2] [Ring1] [Ring1],-3.928,COc2ccc(Oc1ccc(NC(=O)N(C)C)cc1)cc2
+537,[C] [C] [C] [=C] [C] [=C] [Branch1] [C] [C] [C] [=C] [Ring1] [#Branch1],-3.3280000000000003,CCc1ccc(C)cc1
+538,[C] [C] [Branch1] [C] [C] [S] [C] [Branch1] [C] [C] [C],-2.162,CC(C)SC(C)C
+539,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [S] [C] [S] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [O] [C] [C],-5.471,CCOP(=S)(OCC)SCSP(=S)(OCC)OCC
+540,[C] [C] [=Branch1] [C] [=O] [O] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [O] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [=Branch1] [C] [=O] [C] [C] [Ring2] [Ring1] [Branch1] [Ring1] [P] [C],-3.426,CC(=O)OCC(=O)C3(O)CCC4C2CCC1=CC(=O)CCC1(C)C2C(=O)CC34C 
+541,[N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-2.392,Nc1ccc(Cl)cc1
+542,[C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [O],-1.719,CCCC(C)(C)CO
+543,[C] [O] [C] [C] [C] [N] [C] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [C] [Branch1] [Ring1] [S] [C] [=N] [Ring1] [N],-3.259,COCCCNc1nc(NC(C)C)nc(SC)n1
+544,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [C] [C] [C] [C] [Ring1] [Branch1] [C] [C] [C] [C] [C] [Ring1] [Branch2] [Ring1] [Branch1],-2.47,CN(C)C(=O)NC1CC2CC1C3CCCC23
+545,[C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.554,CC(C)(C)c1ccccc1
+546,[C] [C] [=Branch1] [C] [=O] [C] [C] [C] [C] [=Branch1] [C] [=O] [N] [Branch1] [S] [N] [Branch1] [Branch1] [C] [Ring1] [=Branch1] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.645,CC(=O)CCC1C(=O)N(N(C1=O)c2ccccc2)c3ccccc3
+547,[C] [C] [=Branch1] [C] [=O] [O] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [O] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [Branch1] [C] [O] [C] [C] [Ring2] [Ring1] [Branch1] [Ring1] [P] [C],-3.507,CC(=O)OCC(=O)C3(O)CCC4C2CCC1=CC(=O)C=CC1(C)C2C(O)CC34C 
+548,[C] [C] [C] [O] [C],-0.718,CCCOC
+549,[C] [C] [Branch1] [C] [C] [O] [C] [=Branch1] [C] [=O] [C],-1.1909999999999998,CC(C)OC(=O)C
+550,[Br] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.345,Brc1ccccc1
+551,[C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [C] [C] [Ring2] [Ring1] [Ring1] [Ring1] [S] [C],-4.87,CCC(=O)OC3CCC4C2CCC1=CC(=O)CCC1(C)C2CCC34C 
+552,[O] [=C] [NH1] [C] [=N] [C] [NH1] [N] [=C] [C] [Ring1] [=Branch2] [=Ring1] [Branch1],-0.84,O=c1[nH]cnc2[nH]ncc12 
+553,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.147,CN(C)C(=O)C(c1ccccc1)c2ccccc2 
+554,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-1.882,O=C1NC(=O)c2ccccc12 
+555,[O] [C] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [Branch1] [=Branch2] [C] [=C] [N] [=C] [N] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl],-4.1080000000000005,OC(c1ccc(Cl)cc1)(c2cncnc2)c3ccccc3Cl
+556,[C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.462,COC(=O)c1ccccc1
+557,[C] [N] [C] [=C] [C] [=Branch1] [C] [=O] [NH1] [C] [Ring1] [#Branch1] [=O],-0.375,Cn1ccc(=O)[nH]c1=O
+558,[C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [N] [Branch2] [Ring1] [Ring1] [N] [Branch1] [Branch1] [C] [Ring1] [=Branch1] [=O] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.739,CCCCC1C(=O)N(N(C1=O)c2ccc(O)cc2)c3ccccc3 
+559,[Cl] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=Branch1] [Ring2] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [Cl],-6.155,Clc1ccc(Cl)c(c1)c2cccc(Cl)c2Cl 
+560,[C] [C] [C] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=Branch1] [N] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [N] [Ring1] [N] [S] [Branch1] [C] [N] [=Branch1] [C] [=O] [=O],-2.184,CCC2NC(=O)c1cc(c(Cl)cc1N2)S(N)(=O)=O
+561,[C] [C] [C] [=C] [C] [Ring1] [Branch1],-1.72,C1CC=CC1
+562,[C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [=Branch2] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [N] [C] [Ring1] [=Branch2] [=O],0.919,C1(=O)NC(=O)NC(=O)C1(O)C2(O)C(=O)NC(=O)NC2(=O)
+563,[C] [C] [C] [C] [C] [C] [C] [C] [C],-3.678,CCCCCCCCC
+564,[C] [=C] [C] [=C] [C] [=C] [C] [Branch1] [C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Ring1] [O] [=C] [C] [=C] [Ring2] [Ring1] [Ring1] [Ring1] [#C],-5.931,c1cccc2c3c(C)cc4ccccc4c3ccc12
+565,[C] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.66,CCOc1ccccc1
+566,[C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.0980000000000003,CCOC(=O)C=Cc1ccccc1
+567,[C] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [N],-1.815,Cc1ccc(cc1)S(=O)(=O)N
+568,[C] [C] [Branch2] [Ring1] [C] [O] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [C] [#C],-3.629,CC(OC(=O)Nc1cccc(Cl)c1)C#C
+569,[C] [N] [C] [=Branch1] [C] [=O] [C] [N] [=C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring2] [Ring1] [Ring1] [Ring1] [#Branch1],-4.05,CN2C(=O)CN=C(c1ccccc1)c3cc(Cl)ccc23
+570,[C] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [C] [C],-1.308,CCC(O)C(C)C
+571,[C] [C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [O] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [S] [Branch1] [C] [C] [=O],-3.283,CCOP(=S)(OCC)Oc1ccc(cc1)S(C)=O 
+572,[C] [C] [C] [C] [C] [C] [Branch1] [P] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [O] [Ring1] [#Branch1] [C] [C] [Ring1] [S] [C] [C] [C] [Ring2] [Ring1] [Ring1] [O],-3.659,CC12CCC3C(CCC4=CC(=O)CCC34C)C2CCC1O
+573,[C] [C] [C] [C] [C] [C] [C],-2.97,CCCCCCC
+574,[O] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-3.08,Oc1cccc2ccccc12
+575,[C] [/C] [C] [C] [C] [C] [C] [Ring1] [=Branch1] [\C],-3.305,C/C1CCCCC1\C
+576,[C] [C] [C] [=C] [C] [Ring1] [Branch1] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [=C] [Ring1] [#Branch2] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Ring1] [#Branch2],-5.942,C1Cc2c3c1cccc3cc4c2ccc5ccccc54
+577,[C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [C] [C] [C] [C] [C] [C] [=C] [Branch1] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [=N] [C] [C] [C] [Ring2] [Ring1] [Branch1] [Ring1] [P] [C],-4.593,CC(=O)C3(C)CCC4C2C=C(C)C1=CC(=O)CCC1(C)C2CCC34C
+578,[C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [C],-1.554,CCCCCC(=O)C
+579,[C] [O] [P] [=Branch1] [C] [=O] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [=O] [S] [C],-0.416,COP(=O)(NC(C)=O)SC 
+580,[C] [C] [C] [C] [S] [P] [=Branch1] [C] [=O] [Branch1] [=Branch1] [S] [C] [C] [C] [C] [S] [C] [C] [C] [C],-4.074,CCCCSP(=O)(SCCCC)SCCCC
+581,[N] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch2] [Ring1] [C] [N] [C] [Branch1] [=Branch2] [N] [S] [Ring1] [=Branch1] [=Branch1] [C] [=O] [=O] [C] [Branch1] [C] [Cl] [Cl] [C] [=C] [Ring1] [#C] [Cl],-2.98,NS(=O)(=O)c2cc1c(NC(NS1(=O)=O)C(Cl)Cl)cc2Cl 
+582,[C] [C] [=C] [Branch1] [C] [C] [C],-1.994,CC=C(C)C
+583,[C] [C] [=C] [C] [=C] [Branch1] [C] [C] [C] [Branch1] [C] [C] [=C] [Ring1] [Branch2],-3.343,Cc1ccc(C)c(C)c1
+584,[O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [Branch2] [Cl],-3.78,Oc1cc(Cl)c(Cl)cc1Cl
+585,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [O] [Ring1] [=Branch1],-3.713,c1ccc2c(c1)cnc3ccccc23 
+586,[C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [O] [C] [C],-1.663,CCCC(C)(O)CC
+587,[C] [C] [C] [C] [C] [C] [C] [C],-3.324,CCCCCCCC
+588,[C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [Ring1] [#Branch2] [=C] [Ring1] [=C],-4.518,c1ccc2cc3ccccc3cc2c1
+589,[N] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.866,NNc1ccccc1
+590,[C] [C] [C] [C] [C] [C] [C] [C] [Ring1] [Branch2],-3.355,C1CCCCCCC1
+591,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [Ring2] [C] [C] [=C] [C] [C] [=C],-1.471,O=C1NC(=O)NC(=O)C1(CC=C)CC=C
+592,[Cl] [C] [Branch1] [C] [Cl] [Cl],-1.812,ClC(Cl)Cl
+593,[C] [C] [=C] [C] [C] [C] [C] [Ring1] [=Branch1],-2.574,CC1=CCCCC1
+594,[C] [O] [C] [=C] [O] [C] [=C] [C] [Ring1] [Branch1] [=C] [Branch1] [Ring1] [O] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [Branch1] [C] [C] [O] [C] [Ring1] [P] [=Ring1] [Branch2],-3.603,COc2c1occc1c(OC)c3c(=O)cc(C)oc23 
+595,[C] [=C] [C] [=C] [C] [=C] [Branch1] [=Branch2] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [#C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-6.007000000000001,c1ccc2c3c(ccc2c1)c4cccc5cccc3c45
+596,[C] [C] [C] [Branch1] [Ring1] [C] [C] [C] [=O],-1.523,CCC(CC)C=O
+597,[C] [C] [C] [O] [C] [C] [C],-1.426,CCCOCCC
+598,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [O],-4.231,CCCCCCCCCCCCCCO
+599,[O] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2] [Cl],-3.572,Oc1c(Cl)ccc(Cl)c1Cl
+600,[N] [C] [=Branch1] [C] [=O] [N],0.8320000000000001,NC(=O)N
+601,[C] [C] [C] [C] [#C],-1.446,CCCC#C
+602,[Br] [C] [=C] [C] [=C] [C] [Branch1] [C] [Br] [=C] [Ring1] [#Branch1],-4.298,Brc1cccc(Br)c1
+603,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [O],-5.649,CCCCCCCCCCCCCCCCCCO
+604,[C] [=C] [C] [Branch1] [C] [O] [=C] [Branch1] [C] [O] [C] [O] [C] [C] [Branch1] [C] [O] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [O] [=C] [C] [Ring1] [Branch2] [=C] [Ring1] [N] [C] [=Ring1] [S] [Ring2] [Ring1] [=Branch1],-1.795,c1cc(O)c(O)c2OCC3(O)CC4=CC(=O)C(O)=CC4=C3c21
+605,[O] [C] [C] [=C] [C] [C] [Ring1] [Branch1] [C] [Branch1] [C] [Cl] [C] [=Branch2] [Ring1] [C] [=C] [Branch1] [C] [Cl] [C] [Ring1] [Branch2] [Branch1] [C] [Cl] [C] [Ring1] [Branch2] [Branch1] [C] [Cl] [Cl] [Cl],-4.156000000000001,OC1C=CC2C1C3(Cl)C(=C(Cl)C2(Cl)C3(Cl)Cl)Cl 
+606,[C] [C] [Branch1] [C] [C] [C] [C] [O] [C] [=O],-1.449,CC(C)CCOC=O
+607,[C] [=C] [C] [=C] [N] [=C] [Branch1] [=Branch2] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=N] [Ring1] [#Branch2],-4.9030000000000005,c2ccc1nc(ccc1c2)c4ccc3ccccc3n4 
+608,[C] [C] [O] [P] [=Branch1] [C] [=O] [Branch1] [Ring2] [O] [C] [C] [O] [C] [C],-0.953,CCOP(=O)(OCC)OCC
+609,[Cl] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [C] [=C] [C] [C] [Ring1] [Branch1] [C] [Ring1] [O] [Branch1] [C] [Cl] [C] [Ring1] [#Branch2] [Branch1] [C] [Cl] [Cl],-5.152,ClC2=C(Cl)C3(Cl)C1C=CCC1C2(Cl)C3(Cl)Cl 
+610,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [NH1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Ring1] [#Branch2],-3.836,c1ccc2c(c1)[nH]c3ccccc32
+611,[O] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [O],0.675,OCC(O)C(O)CO
+612,[C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [C] [N] [C] [=C] [Ring1] [#Branch1],-2.709,CCCOC(=O)c1ccc(N)cc1
+613,[O] [=C] [C] [C] [C] [=Branch1] [C] [=O] [N] [Ring1] [=Branch1],0.282,O=C1CCC(=O)N1
+614,[C] [C] [C] [C] [C] [=C] [Branch1] [C] [C] [N] [=C] [Branch1] [Ring2] [N] [C] [C] [N] [=C] [Ring1] [#Branch2] [O] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C],-3.4930000000000003,CCCCc1c(C)nc(NCC)nc1OS(=O)(=O)N(C)C 
+615,[C] [C] [N] [C] [=N] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=S] [C] [=C] [C] [=C] [N] [=C] [Ring1] [P] [Ring1] [=Branch1],-3.411,CCN2c1ncccc1N(C)C(=S)c3cccnc23 
+616,[C] [C] [C] [O] [C] [C] [Ring1] [=Branch1],-0.978,C1CCOCC1
+617,[C] [C] [C] [C] [C] [C] [#C],-2.155,CCCCCC#C
+618,[C] [=C] [C] [Branch1] [C] [C] [=C] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [C] [C] [C] [Branch1] [=Branch1] [C] [Ring1] [=Branch2] [=Ring1] [Branch1] [=C] [Ring1] [N] [C] [=C] [Ring1] [S],-6.311,c1cc(C)cc2c1c3cc4cccc5CCc(c45)c3cc2
+619,[C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.775,CCOC(=O)c1ccccc1
+620,[Cl] [C] [C] [Branch1] [C] [C] [C],-1.924,ClCC(C)C
+621,[C] [C] [C] [C] [C] [C] [Branch1] [S] [C] [C] [C] [=C] [C] [Branch1] [C] [O] [=C] [C] [=C] [Ring1] [O] [Ring1] [#Branch1] [C] [Ring1] [#C] [C] [C] [C] [Ring2] [Ring1] [C] [Branch1] [C] [O] [C] [#C],-4.317,CC34CCC1C(CCc2cc(O)ccc12)C3CCC4(O)C#C 
+622,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C],-4.025,CCCCCCCCCCCC(=O)OC
+623,[C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [Ring1] [#Branch2] [=C] [C] [Ring1] [=C] [=C] [Ring2] [Ring1] [C],-5.568,c1ccc2cc3cc4ccccc4cc3cc2c1
+624,[C] [C] [C] [C] [C] [Br],-2.658,CCCCCBr
+625,[C] [C] [C] [C] [/C] [=C] [/C],-2.784,CCCC/C=C/C
+626,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [Ring1] [Branch1],-3.869,CCCCCC1CCCC1
+627,[Cl] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=Branch1] [Ring2] [=C] [Ring1] [#Branch1] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-7.261,Clc1ccc(Cl)c(c1)c2c(Cl)c(Cl)cc(Cl)c2Cl 
+628,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [Ring1] [C] [C] [C] [Branch1] [C] [C] [C],-1.6030000000000002,O=C1NC(=O)NC(=O)C1(CC)C(C)C
+629,[C] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-2.232,CC(Cl)(Cl)Cl
+630,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [Branch1] [Branch2] [C] [C] [C] [C] [C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [N] [Ring1] [=N],-1.405,O=C2NC(=O)C1(CCCCC1)C(=O)N2
+631,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [Ring1] [=Branch2],-2.3040000000000003,CN(C)C(=O)OC1=CC(=O)CC(C)(C)C1 
+632,[C] [C] [=C] [C] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [#Branch1],-3.667,Cc1ccc(Br)cc1
+633,[C] [C] [Branch1] [C] [C] [N] [C] [=Branch1] [C] [=O] [N] [C] [C] [=Branch1] [C] [=O] [N] [Branch1] [Branch1] [C] [Ring1] [=Branch1] [=O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2],-4.004,CC(C)NC(=O)N1CC(=O)N(C1=O)c2cc(Cl)cc(Cl)c2
+634,[C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Branch1] [C] [O] [C] [Branch1] [C] [C] [=C] [Ring1] [=Branch2],-2.9410000000000003,Cc1cc(C)c(O)c(C)c1
+635,[C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.418,c1ccccc1
+636,[Cl] [C] [=C] [C] [=C] [Branch1] [C] [I] [C] [=C] [Ring1] [#Branch1],-4.384,Clc1ccc(I)cc1
+637,[C] [O] [C] [=C] [C] [=C] [Branch1] [O] [N] [C] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C] [C] [=C] [Ring1] [N] [Cl],-2.6830000000000003,COc1ccc(NC(=O)N(C)C)cc1Cl
+638,[C] [C] [Branch1] [C] [C] [N] [Branch1] [#Branch1] [C] [=Branch1] [C] [=O] [C] [Cl] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.018,CC(C)N(C(=O)CCl)c1ccccc1 
+639,[C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.85,C=Cc1ccccc1
+640,[C] [O] [C] [O] [C],0.092,COCOC
+641,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C],-3.004,Cc1ccccc1C
+642,[C] [C] [C] [Branch1] [C] [C] [O],-0.616,CCC(C)O
+643,[O] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1],-1.59,Oc1ccc(O)cc1
+644,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [Ring1] [P] [Ring1] [#Branch2],-5.189,C1c2ccccc2c3cc4ccccc4cc13
+645,[O] [=C] [C] [N] [C] [=Branch1] [C] [=O] [N] [Ring1] [=Branch1],0.603,O=C1CNC(=O)N1 
+646,[C] [Branch1] [C] [O] [=C] [C] [Branch1] [C] [O] [=C] [C] [=C] [Ring1] [Branch2] [C] [C] [C] [C] [C] [C],-3.4930000000000003,c1(O)cc(O)ccc1CCCCCC
+647,[C] [=C] [C] [S] [=Branch1] [C] [=O] [S] [C] [C] [=C],-2.045,C=CCS(=O)SCC=C
+648,[C] [C] [=C] [Branch1] [C] [C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [C] [=C] [Ring1] [#Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring2] [Ring1] [Ring1] [Ring1] [=Branch1],-6.265,Cc1c(C)c2c3ccccc3ccc2c4ccccc14
+649,[C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [Branch2] [Ring2] [O] [C] [Branch1] [C] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [Branch1] [C] [F] [C] [Branch1] [C] [O] [C] [C] [Ring2] [Ring1] [=Branch1] [Ring2] [Ring1] [C] [C] [C] [=Branch1] [C] [=O] [C] [O],-5.062,CCCCC(=O)OC3(C(C)CC4C2CCC1=CC(=O)C=CC1(C)C2(F)C(O)CC34C)C(=O)CO
+650,[O] [=C] [NH1] [C] [=Branch1] [C] [=O] [C] [NH1] [C] [=Branch1] [C] [=O] [NH1] [C] [=Ring1] [=Branch1] [NH1] [Ring1] [O],-0.541,O=c2[nH]c(=O)c1[nH]c(=O)[nH]c1[nH]2 
+651,[O] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-4.203,Oc1c(Cl)cc(Cl)c(Cl)c1Cl
+652,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-6.638,Clc1ccc(cc1)C(c2ccc(Cl)cc2)C(Cl)(Cl)Cl
+653,[C] [C] [Branch1] [C] [C] [C] [O] [C] [=O],-1.095,CC(C)COC=O
+654,[C] [C] [N] [C] [=N] [C] [Branch1] [C] [C] [=C] [C] [Branch1] [=Branch2] [C] [Branch1] [C] [F] [Branch1] [C] [F] [F] [=C] [Ring1] [O] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring2] [Ring1] [Branch1] [Ring1] [=Branch1],-4.45,CCN2c1nc(C)cc(C(F)(F)F)c1NC(=O)c3cccnc23 
+655,[C] [C] [C] [C] [C] [C],-2.615,CCCCCC
+656,[C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring1] [=Branch1],-1.621,COC(=O)c1cccnc1 
+657,[N] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch2] [Ring1] [=Branch1] [N] [C] [Branch1] [#Branch2] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [S] [Ring1] [=N] [=Branch1] [C] [=O] [=O] [C] [=C] [Ring2] [Ring1] [Ring1] [C] [Branch1] [C] [F] [Branch1] [C] [F] [F],-3.741,NS(=O)(=O)c3cc2c(NC(Cc1ccccc1)NS2(=O)=O)cc3C(F)(F)F
+658,[Cl] [C] [=C] [C] [=C] [Branch1] [=Branch1] [C] [=C] [Ring1] [=Branch1] [Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-7.425,Clc1ccc(cc1Cl)c2cc(Cl)c(Cl)c(Cl)c2Cl 
+659,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#C] [Ring1] [=Branch1],-5.568,c1ccc2c(c1)c3ccccc3c4ccccc24
+660,[C] [C] [=C] [Branch1] [P] [C] [=Branch1] [Ring1] [=C] [C] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1],-4.775,CC=C(C(=CC)c1ccc(O)cc1)c2ccc(O)cc2
+661,[C] [C] [C] [C] [C] [Branch1] [Ring1] [C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [O] [C] [C] [Branch1] [Ring1] [C] [C] [C] [C] [C] [C],-7.117000000000001,CCCCC(CC)COC(=O)c1ccccc1C(=O)OCC(CC)CCCC
+662,[C] [C] [C] [=C] [C] [=C] [C] [=N] [Ring1] [=Branch1],-2.051,CCc1ccccn1
+663,[C] [O] [P] [=Branch1] [C] [=O] [Branch1] [Ring1] [O] [C] [O] [C] [Branch1] [C] [Br] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Br],-3.548,COP(=O)(OC)OC(Br)C(Cl)(Cl)Br
+664,[C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.079,c1ccc(cc1)c2ccccc2
+665,[C] [N] [Branch1] [C] [C] [C] [=N] [C] [=Branch1] [=N] [=N] [C] [=Branch1] [Ring2] [=N] [Ring1] [=Branch1] [N] [Branch1] [C] [C] [C] [N] [Branch1] [C] [C] [C],-2.492,CN(C)c1nc(nc(n1)N(C)C)N(C)C
+666,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [Branch1] [=Branch2] [C] [C] [C] [C] [C] [C] [Ring1] [#Branch1] [C] [=Branch1] [C] [=O] [N] [Ring1] [=C],-1.844,O=C2NC(=O)C1(CCCCCC1)C(=O)N2 
+667,[O] [C] [C] [O] [C] [Branch1] [C] [O] [Branch1] [Ring1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring1] [=Branch2] [O],0.471,OCC1OC(O)(CO)C(O)C1O
+668,[C] [C] [=C] [C] [Branch1] [C] [C] [=C] [C] [Branch1] [C] [O] [=C] [Ring1] [Branch2],-2.652,Cc1cc(C)cc(O)c1
+669,[Cl] [C] [C] [#C] [C] [O] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1],-4.16,ClCC#CCOC(=O)Nc1cccc(Cl)c1
+670,[C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-2.642,CC(=O)Nc1ccc(Cl)cc1
+671,[Cl] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=Branch1] [Ring2] [=C] [Ring1] [#Branch1] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch2] [Cl],-7.898,Clc1ccc(Cl)c(c1)c2c(Cl)c(Cl)c(Cl)c(Cl)c2Cl
+672,[C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-2.584,CCC(C)(C)C
+673,[C] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.097,CNc1ccccc1
+674,[C] [C] [=Branch1] [C] [=O] [O] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [O] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [Branch1] [C] [O] [C] [C] [Ring1] [P] [Ring2] [Ring1] [Branch1] [C],-3.692,CC(=O)OCC(=O)C1(O)CCC2C3CCC4=CC(=O)CCC4(C)C3C(O)CC21C
+675,[O] [C] [N] [=C] [Branch1] [#Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [N] [C] [Ring2] [Ring1] [Ring1] [=O],-3.75,OC3N=C(c1ccccc1Cl)c2cc(Cl)ccc2NC3=O
+676,[O] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1],-2.761,Oc1cccc(Cl)c1
+677,[N] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [Branch1] [O] [N] [=C] [N] [S] [Ring1] [=Branch1] [=Branch1] [C] [=O] [=O] [C] [=C] [Ring1] [N] [Cl],-1.7519999999999998,NS(=O)(=O)c2cc1c(N=CNS1(=O)=O)cc2Cl 
+678,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [C] [C] [C] [C],-0.911,O=C1NC(=O)NC(=O)C1(C)CC
+679,[C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.09,C(c1ccccc1)c2ccccc2
+680,[C] [C] [Branch1] [C] [C] [N] [C] [=N] [C] [Branch1] [C] [Cl] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [Ring1] [O],-3.329,CC(C)Nc1nc(Cl)nc(NC(C)C)n1
+681,[C] [C] [C] [C] [Branch1] [C] [C] [C] [O],-1.381,CCCC(C)CO
+682,[C] [C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [O],-1.663,CCCCC(C)(C)O
+683,[C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.988,CCc1ccccc1
+684,[Cl] [C] [C] [=C] [C] [C] [Ring1] [Branch1] [C] [Branch1] [C] [Cl] [C] [=Branch2] [Ring1] [C] [=C] [Branch1] [C] [Cl] [C] [Ring1] [Branch2] [Branch1] [C] [Cl] [C] [Ring1] [Branch2] [Branch1] [C] [Cl] [Cl] [Cl],-5.26,ClC1C=CC2C1C3(Cl)C(=C(Cl)C2(Cl)C3(Cl)Cl)Cl
+685,[C] [C] [Branch1] [C] [C] [C] [Branch2] [Ring1] [=C] [C] [=Branch1] [C] [=O] [O] [C] [Branch1] [Ring1] [C] [#N] [C] [=C] [C] [=C] [C] [Branch1] [#Branch2] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [=C] [Ring1] [=N] [C] [Ring2] [Ring1] [#Branch1] [Branch1] [C] [C] [C],-6.15,CC1(C)C(C(=O)OC(C#N)c2cccc(Oc3ccccc3)c2)C1(C)C
+686,[C] [O] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [C] [C] [C] [Branch1] [C] [C] [C] [C] [=C] [C] [Branch1] [C] [C] [=C] [C] [=Branch1] [C] [=O] [O] [C] [Branch1] [C] [C] [C],-4.795,COC(C)(C)CCCC(C)CC=CC(C)=CC(=O)OC(C)C
+687,[C] [S] [C] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [C] [Branch1] [#Branch1] [N] [C] [Branch1] [C] [C] [C] [=N] [Ring1] [=C],-3.693,CSc1nc(NC(C)C)nc(NC(C)C)n1
+688,[C] [C] [Branch1] [Ring1] [C] [#C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-3.199,CC(C#C)N(C)C(=O)Nc1ccc(Cl)cc1
+689,[C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [Ring1] [#Branch2] [C],-4.1160000000000005,Cc1cc2ccccc2cc1C
+690,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [Cl],-5.7620000000000005,Clc1ccc(cc1)c2cc(Cl)ccc2Cl 
+691,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch2] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-7.343,Clc1ccc(c(Cl)c1)c2cc(Cl)c(Cl)c(Cl)c2Cl 
+692,[N] [C] [Branch1] [C] [N] [=N] [C] [#N],0.361,NC(N)=NC#N 
+693,[Cl] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.984,Clc1cccc(Cl)c1c2ccccc2 
+694,[C] [O] [C] [=C] [C] [=C] [Branch1] [Ring1] [C] [=O] [C] [=C] [Ring1] [Branch2],-2.252,COc1ccc(C=O)cc1
+695,[C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C] [C],-2.608,CCCCCCC(=O)OCC
+696,[C] [=C] [C] [=C] [NH1] [N] [=C] [C] [Ring1] [Branch1] [=C] [Ring1] [=Branch2],-2.34,c2ccc1[nH]ncc1c2 
+697,[C] [C] [Branch1] [C] [C] [O] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [Branch1] [C] [F] [C] [Branch1] [C] [O] [C] [C] [Ring2] [Ring1] [C] [Branch1] [C] [C] [C] [Ring2] [Ring1] [=Branch1] [Branch1] [Branch1] [O] [Ring2] [Ring1] [#Branch2] [C] [=Branch1] [C] [=O] [C] [O],-3.928,CC5(C)OC4CC3C2CCC1=CC(=O)C=CC1(C)C2(F)C(O)CC3(C)C4(O5)C(=O)CO 
+698,[N] [C] [=N] [C] [NH1] [C] [=N] [C] [=Ring1] [Branch1] [C] [=Branch1] [C] [=O] [NH1] [Ring1] [#Branch2],-0.67,Nc2nc1[nH]cnc1c(=O)[nH]2 
+699,[C] [C] [C] [C] [C] [C] [Branch1] [P] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [O] [Ring1] [#Branch1] [C] [C] [Ring1] [S] [C] [C] [C] [Ring2] [Ring1] [Ring1] [O],-3.882,CC34CCC1C(CCC2CC(=O)CCC12C)C3CCC4O 
+700,[C] [C] [C] [C] [Branch1] [C] [O] [C] [=C],-1.199,CCCC(O)C=C
+701,[O] [C] [Branch2] [Ring2] [N] [C] [=C] [C] [C] [C] [Branch2] [Ring1] [#Branch2] [C] [Ring1] [=Branch1] [C] [Ring1] [Branch1] [=C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=N] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [N] [C] [Ring2] [Ring1] [Branch1] [=O] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=N] [Ring1] [=Branch1],-4.238,OC(C1=CC2C5C(C1C2=C(c3ccccc3)c4ccccn4)C(=O)NC5=O)(c6ccccc6)c7ccccn7 
+702,[C] [C] [C] [C] [O] [C] [C] [C] [C],-2.135,CCCCOCCCC
+703,[C] [C] [N] [C] [=N] [C] [Branch1] [Branch2] [N] [Branch1] [C] [C] [C] [C] [O] [=C] [C] [=C] [Ring1] [O] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring2] [Ring1] [Branch1] [Ring1] [=Branch1],-3.335,CCN2c1nc(N(C)(CCO))ccc1NC(=O)c3cccnc23 
+704,[N] [C] [=N] [C] [=Branch1] [C] [=O] [NH1] [C] [=C] [Ring1] [#Branch1] [F],-0.132,Nc1nc(=O)[nH]cc1F
+705,[C] [C] [C] [C] [O] [C] [=C] [C] [=C] [Branch1] [Branch2] [C] [=Branch1] [C] [=O] [O] [C] [C] [C] [=Branch1] [Ring2] [=C] [Ring1] [O] [N] [Branch1] [Ring1] [C] [C] [C] [C],-5.127999999999999,CCCCOc1ccc(C(=O)OCC)c(c1)N(CC)CC 
+706,[C] [C] [C] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [O],-2.017,CCCCCC(C)(C)O
+707,[C] [C] [=C] [Branch1] [C] [C] [C] [Branch1] [C] [C] [=C] [Branch1] [C] [C] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch2] [C],-4.361000000000001,Cc1c(C)c(C)c(C)c(C)c1C
+708,[C] [=C] [N] [=C] [N] [=C] [N] [=C] [C] [Ring1] [=Branch1] [=N] [Ring1] [#Branch2],-0.906,c2cnc1ncncc1n2
+709,[C] [=C] [C] [=C] [N] [C] [C] [C] [Ring1] [Branch1] [=C] [Ring1] [=Branch2],-2.195,c2ccc1NCCc1c2 
+710,[C] [C] [C] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C],-1.266,CCC(C)C(=O)C
+711,[O] [C] [Branch2] [Ring1] [#C] [C] [C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [Branch1] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O] [C] [Ring1] [O] [=O] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [#Branch1],-7.877000000000001,OC(CC(c1ccccc1)c3c(O)c2ccccc2oc3=O)c4ccc(cc4)c5ccc(Br)cc5 
+712,[C] [C] [Branch1] [C] [C] [N] [Branch1] [=Branch1] [C] [Branch1] [C] [C] [C] [C] [=Branch1] [C] [=O] [S] [C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [Cl],-4.578,CC(C)N(C(C)C)C(=O)SCC(Cl)=C(Cl)Cl
+713,[C] [=C] [C] [=C] [NH1] [C] [=C] [C] [Ring1] [Branch1] [=C] [Ring1] [=Branch2],-2.654,c2ccc1[nH]ccc1c2
+714,[C] [C] [C] [C] [C] [C] [Branch1] [P] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [O] [Ring1] [#Branch1] [C] [C] [Ring1] [S] [C] [C] [C] [Ring2] [Ring1] [Ring1] [=O],-3.393,CC34CCC1C(CCC2=CC(=O)CCC12C)C3CCC4=O
+715,[C] [C] [=C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch1] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=Branch1] [#Branch2] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [O] [S] [Branch1] [C] [N] [=Branch1] [C] [=O] [=O],-3.642,Cc1cccc(C)c1NC(=O)c2cc(c(Cl)cc2O)S(N)(=O)=O
+716,[C] [C] [C] [C] [C] [C] [C] [C] [Ring1] [=Branch1],-3.245,CCC1CCCCC1
+717,[C] [O] [C] [=Branch1] [C] [=O] [N] [C] [=N] [C] [=C] [C] [=C] [Branch1] [Branch2] [C] [=C] [Ring1] [=Branch1] [NH1] [Ring1] [=Branch2] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.118,COC(=O)Nc2nc1ccc(cc1[nH]2)C(=O)c3ccccc3
+718,[C] [C] [N] [C] [=N] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring2] [Ring1] [C] [Ring1] [=Branch1],-3.446,CCN2c1nc(Cl)ccc1N(C)C(=O)c3cccnc23 
+719,[C] [N] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#Branch2] [Ring1] [=Branch1],-3.087,CNC(=O)Oc1cccc2ccccc12
+720,[C] [#C],-0.252,C#C
+721,[C] [C] [=C] [N] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [#Branch1],-2.0980000000000003,Cc1cncc(C)c1
+722,[C] [C] [=C] [C] [C] [=C] [Ring1] [=Branch1],-1.842,C1C=CCC=C1
+723,[C] [C] [O] [C] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [S] [P] [=Branch1] [C] [=S] [Branch1] [Ring2] [O] [C] [C] [O] [C] [C],-3.738,CCOC(=O)N(C)C(=O)CSP(=S)(OCC)OCC
+724,[C] [C] [Branch1] [C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.919,CC(O)c1ccccc1
+725,[C] [C] [Branch1] [C] [Cl] [C] [Cl],-1.794,CC(Cl)CCl
+726,[C] [C] [C] [C] [=C] [Branch1] [Ring1] [C] [C] [C] [=O],-2.081,CCCC=C(CC)C=O
+727,[C] [C] [=Branch1] [C] [=O] [O] [C] [Branch1] [C] [C] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [C] [C] [C] [Ring2] [Ring1] [Ring2] [Ring1] [S] [C],-4.863,CC(=O)OC3(C)CCC4C2CCC1=CC(=O)CCC1(C)C2CCC34C 
+728,[Cl] [C] [=C] [C] [=C] [Branch1] [Branch1] [C] [=C] [Ring1] [=Branch1] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [C] [=C] [Ring1] [#Branch1] [Cl],-5.604,Clc1ccc(cc1)c2c(Cl)cccc2Cl 
+729,[O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [O] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [Cl],-5.645,Oc1cc(Cl)ccc1Oc2ccc(Cl)cc2Cl
+730,[C] [C] [C] [C] [Branch1] [C] [O] [C] [C] [Branch1] [P] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [O] [Ring1] [#Branch1] [C] [C] [Ring1] [P] [C] [C] [C] [Ring2] [Ring1] [Ring2] [C] [=Branch1] [C] [=O] [C] [O],-3.454,CC12CC(O)C3C(CCC4=CC(=O)CCC34C)C2CCC1C(=O)CO
+731,[C] [C] [=C] [C] [Branch1] [C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [Branch2],-3.375,Cc1cc(C)cc(C)c1
+732,[C] [C] [C] [C] [C] [C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [O] [C] [C] [C] [C] [C] [C] [C] [C],-7.148,CCCCCCCCOC(=O)c1ccccc1C(=O)OCCCCCCCC 
+733,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [O],-4.586,CCCCCCCCCCCCCCCO
+734,[Cl] [C] [=C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [C] [=C] [Ring1] [#Branch1] [Cl],-5.915,Clc1cccc(Cl)c1c2c(Cl)cccc2Cl 
+735,[O] [=C] [N] [C] [=Branch1] [C] [=O] [N] [C] [=Branch1] [C] [=O] [C] [Ring1] [Branch2] [Branch1] [C] [C] [C],-0.556,O=C1NC(=O)NC(=O)C1(C)C
+736,[C] [C] [Branch1] [C] [C] [I],-2.486,CC(C)I
+737,[C] [C] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C],-0.912,CC(C)C(=O)C
+738,[C] [C] [=C] [C] [=C] [C] [S] [C] [=N] [N] [=C] [N] [Ring1] [Branch1] [C] [Ring1] [N] [=Ring1] [Branch2],-2.8680000000000003,Cc2cccc3sc1nncn1c23 
+739,[C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [C],-1.909,CCCCCCC(=O)C
+740,[C] [C] [C] [C] [C] [C] [C] [C] [C] [=Branch1] [C] [=O] [O] [C],-2.962,CCCCCCCCC(=O)OC
+741,[O] [=C] [N] [Branch1] [=N] [C] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [Ring1] [#Branch1] [=O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring2] [Ring1] [C] [Ring1] [=Branch1],-1.944,O=C1N(C2CCC(=O)NC2=O)C(=O)c3ccccc13
+742,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [Branch1] [#Branch1] [C] [C] [C] [C] [Ring1] [Branch1] [C] [=Branch1] [C] [=O] [N] [Ring1] [N],-0.966,O=C2NC(=O)C1(CCCC1)C(=O)N2
+743,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [C] [C] [C] [C] [C] [C] [C] [C] [Ring1] [Branch2],-2.629,CN(C)C(=O)NC1CCCCCCC1
+744,[Cl] [C] [Branch2] [Ring1] [=C] [C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [C] [Ring1] [#Branch2] [Branch1] [C] [Cl] [C] [Ring1] [=Branch2] [Branch1] [C] [Cl] [Cl] [C] [Ring1] [Branch2] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [C] [Ring2] [Ring1] [Ring1] [Ring1] [#C] [Cl],-6.155,ClC1(C2(Cl)C3(Cl)C4(Cl)C5(Cl)C1(Cl)C3(Cl)Cl)C5(Cl)C(Cl)(Cl)C24Cl
+745,[C] [N] [Branch1] [C] [C] [C] [=C] [Branch1] [C] [C] [N] [Branch1] [C] [C] [N] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Ring1] [=N] [=O],-2.129,CN(C)c2c(C)n(C)n(c1ccccc1)c2=O 
+746,[C] [C] [C] [Branch1] [C] [O] [C] [C],-0.97,CCC(O)CC
+747,[C] [C] [Branch1] [C] [C] [O] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [O] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [#Branch1],-5.832999999999999,CC(C)OC(=O)C(O)(c1ccc(Br)cc1)c2ccc(Br)cc2 
+748,[N] [C] [C] [=N] [N] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [C] [=Ring1] [=N] [Cl],-2.603,Nc2cnn(c1ccccc1)c(=O)c2Cl
+749,[C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [O],-0.954,CCC(C)(C)O
+750,[C] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [=C] [Ring1] [#Branch1],-2.313,Cc1ccc(O)cc1
+751,[C] [C] [O] [C] [=O],-0.402,CCOC=O
+752,[C] [C] [C] [C] [C] [C] [C] [C] [C] [Ring1] [=Branch1] [C] [Ring1] [#Branch2],-3.715,C1CCC2CCCCC2C1
+753,[C] [C] [C] [C] [S],-1.676,CCCCS
+754,[C] [=C] [C] [=C] [C] [=Branch1] [Ring2] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#C] [C] [Ring1] [=Branch1] [=C] [Ring1] [#Branch2] [Ring1] [=C],-6.007000000000001,c1ccc2c(c1)c3cccc4ccc5cccc2c5c43
+755,[Cl] [C] [=Branch1] [=Branch1] [=C] [Branch1] [C] [Cl] [Cl] [Cl],-3.063,ClC(=C(Cl)Cl)Cl
+756,[C] [C] [C] [=Branch1] [C] [=O] [C] [C],-0.912,CCC(=O)CC
+757,[C] [=C] [C] [#N],-0.354,C=CC#N
+758,[C] [C] [C] [C] [C] [C] [C] [Branch1] [C] [F] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [=N] [Branch1] [C] [F] [C] [Branch1] [C] [O] [C] [C] [Ring2] [Ring1] [Ring1] [Branch1] [C] [C] [C] [Ring2] [Ring1] [#Branch1] [Branch1] [C] [O] [C] [=Branch1] [C] [=O] [C] [O],-3.539,CC1CC2C3CC(F)C4=CC(=O)C=CC4(C)C3(F)C(O)CC2(C)C1(O)C(=O)CO
+759,[C] [C] [N] [C] [=N] [C] [Branch1] [#Branch2] [N] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [=N] [C] [Branch1] [Ring1] [O] [C] [=N] [Ring1] [=N],-3.505,CCNc1nc(NC(C)(C)C)nc(OC)n1
+760,[C] [C] [C] [C] [C] [Branch1] [C] [C] [C] [C],-3.3080000000000003,CCCCC(C)CC
+761,[Br] [C] [C] [Br],-2.102,BrCCBr
+762,[C] [N] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [Branch1] [C] [C] [C],-2.734,CNC(=O)Oc1ccccc1C(C)C
+763,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [C] [Ring1] [=Branch1] [=C] [Ring1] [P] [Ring1] [#Branch2],-5.189,C1c2ccccc2c3ccc4ccccc4c13
+764,[C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Cl],-2.912,COc1ccccc1Cl
+765,[C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Br] [C] [=C] [Ring1] [Branch2] [Cl],-5.604,COP(=S)(OC)Oc1cc(Cl)c(Br)cc1Cl
+766,[Cl] [C] [Branch1] [C] [Cl] [C] [Branch1] [N] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1],-6.007999999999999,ClC(Cl)C(c1ccc(Cl)cc1)c2ccc(Cl)cc2 
+767,[N] [=Branch1] [#Branch2] [=N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.034,N(=Nc1ccccc1)c2ccccc2
+768,[C] [C] [Branch1] [C] [C] [C] [=C] [C] [=C] [Branch1] [C] [C] [C] [=C] [Ring1] [#Branch1],-3.617,CC(C)c1ccc(C)cc1
+769,[O] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [C] [=C] [Ring1] [#Branch1] [Cl],-3.012,Oc1c(Cl)cccc1Cl
+770,[O] [C] [C] [O] [C] [Branch2] [Ring1] [Branch1] [O] [C] [Branch1] [Ring1] [C] [O] [O] [C] [Branch1] [Ring1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring1] [#Branch2] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring2] [Ring1] [Ring2] [O],0.31,OCC2OC(OC1(CO)OC(CO)C(O)C1O)C(O)C(O)C2O 
+771,[O] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring1] [#Branch2] [O],-0.887,OC1C(O)C(O)C(O)C(O)C1O
+772,[C] [N] [C] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C] [N] [=C] [N] [Branch1] [Branch2] [C] [C] [Branch1] [C] [O] [C] [O] [C] [=Ring1] [#Branch2] [C] [Ring1] [S] [=O],-0.847,Cn2c(=O)n(C)c1ncn(CC(O)CO)c1c2=O
+773,[C] [C] [C] [C] [C] [C] [Branch1] [P] [C] [C] [C] [C] [C] [S] [C] [Ring1] [Ring1] [C] [C] [Ring1] [O] [Ring1] [#Branch1] [C] [C] [Ring1] [S] [C] [C] [C] [Ring2] [Ring1] [Ring1] [O],-4.545,CC45CCC2C(CCC3CC1SC1CC23C)C4CCC5O
+774,[Br] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Br],-4.172,Brc1ccccc1Br
+775,[O] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [Branch2] [Cl],-3.648,Oc1c(Cl)cc(Cl)cc1Cl
+776,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [Branch1] [Ring2] [C] [C] [F] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring2] [Ring1] [Ring1] [Ring1] [=Branch1],-3.663,C2c1ccccc1N(CCF)C(=O)c3ccccc23 
+777,[C] [C] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [C] [C],-1.7519999999999998,CC(C)C(=O)C(C)C
+778,[C] [=C] [Branch1] [C] [O] [C] [C] [=Branch1] [C] [=O] [C] [C] [=C] [Branch1] [C] [O] [C] [=C] [C] [Ring1] [#Branch1] [O] [C] [Ring1] [N] [C] [=C] [Ring1] [P] [O] [C],-1.2919999999999998,c1c(O)C2C(=O)C3cc(O)ccC3OC2cc1(OC)
+779,[C] [N] [C] [=N] [C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [Ring1] [=N] [=Ring1] [#Branch2],-1.4980000000000002,Cn1cnc2n(C)c(=O)n(C)c(=O)c12
+780,[C] [C] [=Branch1] [C] [=O] [S] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [C] [C] [C] [Branch1] [C] [C] [C] [Branch1] [#C] [C] [C] [C] [Ring1] [=Branch1] [C] [C] [C] [=Branch1] [C] [=O] [O] [Ring1] [=Branch1] [C] [Ring2] [Ring1] [=Branch2] [Ring1] [#C],-3.842,CC(=O)SC4CC1=CC(=O)CCC1(C)C5CCC2(C)C(CCC23CCC(=O)O3)C45
+781,[O] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-4.254,O(c1ccccc1)c2ccccc2
+782,[Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [=Branch1] [C] [=C] [Ring1] [#Branch1] [Cl] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [Branch2] [Cl],-7.343,Clc1cc(Cl)c(cc1Cl)c2cc(Cl)c(Cl)cc2Cl 
+783,[N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring1] [=Branch1],-0.964,NC(=O)c1cccnc1 
+784,[S] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.758,Sc1ccccc1
+785,[C] [N] [C] [=Branch1] [C] [=O] [O] [C] [=C] [C] [Branch1] [C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [Branch2],-2.688,CNC(=O)Oc1cc(C)cc(C)c1
+786,[Cl] [C] [C] [C] [C] [Branch1] [Branch1] [C] [Ring1] [Branch1] [Cl] [C] [Branch1] [C] [Cl] [C] [=Branch2] [Ring1] [C] [=C] [Branch1] [C] [Cl] [C] [Ring1] [#Branch2] [Branch1] [C] [Cl] [C] [Ring1] [Branch2] [Branch1] [C] [Cl] [Cl] [Cl],-6.039,ClC1CC2C(C1Cl)C3(Cl)C(=C(Cl)C2(Cl)C3(Cl)Cl)Cl
+787,[C] [S] [S] [C],-1.524,CSSC
+788,[N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-1.501,NC(=O)c1ccccc1
+789,[Cl] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Br],-3.84,Clc1ccccc1Br
+790,[C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O] [C] [O] [C] [Branch2] [Ring1] [C] [C] [O] [C] [O] [C] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring1] [Branch2] [O] [C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [C] [Ring2] [Ring1] [Ring1] [O],-1.493,COC(=O)c1ccccc1OC2OC(COC3OCC(O)C(O)C3O)C(O)C(O)C2O
+791,[C] [C] [N] [C] [=N] [C] [Branch1] [C] [C] [=C] [C] [Branch1] [C] [C] [=C] [Ring1] [Branch2] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [N] [=C] [Ring2] [Ring1] [C] [Ring1] [=Branch1],-3.891,CCN2c1nc(C)cc(C)c1NC(=O)c3cccnc23 
+792,[O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [Branch2],-3.428,Oc1cc(Cl)cc(Cl)c1
+793,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [Ring1] [#Branch2],-4.87,Cc1cccc2c1ccc3ccccc32
+794,[C] [C] [C] [C] [C] [Branch1] [Ring1] [C] [C] [C] [O],-2.089,CCCCC(CC)CO
+795,[C] [C] [Branch1] [C] [C] [N] [Branch1] [=Branch1] [C] [Branch1] [C] [C] [C] [C] [=Branch1] [C] [=O] [S] [C] [C] [=Branch1] [Ring1] [=C] [Cl] [Cl],-3.827,CC(C)N(C(C)C)C(=O)SCC(=CCl)Cl
+796,[C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.713,Cc1ccccc1
+797,[C] [C] [C] [C] [=C] [C] [C] [Ring1] [#Branch1],-2.599,C1CCC=CCC1
+798,[C] [O] [C] [=C] [C] [=Branch1] [C] [=O] [C] [C] [Branch1] [C] [C] [C] [Ring1] [Branch2] [O] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [Ring1] [O] [C] [=C] [C] [Branch1] [Ring1] [O] [C] [=C] [Ring1] [O] [C] [Ring1] [=C] [=O],-3.3280000000000003,COC1=CC(=O)CC(C)C13Oc2c(Cl)c(OC)cc(OC)c2C3=O
+799,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [O],-2.814,CCCCCCCCCCO
+800,[C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [C],-2.938,CCC(C)(C)CC
+801,[C] [N] [C] [=Branch1] [C] [=O] [C] [Branch1] [C] [C] [S] [C] [C] [S] [P] [=Branch1] [C] [=O] [Branch1] [Ring1] [O] [C] [O] [C],-1.446,CNC(=O)C(C)SCCSP(=O)(OC)(OC)
+802,[O] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-4.335,Oc1cc(Cl)c(Cl)c(Cl)c1Cl
+803,[C] [C] [C] [C] [=O],-0.7490000000000001,CCCC=O
+804,[C] [C] [C] [C] [C] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Ring1] [#Branch1] [Branch1] [C] [C] [C] [Ring1] [N] [Branch1] [C] [F] [C] [Branch1] [C] [O] [C] [C] [Ring2] [Ring1] [C] [Branch1] [C] [C] [C] [Ring2] [Ring1] [=Branch1] [Branch1] [C] [O] [C] [=Branch1] [C] [=O] [C] [O] [C] [Branch1] [C] [C] [=O],-3.933,CC4CC3C2CCC1=CC(=O)C=CC1(C)C2(F)C(O)CC3(C)C4(O)C(=O)COC(C)=O 
+805,[C] [C] [C] [C],-1.907,CCCC
+806,[C] [O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [O],-1.941,COc1ccccc1O
+807,[C] [C] [C] [C] [C] [C] [C] [C] [Branch1] [C] [O] [Branch1] [=Branch1] [C] [=Branch1] [C] [=O] [C] [C] [Ring1] [=Branch2] [Branch1] [C] [C] [C] [C] [Branch1] [C] [O] [C] [Ring1] [#C] [Branch1] [C] [F] [C] [Branch1] [C] [C] [C] [=C] [C] [=Branch1] [C] [=O] [C] [=C] [Ring2] [Ring1] [#Branch2] [Ring1] [Branch2],-3.507,CC1CC2C3CCC(O)(C(=O)C)C3(C)CC(O)C2(F)C4(C)C=CC(=O)C=C14
+808,[Cl] [C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [Branch1] [C] [Cl] [Cl],-3.382,ClC(Cl)C(Cl)(Cl)Cl
+809,[C] [C] [O] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [O] [C] [C],-3.016,CCOC(=O)c1ccccc1C(=O)OCC
+810,[C] [C] [Branch1] [C] [C] [C] [O],-0.672,CC(C)CO
+811,[C] [C] [Branch1] [C] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.57,CC(C)Cc1ccccc1
+812,[I] [C] [I],-2.958,ICI
+813,[C] [C] [C] [C] [Branch1] [C] [O] [C] [C] [C],-1.6780000000000002,CCCC(O)CCC
+814,[C] [C] [C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C],-1.833,CCCCCOC(=O)C
+815,[O] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-4.203,Oc1c(Cl)c(Cl)cc(Cl)c1Cl
+816,[C] [C] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.281,CCCc1ccccc1
+817,[F] [C] [Branch1] [C] [F] [Branch1] [C] [Cl] [C] [Branch1] [C] [F] [Branch1] [C] [F] [Cl],-2.697,FC(F)(Cl)C(F)(F)Cl
+818,[C] [C] [=C] [C] [=O],-0.604,CC=CC=O
+819,[C] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C],-0.495,CN(C)C(=O)N(C)C 
+820,[C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [N] [C] [=Branch1] [C] [=O] [C] [=C] [Branch1] [C] [O] [C] [=C] [C] [=C] [Ring1] [#Branch1],-3.782,c1ccccc1NC(=O)c2c(O)cccc2
+821,[C] [C] [N] [Branch1] [Ring1] [C] [C] [C] [=Branch1] [C] [=S] [S] [C] [C] [Branch1] [C] [Cl] [=C],-3.254,CCN(CC)C(=S)SCC(Cl)=C
+822,[Cl] [C] [C],-1.165,ClCC
+823,[C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [Branch1] [P] [N] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [Branch1] [C] [F] [Branch1] [C] [F] [F] [=C] [Branch1] [C] [C] [C] [=C] [Ring1] [#C] [C],-3.165,CC(=O)Nc1cc(NS(=O)(=O)C(F)(F)F)c(C)cc1C
+824,[O] [=C] [Branch2] [Ring1] [C] [C] [=C] [C] [=C] [C] [=C] [C] [=C] [O] [C] [O] [C] [Ring1] [Branch1] [=C] [Ring1] [=Branch2] [N] [C] [C] [C] [C] [C] [Ring1] [=Branch1],-3.659,O=C(C=CC=Cc2ccc1OCOc1c2)N3CCCCC3
+825,[C] [C] [/C] [=C] [\C],-2.076,CC/C=C\C
+826,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [Branch1] [#Branch2] [C] [C] [C] [C] [C] [C] [C] [Ring1] [Branch2] [C] [=Branch1] [C] [=O] [N] [Ring1] [#C],-2.2840000000000003,O=C2NC(=O)C1(CCCCCCC1)C(=O)N2
+827,[C] [Branch1] [=Branch2] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [=C] [C] [Branch1] [=Branch2] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [=C] [C] [Branch1] [Branch2] [O] [C] [=Branch1] [C] [=O] [N] [C] [=C] [Ring2] [Ring1] [Ring1],-4.642,c1(C(C)(C)C)cc(C(C)(C)C)cc(OC(=O)NC)c1
+828,[O] [C] [=C] [C] [Branch1] [C] [O] [=C] [C] [=Branch1] [C] [=O] [C] [C] [Branch1] [Branch2] [O] [C] [Ring1] [#Branch1] [=C] [Ring1] [N] [C] [=C] [C] [=C] [Branch1] [C] [O] [C] [Branch1] [C] [O] [=C] [Ring1] [Branch2],-3.152,Oc2cc(O)c1C(=O)CC(Oc1c2)c3ccc(O)c(O)c3
+829,[O] [=C] [Branch1] [=Branch2] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.612,O=C(c1ccccc1)c2ccccc2
+830,[C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C] [C],-7.576,CCCCCCCCCCCCCCCCCCCC
+831,[N] [Branch1] [#Branch2] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-3.492,N(Nc1ccccc1)c2ccccc2 
+832,[C] [C] [C] [Branch1] [Ring1] [C] [C] [C] [O],-1.381,CCC(CC)CO
+833,[O] [C] [=C] [C] [=N] [C] [=C] [Ring1] [=Branch1],-1.655,Oc1ccncc1
+834,[Cl] [\C] [=C] [/Cl],-1.561,Cl\C=C/Cl
+835,[C] [C] [C] [C] [C] [C] [Ring1] [Branch1],-2.452,CC1CCCC1
+836,[C] [C] [Branch1] [C] [C] [C] [C] [Branch1] [C] [C] [O],-1.308,CC(C)CC(C)O
+837,[O] [C] [=C] [C] [=C] [Branch1] [C] [N] [C] [=C] [Ring1] [#Branch1] [N] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [=C] [C] [Branch1] [C] [C] [=C] [C] [=C] [Ring2] [Ring1] [Ring1] [Ring1] [#Branch1],-3.125,O2c1ccc(N)cc1N(C)C(=O)c3cc(C)ccc23 
+838,[C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C] [=Branch1] [C] [=O] [C] [Branch1] [=N] [O] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [N] [C] [=N] [C] [=N] [Ring1] [Branch1],-4.132,CC(C)(C)C(=O)C(Oc1ccc(Cl)cc1)n2cncn2
+839,[C] [C] [=C] [C] [=Branch1] [Branch1] [=N] [O] [Ring1] [Branch1] [C] [=Branch1] [C] [=O] [N] [N] [C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1],-2.251,Cc1cc(no1)C(=O)NNCc2ccccc2
+840,[O] [C] [=C] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Ring1] [#Branch1] [C] [C] [=C] [C] [Branch1] [C] [Cl] [=C] [C] [=C] [Ring1] [#Branch1] [O],-4.924,Oc1ccc(Cl)cc1Cc2cc(Cl)ccc2O
+841,[O] [=C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [#C] [Ring1] [=Branch1],-3.34,O=C1c2ccccc2C(=O)c3ccccc13
+842,[C] [C] [=C] [Branch1] [=C] [C] [=Branch1] [C] [=O] [N] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [C] [O] [Ring1] [P],-2.169,CC1=C(C(=O)Nc2ccccc2)S(=O)(=O)CCO1
+843,[O] [=C] [N] [C] [=Branch1] [C] [=O] [C] [=Branch1] [C] [=O] [N] [Ring1] [#Branch1],1.091,O=C1NC(=O)C(=O)N1 
+844,[C] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [O] [C] [=C] [C] [=C] [Branch2] [Ring1] [#Branch1] [S] [C] [=C] [C] [=C] [Branch1] [N] [O] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [O] [C] [C] [=C] [Ring1] [=N] [C] [=C] [Ring2] [Ring1] [Ring2],-6.678,COP(=S)(OC)Oc1ccc(Sc2ccc(OP(=S)(OC)OC)cc2)cc1
+845,[N] [S] [=Branch1] [C] [=O] [=Branch1] [C] [=O] [C] [=C] [C] [=Branch1] [#Branch1] [=C] [C] [=C] [Ring1] [=Branch1] [Cl] [C] [Branch1] [C] [O] [N] [C] [=Branch1] [C] [=O] [C] [=C] [C] [=C] [C] [=C] [Ring1] [O] [Ring1] [=Branch1],-2.564,NS(=O)(=O)c1cc(ccc1Cl)C2(O)NC(=O)c3ccccc23
+846,[C] [C] [Branch1] [C] [C] [C] [O] [C] [=Branch1] [C] [=O] [C],-1.463,CC(C)COC(=O)C
+847,[C] [C] [Branch1] [C] [C] [C] [Branch1] [C] [C] [Branch1] [C] [C] [C],-2.922,CC(C)C(C)(C)C
+848,[Cl] [C] [=C] [C] [=C] [Branch1] [=Branch2] [C] [Branch1] [C] [Cl] [=C] [Ring1] [#Branch1] [Cl] [C] [=C] [Branch1] [C] [Cl] [C] [=C] [Branch1] [C] [Cl] [C] [Branch1] [C] [Cl] [=C] [Ring1] [=Branch2] [Cl],-7.746,Clc1ccc(c(Cl)c1Cl)c2c(Cl)cc(Cl)c(Cl)c2Cl 
+849,[N] [#C] [C] [=C] [C] [=C] [C] [=C] [Ring1] [=Branch1] [C] [#N],-1.717,N#Cc1ccccc1C#N
+850,[F] [C] [Branch1] [C] [F] [Branch1] [C] [F] [C] [Branch1] [C] [Cl] [Br],-2.608,FC(F)(F)C(Cl)Br 
+851,[C] [N] [C] [=Branch1] [C] [=O] [O] [N] [=C] [Branch1] [Ring1] [S] [C] [C] [=Branch1] [C] [=O] [N] [Branch1] [C] [C] [C],-0.908,CNC(=O)ON=C(SC)C(=O)N(C)C
+852,[C] [C] [S] [C] [C] [S] [P] [=Branch1] [C] [=S] [Branch1] [Ring1] [O] [C] [O] [C],-3.323,CCSCCSP(=S)(OC)OC
+853,[C] [C] [C] [Branch1] [C] [C] [C],-2.245,CCC(C)C
