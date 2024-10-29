@@ -72,7 +72,7 @@ pip install -r requirements.txt
 One way to utilize FM4M is by accessing each uni-modal model individually. Within each model’s folder (e.g., SMI-TED), you’ll find comprehensive documentation and example notebooks to guide effective usage. This approach allows users to explore and apply each model’s specific functions in detail.
 
 ### 3-2. FM4M-Kit (a wrapper toolkit)
-A more streamlined approach is to use FM4M-Kit, a wrapper toolkit that enables users to work with all models within a unified framework. The example notebook, [fm4m-example.ipynb](https://github.ibm.com/CMD-TRL/FM4Mat-kit/blob/main/example_notebook.ipynb), provides step-by-step instructions for feature extraction with each model, as well as for multi-modal integration. It supports both downstream regression and classification tasks, featuring an XGBoost model for these purposes. In the near future, more functions and downstream models will be implemented.
+A more streamlined approach is to use FM4M-Kit, a wrapper toolkit that enables users to work with all models within a unified framework. The example notebook, [fm4m-example.ipynb](https://github.com/IBM/materials/blob/main/examples/fm4m_example.ipynb), provides step-by-step instructions for feature extraction with each model, as well as for multi-modal integration. It supports both downstream regression and classification tasks, featuring an XGBoost model for these purposes. In the near future, more functions and downstream models will be implemented.
 
 #### Retrieving feature representations
 To extract representations from a specific model (e.g., `selfies-ted`), call the following api:

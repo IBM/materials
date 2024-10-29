@@ -20,7 +20,7 @@ test_smiles_list = pd.concat([test_df[f'smi{i}'] for i in range(1, 7)]).unique()
 
 fm4m.avail_models()
 
-model_type = "SELFIES-TED"
+model_type = "SMI-TED"
 train_emb, test_emb = fm4m.get_representation(train_smiles_list,test_smiles_list, model_type, return_tensor=False)
 
 train_emb = [np.nan if row.isna().all() else row.dropna().tolist() for _, row in train_emb.iterrows()]

@@ -51,7 +51,7 @@ def avail_models_data():
 
 
     models = [{"Name": "bart","Model Name": "SELFIES-TED","Description": "BART model for string based SELFIES modality", "Timestamp": "2024-06-21 12:32:20"},
-  {"Name": "mol-xl","Model Name": "Molformer", "Description": "MolFormer model for string based SMILES modality", "Timestamp": "2024-06-21 12:35:56"},
+  {"Name": "mol-xl","Model Name": "MolFormer", "Description": "MolFormer model for string based SMILES modality", "Timestamp": "2024-06-21 12:35:56"},
   {"Name": "mhg", "Model Name": "MHG-GED","Description": "Molecular hypergraph model", "Timestamp": "2024-07-10 00:09:42"},
   {"Name": "smi-ted", "Model Name": "SMI-TED","Description": "SMILES based encoder decoder model", "Timestamp": "2024-07-10 00:09:42"}]
 
@@ -61,7 +61,7 @@ def avail_models(raw=False):
 
     models = [{"Name": "smi-ted", "Model Name": "SMI-TED","Description": "SMILES based encoder decoder model"},
               {"Name": "bart","Model Name": "SELFIES-TED","Description": "BART model for string based SELFIES modality"},
-              {"Name": "mol-xl","Model Name": "Molformer", "Description": "MolFormer model for string based SMILES modality"},
+              {"Name": "mol-xl","Model Name": "MolFormer", "Description": "MolFormer model for string based SMILES modality"},
               {"Name": "mhg", "Model Name": "MHG-GED","Description": "Molecular hypergraph model"},
   ]
 
@@ -191,174 +191,7 @@ def update_downstream_model_list(list_model):
 
 avail_models_data()
 
-def list_models():
-    #print(*list(models.keys()),sep='\n')
-    data = avail_models(raw=True)
-    # Convert data to a pandas DataFrame
-    df = pd.DataFrame(data)
 
-    # Add a column for displaying row numbers starting from 1
-    df.index += 1
-
-    # Create dropdown widget for sorting
-    sort_dropdown = widgets.Dropdown(
-        options=['Name', 'Timestamp'],
-        value='Name',
-        description='Sort by:',
-        disabled=False,
-    )
-
-    # Output widget to display the table
-    output = widgets.Output()
-
-    # Define function to update display based on sorting
-    def update_display(change):
-        with output:
-            output.clear_output(wait=True)
-            sorted_df = df.sort_values(by=sort_dropdown.value)
-            display(sorted_df.style.set_properties(**{
-                'text-align': 'left', 'border': '1px solid #ddd',
-            }))
-
-    # Attach the update_display function to the dropdown widget
-    sort_dropdown.observe(update_display, names='value')
-
-    # Display the dropdown and the table initially
-    display(sort_dropdown, output)
-    update_display(None)
-
-def list_downstream_models():
-    #print(*list(models.keys()),sep='\n')
-    data = avail_downstream_models()
-    # Convert data to a pandas DataFrame
-    df = pd.DataFrame(data)
-
-    # Add a column for displaying row numbers starting from 1
-    df.index += 1
-
-    # Create dropdown widget for sorting
-    sort_dropdown = widgets.Dropdown(
-        options=['Name', 'Timestamp'],
-        value='Timestamp',
-        description='Sort by:',
-        disabled=False,
-    )
-
-    # Output widget to display the table
-    output = widgets.Output()
-
-    # Define function to update display based on sorting
-    def update_display(change):
-        with output:
-            output.clear_output(wait=True)
-            sorted_df = df.sort_values(by=sort_dropdown.value)
-            display(sorted_df.style.set_properties(**{
-                'text-align': 'left', 'border': '1px solid #ddd',
-            }))
-
-    # Attach the update_display function to the dropdown widget
-    sort_dropdown.observe(update_display, names='value')
-
-    # Display the dropdown and the table initially
-    display(sort_dropdown, output)
-    update_display(None)
-
-def list_data():
-
-    #print(*list(datasets.keys()),sep='\n')
-    data = avail_datasets()
-    # Convert data to a pandas DataFrame
-    df = pd.DataFrame(data)
-
-    # Add a column for displaying row numbers starting from 1
-    df.index += 1
-
-    # Create dropdown widget for sorting
-    sort_dropdown = widgets.Dropdown(
-        options=['Dataset', 'Input', 'Output', 'Path', 'Timestamp'],
-        value='Input',
-        description='Sort by:',
-        disabled=False,
-    )
-
-    # Output widget to display the table
-    output = widgets.Output()
-
-    # Define function to update display based on sorting
-    def update_display(change):
-        with output:
-            output.clear_output(wait=True)
-            sorted_df = df.sort_values(by=sort_dropdown.value)
-            display(sorted_df.style.set_properties(**{
-                'text-align': 'left', 'border': '1px solid #ddd',
-            }))
-
-    # Attach the update_display function to the dropdown widget
-    sort_dropdown.observe(update_display, names='value')
-
-    # Display the dropdown and the table initially
-    display(sort_dropdown, output)
-    update_display(None)
-
-def vizualize(roc_auc,fpr, tpr, features, labels):
-    #def vizualize(features, labels):
-
-    reducer = umap.UMAP(metric="jaccard", n_neighbors=20, n_components=2, low_memory=True, min_dist=0.001, verbose=False)
-
-    features_umap = reducer.fit_transform(features)
-    x = labels.values
-    index_0 = [index for index in range(len(x)) if x[index] == 0]
-    index_1 = [index for index in range(len(x)) if x[index] == 1]
-
-    class_0 = features_umap[index_0]
-    class_1 = features_umap[index_1]
-
-
-    # Function to create ROC AUC plot
-    def plot_roc_auc():
-        plt.figure(figsize=(8, 6))
-        plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (area = {roc_auc:.4f})')
-        plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
-        plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.05])
-        plt.xlabel('False Positive Rate')
-        plt.ylabel('True Positive Rate')
-        plt.title('Receiver Operating Characteristic')
-        plt.legend(loc='lower right')
-        plt.show()
-
-    # Function to create scatter plot of the dataset distribution
-    def plot_distribution():
-        plt.figure(figsize=(8, 6))
-        #plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.coolwarm, edgecolors='k')
-        plt.scatter(class_1[:, 0], class_1[:, 1], c='red', label='Class 1')
-        plt.scatter(class_0[:, 0], class_0[:, 1], c='blue', label='Class 0')
-
-        plt.xlabel('Feature 1')
-        plt.ylabel('Feature 2')
-        plt.title('Dataset Distribution')
-        plt.show()
-
-
-
-    # Create tabs using ipywidgets
-    tab_contents = ['ROC AUC', 'Distribution']
-    children = [widgets.Output(), widgets.Output()]
-
-    tab = widgets.Tab()
-    tab.children = children
-    for i in range(len(tab_contents)):
-        tab.set_title(i, tab_contents[i])
-
-    # Display plots in their respective tabs
-    with children[0]:
-        plot_roc_auc()
-
-    with children[1]:
-        plot_distribution()
-
-    # Display the tab widget
-    display(tab)
 
 def get_representation(train_data,test_data,model_type, return_tensor=True):
     alias = {"MHG-GED": "mhg", "SELFIES-TED": "bart", "MolFormer": "mol-xl", "Molformer": "mol-xl", "SMI-TED": "smi-ted"}
@@ -425,7 +258,7 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
 
 def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=None, x_test=None, y_train=None, y_test=None):
     print(model)
-    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "MolFormer":"mol-xl", "SMI-TED": "smi-ted"}
+    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "MolFormer":"mol-xl", "Molformer": "mol-xl", "SMI-TED": "smi-ted"}
     data = avail_models(raw=True)
     df = pd.DataFrame(data)
     #print(list(df["Name"].values))
@@ -496,7 +329,8 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
                                 verbose=False)
             n_samples = np.minimum(1000, len(x_batch))
             features_umap = reducer.fit_transform(x_batch[:n_samples])
-            x = y_batch.values[:n_samples]
+            try:x = y_batch.values[:n_samples]
+            except: x = y_batch[:n_samples]
             index_0 = [index for index in range(len(x)) if x[index] == 0]
             index_1 = [index for index in range(len(x)) if x[index] == 1]
 
@@ -562,7 +396,8 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
                             verbose=False)
         n_samples = np.minimum(1000, len(x_batch))
         features_umap = reducer.fit_transform(x_batch[:n_samples])
-        x = y_batch.values[:n_samples]
+        try: x = y_batch.values[:n_samples]
+        except: x = y_batch[:n_samples]
         #index_0 = [index for index in range(len(x)) if x[index] == 0]
         #index_1 = [index for index in range(len(x)) if x[index] == 1]
 
@@ -589,7 +424,8 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
                             verbose=False)
         n_samples = np.minimum(1000, len(x_batch))
         features_umap = reducer.fit_transform(x_batch[:n_samples])
-        x = y_batch.values[:n_samples]
+        try: x = y_batch.values[:n_samples]
+        except: x = y_batch[:n_samples]
         # index_0 = [index for index in range(len(x)) if x[index] == 0]
         # index_1 = [index for index in range(len(x)) if x[index] == 1]
 
@@ -617,7 +453,8 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
                             verbose=False)
         n_samples = np.minimum(1000, len(x_batch))
         features_umap = reducer.fit_transform(x_batch[:n_samples])
-        x = y_batch.values[:n_samples]
+        try:x = y_batch.values[:n_samples]
+        except: x = y_batch[:n_samples]
         # index_0 = [index for index in range(len(x)) if x[index] == 0]
         # index_1 = [index for index in range(len(x)) if x[index] == 1]
 
@@ -645,7 +482,8 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
                             verbose=False)
         n_samples = np.minimum(1000, len(x_batch))
         features_umap = reducer.fit_transform(x_batch[:n_samples])
-        x = y_batch.values[:n_samples]
+        try:x = y_batch.values[:n_samples]
+        except: x = y_batch[:n_samples]
         # index_0 = [index for index in range(len(x)) if x[index] == 0]
         # index_1 = [index for index in range(len(x)) if x[index] == 1]
 
@@ -688,7 +526,7 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
     df = pd.DataFrame(data)
     list(df["Name"].values)
 
-    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "MolFormer":"mol-xl", "SMI-TED":"smi-ted"}
+    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "MolFormer":"mol-xl",  "Molformer": "mol-xl","SMI-TED":"smi-ted"}
     #if set(model_list).issubset(list(df["Name"].values)):
     if set(model_list).issubset(list(alias.keys())):
         for i, model in enumerate(model_list):

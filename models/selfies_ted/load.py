@@ -49,6 +49,9 @@ class SELFIES(torch.nn.Module):
         sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
         model_output = sum_embeddings / sum_mask
 
+        del encoding['input_ids']
+        del encoding['attention_mask']
+
         encoding["embedding"] = model_output
 
         return encoding
@@ -62,14 +65,7 @@ class SELFIES(torch.nn.Module):
 
         self.tokenizer = AutoTokenizer.from_pretrained("ibm/materials.selfies-ted")
         self.model = AutoModel.from_pretrained("ibm/materials.selfies-ted")
-        """if os.path.isfile(checkpoint):
-            with open(checkpoint, "rb") as input_file:
-                self.model, self.tokenizer = pickle.load(input_file)
-        for p in sys.path:
-            file = p + "/" + checkpoint
-            if os.path.isfile(file):
-                with open(file, "rb") as input_file:
-                    self.model, self.tokenizer = pickle.load(input_file)"""
+
 
 
 
