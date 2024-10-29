@@ -47,6 +47,8 @@ class Trainer:
         self.save_every_epoch = save_every_epoch
         self.save_ckpt = save_ckpt
         self.device = device
+        self.best_vloss = float('inf')
+        self.last_filename = None
         self._set_seed(seed)
 
     def _prepare_data(self):
@@ -89,8 +91,6 @@ class Trainer:
             print('Checkpoint restored!')
 
     def fit(self, max_epochs=500):
-        best_vloss = float('inf')
-
         for epoch in range(self.start_epoch, max_epochs+1):
             print(f'\n=====Epoch [{epoch}/{max_epochs}]=====')
 
@@ -106,21 +106,21 @@ class Trainer:
                 print(f"[VALID] Evaluation {m.upper()}: {round(val_metrics[m], 4)}")
 
             ############################### Save Finetune checkpoint #######################################
-            if ((val_loss < best_vloss) or self.save_every_epoch) and self.save_ckpt:
+            if ((val_loss < self.best_vloss) or self.save_every_epoch) and self.save_ckpt:
                 # remove old checkpoint
-                if best_vloss != float('inf') and not self.save_every_epoch:
+                if (self.last_filename != None) and (not self.save_every_epoch):
                     os.remove(os.path.join(self.checkpoints_folder, self.last_filename))
 
                 # filename
                 model_name = f'{str(self.model)}-Finetune'
-                self.last_filename = f"{model_name}_epoch={epoch}_{self.dataset_name}_seed{self.seed}_valloss={round(val_loss, 4)}.pt"
+                self.last_filename = f"{model_name}_seed{self.seed}_{self.dataset_name}_epoch={epoch}_valloss={round(val_loss, 4)}.pt"
+
+                # update best loss
+                self.best_vloss = val_loss
 
                 # save checkpoint
                 print('Saving checkpoint...')
                 self._save_checkpoint(epoch, self.last_filename)
-
-                # update best loss
-                best_vloss = val_loss
 
     def evaluate(self, verbose=True):
         if verbose:
@@ -189,6 +189,7 @@ class Trainer:
         ckpt_dict = torch.load(ckpt_path, map_location='cpu')
         self.model.load_state_dict(ckpt_dict['MODEL_STATE'])
         self.start_epoch = ckpt_dict['EPOCHS_RUN'] + 1
+        self.best_vloss = ckpt_dict['finetune_info']['best_vloss']
 
     def _save_checkpoint(self, current_epoch, filename):
         if not os.path.exists(self.checkpoints_folder):
@@ -209,6 +210,7 @@ class Trainer:
                 'train_size': self.df_train.shape[0],
                 'valid_size': self.df_valid.shape[0],
                 'test_size': self.df_test.shape[0],
+                'best_vloss': self.best_vloss,
             },
             'seed': self.seed,
         }
