@@ -2,7 +2,7 @@ name: GitHub Clone Count Update Everyday
 
 on:
   schedule:
-    - cron: "* * * * *"  # Runs every 5 minutes
+    - cron: "0 */24 * * *"
   workflow_dispatch:
 
 jobs:
