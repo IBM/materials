@@ -3,6 +3,8 @@
 ![contribution](https://img.shields.io/badge/contributions-welcome-blue)
 ![python](https://img.shields.io/badge/Python-3.9.8_or_later-green)
 ![pytorch](https://img.shields.io/badge/PyTorch-2.0_or_later-green)
+[![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/indra-ipd/f70fe82f906a21b1647781b457c24367/raw/clone.json&logo=github)](https://github.com/MShawon/github-clone-count-badge)
+
 
 Welcome to IBM’s multi-modal foundation model for materials, FM4M. This model is designed to support and advance research in materials science and chemistry. FM4M consists of a diverse set of uni-modal models, each pre-trained with distinct representations and modalities, such as SMILES, SELFIES, molecular graphs, 3D atom positions, 3D density grids, and other representations. By fine-tuning with domain-specific data, FM4M can be applied to various downstream tasks, including predictive and generative functions. Starting with a few uni-modal models, we will release diverse models progressively.
 
