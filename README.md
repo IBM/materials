@@ -120,16 +120,13 @@ Stay updated on our upcoming events and join us to connect, learn, and engage!
 - **26 July 2024**: **ICML 2024 AI for Science**, [Social Night with AI Alliance](https://icml.cc/virtual/2024/workshop/29973), Vienna.
   
 - **29 October 2024**: **Acceleration Consortium Fall Research Symposium**  
-  *Demo & Hands-on for FM4M, Toronto.*  
-  [Event Link](https://acceleration.utoronto.ca/events/acceleration-consortium-fall-research-symposium?utm_source=substack&utm_medium=email)
+  *Demo & Hands-on for FM4M, Toronto.* [Event Link](https://acceleration.utoronto.ca/events/acceleration-consortium-fall-research-symposium?utm_source=substack&utm_medium=email)
 
 - **28 November 2024**: **ChemAI Satellite Events**  
-  *Get Hands-On with Open Multi-Modal Foundation Models for Materials and Chemistry.*  
-  [Register here](https://www.eventbrite.nl/e/chemai-24-satellite-events-tickets-1003578088077)
+  *Get Hands-On with Open Multi-Modal Foundation Models for Materials and Chemistry.* [Register here](https://www.eventbrite.nl/e/chemai-24-satellite-events-tickets-1003578088077)
 
 - **11 December 2024**: **NeurIPS 2024 Social Event**  
-  *"Breaking Silos: Open Community for AI x Science", Vancouver.*  
-  *(Website will open soon)*
+  *"Breaking Silos: Open Community for AI x Science", Vancouver.*  *(Website will open soon)*
 
 
 
