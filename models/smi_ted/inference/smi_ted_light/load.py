@@ -19,6 +19,12 @@ from transformers import BertTokenizer
 import numpy as np
 import pandas as pd
 
+# Chemistry
+from rdkit import Chem
+from rdkit.Chem import PandasTools
+from rdkit.Chem import Descriptors
+PandasTools.RenderImagesInAllDataFrames(True)
+
 # Standard library
 from functools import partial
 import regex as re
@@ -27,6 +33,17 @@ import os
 import gc
 from tqdm import tqdm
 tqdm.pandas()
+
+
+# function to canonicalize SMILES
+def normalize_smiles(smi, canonical=True, isomeric=False):
+    try:
+        normalized = Chem.MolToSmiles(
+            Chem.MolFromSmiles(smi), canonical=canonical, isomericSmiles=isomeric
+        )
+    except:
+        normalized = None
+    return normalized
 
 
 class MolTranBertTokenizer(BertTokenizer):
@@ -476,9 +493,13 @@ class Smi_ted(nn.Module):
         if self.is_cuda_available:
             self.encoder.cuda()
             self.decoder.cuda()
+
+        # handle single str or a list of str
+        smiles = pd.Series(smiles) if isinstance(smiles, str) else pd.Series(list(smiles))
+        smiles = smiles.apply(normalize_smiles)
         
         # tokenizer
-        idx, mask = self.tokenize(smiles)
+        idx, mask = self.tokenize(smiles.to_list())
         
         ###########
         # Encoder #
@@ -547,6 +568,7 @@ class Smi_ted(nn.Module):
 
         # handle single str or a list of str
         smiles = pd.Series(smiles) if isinstance(smiles, str) else pd.Series(list(smiles))
+        smiles = smiles.apply(normalize_smiles)
         n_split = smiles.shape[0] // batch_size if smiles.shape[0] >= batch_size else smiles.shape[0]
         
         # process in batches
