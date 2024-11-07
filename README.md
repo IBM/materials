@@ -8,6 +8,8 @@
 
 Welcome to IBM’s multi-modal foundation model for materials, FM4M. This model is designed to support and advance research in materials science and chemistry. FM4M consists of a diverse set of uni-modal models, each pre-trained with distinct representations and modalities, such as SMILES, SELFIES, molecular graphs, 3D atom positions, 3D density grids, and other representations. By fine-tuning with domain-specific data, FM4M can be applied to various downstream tasks, including predictive and generative functions. Starting with a few uni-modal models, we will release diverse models progressively.
 
+📢 **Exciting Update!** Our next event is coming soon. Click [**here**](#-events) to learn more!
+
 ## Model Architecture
 
 FM4M adopts a modular architecture designed for flexible extensibility. As illustrated in the figure below, it comprises both uni-modal and fused models. Each uni-modal model is pre-trained independently for its respective modality (e.g., SMILES), and users can access individual functionalities directly from the corresponding model directory (e.g., smi-ted/).
@@ -106,15 +108,30 @@ The easiest approach is to use FM4M-Kit through a web UI available on Hugging Fa
 
 We strongly believe in the power of collaboration and community-driven development to propel AI forward. We hope that the AI community will find our efforts useful and that our models help advance research and innovation in materials science.
 
-We are especially promoting open development of FM4M through a working group in [AI Alliance <space>](https://thealliance.ai/). Within this group, we organize technical meetings, hands-on seminars, and social events at leading AI conferences as below.
-    
-    
-- ICML 2024 AI for Science, [Social Night with AI Alliance](https://icml.cc/virtual/2024/workshop/29973), Vienna, 26 November 2024.
-- [Acceleration Consortium Fall Research Symposium](https://acceleration.utoronto.ca/events/acceleration-consortium-fall-research-symposium?utm_source=substack&utm_medium=email), Demo & Hands-on for FM4M, Toronto, 29 October 2024.
-- NeurIPS 2024 Social event "Breaking Silos: Open Community for AI x Science", Vancouver, 11 December 2024. (website will open after 5 November)
-
 We welcome contributions from the community! If you have any ideas, improvements, or new models you'd like to share, please feel free to contact. 
 For any questions, suggestions, or feedback, please open an issue on GitHub.
+
+We are especially promoting open development of FM4M through a working group in [AI Alliance <space>](https://thealliance.ai/). Within this group, we organize technical meetings, hands-on seminars, and social events at leading AI conferences.
+
+## 📅 Events
+
+Stay updated on our upcoming events and join us to connect, learn, and engage!
+
+- **26 July 2024**: **ICML 2024 AI for Science**, [Social Night with AI Alliance](https://icml.cc/virtual/2024/workshop/29973), Vienna.
+  
+- **29 October 2024**: **Acceleration Consortium Fall Research Symposium**  
+  *Demo & Hands-on for FM4M, Toronto.* [Event Link](https://acceleration.utoronto.ca/events/acceleration-consortium-fall-research-symposium?utm_source=substack&utm_medium=email)
+
+- **28 November 2024**: **ChemAI Satellite Events**  
+  *Get Hands-On with Open Multi-Modal Foundation Models for Materials and Chemistry.* [Register here](https://www.eventbrite.nl/e/chemai-24-satellite-events-tickets-1003578088077)
+
+- **11 December 2024**: **NeurIPS 2024 Social Event**  
+  *"Breaking Silos: Open Community for AI x Science", Vancouver.*  *(Website will open soon)*
+
+
+
+
+
 
 ## Related Publications
 Only one representative paper for each model is listed here. For a complete list of publications, please refer to each model’s README page.
