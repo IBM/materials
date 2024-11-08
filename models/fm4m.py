@@ -32,6 +32,11 @@ from models.selfies_ted.load import SELFIES as bart
 from models.mhg_model import load as mhg
 from models.smi_ted.smi_ted_light.load import load_smi_ted
 
+import mordred
+from mordred import Calculator, descriptors
+from rdkit import Chem
+from rdkit.Chem import AllChem
+
 datasets = {}
 models = {}
 downstream_models ={}
@@ -63,6 +68,8 @@ def avail_models(raw=False):
               {"Name": "bart","Model Name": "SELFIES-TED","Description": "BART model for string based SELFIES modality"},
               {"Name": "mol-xl","Model Name": "MolFormer", "Description": "MolFormer model for string based SMILES modality"},
               {"Name": "mhg", "Model Name": "MHG-GED","Description": "Molecular hypergraph model"},
+              {"Name": "Mordred", "Model Name": "Mordred","Description": "A molecular descriptor calculator"},
+              {"Name": "MorganFingerprint", "Model Name": "MorganFingerprint","Description": "Encodes molecular structures into binary vectors based on circular atom environments"}              
   ]
 
 
@@ -211,7 +218,6 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
             x_batch_test = pd.DataFrame(x_batch_test)
 
 
-
     elif model_type == "bart":
         model = bart()
         model.load()
@@ -252,7 +258,47 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
         if not return_tensor:
             x_batch = pd.DataFrame(x_batch)
             x_batch_test = pd.DataFrame(x_batch_test)
-
+    
+    elif model_type == 'Mordred':
+        all_data = train_data + test_data
+        calc = Calculator(descriptors, ignore_3D=True)
+        mol_list = [Chem.MolFromSmiles(sm) for sm in all_data]
+        x_all = calc.pandas(mol_list)
+        print (f'original mordred fv dim: {x_all.shape}')
+        
+        for j in x_all.columns:
+            for k in range(len(x_all[j])):
+                i = x_all.loc[k, j]
+                if type(i) is mordred.error.Missing or type(i) is mordred.error.Error:
+                    x_all.loc[k, j] = np.nan
+                    
+        x_all.dropna(how="any", axis = 1, inplace=True)
+        print (f'Nan excluded mordred fv dim: {x_all.shape}')
+        
+        x_batch = x_all.iloc[:len(train_data)-1]
+        x_batch_test = x_all.iloc[len(train_data):]
+        
+    elif model_type == 'MorganFingerprint':
+        params = {'radius':2, 'nBits':1024}
+        
+        mol_train = [Chem.MolFromSmiles(sm) for sm in train_data]
+        mol_test = [Chem.MolFromSmiles(sm) for sm in test_data]
+        
+        x_batch = []
+        for mol in mol_train:
+            info = {}
+            fp = AllChem.GetMorganFingerprintAsBitVect(mol, **params, bitInfo=info)
+            vector = list(fp)
+            x_batch.append(vector)
+        x_batch = pd.DataFrame(x_batch)
+        
+        x_batch_test = []
+        for mol in mol_test:
+            info = {}
+            fp = AllChem.GetMorganFingerprintAsBitVect(mol, **params, bitInfo=info)
+            vector = list(fp)
+            x_batch_test.append(vector)
+        x_batch_test = pd.DataFrame(x_batch_test)
 
     return x_batch, x_batch_test
 
