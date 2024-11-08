@@ -350,9 +350,21 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
         y_batch = y_train
         y_batch_test = y_test
         x_batch, x_batch_test = get_representation(x_train, x_test, model_type)
-
-
-
+    
+    # exclude row containing Nan value
+    nan_indices = x_batch.index[x_batch.isna().any(axis=1)]
+    x_batch.dropna(inplace = True)
+    for index in sorted(nan_indices, reverse=True):
+        del y_batch[index]
+    if len(nan_indices) > 0:
+        print(f'x_batch Nan index: {nan_indices}')
+    
+    nan_indices = x_batch_test.index[x_batch_test.isna().any(axis=1)]
+    x_batch_test.dropna(inplace = True)
+    for index in sorted(nan_indices, reverse=True):
+        del y_batch_test[index]
+    if len(nan_indices) > 0:
+        print(f'x_batch_test Nan index: {nan_indices}')
 
     print(f" Calculating ROC AUC Score ...")
 
@@ -631,6 +643,21 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
 
     num_columns = x_batch.shape[1]
     x_batch.columns = [f'{i + 1}' for i in range(num_columns)]
+    
+    # exclude row containing Nan value
+    nan_indices = x_batch.index[x_batch.isna().any(axis=1)]
+    x_batch.dropna(inplace = True)
+    for index in sorted(nan_indices, reverse=True):
+        del y_batch[index]
+    if len(nan_indices) > 0:
+        print(f'x_batch Nan index: {nan_indices}')
+    
+    nan_indices = x_batch_test.index[x_batch_test.isna().any(axis=1)]
+    x_batch_test.dropna(inplace = True)
+    for index in sorted(nan_indices, reverse=True):
+        del y_batch_test[index]
+    if len(nan_indices) > 0:
+        print(f'x_batch_test Nan index: {nan_indices}')
 
 
     print(f"Representations loaded successfully")
