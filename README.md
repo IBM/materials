@@ -126,7 +126,7 @@ Stay updated on our upcoming events and join us to connect, learn, and engage!
   *Get Hands-On with Open Multi-Modal Foundation Models for Materials and Chemistry.* [Register here](https://www.eventbrite.nl/e/chemai-24-satellite-events-tickets-1003578088077)
 
 - **11 December 2024**: **NeurIPS 2024 Social Event**  
-  *"Breaking Silos: Open Community for AI x Science", Vancouver.*  *(Website will open soon)*
+  *"Breaking Silos: Open Community for AI x Science", Vancouver.*  [Webpage](https://sites.google.com/view/breaking-silos-open-ai4science/)   [RSVP here](https://forms.gle/NZb7yMksxphaYLKH6)
 
 
 
