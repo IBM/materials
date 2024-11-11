@@ -22,4 +22,4 @@ umap-learn
 torch-optimizer
 tqdm>=4.66.4
 pytorch-fast-transformers
-
+mordred
