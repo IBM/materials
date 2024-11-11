@@ -68,8 +68,8 @@ def avail_models(raw=False):
               {"Name": "bart","Model Name": "SELFIES-TED","Description": "BART model for string based SELFIES modality"},
               {"Name": "mol-xl","Model Name": "MolFormer", "Description": "MolFormer model for string based SMILES modality"},
               {"Name": "mhg", "Model Name": "MHG-GED","Description": "Molecular hypergraph model"},
-              {"Name": "Mordred", "Model Name": "Mordred","Description": "A molecular descriptor calculator"},
-              {"Name": "MorganFingerprint", "Model Name": "MorganFingerprint","Description": "Encodes molecular structures into binary vectors based on circular atom environments"}              
+              {"Name": "Mordred", "Model Name": "Mordred","Description": "Baseline: A descriptor-calculation software application that can calculate more than 1800 two- and three-dimensional descriptors"},
+              {"Name": "MorganFingerprint", "Model Name": "MorganFingerprint","Description": "Baseline: Circular atom environments based descriptor"}              
   ]
 
 
@@ -303,7 +303,7 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
 
     return x_batch, x_batch_test
 
-def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=None, x_test=None, y_train=None, y_test=None):
+def single_modal(model,dataset=None, downstream_model=None, params=None, x_train=None, x_test=None, y_train=None, y_test=None):
     print(model)
     alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "MolFormer":"mol-xl", "Molformer": "mol-xl", "SMI-TED": "smi-ted"}
     data = avail_models(raw=True)
