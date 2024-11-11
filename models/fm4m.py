@@ -275,8 +275,9 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
         x_all.dropna(how="any", axis = 1, inplace=True)
         print (f'Nan excluded mordred fv dim: {x_all.shape}')
         
-        x_batch = x_all.iloc[:len(train_data)-1]
+        x_batch = x_all.iloc[:len(train_data)]
         x_batch_test = x_all.iloc[len(train_data):]
+        # print(f'x_batch: {len(x_batch)}, x_batch_test: {len(x_batch_test)}')
         
     elif model_type == 'MorganFingerprint':
         params = {'radius':2, 'nBits':1024}
@@ -308,14 +309,15 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
     data = avail_models(raw=True)
     df = pd.DataFrame(data)
     #print(list(df["Name"].values))
-    if alias[model] in list(df["Name"].values):
-        if model in alias.keys():
+    
+    if model in list(df["Name"].values):
+        model_type = model
+    elif alias[model] in list(df["Name"].values):
             model_type = alias[model]
-        else:
-            model_type = model
     else:
         print("Model not available")
         return
+    
 
     data = avail_datasets()
     df = pd.DataFrame(data)
@@ -352,24 +354,33 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
         x_batch, x_batch_test = get_representation(x_train, x_test, model_type)
     
     # exclude row containing Nan value
+    if isinstance(x_batch, torch.Tensor):
+        x_batch = pd.DataFrame(x_batch)    
     nan_indices = x_batch.index[x_batch.isna().any(axis=1)]
-    x_batch.dropna(inplace = True)
-    for index in sorted(nan_indices, reverse=True):
-        del y_batch[index]
     if len(nan_indices) > 0:
+        x_batch.dropna(inplace = True)
+        for index in sorted(nan_indices, reverse=True):
+            del y_batch[index]
         print(f'x_batch Nan index: {nan_indices}')
-    
+        print(f'x_batch shape: {x_batch.shape}, y_batch len: {len(y_batch)}')
+            
+    if isinstance(x_batch_test, torch.Tensor):
+        x_batch_test = pd.DataFrame(x_batch_test)
     nan_indices = x_batch_test.index[x_batch_test.isna().any(axis=1)]
-    x_batch_test.dropna(inplace = True)
-    for index in sorted(nan_indices, reverse=True):
-        del y_batch_test[index]
     if len(nan_indices) > 0:
+        x_batch_test.dropna(inplace = True)
+        for index in sorted(nan_indices, reverse=True):
+            del y_batch_test[index]
         print(f'x_batch_test Nan index: {nan_indices}')
+        print(f'x_batch_test shape: {x_batch_test.shape}, y_batch_test len: {len(y_batch_test)}')
 
     print(f" Calculating ROC AUC Score ...")
 
     if downstream_model == "XGBClassifier":
-        xgb_predict_concat = XGBClassifier(**params) # n_estimators=5000, learning_rate=0.01, max_depth=10
+        if params == None:
+            xgb_predict_concat = XGBClassifier()
+        else:
+            xgb_predict_concat = XGBClassifier(**params) # n_estimators=5000, learning_rate=0.01, max_depth=10
         xgb_predict_concat.fit(x_batch, y_batch)
 
         y_prob = xgb_predict_concat.predict_proba(x_batch_test)[:, 1]
@@ -450,7 +461,10 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
         return result, roc_auc,fpr, tpr, class_0, class_1
     
     elif downstream_model == "SVR":
-        regressor = SVR(**params)
+        if params == None:
+            regressor = SVR()
+        else:            
+            regressor = SVR(**params)
         model = TransformedTargetRegressor(regressor= regressor,
                                                 transformer = MinMaxScaler(feature_range=(-1, 1))
                                                 ).fit(x_batch,y_batch)
@@ -483,7 +497,10 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
         return result, RMSE_score,y_batch_test, y_prob, class_0, class_1
 
     elif downstream_model == "Kernel Ridge":
-        regressor = KernelRidge(**params)
+        if params == None:
+            regressor = KernelRidge()
+        else:
+            regressor = KernelRidge(**params)
         model = TransformedTargetRegressor(regressor=regressor,
                                            transformer=MinMaxScaler(feature_range=(-1, 1))
                                            ).fit(x_batch, y_batch)
@@ -512,7 +529,10 @@ def single_modal(model,dataset=None, downstream_model=None,params=None, x_train=
 
 
     elif downstream_model == "Linear Regression":
-        regressor = LinearRegression(**params)
+        if params == None:
+            regressor = LinearRegression()
+        else:
+            regressor = LinearRegression(**params)
         model = TransformedTargetRegressor(regressor=regressor,
                                            transformer=MinMaxScaler(feature_range=(-1, 1))
                                            ).fit(x_batch, y_batch)
@@ -595,13 +615,11 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
         train_data = x_train
         test_data = x_test
 
-
-
     data = avail_models(raw=True)
     df = pd.DataFrame(data)
     list(df["Name"].values)
 
-    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "MolFormer":"mol-xl",  "Molformer": "mol-xl","SMI-TED":"smi-ted"}
+    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "MolFormer":"mol-xl",  "Molformer": "mol-xl","SMI-TED":"smi-ted", "Mordred": "Mordred", "MorganFingerprint": "MorganFingerprint"}
     #if set(model_list).issubset(list(df["Name"].values)):
     if set(model_list).issubset(list(alias.keys())):
         for i, model in enumerate(model_list):
@@ -633,7 +651,6 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
                 x_batch = pd.concat([x_batch, x_batch_1], axis=1)
                 x_batch_test = pd.concat([x_batch_test, x_batch_test_1], axis=1)
 
-
     else:
         print("Model not available")
         return
@@ -645,20 +662,25 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
     x_batch.columns = [f'{i + 1}' for i in range(num_columns)]
     
     # exclude row containing Nan value
+    if isinstance(x_batch, torch.Tensor):
+        x_batch = pd.DataFrame(x_batch)    
     nan_indices = x_batch.index[x_batch.isna().any(axis=1)]
-    x_batch.dropna(inplace = True)
-    for index in sorted(nan_indices, reverse=True):
-        del y_batch[index]
     if len(nan_indices) > 0:
+        x_batch.dropna(inplace = True)
+        for index in sorted(nan_indices, reverse=True):
+            del y_batch[index]
         print(f'x_batch Nan index: {nan_indices}')
-    
+        print(f'x_batch shape: {x_batch.shape}, y_batch len: {len(y_batch)}')
+            
+    if isinstance(x_batch_test, torch.Tensor):
+        x_batch_test = pd.DataFrame(x_batch_test)
     nan_indices = x_batch_test.index[x_batch_test.isna().any(axis=1)]
-    x_batch_test.dropna(inplace = True)
-    for index in sorted(nan_indices, reverse=True):
-        del y_batch_test[index]
     if len(nan_indices) > 0:
+        x_batch_test.dropna(inplace = True)
+        for index in sorted(nan_indices, reverse=True):
+            del y_batch_test[index]
         print(f'x_batch_test Nan index: {nan_indices}')
-
+        print(f'x_batch_test shape: {x_batch_test.shape}, y_batch_test len: {len(y_batch_test)}')
 
     print(f"Representations loaded successfully")
     try:
@@ -690,7 +712,10 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
 
 
     if downstream_model == "XGBClassifier":
-        xgb_predict_concat = XGBClassifier(**params)#n_estimators=5000, learning_rate=0.01, max_depth=10)
+        if params == None:
+            xgb_predict_concat = XGBClassifier()
+        else:            
+            xgb_predict_concat = XGBClassifier(**params)#n_estimators=5000, learning_rate=0.01, max_depth=10)
         xgb_predict_concat.fit(x_batch, y_batch)
 
         y_prob = xgb_predict_concat.predict_proba(x_batch_test)[:, 1]
@@ -728,7 +753,10 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
         return result, roc_auc,fpr, tpr, class_0, class_1
 
     elif downstream_model == "SVR":
-        regressor = SVR(**params)
+        if params == None:
+            regressor = SVR()
+        else:
+            regressor = SVR(**params)
         model = TransformedTargetRegressor(regressor= regressor,
                                                 transformer = MinMaxScaler(feature_range=(-1, 1))
                                                 ).fit(x_batch,y_batch)
@@ -742,7 +770,10 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
         return result, RMSE_score,y_batch_test, y_prob, class_0, class_1
 
     elif downstream_model == "Linear Regression":
-        regressor = LinearRegression(**params)
+        if params == None:
+            regressor = LinearRegression()
+        else:
+            regressor = LinearRegression(**params)
         model = TransformedTargetRegressor(regressor=regressor,
                                            transformer=MinMaxScaler(feature_range=(-1, 1))
                                            ).fit(x_batch, y_batch)
@@ -756,7 +787,10 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
     elif downstream_model == "Kernel Ridge":
-        regressor = KernelRidge(**params)
+        if params == None:
+            regressor = KernelRidge()
+        else:
+            regressor = KernelRidge(**params)
         model = TransformedTargetRegressor(regressor=regressor,
                                            transformer=MinMaxScaler(feature_range=(-1, 1))
                                            ).fit(x_batch, y_batch)
