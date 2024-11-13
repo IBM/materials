@@ -81,7 +81,7 @@ smiles_image_mapping = {
 
 datasets = ["Load Custom Dataset"]
 
-models_enabled = ["SELFIES-TED", "MHG-GED", "MolFormer", "SMI-TED"]
+models_enabled = ["SELFIES-TED", "MHG-GED", "MolFormer", "SMI-TED", "Mordred", "MorganFingerprint"]
 
 fusion_available = ["Concat"]
 
@@ -393,10 +393,6 @@ def display_plot(plot_type):
             RMSE = None
             print(y_batch_test)
             print(y_prob)
-
-
-
-
 
         ax.set_xlabel('Actual Values')
         ax.set_ylabel('Predicted Values')
@@ -718,4 +714,4 @@ with gr.Blocks() as demo:
 
 
 if __name__ == "__main__":
-    demo.launch(share=True)
+    demo.launch()
