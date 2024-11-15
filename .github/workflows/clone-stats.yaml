@@ -63,7 +63,7 @@ jobs:
           if [ ! -f CLONE.md ]; then
             shields="https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url="
             url="https://gist.githubusercontent.com/${{ github.actor }}/${{ steps.set_id.outputs.GIST }}/raw/clone.json"
-            repo="https://github.com/IBM/materials"
+            repo="https://github.com/indra-ipd/materials"
             echo ''> CLONE.md
             echo '
             **Markdown**
