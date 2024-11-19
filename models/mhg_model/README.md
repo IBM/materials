@@ -27,7 +27,7 @@ In addition, the decoder inherits the theoretical guarantee of MHG on always gen
 
 ### Pretrained Models and Training Logs
 
-We provide checkpoints of the MHG-GNN model pre-trained on a dataset of ~1.34M molecules curated from PubChem. (later) For model weights: [HuggingFace Link]()
+We provide checkpoints of the MHG-GNN model pre-trained on a dataset of ~1.34M molecules curated from PubChem. (later) For model weights: [HuggingFace Link](https://huggingface.co/ibm/materials.mhg-ged/blob/main/mhggnn_pretrained_model_0724_2023.pickle)
 
 Add the MHG-GNN `pre-trained weights.pt` to the `models/` directory according to your needs. 
 
