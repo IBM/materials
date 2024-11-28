@@ -32,8 +32,8 @@ from models.selfies_ted.load import SELFIES as bart
 from models.mhg_model import load as mhg
 from models.smi_ted.smi_ted_light.load import load_smi_ted
 
-import mordred
-from mordred import Calculator, descriptors
+#import mordred
+#from mordred import Calculator, descriptors
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
