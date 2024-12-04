@@ -26,6 +26,7 @@ The structure of IBM's materials family of foundation models is organized as fol
 materials/
 ├── models/
     ├── smi_ted/
+    ├── smi_ssed/
     ├── selfies_ted/
     ├── mhg_model/
     ├── fm4m.py
@@ -42,6 +43,7 @@ Each folder represents a different chemical representation and architecture type
 | Model            |Description|
 |------------------|-----------|
 | SMI-TED [\[HuggingFace\]](https://huggingface.co/ibm/materials.smi-ted) | SMILES-based Transformer Encoder-Decoder (SMILES-TED) is an encoder-decoder model pre-trained on a curated dataset of 91 million SMILES samples sourced from PubChem, equivalent to 4 billion molecular tokens. SMI-TED supports various complex tasks, including quantum property prediction, with two main variants ($289M$ and $8 \times 289M$). |
+| SMI-SSED [\[HuggingFace\]](https://huggingface.co/ibm/materials.smi-ted) | SMI-SSED (SMILES-SSED) is a Mamba-based encoder-decoder model pre-trained on a curated dataset of 91 million SMILES samples, encompassing 4 billion molecular tokens sourced from PubChem. The model is tailored for complex tasks such as quantum property prediction and offers efficient, high-speed inference capabilities. |
 | SELFIES-TED [\[HuggingFace\]](https://huggingface.co/ibm/materials.selfies-ted) | SELFIES-based Transformer Encoder-Decoder (SELFIES-TED) is an encoder-decoder model based on BART that not only learns molecular representations but also auto-regressively generates molecules. Pre-trained on a dataset of ~1B molecules from PubChem and Zinc-22 |
 | MHG-GED [\[HuggingFace\]](https://huggingface.co/ibm/materials.mhg-ged) | Molecular Hypergraph Grammar with Graph-based Encoder Decoder (MHG-GED) is an autoencoder that combines a GNN-based encoder with a sequential MHG-based decoder. The GNN encodes molecular input to achieve strong predictive performance on molecular graphs, while the MHG decodes structurally valid molecules. Pre-trained on a dataset of ~1.34M molecules curated from PubChem|
 
@@ -136,6 +138,7 @@ Stay updated on our upcoming events and join us to connect, learn, and engage!
 ## Related Publications
 Only one representative paper for each model is listed here. For a complete list of publications, please refer to each model’s README page.
 - SMILES-TED: ["A Large Encoder-Decoder Family of Foundation Models For Chemical Language" ](https://doi.org/10.48550/arXiv.2407.20267) (arXiv paper)
+- SMILES-SSED: ["A Mamba-Based Foundation Model for Chemistry" ](https://openreview.net/pdf?id=HTgCs0KSTl) (NeurIPS 2024, AI4Mat)
 - SELFIES-TED: ["SELF-BART: A Transformer-based Molecular Representation Model using SELFIES"](https://doi.org/10.48550/arXiv.2410.12348) (NeurIPS 2024, AI4Mat)
 - MHG-GNN: ["MHG-GNN: Combination of Molecular Hypergraph Grammar with Graph Neural Network"](https://arxiv.org/pdf/2309.16374)  (NeurIPS 2023, AI4Mat)
 - Overview: ["Foundation Model for Material Science"](https://ojs.aaai.org/index.php/AAAI/article/view/26793) (AAAI 2023, SMTP) 
