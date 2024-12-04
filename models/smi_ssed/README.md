@@ -2,9 +2,8 @@
 
 This repository provides PyTorch source code associated with our publication, "A Mamba-Based Foundation Model for Chemistry".
 
-**Paper:** [Arxiv Link]()
-
-**HuggingFace:** [HuggingFace Link](https://huggingface.co/ibm/materials.smi-ted)
+**Paper NeurIPS AI4Mat 2024:** [Arxiv Link](https://openreview.net/pdf?id=HTgCs0KSTl)
+**HuggingFace:** [HuggingFace Link](https://huggingface.co/ibm/materials.smi_ssed)
 
 For more information contact: eduardo.soares@ibm.com or evital@br.ibm.com.
 
@@ -12,7 +11,7 @@ For more information contact: eduardo.soares@ibm.com or evital@br.ibm.com.
 
 ## Introduction
 
-We present a large encoder-decoder chemical foundation model, SMILES-based State-Space Encoder-Decoder (SMI-SSED), pre-trained on a curated dataset of 91 million SMILES samples sourced from PubChem, equivalent to 4 billion molecular tokens. SMI-SSED supports various complex tasks, including quantum property prediction, with two main variants ($336$ and $8 \times 336M$). Our experiments across multiple benchmark datasets demonstrate state-of-the-art performance for various tasks. Model weights are available at: [HuggingFace Link](https://huggingface.co/ibm/materials.smi-ted).
+We present a large encoder-decoder chemical foundation model, SMILES-based State-Space Encoder-Decoder (SMI-SSED), pre-trained on a curated dataset of 91 million SMILES samples sourced from PubChem, equivalent to 4 billion molecular tokens. SMI-SSED supports various complex tasks, including quantum property prediction, with two main variants ($336$ and $8 \times 336M$). Our experiments across multiple benchmark datasets demonstrate state-of-the-art performance for various tasks. Model weights are available at: [HuggingFace Link](https://huggingface.co/ibm/materials.smi_ssed).
 
 ## Table of Contents
 
