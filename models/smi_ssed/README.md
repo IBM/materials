@@ -1,4 +1,4 @@
-# SMILES-based State-Space Encoder-Decoder (SMI-SSED)
+# Mamba-based Encoder-Decoder for SMILES (SMI-SSED)
 
 This repository provides PyTorch source code associated with our publication, "A Mamba-Based Foundation Model for Chemistry".
 
