@@ -1,0 +1,12 @@
+transformers
+torch-optimizer
+datasets
+scikit-learn>=1.5.0
+scipy>=1.12.0
+numpy==1.26.4
+pandas==1.4.0
+tqdm>=4.66.4
+rdkit>=2024.3.5
+triton==2.2.0
+causal-conv1d==1.1.3.post1
+mamba_ssm==1.1.3.post1

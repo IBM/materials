@@ -1,0 +1,18 @@
+# Model weights
+inference/smi_ssed/smi-ssed_130.pt
+
+# pyenv
+.python-version
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# editor files
+.vscode/
+.DS_Store
