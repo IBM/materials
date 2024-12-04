@@ -3,6 +3,7 @@
 This repository provides PyTorch source code associated with our publication, "A Mamba-Based Foundation Model for Chemistry".
 
 **Paper NeurIPS AI4Mat 2024:** [Arxiv Link](https://openreview.net/pdf?id=HTgCs0KSTl)
+
 **HuggingFace:** [HuggingFace Link](https://huggingface.co/ibm/materials.smi_ssed)
 
 For more information contact: eduardo.soares@ibm.com or evital@br.ibm.com.
