@@ -23,3 +23,6 @@ torch-optimizer
 tqdm>=4.66.4
 pytorch-fast-transformers
 mordred
+triton==2.2.0
+causal-conv1d==1.1.3.post1
+mamba_ssm==1.1.3.post1
