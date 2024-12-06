@@ -72,7 +72,24 @@ conda install pytorch=2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 
 ```
 pip install -r requirements.txt
+```
+
+### Pytorch Fast Transformers Package
+
+SMI-TED relies on [Pytorch Fast Transformers](https://github.com/idiap/fast-transformers) package by (Katharopoulos et al., 2020), but not all the functionalities are used. One may try to install the full package with `pip`:
+
+```
 pip install pytorch-fast-transformers --no-build-isolation
+```
+
+For problems to install `pytorch-fast-transformers` with `pip`, one may copy the following Pytorch Fast Transformers adapted folder `smi_ted_light/fast_transformers` into SMI-TED model's directory. For example:
+```
+finetune/
+└── smi_ted_light/
+    ├── fast_transformers
+    ├── smi_ted_light.pt
+    ├── bert_vocab_curated.txt
+    └── load.py
 ```
 
 ## Pretraining
