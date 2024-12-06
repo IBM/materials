@@ -135,4 +135,6 @@ with torch.no_grad():
     decoded_smiles = model.decode(encoded_embeddings)
 ```
 
+## Citations
 
+- Katharopoulos, A., Vyas, A., Pappas, N., & Fleuret, F. (2020). Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention. Proceedings of the International Conference on Machine Learning (ICML). 
