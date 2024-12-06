@@ -72,7 +72,7 @@ conda install pytorch=2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 
 ```
 pip install -r requirements.txt
-pip install pytorch-fast-transformers
+pip install pytorch-fast-transformers --no-build-isolation
 ```
 
 ## Pretraining
