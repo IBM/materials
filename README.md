@@ -125,11 +125,13 @@ Stay updated on our upcoming events and join us to connect, learn, and engage!
   *Demo & Hands-on for FM4M, Toronto.* [Event Link](https://acceleration.utoronto.ca/events/acceleration-consortium-fall-research-symposium?utm_source=substack&utm_medium=email)
 
 - **28 November 2024**: **ChemAI Satellite Events**  
-  *Get Hands-On with Open Multi-Modal Foundation Models for Materials and Chemistry.* [Register here](https://www.eventbrite.nl/e/chemai-24-satellite-events-tickets-1003578088077)
-
+  *Get Hands-On with Open Multi-Modal Foundation Models for Materials and Chemistry.*
+  
 - **11 December 2024**: **NeurIPS 2024 Social Event**  
-  *"Breaking Silos: Open Community for AI x Science", Vancouver.*  [Webpage](https://sites.google.com/view/breaking-silos-open-ai4science/)   [RSVP here](https://forms.gle/NZb7yMksxphaYLKH6)
-
+  *"Breaking Silos: Open Community for AI x Science", Vancouver.*  [Webpage](https://sites.google.com/view/breaking-silos-open-ai4science/)
+  
+- **4 March 2025**: **AAAI 2025 Hands-on Demonstration**  
+  *"A Hands-on Demonstration of an Open Foundation Model for Materials and Chemistry", Philadelphia.*  [Webpage]([https://sites.google.com/view/breaking-silos-open-ai4science/](https://the-ai-alliance.github.io/AAAI-25-Workshop-on-Open-Source-AI-for-Mainstream-Use/)) 
 
 
 
