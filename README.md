@@ -131,7 +131,7 @@ Stay updated on our upcoming events and join us to connect, learn, and engage!
   *"Breaking Silos: Open Community for AI x Science", Vancouver.*  [Webpage](https://sites.google.com/view/breaking-silos-open-ai4science/)
   
 - **4 March 2025**: **AAAI 2025 Hands-on Demonstration**  
-  *"A Hands-on Demonstration of an Open Foundation Model for Materials and Chemistry", Philadelphia.*  [Webpage](https://sites.google.com/view/breaking-silos-open-ai4science/](https://the-ai-alliance.github.io/AAAI-25-Workshop-on-Open-Source-AI-for-Mainstream-Use/) 
+  *"A Hands-on Demonstration of an Open Foundation Model for Materials and Chemistry", Philadelphia.*  [Webpage](https://sites.google.com/view/breaking-silos-open-ai4science/](https://the-ai-alliance.github.io/AAAI-25-Workshop-on-Open-Source-AI-for-Mainstream-Use/))
 
 
 
