@@ -10,3 +10,5 @@ requests>=2.31.0
 urllib3>=2.0.7
 aiohttp>=3.9.0
 zipp>=3.17.0
+feather-format>=0.4.1
+accelerate>=0.26.0
