@@ -665,10 +665,12 @@ def load_smi_ted(folder="./smi_ted_light",
               ckpt_filename="smi-ted-Light_40.pt",
               vocab_filename="bert_vocab_curated.txt"
               ):
-    tokenizer = MolTranBertTokenizer(os.path.join(folder, vocab_filename))
-    model = Smi_ted(tokenizer)
-
     repo_id = "ibm/materials.smi-ted"
+    filename = "bert_vocab_curated.txt"
+    vocab_filename = hf_hub_download(repo_id=repo_id, filename=filename)
+    tokenizer = MolTranBertTokenizer(vocab_filename)
+    model = Smi_ted(tokenizer)
+                  
     filename = "smi-ted-Light_40.pt"
     file_path = hf_hub_download(repo_id=repo_id, filename=filename)
     model.load_checkpoint(file_path)
