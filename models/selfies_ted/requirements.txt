@@ -12,3 +12,4 @@ aiohttp>=3.9.0
 zipp>=3.17.0
 feather-format>=0.4.1
 accelerate==0.26.0
+rdkit>=2024.3.5
