@@ -119,21 +119,25 @@ We are especially promoting open development of FM4M through a working group in 
 
 Stay updated on our upcoming events and join us to connect, learn, and engage!
 
-- **26 July 2024**: **ICML 2024 AI for Science**, [Social Night with AI Alliance](https://icml.cc/virtual/2024/workshop/29973), Vienna.
+- **7 April 2025**: **Materials Research Society (MRS) 2025 Tutorial**  
+  *"This hands-on tutorial is designed to introduce participants to powerful tools, focusing on SMILES, SELFIES, and molecular graph-based models", Seattle.*  [Webpage](https://www.mrs.org/meetings-events/annual-meetings/archive/meeting/tutorial-sessions/2025-mrs-spring-meeting/tutorial-mt02-large-language-models-and-foundation-models-for-material-science-(minor-revisions-required))
+
+- **24 March 2025**: **American Chemical Society (ACS) Spring 2025**  
+  *"Multiple papers related to FM4M raising awareness to this chemistry community", San Diego.*  [Webpage](https://research.ibm.com/events/acs-spring-2025#agenda)
+
+- **4 March 2025**: **AAAI 2025 Hands-on Demonstration**  
+  *"A Hands-on Demonstration of an Open Foundation Model for Materials and Chemistry", Philadelphia.*  [Webpage](https://the-ai-alliance.github.io/AAAI-25-Workshop-on-Open-Source-AI-for-Mainstream-Use/)
+
+- **11 December 2024**: **NeurIPS 2024 Social Event**  
+  *"Breaking Silos: Open Community for AI x Science", Vancouver.*  [Webpage](https://sites.google.com/view/breaking-silos-open-ai4science/)
+  
+- **28 November 2024**: **ChemAI Satellite Events**  
+  *Get Hands-On with Open Multi-Modal Foundation Models for Materials and Chemistry.*
   
 - **29 October 2024**: **Acceleration Consortium Fall Research Symposium**  
   *Demo & Hands-on for FM4M, Toronto.* [Event Link](https://acceleration.utoronto.ca/events/acceleration-consortium-fall-research-symposium?utm_source=substack&utm_medium=email)
 
-- **28 November 2024**: **ChemAI Satellite Events**  
-  *Get Hands-On with Open Multi-Modal Foundation Models for Materials and Chemistry.*
-  
-- **11 December 2024**: **NeurIPS 2024 Social Event**  
-  *"Breaking Silos: Open Community for AI x Science", Vancouver.*  [Webpage](https://sites.google.com/view/breaking-silos-open-ai4science/)
-  
-- **4 March 2025**: **AAAI 2025 Hands-on Demonstration**  
-  *"A Hands-on Demonstration of an Open Foundation Model for Materials and Chemistry", Philadelphia.*  [Webpage](https://the-ai-alliance.github.io/AAAI-25-Workshop-on-Open-Source-AI-for-Mainstream-Use/)
-
-
+- **26 July 2024**: **ICML 2024 AI for Science**, [Social Night with AI Alliance](https://icml.cc/virtual/2024/workshop/29973), Vienna.
 
 
 ## Related Publications
@@ -144,5 +148,5 @@ Only one representative paper for each model is listed here. For a complete list
 - MHG-GNN: ["MHG-GNN: Combination of Molecular Hypergraph Grammar with Graph Neural Network"](https://arxiv.org/pdf/2309.16374)  (NeurIPS 2023, AI4Mat)
 - Overview: ["Foundation Model for Material Science"](https://ojs.aaai.org/index.php/AAAI/article/view/26793) (AAAI 2023, SMTP) 
 
-## Credits (as of 28 October)
+## Credits
 Dmitry Zubarev, Eduardo Soares, Emilio Ashton Brazil, Flaviu Cipcigan, Indra Priyadarsini, Lisa Hamada, Seiji Takeda, Shinnosuke Tanaka, Victor Shirasuna, Zeynep Sümer.
