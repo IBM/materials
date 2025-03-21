@@ -29,12 +29,13 @@ materials/
     ├── smi_ssed/
     ├── selfies_ted/
     ├── mhg_model/
+    ├── pos_egnn/
     ├── fm4m.py
     ...
 ├── examples/
     ├── fm4m_example.ipynb
     ├── battery_example.ipynb
-    ...  
+    ...
 ```
 
 Each folder represents a different chemical representation and architecture type. The repository will be continuously updated with new models, improvements, and additional documentation.
@@ -46,6 +47,7 @@ Each folder represents a different chemical representation and architecture type
 | SMI-SSED [\[HuggingFace\]](https://huggingface.co/ibm/materials.smi-ted) | SMI-SSED (SMILES-SSED) is a Mamba-based encoder-decoder model pre-trained on a curated dataset of 91 million SMILES samples, encompassing 4 billion molecular tokens sourced from PubChem. The model is tailored for complex tasks such as quantum property prediction and offers efficient, high-speed inference capabilities. |
 | SELFIES-TED [\[HuggingFace\]](https://huggingface.co/ibm/materials.selfies-ted) | SELFIES-based Transformer Encoder-Decoder (SELFIES-TED) is an encoder-decoder model based on BART that not only learns molecular representations but also auto-regressively generates molecules. Pre-trained on a dataset of ~1B molecules from PubChem and Zinc-22 |
 | MHG-GED [\[HuggingFace\]](https://huggingface.co/ibm/materials.mhg-ged) | Molecular Hypergraph Grammar with Graph-based Encoder Decoder (MHG-GED) is an autoencoder that combines a GNN-based encoder with a sequential MHG-based decoder. The GNN encodes molecular input to achieve strong predictive performance on molecular graphs, while the MHG decodes structurally valid molecules. Pre-trained on a dataset of ~1.34M molecules curated from PubChem|
+| POS-EGNN [\[HuggingFace\]](https://huggingface.co/ibm/materials.pos-egnn) | Position-based Equivariant Graph Neural Network (POS-EGNN) is ... The model was pre-trained on MPtrj, a dataset containing more than 1.5M structures with DFT-level energies, forces and stress. This model can be used as a machine-learning potential to run Molecular Dynamics simulations, or as a base model for fine-tuning on other material properties.|
 
 
 
@@ -92,7 +94,7 @@ To evaluate the performance of a uni-modal model (e.g., `mhg-ged`), the followin
 ```bash
 # Replace model and task parameters depending on your requirement
 score = fm4m.single_modal(model="MHG-GED", x_train=xtrain, y_train=ytrain, x_test=xtest, y_test=ytest, downstream_model="DefaultClassifier")
-```                  
+```
 
 #### Downstream modeling and evaluation by a multi-modal model
 For multi-modal model evaluation (e.g., `smi-ted`, `mhg-ged`, and `selfies-ted`), simply list the models as follows:
@@ -110,7 +112,7 @@ The easiest approach is to use FM4M-Kit through a web UI available on Hugging Fa
 
 We strongly believe in the power of collaboration and community-driven development to propel AI forward. We hope that the AI community will find our efforts useful and that our models help advance research and innovation in materials science.
 
-We welcome contributions from the community! If you have any ideas, improvements, or new models you'd like to share, please feel free to contact. 
+We welcome contributions from the community! If you have any ideas, improvements, or new models you'd like to share, please feel free to contact.
 For any questions, suggestions, or feedback, please open an issue on GitHub.
 
 We are especially promoting open development of FM4M through a working group in [AI Alliance <space>](https://thealliance.ai/). Within this group, we organize technical meetings, hands-on seminars, and social events at leading AI conferences.
@@ -119,22 +121,22 @@ We are especially promoting open development of FM4M through a working group in 
 
 Stay updated on our upcoming events and join us to connect, learn, and engage!
 
-- **7 April 2025**: **Materials Research Society (MRS) 2025 Tutorial**  
+- **7 April 2025**: **Materials Research Society (MRS) 2025 Tutorial**
   *"This hands-on tutorial is designed to introduce participants to powerful tools, focusing on SMILES, SELFIES, and molecular graph-based models", Seattle.*  [Webpage](https://www.mrs.org/meetings-events/annual-meetings/archive/meeting/tutorial-sessions/2025-mrs-spring-meeting/tutorial-mt02-large-language-models-and-foundation-models-for-material-science-(minor-revisions-required))
 
-- **24 March 2025**: **American Chemical Society (ACS) Spring 2025**  
+- **24 March 2025**: **American Chemical Society (ACS) Spring 2025**
   *"Multiple papers related to FM4M raising awareness to this chemistry community", San Diego.*  [Webpage](https://research.ibm.com/events/acs-spring-2025#agenda)
 
-- **4 March 2025**: **AAAI 2025 Hands-on Demonstration**  
+- **4 March 2025**: **AAAI 2025 Hands-on Demonstration**
   *"A Hands-on Demonstration of an Open Foundation Model for Materials and Chemistry", Philadelphia.*  [Webpage](https://the-ai-alliance.github.io/AAAI-25-Workshop-on-Open-Source-AI-for-Mainstream-Use/)
 
-- **11 December 2024**: **NeurIPS 2024 Social Event**  
+- **11 December 2024**: **NeurIPS 2024 Social Event**
   *"Breaking Silos: Open Community for AI x Science", Vancouver.*  [Webpage](https://sites.google.com/view/breaking-silos-open-ai4science/)
-  
-- **28 November 2024**: **ChemAI Satellite Events**  
+
+- **28 November 2024**: **ChemAI Satellite Events**
   *Get Hands-On with Open Multi-Modal Foundation Models for Materials and Chemistry.*
-  
-- **29 October 2024**: **Acceleration Consortium Fall Research Symposium**  
+
+- **29 October 2024**: **Acceleration Consortium Fall Research Symposium**
   *Demo & Hands-on for FM4M, Toronto.* [Event Link](https://acceleration.utoronto.ca/events/acceleration-consortium-fall-research-symposium?utm_source=substack&utm_medium=email)
 
 - **26 July 2024**: **ICML 2024 AI for Science**, [Social Night with AI Alliance](https://icml.cc/virtual/2024/workshop/29973), Vienna.
@@ -146,7 +148,7 @@ Only one representative paper for each model is listed here. For a complete list
 - SMILES-SSED: ["A Mamba-Based Foundation Model for Chemistry" ](https://openreview.net/pdf?id=HTgCs0KSTl) (NeurIPS 2024, AI4Mat)
 - SELFIES-TED: ["SELF-BART: A Transformer-based Molecular Representation Model using SELFIES"](https://doi.org/10.48550/arXiv.2410.12348) (NeurIPS 2024, AI4Mat)
 - MHG-GNN: ["MHG-GNN: Combination of Molecular Hypergraph Grammar with Graph Neural Network"](https://arxiv.org/pdf/2309.16374)  (NeurIPS 2023, AI4Mat)
-- Overview: ["Foundation Model for Material Science"](https://ojs.aaai.org/index.php/AAAI/article/view/26793) (AAAI 2023, SMTP) 
+- Overview: ["Foundation Model for Material Science"](https://ojs.aaai.org/index.php/AAAI/article/view/26793) (AAAI 2023, SMTP)
 
 ## Credits
-Dmitry Zubarev, Eduardo Soares, Emilio Ashton Brazil, Flaviu Cipcigan, Indra Priyadarsini, Lisa Hamada, Seiji Takeda, Shinnosuke Tanaka, Victor Shirasuna, Zeynep Sümer.
+Dmitry Zubarev, Eduardo Soares, Emilio Ashton Brazil, Flaviu Cipcigan, Indra Priyadarsini, Lisa Hamada, Seiji Takeda, Shinnosuke Tanaka, Victor Shirasuna, Zeynep Sümer, Thiago Reschutzegger, Fabian Thiemann, Bruno Nunes, Gabriel Perin and Rodrigo Neumann.
