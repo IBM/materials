@@ -6,7 +6,7 @@ This repository contains PyTorch source code for loading and performing inferenc
 **HuggingFace**: https://huggingface.co/ibm-research/materials.pos-egnn
 
 <p align="center">
-    <img src="img/posegnn.svg">
+    <img src="../../img/posegnn.svg">
 </p>
 
 ## Introduction
