@@ -1,0 +1,10 @@
+-f https://data.pyg.org/whl/torch-2.5.1%2Bcu121.html
+-f https://data.pyg.org/whl/torch-2.5.1%2Bcpu.html
+numpy==1.26.4
+ase==3.24.0
+torch==2.5.1
+torch_geometric==2.5.3
+torch_nl==0.3
+torch_scatter
+torch_sparse
+tqdm>=4.66.1
