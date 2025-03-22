@@ -12,7 +12,7 @@ This repository contains PyTorch source code for loading and performing inferenc
 ## Introduction
 We present `pos-egnn`, a Position-based Equivariant Graph Neural Network foundation model for Chemistry and Materials. The model was pre-trained on 1.4M samples (i.e., 90%) from the Materials Project Trajectory (MPtrj) dataset to predict energies, forces and stress. `pos-egnn` can be used as a machine-learning potential, as a feature extractor, or can be fine-tuned for specific downstream tasks.
 
-Besides the model weigths `pos-egnn.v1-6M.pt`, which can be downloaded from [HuggingFace](https://huggingface.co/ibm-research/materials.pos-egnn), we also provide examples for performing inference, feature extraction and molecular dynamics simulation with the model (`example.ipynb`).
+Besides the model weigths `pos-egnn.v1-6M.pt` (download from [HuggingFace](https://huggingface.co/ibm-research/materials.pos-egnn)), we also provide an `example.ipynb` notebook (download from [GitHub](https://github.com/ibm/materials)), which demonstrates how to perform inference, feature extraction and molecular dynamics simulation with the model.
 
 For more information, please reach out to rneumann@br.ibm.com and/or flaviu.cipcigan@ibm.com
 
