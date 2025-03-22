@@ -18,9 +18,7 @@ For more information, please reach out to rneumann@br.ibm.com and/or flaviu.cipc
 
 ## Table of Contents
 1. [**Getting Started**](#getting-started)
-2. [**Inference**](#inference)
-3. [**Feature Extraction**](#feature-extraction)
-4. [**Fine-tuning**](#fine-tuning)
+2. [**Example**](#example)
 
 ## Getting Started
 Follow these steps to replicate our environment and install the necessary libraries:
