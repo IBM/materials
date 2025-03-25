@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+from ase import Atoms
 from ase.calculators.calculator import Calculator, all_changes
 from ase.data import atomic_numbers
 from ase.stress import full_3x3_to_voigt_6_stress
@@ -49,3 +50,16 @@ class PosEGNNCalculator(Calculator):
         batch = torch.zeros(len(z), device=self.device).long()
         ptr = torch.zeros(1, device=self.device).long()
         return Data(z=z, pos=pos, box=box, batch=batch, num_graphs=1, ptr=ptr)
+
+
+def get_invariant_embeddings(self):
+    if self.calc is None:
+        raise RuntimeError("No calculator is set.")
+    else:
+        data = self.calc._build_data(self)
+        with torch.no_grad():
+            embeddings = self.calc.model(data)["embedding_0"][..., 1].squeeze(2)
+        return embeddings
+
+
+Atoms.get_invariant_embeddings = get_invariant_embeddings
