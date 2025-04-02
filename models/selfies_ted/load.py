@@ -80,7 +80,7 @@ class SELFIES(torch.nn.Module):
         selfies = self.get_selfies(smiles_list)
         selfies_df = pd.DataFrame(selfies,columns=["selfies"])
         data = Dataset.from_pandas(selfies_df)
-        embedding = data.map(self.get_embedding, batched=True, num_proc=1, batch_size=128)
+        embedding = data.map(self.get_embedding, batched=True, num_proc=1, batch_size=32)
         emb = np.asarray(embedding["embedding"].copy())
 
         for idx in self.invalid:
