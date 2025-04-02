@@ -1,3 +1,6 @@
+import gc
+from tqdm import tqdm
+
 import os
 import sys
 import torch
@@ -23,70 +26,63 @@ class SELFIES(torch.nn.Module):
         spaced_selfies_batch = []
         for i, smiles in enumerate(smiles_list):
             try:
-                selfies = sf.encoder(smiles.rstrip())
+                selfies = sf.encoder(smiles.strip())
             except:
                 try:
-                    smiles = Chem.MolToSmiles(Chem.MolFromSmiles(smiles.rstrip()))
+                    smiles = Chem.MolToSmiles(Chem.MolFromSmiles(smiles.strip()))
                     selfies = sf.encoder(smiles)
                 except:
                     selfies = "[]"
                     self.invalid.append(i)
 
             spaced_selfies_batch.append(selfies.replace('][', '] ['))
-
         return spaced_selfies_batch
 
-
-    def get_embedding(self, selfies):
-        encoding = self.tokenizer(selfies["selfies"], return_tensors='pt', max_length=128, truncation=True, padding='max_length')
-        input_ids = encoding['input_ids']
-        attention_mask = encoding['attention_mask']
-        outputs = self.model.encoder(input_ids=input_ids, attention_mask=attention_mask)
+    @torch.no_grad()
+    def get_embedding_batch(self, selfies_batch):
+        encodings = self.tokenizer(
+            selfies_batch,
+            return_tensors='pt',
+            max_length=128,
+            truncation=True,
+            padding='max_length'
+        )
+        encodings = {k: v.to(self.model.device) for k, v in encodings.items()}
+        outputs = self.model.encoder(input_ids=encodings['input_ids'], attention_mask=encodings['attention_mask'])
         model_output = outputs.last_hidden_state
 
-        input_mask_expanded = attention_mask.unsqueeze(-1).expand(model_output.size()).float()
+        input_mask_expanded = encodings['attention_mask'].unsqueeze(-1).expand(model_output.size()).float()
         sum_embeddings = torch.sum(model_output * input_mask_expanded, 1)
         sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
-        model_output = sum_embeddings / sum_mask
+        pooled_output = sum_embeddings / sum_mask
 
-        del encoding['input_ids']
-        del encoding['attention_mask']
-
-        encoding["embedding"] = model_output
-
-        return encoding
-
+        return pooled_output.cpu().numpy()
 
     def load(self, checkpoint="bart-2908.pickle"):
-        """
-            inputs :
-                   checkpoint (pickle object)
-        """
-
         self.tokenizer = AutoTokenizer.from_pretrained("ibm/materials.selfies-ted")
         self.model = AutoModel.from_pretrained("ibm/materials.selfies-ted")
+        self.model.eval()
 
-
-
-
-
-    # TODO: remove `use_gpu` argument in validation pipeline
     def encode(self, smiles_list=[], use_gpu=False, return_tensor=False):
-        """
-            inputs :
-                   checkpoint (pickle object)
-            :return: embedding
-        """
         selfies = self.get_selfies(smiles_list)
-        selfies_df = pd.DataFrame(selfies,columns=["selfies"])
-        data = Dataset.from_pandas(selfies_df)
-        embedding = data.map(self.get_embedding, batched=True, num_proc=1, batch_size=32)
-        emb = np.asarray(embedding["embedding"].copy())
+
+        device = torch.device("cuda" if use_gpu and torch.cuda.is_available() else "cpu")
+        self.model.to(device)
+
+        batch_size = 128
+        embeddings = []
+
+        for i in tqdm(range(0, len(selfies), batch_size), desc="Encoding batches"):
+            batch = selfies[i:i + batch_size]
+            emb = self.get_embedding_batch(batch)
+            embeddings.append(emb)
+            del emb
+            gc.collect()
+
+        emb = np.vstack(embeddings)
 
         for idx in self.invalid:
             emb[idx] = np.nan
-            print("Cannot encode {0} to selfies and embedding replaced by NaN".format(smiles_list[idx]))
+            print(f"Cannot encode {smiles_list[idx]} to selfies. Embedding replaced by NaN.")
 
-        if return_tensor:
-            return torch.tensor(emb)
-        return pd.DataFrame(emb)
+        return torch.tensor(emb) if return_tensor else pd.DataFrame(emb)
