@@ -81,7 +81,7 @@ def load(model_name: str = "mhg_model/pickles/mhggnn_pretrained_model_0724_2023.
     filename = "pytorch_model.bin" #"mhggnn_pretrained_model_0724_2023.pickle"
     file_path = hf_hub_download(repo_id=repo_id, filename=filename)
     with open(file_path, "rb") as f:
-        model_dict = torch.load(f)
+        model_dict = torch.load(f, weights_only=False)
         return PretrainedModelWrapper(model_dict)
 
 
