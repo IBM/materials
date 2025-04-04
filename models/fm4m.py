@@ -31,6 +31,7 @@ sys.path.append("models/")
 from models.selfies_ted.load import SELFIES as bart
 from models.mhg_model import load as mhg
 from models.smi_ted.smi_ted_light.load import load_smi_ted
+from models.pos_egnn.load import POSEGNN as pos
 
 #import mordred
 #from mordred import Calculator, descriptors
@@ -58,7 +59,9 @@ def avail_models_data():
     models = [{"Name": "bart","Model Name": "SELFIES-TED","Description": "BART model for string based SELFIES modality", "Timestamp": "2024-06-21 12:32:20"},
   {"Name": "mol-xl","Model Name": "MolFormer", "Description": "MolFormer model for string based SMILES modality", "Timestamp": "2024-06-21 12:35:56"},
   {"Name": "mhg", "Model Name": "MHG-GED","Description": "Molecular hypergraph model", "Timestamp": "2024-07-10 00:09:42"},
-  {"Name": "smi-ted", "Model Name": "SMI-TED","Description": "SMILES based encoder decoder model", "Timestamp": "2024-07-10 00:09:42"}]
+  {"Name": "smi-ted", "Model Name": "SMI-TED","Description": "SMILES based encoder decoder model", "Timestamp": "2024-07-10 00:09:42"},
+  {"Name": "pos-egnn", "Model Name": "POS-EGNN","Description": "3D Position Encoder model", "Timestamp": "2025-04-04 00:11:42"}
+              ]
 
 
 def avail_models(raw=False):
@@ -68,6 +71,7 @@ def avail_models(raw=False):
               {"Name": "bart","Model Name": "SELFIES-TED","Description": "BART model for string based SELFIES modality"},
               {"Name": "mol-xl","Model Name": "MolFormer", "Description": "MolFormer model for string based SMILES modality"},
               {"Name": "mhg", "Model Name": "MHG-GED","Description": "Molecular hypergraph model"},
+              {"Name": "pos", "Model Name": "POS-EGNN","Description": "3D atom position model"},
               {"Name": "Mordred", "Model Name": "Mordred","Description": "Baseline: A descriptor-calculation software application that can calculate more than 1800 two- and three-dimensional descriptors"},
               {"Name": "MorganFingerprint", "Model Name": "MorganFingerprint","Description": "Baseline: Circular atom environments based descriptor"}              
   ]
@@ -201,7 +205,7 @@ avail_models_data()
 
 
 def get_representation(train_data,test_data,model_type, return_tensor=True):
-    alias = {"MHG-GED": "mhg", "SELFIES-TED": "bart", "MolFormer": "mol-xl", "Molformer": "mol-xl", "SMI-TED": "smi-ted"}
+    alias = {"MHG-GED": "mhg", "SELFIES-TED": "bart","POS-EGNN": "pos", "MolFormer": "mol-xl", "Molformer": "mol-xl", "SMI-TED": "smi-ted"}
     if model_type in alias.keys():
         model_type = alias[model_type]
 
@@ -220,6 +224,13 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
 
     elif model_type == "bart":
         model = bart()
+        model.load()
+        x_batch = model.encode(train_data, return_tensor=return_tensor)
+        x_batch_test = model.encode(test_data, return_tensor=return_tensor)
+
+
+    elif model_type == "pos":
+        model = pos()
         model.load()
         x_batch = model.encode(train_data, return_tensor=return_tensor)
         x_batch_test = model.encode(test_data, return_tensor=return_tensor)
@@ -305,7 +316,7 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
 
 def single_modal(model,dataset=None, downstream_model=None, params=None, x_train=None, x_test=None, y_train=None, y_test=None):
     print(model)
-    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "MolFormer":"mol-xl", "Molformer": "mol-xl", "SMI-TED": "smi-ted"}
+    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart","POS-EGNN": "pos", "MolFormer":"mol-xl", "Molformer": "mol-xl", "SMI-TED": "smi-ted"}
     data = avail_models(raw=True)
     df = pd.DataFrame(data)
     #print(list(df["Name"].values))
@@ -619,7 +630,7 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
     df = pd.DataFrame(data)
     list(df["Name"].values)
 
-    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "MolFormer":"mol-xl",  "Molformer": "mol-xl","SMI-TED":"smi-ted", "Mordred": "Mordred", "MorganFingerprint": "MorganFingerprint"}
+    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "POS-EGNN": "pos", "MolFormer":"mol-xl",  "Molformer": "mol-xl","SMI-TED":"smi-ted", "Mordred": "Mordred", "MorganFingerprint": "MorganFingerprint"}
     #if set(model_list).issubset(list(df["Name"].values)):
     if set(model_list).issubset(list(alias.keys())):
         for i, model in enumerate(model_list):

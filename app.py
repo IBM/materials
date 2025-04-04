@@ -81,7 +81,7 @@ smiles_image_mapping = {
 
 datasets = ["Load Custom Dataset"]
 
-models_enabled = ["SELFIES-TED", "MHG-GED", "MolFormer", "SMI-TED", "Mordred", "MorganFingerprint"]
+models_enabled = ["SELFIES-TED", "MHG-GED", "MolFormer", "SMI-TED", "POS-EGNN", "Mordred", "MorganFingerprint"]
 
 fusion_available = ["Concat"]
 
