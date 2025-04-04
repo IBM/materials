@@ -23,7 +23,8 @@ def smiles_to_atoms(smiles):
     return ase_atoms
 
 class POSEGNN():
-    def __init__(self, device="cpu"):
+    def __init__(self, use_gpu=True):
+        device = "cuda" if use_gpu and torch.cuda.is_available() else "cpu"
         self.device = device
         self.calculator = None
 
