@@ -23,7 +23,7 @@ from torch.nn.init import constant_, xavier_uniform_
 from torch_geometric.nn import MessagePassing
 from torch_geometric.nn.inits import glorot_orthogonal
 from torch_geometric.nn.models.schnet import ShiftedSoftplus
-from torch_scatter import scatter
+#from torch_scatter import scatter
 
 zeros_initializer = partial(constant_, val=0.0)
 
