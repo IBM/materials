@@ -77,7 +77,7 @@ class SELFIES(torch.nn.Module):
         self.model = AutoModel.from_pretrained("ibm/materials.selfies-ted")
         self.model.eval()
 
-    def encode(self, smiles_list=[], use_gpu=False, return_tensor=False, batch_size=128, num_workers=0):
+    def encode(self, smiles_list=[], use_gpu=True, return_tensor=False, batch_size=128, num_workers=0):
         selfies = self.get_selfies(smiles_list)
         dataset = SELFIESDataset(selfies)
 
