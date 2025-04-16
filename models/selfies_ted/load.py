@@ -41,9 +41,7 @@ class SELFIES(torch.nn.Module):
                 return None
 
     def get_selfies(self, smiles_list):
-        with Pool(cpu_count()) as pool:
-            selfies = list(pool.map(self.smiles_to_selfies, smiles_list))
-
+        selfies = [self.smiles_to_selfies(smi) for smi in smiles_list]
         self.invalid = [i for i, s in enumerate(selfies) if s is None]
         selfies = [s if s is not None else '[nop]' for s in selfies]
         return selfies
