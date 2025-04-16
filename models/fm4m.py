@@ -20,12 +20,15 @@ from sklearn.kernel_ridge import KernelRidge
 import json
 from sklearn.compose import TransformedTargetRegressor
 from sklearn.preprocessing import MinMaxScaler
+import os
 
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 import torch
 from transformers import AutoTokenizer, AutoModel
 
 import sys
+
 sys.path.append("models/")
 
 from models.selfies_ted.load import SELFIES as bart
@@ -33,72 +36,88 @@ from models.mhg_model import load as mhg
 from models.smi_ted.smi_ted_light.load import load_smi_ted
 from models.pos_egnn.load import POSEGNN as pos
 
-#import mordred
-#from mordred import Calculator, descriptors
+# import mordred
+# from mordred import Calculator, descriptors
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
 datasets = {}
 models = {}
-downstream_models ={}
+downstream_models = {}
 
 
 def avail_models_data():
     global datasets
     global models
 
-    datasets = [{"Dataset": "hiv", "Input": "smiles", "Output": "HIV_active", "Path": "data/hiv", "Timestamp": "2024-06-26 11:27:37"},
-  {"Dataset": "esol", "Input": "smiles", "Output": "ESOL predicted log solubility in mols per litre", "Path": "data/esol", "Timestamp": "2024-06-26 11:31:46"},
-  {"Dataset": "freesolv", "Input": "smiles", "Output": "expt", "Path": "data/freesolv", "Timestamp": "2024-06-26 11:33:47"},
-  {"Dataset": "lipo", "Input": "smiles", "Output": "y", "Path": "data/lipo", "Timestamp": "2024-06-26 11:34:37"},
-  {"Dataset": "bace", "Input": "smiles", "Output": "Class", "Path": "data/bace", "Timestamp": "2024-06-26 11:36:40"},
-  {"Dataset": "bbbp", "Input": "smiles", "Output": "p_np", "Path": "data/bbbp", "Timestamp": "2024-06-26 11:39:23"},
-  {"Dataset": "clintox", "Input": "smiles", "Output": "CT_TOX", "Path": "data/clintox", "Timestamp": "2024-06-26 11:42:43"}]
+    datasets = [{"Dataset": "hiv", "Input": "smiles", "Output": "HIV_active", "Path": "data/hiv",
+                 "Timestamp": "2024-06-26 11:27:37"},
+                {"Dataset": "esol", "Input": "smiles", "Output": "ESOL predicted log solubility in mols per litre",
+                 "Path": "data/esol", "Timestamp": "2024-06-26 11:31:46"},
+                {"Dataset": "freesolv", "Input": "smiles", "Output": "expt", "Path": "data/freesolv",
+                 "Timestamp": "2024-06-26 11:33:47"},
+                {"Dataset": "lipo", "Input": "smiles", "Output": "y", "Path": "data/lipo",
+                 "Timestamp": "2024-06-26 11:34:37"},
+                {"Dataset": "bace", "Input": "smiles", "Output": "Class", "Path": "data/bace",
+                 "Timestamp": "2024-06-26 11:36:40"},
+                {"Dataset": "bbbp", "Input": "smiles", "Output": "p_np", "Path": "data/bbbp",
+                 "Timestamp": "2024-06-26 11:39:23"},
+                {"Dataset": "clintox", "Input": "smiles", "Output": "CT_TOX", "Path": "data/clintox",
+                 "Timestamp": "2024-06-26 11:42:43"}]
 
-
-    models = [{"Name": "bart","Model Name": "SELFIES-TED","Description": "BART model for string based SELFIES modality", "Timestamp": "2024-06-21 12:32:20"},
-  {"Name": "mol-xl","Model Name": "MolFormer", "Description": "MolFormer model for string based SMILES modality", "Timestamp": "2024-06-21 12:35:56"},
-  {"Name": "mhg", "Model Name": "MHG-GED","Description": "Molecular hypergraph model", "Timestamp": "2024-07-10 00:09:42"},
-  {"Name": "smi-ted", "Model Name": "SMI-TED","Description": "SMILES based encoder decoder model", "Timestamp": "2024-07-10 00:09:42"},
-  {"Name": "pos-egnn", "Model Name": "POS-EGNN","Description": "3D Position Encoder model", "Timestamp": "2025-04-04 00:11:42"}
-              ]
+    models = [
+        {"Name": "bart", "Model Name": "SELFIES-TED", "Description": "BART model for string based SELFIES modality",
+         "Timestamp": "2024-06-21 12:32:20"},
+        {"Name": "mol-xl", "Model Name": "MolFormer", "Description": "MolFormer model for string based SMILES modality",
+         "Timestamp": "2024-06-21 12:35:56"},
+        {"Name": "mhg", "Model Name": "MHG-GED", "Description": "Molecular hypergraph model",
+         "Timestamp": "2024-07-10 00:09:42"},
+        {"Name": "smi-ted", "Model Name": "SMI-TED", "Description": "SMILES based encoder decoder model",
+         "Timestamp": "2024-07-10 00:09:42"},
+        {"Name": "pos-egnn", "Model Name": "POS-EGNN", "Description": "3D Position Encoder model",
+         "Timestamp": "2025-04-04 00:11:42"}
+        ]
 
 
 def avail_models(raw=False):
     global models
 
-    models = [{"Name": "smi-ted", "Model Name": "SMI-TED","Description": "SMILES based encoder decoder model"},
-              {"Name": "bart","Model Name": "SELFIES-TED","Description": "BART model for string based SELFIES modality"},
-              {"Name": "mol-xl","Model Name": "MolFormer", "Description": "MolFormer model for string based SMILES modality"},
-              {"Name": "mhg", "Model Name": "MHG-GED","Description": "Molecular hypergraph model"},
-              {"Name": "pos", "Model Name": "POS-EGNN","Description": "3D atom position model"},
-              {"Name": "Mordred", "Model Name": "Mordred","Description": "Baseline: A descriptor-calculation software application that can calculate more than 1800 two- and three-dimensional descriptors"},
-              {"Name": "MorganFingerprint", "Model Name": "MorganFingerprint","Description": "Baseline: Circular atom environments based descriptor"}              
-  ]
+    models = [{"Name": "smi-ted", "Model Name": "SMI-TED", "Description": "SMILES based encoder decoder model"},
+              {"Name": "bart", "Model Name": "SELFIES-TED",
+               "Description": "BART model for string based SELFIES modality"},
+              {"Name": "mol-xl", "Model Name": "MolFormer",
+               "Description": "MolFormer model for string based SMILES modality"},
+              {"Name": "mhg", "Model Name": "MHG-GED", "Description": "Molecular hypergraph model"},
+              {"Name": "pos", "Model Name": "POS-EGNN", "Description": "3D atom position model"},
+              {"Name": "Mordred", "Model Name": "Mordred",
+               "Description": "Baseline: A descriptor-calculation software application that can calculate more than 1800 two- and three-dimensional descriptors"},
+              {"Name": "MorganFingerprint", "Model Name": "MorganFingerprint",
+               "Description": "Baseline: Circular atom environments based descriptor"}
+              ]
 
-
-
-    if raw: return models
+    if raw:
+        return models
     else:
         return pd.DataFrame(models).drop('Name', axis=1)
 
     return models
+
 
 def avail_downstream_models(raw=False):
     global downstream_models
 
     downstream_models = [{"Name": "XGBClassifier", "Task Type": "Classfication"},
                          {"Name": "DefaultClassifier", "Task Type": "Classfication"},
-                        {"Name": "SVR", "Task Type": "Regression"},
-                        {"Name": "Kernel Ridge", "Task Type": "Regression"},
-                        {"Name": "Linear Regression", "Task Type": "Regression"},
-                        {"Name": "DefaultRegressor", "Task Type": "Regression"},
+                         {"Name": "SVR", "Task Type": "Regression"},
+                         {"Name": "Kernel Ridge", "Task Type": "Regression"},
+                         {"Name": "Linear Regression", "Task Type": "Regression"},
+                         {"Name": "DefaultRegressor", "Task Type": "Regression"},
                          ]
 
-    if raw: return downstream_models
+    if raw:
+        return downstream_models
     else:
         return pd.DataFrame(downstream_models)
-
 
 
 def avail_datasets():
@@ -121,8 +140,8 @@ def avail_datasets():
 
     return datasets
 
-def reset():
 
+def reset():
     """datasets = {"esol": ["smiles", "ESOL predicted log solubility in mols per litre", "data/esol", "2024-06-26 11:36:46.509324"],
            "freesolv": ["smiles", "expt", "data/freesolv", "2024-06-26 11:37:37.393273"],
            "lipo": ["smiles", "y", "data/lipo", "2024-06-26 11:37:37.393273"],
@@ -135,26 +154,31 @@ def reset():
            }"""
 
     datasets = [
-      {"Dataset": "hiv", "Input": "smiles", "Output": "HIV_active", "Path": "data/hiv", "Timestamp": "2024-06-26 11:27:37"},
-      {"Dataset": "esol", "Input": "smiles", "Output": "ESOL predicted log solubility in mols per litre", "Path": "data/esol", "Timestamp": "2024-06-26 11:31:46"},
-      {"Dataset": "freesolv", "Input": "smiles", "Output": "expt", "Path": "data/freesolv", "Timestamp": "2024-06-26 11:33:47"},
-      {"Dataset": "lipo", "Input": "smiles", "Output": "y", "Path": "data/lipo", "Timestamp": "2024-06-26 11:34:37"},
-      {"Dataset": "bace", "Input": "smiles", "Output": "Class", "Path": "data/bace", "Timestamp": "2024-06-26 11:36:40"},
-      {"Dataset": "bbbp", "Input": "smiles", "Output": "p_np", "Path": "data/bbbp", "Timestamp": "2024-06-26 11:39:23"},
-      {"Dataset": "clintox", "Input": "smiles", "Output": "CT_TOX", "Path": "data/clintox", "Timestamp": "2024-06-26 11:42:43"},
-      #{"Dataset": "sider", "Input": "smiles", "Output": "1:", "path": "data/sider", "Timestamp": "2024-06-26 11:38:40.058354"},
-      #{"Dataset": "tox21", "Input": "smiles", "Output": ":-2", "path": "data/tox21", "Timestamp": "2024-06-26 11:38:40.058354"}
+        {"Dataset": "hiv", "Input": "smiles", "Output": "HIV_active", "Path": "data/hiv",
+         "Timestamp": "2024-06-26 11:27:37"},
+        {"Dataset": "esol", "Input": "smiles", "Output": "ESOL predicted log solubility in mols per litre",
+         "Path": "data/esol", "Timestamp": "2024-06-26 11:31:46"},
+        {"Dataset": "freesolv", "Input": "smiles", "Output": "expt", "Path": "data/freesolv",
+         "Timestamp": "2024-06-26 11:33:47"},
+        {"Dataset": "lipo", "Input": "smiles", "Output": "y", "Path": "data/lipo", "Timestamp": "2024-06-26 11:34:37"},
+        {"Dataset": "bace", "Input": "smiles", "Output": "Class", "Path": "data/bace",
+         "Timestamp": "2024-06-26 11:36:40"},
+        {"Dataset": "bbbp", "Input": "smiles", "Output": "p_np", "Path": "data/bbbp",
+         "Timestamp": "2024-06-26 11:39:23"},
+        {"Dataset": "clintox", "Input": "smiles", "Output": "CT_TOX", "Path": "data/clintox",
+         "Timestamp": "2024-06-26 11:42:43"},
+        # {"Dataset": "sider", "Input": "smiles", "Output": "1:", "path": "data/sider", "Timestamp": "2024-06-26 11:38:40.058354"},
+        # {"Dataset": "tox21", "Input": "smiles", "Output": ":-2", "path": "data/tox21", "Timestamp": "2024-06-26 11:38:40.058354"}
     ]
 
     models = [{"Name": "bart", "Description": "BART model for string based SELFIES modality",
-      "Timestamp": "2024-06-21 12:32:20"},
-     {"Name": "mol-xl", "Description": "MolFormer model for string based SMILES modality",
-      "Timestamp": "2024-06-21 12:35:56"},
-     {"Name": "mhg", "Description": "MHG", "Timestamp": "2024-07-10 00:09:42"},
-     {"Name": "spec-gru", "Description": "Spectrum modality with GRU", "Timestamp": "2024-07-10 00:09:42"},
-     {"Name": "spec-lstm", "Description": "Spectrum modality with LSTM", "Timestamp": "2024-07-10 00:09:54"},
-     {"Name": "3d-vae", "Description": "VAE model for 3D atom positions", "Timestamp": "2024-07-10 00:10:08"}]
-
+               "Timestamp": "2024-06-21 12:32:20"},
+              {"Name": "mol-xl", "Description": "MolFormer model for string based SMILES modality",
+               "Timestamp": "2024-06-21 12:35:56"},
+              {"Name": "mhg", "Description": "MHG", "Timestamp": "2024-07-10 00:09:42"},
+              {"Name": "spec-gru", "Description": "Spectrum modality with GRU", "Timestamp": "2024-07-10 00:09:42"},
+              {"Name": "spec-lstm", "Description": "Spectrum modality with LSTM", "Timestamp": "2024-07-10 00:09:54"},
+              {"Name": "3d-vae", "Description": "VAE model for 3D atom positions", "Timestamp": "2024-07-10 00:10:08"}]
 
     downstream_models = [
         {"Name": "XGBClassifier", "Description": "XG Boost Classifier",
@@ -176,36 +200,40 @@ def reset():
     with open("downstream_models.json", "w") as outfile:
         json.dump(downstream_models, outfile)
 
+
 def update_data_list(list_data):
-    #datasets[list_data[0]] = list_data[1:]
+    # datasets[list_data[0]] = list_data[1:]
 
     with open("datasets.json", "w") as outfile:
         json.dump(datasets, outfile)
 
     avail_models_data()
 
+
 def update_model_list(list_model):
-    #models[list_model[0]] = list_model[1]
+    # models[list_model[0]] = list_model[1]
 
     with open("models.json", "w") as outfile:
         json.dump(list_model, outfile)
 
     avail_models_data()
 
+
 def update_downstream_model_list(list_model):
-    #models[list_model[0]] = list_model[1]
+    # models[list_model[0]] = list_model[1]
 
     with open("downstream_models.json", "w") as outfile:
         json.dump(list_model, outfile)
 
     avail_models_data()
 
+
 avail_models_data()
 
 
-
-def get_representation(train_data,test_data,model_type, return_tensor=True):
-    alias = {"MHG-GED": "mhg", "SELFIES-TED": "bart","POS-EGNN": "pos", "MolFormer": "mol-xl", "Molformer": "mol-xl", "SMI-TED": "smi-ted"}
+def get_representation(train_data, test_data, model_type, return_tensor=True):
+    alias = {"MHG-GED": "mhg", "SELFIES-TED": "bart", "POS-EGNN": "pos", "MolFormer": "mol-xl", "Molformer": "mol-xl",
+             "SMI-TED": "smi-ted"}
     if model_type in alias.keys():
         model_type = alias[model_type]
 
@@ -269,33 +297,33 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
         if not return_tensor:
             x_batch = pd.DataFrame(x_batch)
             x_batch_test = pd.DataFrame(x_batch_test)
-    
+
     elif model_type == 'Mordred':
         all_data = train_data + test_data
         calc = Calculator(descriptors, ignore_3D=True)
         mol_list = [Chem.MolFromSmiles(sm) for sm in all_data]
         x_all = calc.pandas(mol_list)
-        print (f'original mordred fv dim: {x_all.shape}')
-        
+        print(f'original mordred fv dim: {x_all.shape}')
+
         for j in x_all.columns:
             for k in range(len(x_all[j])):
                 i = x_all.loc[k, j]
                 if type(i) is mordred.error.Missing or type(i) is mordred.error.Error:
                     x_all.loc[k, j] = np.nan
-                    
-        x_all.dropna(how="any", axis = 1, inplace=True)
-        print (f'Nan excluded mordred fv dim: {x_all.shape}')
-        
+
+        x_all.dropna(how="any", axis=1, inplace=True)
+        print(f'Nan excluded mordred fv dim: {x_all.shape}')
+
         x_batch = x_all.iloc[:len(train_data)]
         x_batch_test = x_all.iloc[len(train_data):]
         # print(f'x_batch: {len(x_batch)}, x_batch_test: {len(x_batch_test)}')
-        
+
     elif model_type == 'MorganFingerprint':
-        params = {'radius':2, 'nBits':1024}
-        
+        params = {'radius': 2, 'nBits': 1024}
+
         mol_train = [Chem.MolFromSmiles(sm) for sm in train_data]
         mol_test = [Chem.MolFromSmiles(sm) for sm in test_data]
-        
+
         x_batch = []
         for mol in mol_train:
             info = {}
@@ -303,7 +331,7 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
             vector = list(fp)
             x_batch.append(vector)
         x_batch = pd.DataFrame(x_batch)
-        
+
         x_batch_test = []
         for mol in mol_test:
             info = {}
@@ -314,25 +342,27 @@ def get_representation(train_data,test_data,model_type, return_tensor=True):
 
     return x_batch, x_batch_test
 
-def single_modal(model,dataset=None, downstream_model=None, params=None, x_train=None, x_test=None, y_train=None, y_test=None):
+
+def single_modal(model, task_name="custom", dataset=None, downstream_model=None, params=None, x_train=None, x_test=None,
+                 y_train=None, y_test=None, save_model=False):
     print(model)
-    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart","POS-EGNN": "pos", "MolFormer":"mol-xl", "Molformer": "mol-xl", "SMI-TED": "smi-ted"}
+    alias = {"MHG-GED": "mhg", "SELFIES-TED": "bart", "POS-EGNN": "pos", "MolFormer": "mol-xl", "Molformer": "mol-xl",
+             "SMI-TED": "smi-ted"}
     data = avail_models(raw=True)
     df = pd.DataFrame(data)
-    #print(list(df["Name"].values))
-    
+    # print(list(df["Name"].values))
+
     if model in list(df["Name"].values):
         model_type = model
     elif alias[model] in list(df["Name"].values):
-            model_type = alias[model]
+        model_type = alias[model]
     else:
         print("Model not available")
         return
-    
 
     data = avail_datasets()
     df = pd.DataFrame(data)
-    #print(list(df["Dataset"].values))
+    # print(list(df["Dataset"].values))
 
     if dataset in list(df["Dataset"].values):
         task = dataset
@@ -340,10 +370,10 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
             x_batch, y_batch, x_batch_test, y_batch_test = pickle.load(f1)
         print(f" Representation loaded successfully")
 
-    elif x_train==None:
+    elif x_train == None:
 
         print("Custom Dataset")
-        #return
+        # return
         components = dataset.split(",")
         train_data = pd.read_csv(components[0])[components[2]]
         test_data = pd.read_csv(components[1])[components[2]]
@@ -351,35 +381,32 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
         y_batch = pd.read_csv(components[0])[components[3]]
         y_batch_test = pd.read_csv(components[1])[components[3]]
 
-
-        x_batch,  x_batch_test = get_representation(train_data,test_data,model_type)
-
-
+        x_batch, x_batch_test = get_representation(train_data, test_data, model_type)
 
         print(f" Representation loaded successfully")
 
     else:
-
+        task = task_name
         y_batch = y_train
         y_batch_test = y_test
         x_batch, x_batch_test = get_representation(x_train, x_test, model_type)
-    
+
     # exclude row containing Nan value
     if isinstance(x_batch, torch.Tensor):
-        x_batch = pd.DataFrame(x_batch)    
+        x_batch = pd.DataFrame(x_batch)
     nan_indices = x_batch.index[x_batch.isna().any(axis=1)]
     if len(nan_indices) > 0:
-        x_batch.dropna(inplace = True)
+        x_batch.dropna(inplace=True)
         for index in sorted(nan_indices, reverse=True):
             del y_batch[index]
         print(f'x_batch Nan index: {nan_indices}')
         print(f'x_batch shape: {x_batch.shape}, y_batch len: {len(y_batch)}')
-            
+
     if isinstance(x_batch_test, torch.Tensor):
         x_batch_test = pd.DataFrame(x_batch_test)
     nan_indices = x_batch_test.index[x_batch_test.isna().any(axis=1)]
     if len(nan_indices) > 0:
-        x_batch_test.dropna(inplace = True)
+        x_batch_test.dropna(inplace=True)
         for index in sorted(nan_indices, reverse=True):
             del y_batch_test[index]
         print(f'x_batch_test Nan index: {nan_indices}')
@@ -391,7 +418,7 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
         if params == None:
             xgb_predict_concat = XGBClassifier()
         else:
-            xgb_predict_concat = XGBClassifier(**params) # n_estimators=5000, learning_rate=0.01, max_depth=10
+            xgb_predict_concat = XGBClassifier(**params)  # n_estimators=5000, learning_rate=0.01, max_depth=10
         xgb_predict_concat.fit(x_batch, y_batch)
 
         y_prob = xgb_predict_concat.predict_proba(x_batch_test)[:, 1]
@@ -402,15 +429,17 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
 
         try:
             with open(f"plot_emb/{task}_{model_type}.pkl", "rb") as f1:
-                class_0,class_1 = pickle.load(f1)
+                class_0, class_1 = pickle.load(f1)
         except:
             print("Generating latent plots")
             reducer = umap.UMAP(metric='euclidean', n_neighbors=10, n_components=2, low_memory=True, min_dist=0.1,
                                 verbose=False)
             n_samples = np.minimum(1000, len(x_batch))
 
-            try:x = y_batch.values[:n_samples]
-            except: x = y_batch[:n_samples]
+            try:
+                x = y_batch.values[:n_samples]
+            except:
+                x = y_batch[:n_samples]
             index_0 = [index for index in range(len(x)) if x[index] == 0]
             index_1 = [index for index in range(len(x)) if x[index] == 1]
 
@@ -423,14 +452,21 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
                 class_1 = []
             print("Generating latent plots : Done")
 
-        #vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
+        # vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
 
         result = f"ROC-AUC Score: {roc_auc:.4f}"
 
-        return result, roc_auc,fpr, tpr, class_0, class_1
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            xgb_predict_concat.save_model(f"downstream_model/{task}_{model_type}.json")
+
+        return result, roc_auc, fpr, tpr, class_0, class_1
 
     elif downstream_model == "DefaultClassifier":
-        xgb_predict_concat = XGBClassifier() # n_estimators=5000, learning_rate=0.01, max_depth=10
+        xgb_predict_concat = XGBClassifier()  # n_estimators=5000, learning_rate=0.01, max_depth=10
         xgb_predict_concat.fit(x_batch, y_batch)
 
         y_prob = xgb_predict_concat.predict_proba(x_batch_test)[:, 1]
@@ -441,11 +477,12 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
 
         try:
             with open(f"plot_emb/{task}_{model_type}.pkl", "rb") as f1:
-                class_0,class_1 = pickle.load(f1)
+                class_0, class_1 = pickle.load(f1)
         except:
             print("Generating latent plots")
-            reducer = umap.UMAP(metric='euclidean', n_neighbors=  10, n_components=2, low_memory=True, min_dist=0.1, verbose=False)
-            n_samples = np.minimum(1000,len(x_batch))
+            reducer = umap.UMAP(metric='euclidean', n_neighbors=10, n_components=2, low_memory=True, min_dist=0.1,
+                                verbose=False)
+            n_samples = np.minimum(1000, len(x_batch))
 
             try:
                 x = y_batch.values[:n_samples]
@@ -465,24 +502,31 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
 
             print("Generating latent plots : Done")
 
-        #vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
+        # vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
 
         result = f"ROC-AUC Score: {roc_auc:.4f}"
 
-        return result, roc_auc,fpr, tpr, class_0, class_1
-    
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            xgb_predict_concat.save_model(f"downstream_model/{task}_{model_type}.json")
+
+        return result, roc_auc, fpr, tpr, class_0, class_1
+
     elif downstream_model == "SVR":
         if params == None:
             regressor = SVR()
-        else:            
+        else:
             regressor = SVR(**params)
-        model = TransformedTargetRegressor(regressor= regressor,
-                                                transformer = MinMaxScaler(feature_range=(-1, 1))
-                                                ).fit(x_batch,y_batch)
-        
+        model = TransformedTargetRegressor(regressor=regressor,
+                                           transformer=MinMaxScaler(feature_range=(-1, 1))
+                                           ).fit(x_batch, y_batch)
+
         y_prob = model.predict(x_batch_test)
         RMSE_score = np.sqrt(mean_squared_error(y_batch_test, y_prob))
-        
+
         print(f"RMSE Score: {RMSE_score:.4f}")
         result = f"RMSE Score: {RMSE_score:.4f}"
 
@@ -491,21 +535,30 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
                             verbose=False)
         n_samples = np.minimum(1000, len(x_batch))
 
-        try: x = y_batch.values[:n_samples]
-        except: x = y_batch[:n_samples]
-        #index_0 = [index for index in range(len(x)) if x[index] == 0]
-        #index_1 = [index for index in range(len(x)) if x[index] == 1]
+        try:
+            x = y_batch.values[:n_samples]
+        except:
+            x = y_batch[:n_samples]
+        # index_0 = [index for index in range(len(x)) if x[index] == 0]
+        # index_1 = [index for index in range(len(x)) if x[index] == 1]
 
         try:
             features_umap = reducer.fit_transform(x_batch[:n_samples])
-            class_0 = features_umap#[index_0]
-            class_1 = features_umap#[index_1]
+            class_0 = features_umap  # [index_0]
+            class_1 = features_umap  # [index_1]
         except:
             class_0 = []
             class_1 = []
         print("Generating latent plots : Done")
-        
-        return result, RMSE_score,y_batch_test, y_prob, class_0, class_1
+
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            model.save_model(f"downstream_model/{task}_{model_type}.json")
+
+        return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
     elif downstream_model == "Kernel Ridge":
         if params == None:
@@ -527,14 +580,23 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
                             verbose=False)
         n_samples = np.minimum(1000, len(x_batch))
         features_umap = reducer.fit_transform(x_batch[:n_samples])
-        try: x = y_batch.values[:n_samples]
-        except: x = y_batch[:n_samples]
+        try:
+            x = y_batch.values[:n_samples]
+        except:
+            x = y_batch[:n_samples]
         # index_0 = [index for index in range(len(x)) if x[index] == 0]
         # index_1 = [index for index in range(len(x)) if x[index] == 1]
 
-        class_0 = features_umap#[index_0]
-        class_1 = features_umap#[index_1]
+        class_0 = features_umap  # [index_0]
+        class_1 = features_umap  # [index_1]
         print("Generating latent plots : Done")
+
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            model.save_model(f"downstream_model/{task}_{model_type}.json")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -559,14 +621,23 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
                             verbose=False)
         n_samples = np.minimum(1000, len(x_batch))
         features_umap = reducer.fit_transform(x_batch[:n_samples])
-        try:x = y_batch.values[:n_samples]
-        except: x = y_batch[:n_samples]
+        try:
+            x = y_batch.values[:n_samples]
+        except:
+            x = y_batch[:n_samples]
         # index_0 = [index for index in range(len(x)) if x[index] == 0]
         # index_1 = [index for index in range(len(x)) if x[index] == 1]
 
-        class_0 = features_umap#[index_0]
-        class_1 = features_umap#[index_1]
+        class_0 = features_umap  # [index_0]
+        class_1 = features_umap  # [index_1]
         print("Generating latent plots : Done")
+
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            model.save_model(f"downstream_model/{task}_{model_type}.json")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -588,20 +659,30 @@ def single_modal(model,dataset=None, downstream_model=None, params=None, x_train
                             verbose=False)
         n_samples = np.minimum(1000, len(x_batch))
         features_umap = reducer.fit_transform(x_batch[:n_samples])
-        try:x = y_batch.values[:n_samples]
-        except: x = y_batch[:n_samples]
+        try:
+            x = y_batch.values[:n_samples]
+        except:
+            x = y_batch[:n_samples]
         # index_0 = [index for index in range(len(x)) if x[index] == 0]
         # index_1 = [index for index in range(len(x)) if x[index] == 1]
 
-        class_0 = features_umap#[index_0]
-        class_1 = features_umap#[index_1]
+        class_0 = features_umap  # [index_0]
+        class_1 = features_umap  # [index_1]
         print("Generating latent plots : Done")
 
-        return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
-        
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
 
-def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_train=None, x_test=None, y_train=None, y_test=None):
-    #print(model_list)
+            model.save_model(f"downstream_model/{task}_{model_type}.json")
+
+        return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
+
+
+def multi_modal(model_list, dataset=None, downstream_model=None, params=None, x_train=None, x_test=None, y_train=None,
+                y_test=None, save_model=False, task_name="custom"):
+    # print(model_list)
     data = avail_datasets()
     df = pd.DataFrame(data)
     list(df["Dataset"].values)
@@ -609,8 +690,9 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
     if dataset in list(df["Dataset"].values):
         task = dataset
         predefined = True
-    elif x_train==None:
+    elif x_train == None:
         predefined = False
+        task = task_name
         components = dataset.split(",")
         train_data = pd.read_csv(components[0])[components[2]]
         test_data = pd.read_csv(components[1])[components[2]]
@@ -630,8 +712,9 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
     df = pd.DataFrame(data)
     list(df["Name"].values)
 
-    alias = {"MHG-GED":"mhg", "SELFIES-TED": "bart", "POS-EGNN": "pos", "MolFormer":"mol-xl",  "Molformer": "mol-xl","SMI-TED":"smi-ted", "Mordred": "Mordred", "MorganFingerprint": "MorganFingerprint"}
-    #if set(model_list).issubset(list(df["Name"].values)):
+    alias = {"MHG-GED": "mhg", "SELFIES-TED": "bart", "POS-EGNN": "pos", "MolFormer": "mol-xl", "Molformer": "mol-xl",
+             "SMI-TED": "smi-ted", "Mordred": "Mordred", "MorganFingerprint": "MorganFingerprint"}
+    # if set(model_list).issubset(list(df["Name"].values)):
     if set(model_list).issubset(list(alias.keys())):
         for i, model in enumerate(model_list):
             if model in alias.keys():
@@ -671,23 +754,23 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
 
     num_columns = x_batch.shape[1]
     x_batch.columns = [f'{i + 1}' for i in range(num_columns)]
-    
+
     # exclude row containing Nan value
     if isinstance(x_batch, torch.Tensor):
-        x_batch = pd.DataFrame(x_batch)    
+        x_batch = pd.DataFrame(x_batch)
     nan_indices = x_batch.index[x_batch.isna().any(axis=1)]
     if len(nan_indices) > 0:
-        x_batch.dropna(inplace = True)
+        x_batch.dropna(inplace=True)
         for index in sorted(nan_indices, reverse=True):
             del y_batch[index]
         print(f'x_batch Nan index: {nan_indices}')
         print(f'x_batch shape: {x_batch.shape}, y_batch len: {len(y_batch)}')
-            
+
     if isinstance(x_batch_test, torch.Tensor):
         x_batch_test = pd.DataFrame(x_batch_test)
     nan_indices = x_batch_test.index[x_batch_test.isna().any(axis=1)]
     if len(nan_indices) > 0:
-        x_batch_test.dropna(inplace = True)
+        x_batch_test.dropna(inplace=True)
         for index in sorted(nan_indices, reverse=True):
             del y_batch_test[index]
         print(f'x_batch_test Nan index: {nan_indices}')
@@ -705,8 +788,10 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
         features_umap = reducer.fit_transform(x_batch[:n_samples])
 
         if "Classifier" in downstream_model:
-            try: x = y_batch.values[:n_samples]
-            except: x = y_batch[:n_samples]
+            try:
+                x = y_batch.values[:n_samples]
+            except:
+                x = y_batch[:n_samples]
             index_0 = [index for index in range(len(x)) if x[index] == 0]
             index_1 = [index for index in range(len(x)) if x[index] == 1]
 
@@ -721,64 +806,82 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
 
     print(f" Calculating ROC AUC Score ...")
 
-
     if downstream_model == "XGBClassifier":
         if params == None:
             xgb_predict_concat = XGBClassifier()
-        else:            
-            xgb_predict_concat = XGBClassifier(**params)#n_estimators=5000, learning_rate=0.01, max_depth=10)
+        else:
+            xgb_predict_concat = XGBClassifier(**params)  # n_estimators=5000, learning_rate=0.01, max_depth=10)
         xgb_predict_concat.fit(x_batch, y_batch)
 
         y_prob = xgb_predict_concat.predict_proba(x_batch_test)[:, 1]
-
 
         roc_auc = roc_auc_score(y_batch_test, y_prob)
         fpr, tpr, _ = roc_curve(y_batch_test, y_prob)
         print(f"ROC-AUC Score: {roc_auc:.4f}")
 
-        #vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
+        # vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
 
-        #vizualize(x_batch_test, y_batch_test)
+        # vizualize(x_batch_test, y_batch_test)
         print(f"ROC-AUC Score: {roc_auc:.4f}")
         result = f"ROC-AUC Score: {roc_auc:.4f}"
 
-        return result, roc_auc,fpr, tpr, class_0, class_1
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            xgb_predict_concat.save_model(f"downstream_model/{task}_{model_type}.json")
+
+        return result, roc_auc, fpr, tpr, class_0, class_1
 
     elif downstream_model == "DefaultClassifier":
-        xgb_predict_concat = XGBClassifier()#n_estimators=5000, learning_rate=0.01, max_depth=10)
+        xgb_predict_concat = XGBClassifier()  # n_estimators=5000, learning_rate=0.01, max_depth=10)
         xgb_predict_concat.fit(x_batch, y_batch)
 
         y_prob = xgb_predict_concat.predict_proba(x_batch_test)[:, 1]
-
 
         roc_auc = roc_auc_score(y_batch_test, y_prob)
         fpr, tpr, _ = roc_curve(y_batch_test, y_prob)
         print(f"ROC-AUC Score: {roc_auc:.4f}")
 
-        #vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
+        # vizualize(roc_auc,fpr, tpr, x_batch, y_batch )
 
-        #vizualize(x_batch_test, y_batch_test)
+        # vizualize(x_batch_test, y_batch_test)
         print(f"ROC-AUC Score: {roc_auc:.4f}")
         result = f"ROC-AUC Score: {roc_auc:.4f}"
 
-        return result, roc_auc,fpr, tpr, class_0, class_1
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            xgb_predict_concat.save_model(f"downstream_model/{task}_{model_type}.json")
+
+        return result, roc_auc, fpr, tpr, class_0, class_1
 
     elif downstream_model == "SVR":
         if params == None:
             regressor = SVR()
         else:
             regressor = SVR(**params)
-        model = TransformedTargetRegressor(regressor= regressor,
-                                                transformer = MinMaxScaler(feature_range=(-1, 1))
-                                                ).fit(x_batch,y_batch)
-        
+        model = TransformedTargetRegressor(regressor=regressor,
+                                           transformer=MinMaxScaler(feature_range=(-1, 1))
+                                           ).fit(x_batch, y_batch)
+
         y_prob = model.predict(x_batch_test)
         RMSE_score = np.sqrt(mean_squared_error(y_batch_test, y_prob))
-        
+
         print(f"RMSE Score: {RMSE_score:.4f}")
         result = f"RMSE Score: {RMSE_score:.4f}"
-        
-        return result, RMSE_score,y_batch_test, y_prob, class_0, class_1
+
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            model.save_model(f"downstream_model/{task}_{model_type}.json")
+
+        return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
     elif downstream_model == "Linear Regression":
         if params == None:
@@ -794,6 +897,13 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
 
         print(f"RMSE Score: {RMSE_score:.4f}")
         result = f"RMSE Score: {RMSE_score:.4f}"
+
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            model.save_model(f"downstream_model/{task}_{model_type}.json")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -812,6 +922,13 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
         print(f"RMSE Score: {RMSE_score:.4f}")
         result = f"RMSE Score: {RMSE_score:.4f}"
 
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            model.save_model(f"downstream_model/{task}_{model_type}.json")
+
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
     elif downstream_model == "DefaultRegressor":
@@ -826,16 +943,23 @@ def multi_modal(model_list,dataset=None, downstream_model=None,params=None, x_tr
         print(f"RMSE Score: {RMSE_score:.4f}")
         result = f"RMSE Score: {RMSE_score:.4f}"
 
+        if save_model:
+            dir_path = "downstream_model/"
+            if not os.path.exists("dir_path"):
+                os.makedirs(dir_path)
+
+            model.save_model(f"downstream_model/{task}_{model_type}.json")
+
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
 
-
-def finetune_optuna(x_batch,y_batch, x_batch_test, y_test ):
+def finetune_optuna(x_batch, y_batch, x_batch_test, y_test):
     print(f" Finetuning with Optuna and calculating ROC AUC Score ...")
     X_train = x_batch.values
     y_train = y_batch.values
     X_test = x_batch_test.values
     y_test = y_test.values
+
     def objective(trial):
         # Define parameters to be optimized
         params = {
@@ -869,6 +993,7 @@ def finetune_optuna(x_batch,y_batch, x_batch_test, y_test ):
 
         return roc_auc
 
+
 def add_new_model():
     models = avail_models(raw=True)
 
@@ -884,7 +1009,7 @@ def add_new_model():
             "Name": new_name,
             "Description": new_description,
             "Timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            #"path": new_path
+            # "path": new_path
         }
         models.append(new_model)
         with open("models.json", "w") as outfile:
@@ -892,7 +1017,7 @@ def add_new_model():
 
         print("Model uploaded and updated successfully!")
         list_models()
-        #display_models()
+        # display_models()
 
     # Widgets
     name_text = widgets.Text(description="Name:", layout=Layout(width='50%'))
@@ -943,7 +1068,6 @@ def add_new_dataset():
 
         print("Dataset uploaded and updated successfully!")
         list_data()
-
 
     # Widgets
     dataset_text = widgets.Text(description="Dataset:", layout=Layout(width='50%'))
