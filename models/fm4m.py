@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import pickle
 import json
-
+import joblib
 from xgboost import XGBClassifier, XGBRegressor
 import xgboost as xgb
 from sklearn.metrics import roc_auc_score, mean_squared_error
@@ -458,10 +458,10 @@ def single_modal(model, task_name="custom", dataset=None, downstream_model=None,
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            xgb_predict_concat.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(xgb_predict_concat, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, roc_auc, fpr, tpr, class_0, class_1
 
@@ -508,10 +508,10 @@ def single_modal(model, task_name="custom", dataset=None, downstream_model=None,
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            xgb_predict_concat.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(xgb_predict_concat, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, roc_auc, fpr, tpr, class_0, class_1
 
@@ -553,10 +553,10 @@ def single_modal(model, task_name="custom", dataset=None, downstream_model=None,
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            model.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(model, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -593,10 +593,10 @@ def single_modal(model, task_name="custom", dataset=None, downstream_model=None,
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            model.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(model, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -634,10 +634,10 @@ def single_modal(model, task_name="custom", dataset=None, downstream_model=None,
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            model.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(model, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -671,11 +671,11 @@ def single_modal(model, task_name="custom", dataset=None, downstream_model=None,
         print("Generating latent plots : Done")
 
         if save_model:
-            dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            dir_path = "downstream_model"
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            model.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(model, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -827,10 +827,10 @@ def multi_modal(model_list, dataset=None, downstream_model=None, params=None, x_
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            xgb_predict_concat.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(xgb_predict_concat, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, roc_auc, fpr, tpr, class_0, class_1
 
@@ -852,10 +852,10 @@ def multi_modal(model_list, dataset=None, downstream_model=None, params=None, x_
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            xgb_predict_concat.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(xgb_predict_concat, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, roc_auc, fpr, tpr, class_0, class_1
 
@@ -876,10 +876,10 @@ def multi_modal(model_list, dataset=None, downstream_model=None, params=None, x_
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            model.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(model, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -900,10 +900,10 @@ def multi_modal(model_list, dataset=None, downstream_model=None, params=None, x_
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            model.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(model, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -924,10 +924,10 @@ def multi_modal(model_list, dataset=None, downstream_model=None, params=None, x_
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            model.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(model, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
@@ -945,10 +945,10 @@ def multi_modal(model_list, dataset=None, downstream_model=None, params=None, x_
 
         if save_model:
             dir_path = "downstream_model/"
-            if not os.path.exists("dir_path"):
+            if not os.path.exists(dir_path):
                 os.makedirs(dir_path)
 
-            model.save_model(f"downstream_model/{task}_{model_type}.json")
+            joblib.dump(model, f"downstream_model/{task}_{model_type}.pkl")
 
         return result, RMSE_score, y_batch_test, y_prob, class_0, class_1
 
