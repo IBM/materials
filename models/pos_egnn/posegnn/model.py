@@ -2,7 +2,7 @@ from torch import nn
 import torch
 from .encoder import GotenNet
 from .utils import get_symmetric_displacement, BatchedPeriodicDistance, ACT_CLASS_MAPPING
-#from torch_scatter import scatter
+from torch_scatter import scatter
 
 class NodeInvariantReadout(nn.Module):
     def __init__(self, in_channels, num_residues, hidden_channels, out_channels, activation):
