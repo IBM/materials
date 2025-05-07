@@ -40,7 +40,7 @@ class PosEGNNCalculator(Calculator):
         }
         if self.compute_stress:
             self.results.update({
-                "stress": full_3x3_to_voigt_6_stress(out["stress"].cpu().detach().numpy())
+                "stress": -out["stress"].squeeze().cpu().detach().numpy()
                 })
 
     def _build_data(self, atoms):
