@@ -58,7 +58,7 @@ def get_invariant_embeddings(self):
     else:
         data = self.calc._build_data(self)
         with torch.no_grad():
-            embeddings = self.calc.model(data)["embedding_0"][..., 1].squeeze(2)
+            embeddings = self.calc.model(data)["embedding_0"][..., -1].squeeze(2)
         return embeddings
 
 
