@@ -1,16 +1,25 @@
-from torch import nn
+from typing import Dict
+
 import torch
+from torch import nn, Tensor
 from .encoder import GotenNet
-from .utils import get_symmetric_displacement, BatchedPeriodicDistance, ACT_CLASS_MAPPING
-from torch_scatter import scatter
+from .utils import (
+    get_symmetric_displacement,
+    PeriodicDistance,
+    ACT_CLASS_MAPPING,
+)
+
 
 class NodeInvariantReadout(nn.Module):
-    def __init__(self, in_channels, num_residues, hidden_channels, out_channels, activation):
+    def __init__(
+        self, in_channels, num_residues, hidden_channels, out_channels, activation
+    ):
         super().__init__()
 
-        self.linears = nn.ModuleList([nn.Linear(in_channels, out_channels) for _ in range(num_residues - 1)])
+        self.linears = nn.ModuleList(
+            [nn.Linear(in_channels, out_channels) for _ in range(num_residues - 1)]
+        )
 
-        # Define the nonlinear layer for the last layer's output
         self.non_linear = nn.Sequential(
             nn.Linear(in_channels, hidden_channels),
             ACT_CLASS_MAPPING[activation](),
@@ -18,64 +27,73 @@ class NodeInvariantReadout(nn.Module):
         )
 
     def forward(self, embedding_0):
-        layer_outputs = embedding_0.squeeze(2)  # [n_nodes, in_channels, num_residues]
+        layer_outputs = embedding_0.squeeze(2)
 
-        processed_outputs = []
-        for i, linear in enumerate(self.linears):
-            processed_outputs.append(linear(layer_outputs[:, :, i]))
-
-        processed_outputs.append(self.non_linear(layer_outputs[:, :, -1]))
-        output = torch.stack(processed_outputs, dim=0).sum(dim=0).squeeze(-1)
-        return output
-
-class PosEGNN(nn.Module):
-    def __init__(self, config):
-        super().__init__()
-
-        self.distance = BatchedPeriodicDistance(config["encoder"]["cutoff"])
-        self.encoder = GotenNet(**config["encoder"])
-        self.readout = NodeInvariantReadout(**config["decoder"])
-        self.register_buffer("e0_mean", torch.tensor(config["e0_mean"]))
-        self.register_buffer("atomic_res_total_mean", torch.tensor(config["atomic_res_total_mean"]))
-        self.register_buffer("atomic_res_total_std", torch.tensor(config["atomic_res_total_std"]))
-
-    def forward(self, data):
-        data.pos.requires_grad_(True)
-
-        data.pos, data.box, data.displacements = get_symmetric_displacement(data.pos, data.box, data.num_graphs, data.batch)
-
-        data.cutoff_edge_index, data.cutoff_edge_distance, data.cutoff_edge_vec, data.cutoff_shifts_idx = self.distance(
-            data.pos, data.box, data.batch
+        outputs = torch.stack(
+            [linear(layer_outputs[:, :, i]) for i, linear in enumerate(self.linears)],
+            dim=0,
         )
 
-        embedding_dict = self.encoder(data.z, data.pos, data.cutoff_edge_index, data.cutoff_edge_distance, data.cutoff_edge_vec)
+        last_output = self.non_linear(layer_outputs[:, :, -1]).unsqueeze(0)
+        processed_outputs = torch.cat([outputs, last_output], dim=0)
+        output = processed_outputs.sum(dim=0).squeeze(-1)
 
-        return embedding_dict
+        return output
 
-    def compute_properties(self, data, compute_stress = True):
+
+class PosEGNN(nn.Module):
+    def __init__(self, config: Dict, **kwargs):
+        super().__init__()
+
+        self.distance = PeriodicDistance(
+            config["encoder"]["cutoff"], skin=kwargs.get("skin", None)
+        )
+        self.encoder = GotenNet(**config["encoder"])
+        self.readout = NodeInvariantReadout(**config["decoder"])
+
+        self.register_buffer("e0_mean", Tensor(config["e0_mean"]))
+        self.register_buffer(
+            "atomic_res_total_mean", Tensor(config["atomic_res_total_mean"])
+        )
+        self.register_buffer(
+            "atomic_res_total_std", Tensor(config["atomic_res_total_std"])
+        )
+
+    def forward(self, z: Tensor, pos: Tensor, box: Tensor):
+        pos_grad = pos.clone().requires_grad_(True)
+
+        pos, box, displacements = get_symmetric_displacement(pos_grad, box)
+
+        cutoff_edge_index, cutoff_edge_distance, cutoff_edge_vec, cutoff_shifts_idx = (
+            self.distance(pos, box)
+        )
+
+        embedding_dict = self.encoder(
+            z, pos, cutoff_edge_index, cutoff_edge_distance, cutoff_edge_vec
+        )
+
+        return embedding_dict, pos, displacements
+
+    def compute_properties(
+        self, z: Tensor, pos: Tensor, box: Tensor, compute_stress: float = True
+    ):
         output = {}
-        
-        embedding_dict = self.forward(data)
+
+        embedding_dict, pos, displacements = self.forward(z, pos, box)
         embedding_0 = embedding_dict["embedding_0"]
 
-        # Compute energy
         node_e_res = self.readout(embedding_0)
 
         node_e_res = node_e_res * self.atomic_res_total_std + self.atomic_res_total_mean
-        total_e_res = scatter(src=node_e_res, index=data["batch"], dim=0, reduce="sum")
+        node_e0 = self.e0_mean[z]
+        total_energy = node_e0.sum() + node_e_res.sum()
 
-        node_e0 = self.e0_mean[data.z]
-        total_e0 = scatter(src=node_e0, index=data["batch"], dim=0, reduce="sum")
-
-        total_energy = total_e0 + total_e_res
         output["total_energy"] = total_energy
 
-        # Compute gradients
         if compute_stress:
-            inputs = [data.pos, data.displacements]
-            compute_stress = True
+            inputs = [pos, displacements]
         else:
-            inputs = [data.pos]
+            inputs = [pos]
 
         grad_outputs = torch.autograd.grad(
             outputs=[total_energy],
@@ -85,15 +103,13 @@ class PosEGNN(nn.Module):
             create_graph=self.training,
         )
 
-        # Get forces and stresses
         if compute_stress:
             force, virial = grad_outputs
-            stress = virial / torch.det(data.box).abs().view(-1, 1, 1)
-            stress = torch.where(torch.abs(stress) < 1e10, stress, torch.zeros_like(stress))
+            stress = virial / torch.det(box).abs().view(-1, 1, 1)
             output["force"] = -force
             output["stress"] = -stress
         else:
             force = grad_outputs[0]
-            output["force"] = -force        
-        
+            output["force"] = -force
+
         return output
