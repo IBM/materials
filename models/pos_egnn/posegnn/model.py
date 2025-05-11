@@ -51,12 +51,12 @@ class PosEGNN(nn.Module):
         self.encoder = GotenNet(**config["encoder"])
         self.readout = NodeInvariantReadout(**config["decoder"])
 
-        self.register_buffer("e0_mean", Tensor(config["e0_mean"]))
+        self.register_buffer("e0_mean", torch.tensor(config["e0_mean"]))
         self.register_buffer(
-            "atomic_res_total_mean", Tensor(config["atomic_res_total_mean"])
+            "atomic_res_total_mean", torch.tensor(config["atomic_res_total_mean"])
         )
         self.register_buffer(
-            "atomic_res_total_std", Tensor(config["atomic_res_total_std"])
+            "atomic_res_total_std", torch.tensor(config["atomic_res_total_std"])
         )
 
     def forward(self, z: Tensor, pos: Tensor, box: Tensor):
