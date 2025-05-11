@@ -23,7 +23,7 @@ from torch.nn.init import constant_, xavier_uniform_
 from torch_geometric.nn import MessagePassing
 from torch_geometric.nn.inits import glorot_orthogonal
 from torch_geometric.nn.models.schnet import ShiftedSoftplus
-#from torch_scatter import scatter
+from torch_scatter import scatter
 
 zeros_initializer = partial(constant_, val=0.0)
 
@@ -34,7 +34,9 @@ def centralize(
     batch_index: torch.Tensor,
 ):  # note: cannot make assumptions on output shape
     # derive centroid of each batch element, and center entities using corresponding centroids
-    entities_centroid = scatter(batch[key], batch_index, dim=0, reduce="mean")  # e.g., [batch_size, 3]
+    entities_centroid = scatter(
+        batch[key], batch_index, dim=0, reduce="mean"
+    )  # e.g., [batch_size, 3]
     entities_centered = batch[key] - entities_centroid[batch_index]
 
     return entities_centroid, entities_centered
@@ -64,9 +66,21 @@ def parse_update_info(edge_updates):
     else:
         update_parts = []
 
-    allowed_parts = ["gated", "gatedt", "norej", "mlp", "mlpa", "act", "linw", "linwa", "drej"]
+    allowed_parts = [
+        "gated",
+        "gatedt",
+        "norej",
+        "mlp",
+        "mlpa",
+        "act",
+        "linw",
+        "linwa",
+        "drej",
+    ]
     if not all([part in allowed_parts for part in update_parts]):
-        raise ValueError(f"Invalid edge update parts. Allowed parts are {allowed_parts}")
+        raise ValueError(
+            f"Invalid edge update parts. Allowed parts are {allowed_parts}"
+        )
 
     if "gated" in update_parts:
         update_info["gated"] = "gated"
@@ -228,7 +242,9 @@ class SchnetMLP(nn.Module):
             any activation function.
     """
 
-    def __init__(self, n_in, n_out, n_hidden=None, n_layers=2, activation=shifted_softplus):
+    def __init__(
+        self, n_in, n_out, n_hidden=None, n_layers=2, activation=shifted_softplus
+    ):
         super(SchnetMLP, self).__init__()
         # get list of number of nodes in input, hidden & output layers
         if n_hidden is None:
@@ -245,7 +261,10 @@ class SchnetMLP(nn.Module):
             self.n_neurons = [n_in] + n_hidden + [n_out]
 
         # assign a Dense layer (with activation function) to each hidden layer
-        layers = [Dense(self.n_neurons[i], self.n_neurons[i + 1], activation=activation) for i in range(n_layers - 1)]
+        layers = [
+            Dense(self.n_neurons[i], self.n_neurons[i + 1], activation=activation)
+            for i in range(n_layers - 1)
+        ]
         # assign a Dense layer (without activation function) to the output layer
         layers.append(Dense(self.n_neurons[-2], self.n_neurons[-1], activation=None))
         # put all layers together to make the network
@@ -275,7 +294,9 @@ def gaussian_rbf(inputs: torch.Tensor, offsets: torch.Tensor, widths: torch.Tens
 class GaussianRBF(nn.Module):
     r"""Gaussian radial basis functions."""
 
-    def __init__(self, n_rbf: int, cutoff: float, start: float = 0.0, trainable: bool = False):
+    def __init__(
+        self, n_rbf: int, cutoff: float, start: float = 0.0, trainable: bool = False
+    ):
         """
         Args:
             n_rbf: total number of Gaussian functions, :math:`N_g`.
@@ -289,7 +310,9 @@ class GaussianRBF(nn.Module):
 
         # compute offset and width of Gaussian functions
         offset = torch.linspace(start, cutoff, n_rbf)
-        widths = torch.FloatTensor(torch.abs(offset[1] - offset[0]) * torch.ones_like(offset))
+        widths = torch.FloatTensor(
+            torch.abs(offset[1] - offset[0]) * torch.ones_like(offset)
+        )
         if trainable:
             self.widths = nn.Parameter(widths)
             self.offsets = nn.Parameter(offset)
@@ -535,7 +558,9 @@ class TensorInit(nn.Module):
         self.l = l
 
     def forward(self, edge_vec):
-        edge_sh = self._calculate_components(self.l, edge_vec[..., 0], edge_vec[..., 1], edge_vec[..., 2])
+        edge_sh = self._calculate_components(
+            self.l, edge_vec[..., 0], edge_vec[..., 1], edge_vec[..., 2]
+        )
         return edge_sh
 
     @property
@@ -543,7 +568,9 @@ class TensorInit(nn.Module):
         return ((self.l + 1) ** 2) - 1
 
     @staticmethod
-    def _calculate_components(lmax: int, x: torch.Tensor, y: torch.Tensor, z: torch.Tensor) -> torch.Tensor:
+    def _calculate_components(
+        lmax: int, x: torch.Tensor, y: torch.Tensor, z: torch.Tensor
+    ) -> torch.Tensor:
         sh_1_0, sh_1_1, sh_1_2 = x, y, z
 
         if lmax == 1:
@@ -560,7 +587,9 @@ class TensorInit(nn.Module):
         sh_2_4 = math.sqrt(3.0) / 2.0 * (z.pow(2) - x.pow(2))
 
         if lmax == 2:
-            return torch.stack([sh_1_0, sh_1_1, sh_1_2, sh_2_0, sh_2_1, sh_2_2, sh_2_3, sh_2_4], dim=-1)
+            return torch.stack(
+                [sh_1_0, sh_1_1, sh_1_2, sh_2_0, sh_2_1, sh_2_2, sh_2_3, sh_2_4], dim=-1
+            )
 
         # Borrowed from e3nn: https://github.com/e3nn/e3nn/blob/main/e3nn/o3/_spherical_harmonics.py#L188
         sh_3_0 = (1 / 6) * math.sqrt(42) * (sh_2_0 * z + sh_2_4 * x)
@@ -594,7 +623,11 @@ class TensorInit(nn.Module):
             )
 
         sh_4_0 = (3 / 4) * math.sqrt(2) * (sh_3_0 * z + sh_3_6 * x)
-        sh_4_1 = (3 / 4) * sh_3_0 * y + (3 / 8) * math.sqrt(6) * sh_3_1 * z + (3 / 8) * math.sqrt(6) * sh_3_5 * x
+        sh_4_1 = (
+            (3 / 4) * sh_3_0 * y
+            + (3 / 8) * math.sqrt(6) * sh_3_1 * z
+            + (3 / 8) * math.sqrt(6) * sh_3_5 * x
+        )
         sh_4_2 = (
             -3 / 56 * math.sqrt(14) * sh_3_0 * z
             + (3 / 14) * math.sqrt(21) * sh_3_1 * y
@@ -608,7 +641,11 @@ class TensorInit(nn.Module):
             + (3 / 28) * math.sqrt(70) * sh_3_3 * x
             + (3 / 56) * math.sqrt(42) * sh_3_5 * x
         )
-        sh_4_4 = -3 / 28 * math.sqrt(42) * sh_3_2 * x + (3 / 7) * math.sqrt(7) * sh_3_3 * y - 3 / 28 * math.sqrt(42) * sh_3_4 * z
+        sh_4_4 = (
+            -3 / 28 * math.sqrt(42) * sh_3_2 * x
+            + (3 / 7) * math.sqrt(7) * sh_3_3 * y
+            - 3 / 28 * math.sqrt(42) * sh_3_4 * z
+        )
         sh_4_5 = (
             -3 / 56 * math.sqrt(42) * sh_3_1 * x
             + (3 / 28) * math.sqrt(70) * sh_3_3 * z
@@ -622,7 +659,11 @@ class TensorInit(nn.Module):
             + (3 / 14) * math.sqrt(21) * sh_3_5 * y
             - 3 / 56 * math.sqrt(14) * sh_3_6 * z
         )
-        sh_4_7 = -3 / 8 * math.sqrt(6) * sh_3_1 * x + (3 / 8) * math.sqrt(6) * sh_3_5 * z + (3 / 4) * sh_3_6 * y
+        sh_4_7 = (
+            -3 / 8 * math.sqrt(6) * sh_3_1 * x
+            + (3 / 8) * math.sqrt(6) * sh_3_5 * z
+            + (3 / 4) * sh_3_6 * y
+        )
         sh_4_8 = (3 / 4) * math.sqrt(2) * (-sh_3_0 * x + sh_3_6 * z)
         if lmax == 4:
             return torch.stack(
@@ -656,7 +697,11 @@ class TensorInit(nn.Module):
             )
 
         sh_5_0 = (1 / 10) * math.sqrt(110) * (sh_4_0 * z + sh_4_8 * x)
-        sh_5_1 = (1 / 5) * math.sqrt(11) * sh_4_0 * y + (1 / 5) * math.sqrt(22) * sh_4_1 * z + (1 / 5) * math.sqrt(22) * sh_4_7 * x
+        sh_5_1 = (
+            (1 / 5) * math.sqrt(11) * sh_4_0 * y
+            + (1 / 5) * math.sqrt(22) * sh_4_1 * z
+            + (1 / 5) * math.sqrt(22) * sh_4_7 * x
+        )
         sh_5_2 = (
             -1 / 30 * math.sqrt(22) * sh_4_0 * z
             + (4 / 15) * math.sqrt(11) * sh_4_1 * y
@@ -677,7 +722,11 @@ class TensorInit(nn.Module):
             + (1 / 15) * math.sqrt(165) * sh_4_4 * x
             + (1 / 15) * math.sqrt(33) * sh_4_6 * x
         )
-        sh_5_5 = -1 / 15 * math.sqrt(110) * sh_4_3 * x + (1 / 3) * math.sqrt(11) * sh_4_4 * y - 1 / 15 * math.sqrt(110) * sh_4_5 * z
+        sh_5_5 = (
+            -1 / 15 * math.sqrt(110) * sh_4_3 * x
+            + (1 / 3) * math.sqrt(11) * sh_4_4 * y
+            - 1 / 15 * math.sqrt(110) * sh_4_5 * z
+        )
         sh_5_6 = (
             -1 / 15 * math.sqrt(33) * sh_4_2 * x
             + (1 / 15) * math.sqrt(165) * sh_4_4 * z
@@ -698,7 +747,11 @@ class TensorInit(nn.Module):
             + (4 / 15) * math.sqrt(11) * sh_4_7 * y
             - 1 / 30 * math.sqrt(22) * sh_4_8 * z
         )
-        sh_5_9 = -1 / 5 * math.sqrt(22) * sh_4_1 * x + (1 / 5) * math.sqrt(22) * sh_4_7 * z + (1 / 5) * math.sqrt(11) * sh_4_8 * y
+        sh_5_9 = (
+            -1 / 5 * math.sqrt(22) * sh_4_1 * x
+            + (1 / 5) * math.sqrt(22) * sh_4_7 * z
+            + (1 / 5) * math.sqrt(11) * sh_4_8 * y
+        )
         sh_5_10 = (1 / 10) * math.sqrt(110) * (-sh_4_0 * x + sh_4_8 * z)
         if lmax == 5:
             return torch.stack(
@@ -743,7 +796,11 @@ class TensorInit(nn.Module):
             )
 
         sh_6_0 = (1 / 6) * math.sqrt(39) * (sh_5_0 * z + sh_5_10 * x)
-        sh_6_1 = (1 / 6) * math.sqrt(13) * sh_5_0 * y + (1 / 12) * math.sqrt(130) * sh_5_1 * z + (1 / 12) * math.sqrt(130) * sh_5_9 * x
+        sh_6_1 = (
+            (1 / 6) * math.sqrt(13) * sh_5_0 * y
+            + (1 / 12) * math.sqrt(130) * sh_5_1 * z
+            + (1 / 12) * math.sqrt(130) * sh_5_9 * x
+        )
         sh_6_2 = (
             -1 / 132 * math.sqrt(286) * sh_5_0 * z
             + (1 / 33) * math.sqrt(715) * sh_5_1 * y
@@ -771,7 +828,11 @@ class TensorInit(nn.Module):
             + (1 / 66) * math.sqrt(3003) * sh_5_5 * x
             + (1 / 66) * math.sqrt(715) * sh_5_7 * x
         )
-        sh_6_6 = -1 / 66 * math.sqrt(2145) * sh_5_4 * x + (1 / 11) * math.sqrt(143) * sh_5_5 * y - 1 / 66 * math.sqrt(2145) * sh_5_6 * z
+        sh_6_6 = (
+            -1 / 66 * math.sqrt(2145) * sh_5_4 * x
+            + (1 / 11) * math.sqrt(143) * sh_5_5 * y
+            - 1 / 66 * math.sqrt(2145) * sh_5_6 * z
+        )
         sh_6_7 = (
             -1 / 66 * math.sqrt(715) * sh_5_3 * x
             + (1 / 66) * math.sqrt(3003) * sh_5_5 * z
@@ -799,7 +860,11 @@ class TensorInit(nn.Module):
             + (1 / 44) * math.sqrt(1430) * sh_5_8 * z
             + (1 / 33) * math.sqrt(715) * sh_5_9 * y
         )
-        sh_6_11 = -1 / 12 * math.sqrt(130) * sh_5_1 * x + (1 / 6) * math.sqrt(13) * sh_5_10 * y + (1 / 12) * math.sqrt(130) * sh_5_9 * z
+        sh_6_11 = (
+            -1 / 12 * math.sqrt(130) * sh_5_1 * x
+            + (1 / 6) * math.sqrt(13) * sh_5_10 * y
+            + (1 / 12) * math.sqrt(130) * sh_5_9 * z
+        )
         sh_6_12 = (1 / 6) * math.sqrt(39) * (-sh_5_0 * x + sh_5_10 * z)
         if lmax == 6:
             return torch.stack(
@@ -857,7 +922,11 @@ class TensorInit(nn.Module):
             )
 
         sh_7_0 = (1 / 14) * math.sqrt(210) * (sh_6_0 * z + sh_6_12 * x)
-        sh_7_1 = (1 / 7) * math.sqrt(15) * sh_6_0 * y + (3 / 7) * math.sqrt(5) * sh_6_1 * z + (3 / 7) * math.sqrt(5) * sh_6_11 * x
+        sh_7_1 = (
+            (1 / 7) * math.sqrt(15) * sh_6_0 * y
+            + (3 / 7) * math.sqrt(5) * sh_6_1 * z
+            + (3 / 7) * math.sqrt(5) * sh_6_11 * x
+        )
         sh_7_2 = (
             -1 / 182 * math.sqrt(390) * sh_6_0 * z
             + (6 / 91) * math.sqrt(130) * sh_6_1 * y
@@ -892,7 +961,11 @@ class TensorInit(nn.Module):
             + (2 / 91) * math.sqrt(1365) * sh_6_6 * x
             + (15 / 182) * math.sqrt(26) * sh_6_8 * x
         )
-        sh_7_7 = -3 / 91 * math.sqrt(455) * sh_6_5 * x + (1 / 13) * math.sqrt(195) * sh_6_6 * y - 3 / 91 * math.sqrt(455) * sh_6_7 * z
+        sh_7_7 = (
+            -3 / 91 * math.sqrt(455) * sh_6_5 * x
+            + (1 / 13) * math.sqrt(195) * sh_6_6 * y
+            - 3 / 91 * math.sqrt(455) * sh_6_7 * z
+        )
         sh_7_8 = (
             -15 / 182 * math.sqrt(26) * sh_6_4 * x
             + (2 / 91) * math.sqrt(1365) * sh_6_6 * z
@@ -927,7 +1000,11 @@ class TensorInit(nn.Module):
             - 1 / 182 * math.sqrt(390) * sh_6_12 * z
             - 3 / 91 * math.sqrt(715) * sh_6_2 * x
         )
-        sh_7_13 = -3 / 7 * math.sqrt(5) * sh_6_1 * x + (3 / 7) * math.sqrt(5) * sh_6_11 * z + (1 / 7) * math.sqrt(15) * sh_6_12 * y
+        sh_7_13 = (
+            -3 / 7 * math.sqrt(5) * sh_6_1 * x
+            + (3 / 7) * math.sqrt(5) * sh_6_11 * z
+            + (1 / 7) * math.sqrt(15) * sh_6_12 * y
+        )
         sh_7_14 = (1 / 14) * math.sqrt(210) * (-sh_6_0 * x + sh_6_12 * z)
         if lmax == 7:
             return torch.stack(
@@ -1000,7 +1077,11 @@ class TensorInit(nn.Module):
             )
 
         sh_8_0 = (1 / 4) * math.sqrt(17) * (sh_7_0 * z + sh_7_14 * x)
-        sh_8_1 = (1 / 8) * math.sqrt(17) * sh_7_0 * y + (1 / 16) * math.sqrt(238) * sh_7_1 * z + (1 / 16) * math.sqrt(238) * sh_7_13 * x
+        sh_8_1 = (
+            (1 / 8) * math.sqrt(17) * sh_7_0 * y
+            + (1 / 16) * math.sqrt(238) * sh_7_1 * z
+            + (1 / 16) * math.sqrt(238) * sh_7_13 * x
+        )
         sh_8_2 = (
             -1 / 240 * math.sqrt(510) * sh_7_0 * z
             + (1 / 60) * math.sqrt(1785) * sh_7_1 * y
@@ -1050,7 +1131,11 @@ class TensorInit(nn.Module):
             + (1 / 20) * math.sqrt(255) * sh_7_7 * x
             + (1 / 80) * math.sqrt(1190) * sh_7_9 * x
         )
-        sh_8_8 = -1 / 60 * math.sqrt(1785) * sh_7_6 * x + (1 / 15) * math.sqrt(255) * sh_7_7 * y - 1 / 60 * math.sqrt(1785) * sh_7_8 * z
+        sh_8_8 = (
+            -1 / 60 * math.sqrt(1785) * sh_7_6 * x
+            + (1 / 15) * math.sqrt(255) * sh_7_7 * y
+            - 1 / 60 * math.sqrt(1785) * sh_7_8 * z
+        )
         sh_8_9 = (
             -1 / 80 * math.sqrt(1190) * sh_7_5 * x
             + (1 / 20) * math.sqrt(255) * sh_7_7 * z
@@ -1100,7 +1185,11 @@ class TensorInit(nn.Module):
             - 1 / 240 * math.sqrt(510) * sh_7_14 * z
             - 1 / 240 * math.sqrt(46410) * sh_7_2 * x
         )
-        sh_8_15 = -1 / 16 * math.sqrt(238) * sh_7_1 * x + (1 / 16) * math.sqrt(238) * sh_7_13 * z + (1 / 8) * math.sqrt(17) * sh_7_14 * y
+        sh_8_15 = (
+            -1 / 16 * math.sqrt(238) * sh_7_1 * x
+            + (1 / 16) * math.sqrt(238) * sh_7_13 * z
+            + (1 / 8) * math.sqrt(17) * sh_7_14 * y
+        )
         sh_8_16 = (1 / 4) * math.sqrt(17) * (-sh_7_0 * x + sh_7_14 * z)
         if lmax == 8:
             return torch.stack(
@@ -1209,7 +1298,9 @@ def get_split_sizes_from_dim(feature_dim):
         lmax += 1
 
     if lmax_tensor_size(lmax) != feature_dim:
-        raise ValueError(f"Feature dimension {feature_dim} does not correspond to a valid lmax value")
+        raise ValueError(
+            f"Feature dimension {feature_dim} does not correspond to a valid lmax value"
+        )
 
     # Return the sizes of each spherical harmonic component
     return [2 * l + 1 for l in range(1, lmax + 1)]  # noqa: E741
@@ -1259,7 +1350,9 @@ class TensorLayerNorm(nn.Module):
         try:
             split_sizes = get_split_sizes_from_dim(feature_dim)
         except ValueError as e:
-            raise ValueError(f"VecLayerNorm received unsupported feature dimension {feature_dim}: {str(e)}")
+            raise ValueError(
+                f"VecLayerNorm received unsupported feature dimension {feature_dim}: {str(e)}"
+            )
 
         # Split the vector into parts
         vec_parts = torch.split(tensor, split_sizes, dim=1)
@@ -1286,7 +1379,13 @@ class Swish(nn.Module):
         return x * torch.sigmoid(x)
 
 
-act_class_mapping = {"ssp": ShiftedSoftplus, "silu": nn.SiLU, "tanh": nn.Tanh, "sigmoid": nn.Sigmoid, "swish": Swish}
+act_class_mapping = {
+    "ssp": ShiftedSoftplus,
+    "silu": nn.SiLU,
+    "tanh": nn.Tanh,
+    "sigmoid": nn.Sigmoid,
+    "swish": Swish,
+}
 
 
 # https://github.com/sunglasses-ai/classy/blob/3e74cba1fdf1b9f9f2ba1cfcfa6c2017aa59fc04/classy/optim/factories.py#L14
@@ -1342,7 +1441,9 @@ def get_activations_none(optional=False, *args, **kwargs):
 
 def dictionary_to_option(options, selected):
     if selected not in options:
-        raise ValueError(f'Invalid choice "{selected}", choose one from {", ".join(list(options.keys()))} ')
+        raise ValueError(
+            f'Invalid choice "{selected}", choose one from {", ".join(list(options.keys()))} '
+        )
 
     activation = options[selected]
     if inspect.isclass(activation):
@@ -1392,7 +1493,9 @@ class ExpNormalSmearing(nn.Module):
 
     def forward(self, dist):
         dist = dist.unsqueeze(-1)
-        return self.cutoff_fn(dist) * torch.exp(-self.betas * (torch.exp(self.alpha * (-dist)) - self.means) ** 2)
+        return self.cutoff_fn(dist) * torch.exp(
+            -self.betas * (torch.exp(self.alpha * (-dist)) - self.means) ** 2
+        )
 
 
 def str2basis(input_str):
@@ -1429,10 +1532,15 @@ class MLP(nn.Module):
         dims = hidden_dims
         n_layers = len(dims)
 
-        DenseMLP = partial(Dense, bias=bias, weight_init=weight_init, bias_init=bias_init)
+        DenseMLP = partial(
+            Dense, bias=bias, weight_init=weight_init, bias_init=bias_init
+        )
 
         self.dense_layers = nn.ModuleList(
-            [DenseMLP(dims[i], dims[i + 1], activation=activation, norm=norm) for i in range(n_layers - 2)]
+            [
+                DenseMLP(dims[i], dims[i + 1], activation=activation, norm=norm)
+                for i in range(n_layers - 2)
+            ]
             + [DenseMLP(dims[-2], dims[-1], activation=last_activation)]
         )
 
@@ -1486,7 +1594,12 @@ class NodeInit(MessagePassing):
             )
         else:
             self.distance_proj = MLP(
-                [num_rbf] + [last_channel], activation=None, norm="", weight_init=weight_init, bias_init=bias_init, last_activation=None
+                [num_rbf] + [last_channel],
+                activation=None,
+                norm="",
+                weight_init=weight_init,
+                bias_init=bias_init,
+                last_activation=None,
             )
 
         if not self.concat:

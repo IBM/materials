@@ -45,7 +45,9 @@ def split_degree(tensor, lmax, dim=-1):  # default to last dim
         count = lmax_tensor_size(i) - lmax_tensor_size(i - 1)
         # Create slice object for the specified dimension
         slc = [slice(None)] * tensor.ndim  # Create list of slice(None) for all dims
-        slc[dim] = slice(cumsum, cumsum + count)  # Replace desired dim with actual slice
+        slc[dim] = slice(
+            cumsum, cumsum + count
+        )  # Replace desired dim with actual slice
         tensors.append(tensor[tuple(slc)])
         cumsum += count
     return tensors
@@ -129,16 +131,28 @@ class GATA(MessagePassing):
             else:
                 dims = [n_atom_basis, n_atom_basis]
             self.edge_attr_up = InitMLP(
-                dims, activation=activation, last_activation=None if self.update_info["mlp"] else self.activation, norm=edge_ln
+                dims,
+                activation=activation,
+                last_activation=None if self.update_info["mlp"] else self.activation,
+                norm=edge_ln,
             )
-            self.vecq_w = InitDense(n_atom_basis, self.edge_vec_dim, activation=None, bias=False)
+            self.vecq_w = InitDense(
+                n_atom_basis, self.edge_vec_dim, activation=None, bias=False
+            )
 
             if self.sep_vecj:
                 self.veck_w = nn.ModuleList(
-                    [InitDense(n_atom_basis, self.edge_vec_dim, activation=None, bias=False) for i in range(self.lmax)]
+                    [
+                        InitDense(
+                            n_atom_basis, self.edge_vec_dim, activation=None, bias=False
+                        )
+                        for i in range(self.lmax)
+                    ]
                 )
             else:
-                self.veck_w = InitDense(n_atom_basis, self.edge_vec_dim, activation=None, bias=False)
+                self.veck_w = InitDense(
+                    n_atom_basis, self.edge_vec_dim, activation=None, bias=False
+                )
 
             if self.update_info["lin_w"] > 0:
                 modules = []
@@ -148,7 +162,9 @@ class GATA(MessagePassing):
                     self.edge_vec_dim,
                     n_atom_basis,
                     activation=None,
-                    norm="layer" if self.update_info["lin_w"] == 2 else "",  # lin_ln in original code but error
+                    norm="layer"
+                    if self.update_info["lin_w"] == 2
+                    else "",  # lin_ln in original code but error
                 )
                 modules.append(self.lin_w_linear)
                 self.lin_w = nn.Sequential(*modules)
@@ -254,13 +270,17 @@ class GATA(MessagePassing):
             w1 = self.vecq_w(vec)
             if self.sep_vecj:
                 vec_split = split_degree(vec, self.lmax, dim=1)
-                w_out = torch.concat([w(vec_split[i]) for i, w in enumerate(self.veck_w)], dim=1)
+                w_out = torch.concat(
+                    [w(vec_split[i]) for i, w in enumerate(self.veck_w)], dim=1
+                )
 
             else:
                 w_out = self.veck_w(vec)
 
             # edge_updater_type: (w1: Tensor, w2:Tensor,  d_ij: Tensor, f_ij: Tensor)
-            df_ij = self.edge_updater(edge_index, w1=w1, w2=w_out, d_ij=dir_ij, f_ij=f_ij)
+            df_ij = self.edge_updater(
+                edge_index, w1=w1, w2=w_out, d_ij=dir_ij, f_ij=f_ij
+            )
             df_ij = f_ij + df_ij
             self._alpha = None
             return s, t, df_ij
@@ -292,24 +312,32 @@ class GATA(MessagePassing):
         Compute message passing.
         """
 
-        r_ij_attn = r_ij_attn.reshape(-1, self.num_heads, self.n_atom_basis // self.num_heads)
+        r_ij_attn = r_ij_attn.reshape(
+            -1, self.num_heads, self.n_atom_basis // self.num_heads
+        )
         attn = (q_i * k_j * r_ij_attn).sum(dim=-1, keepdim=True)
 
         attn = softmax(attn, index, ptr, dim_size)
 
         # Normalize the attention scores
         if self.scale_edge:
-            norm = torch.sqrt(num_edges_expanded.reshape(-1, 1, 1)) / np.sqrt(self.n_atom_basis)
+            norm = torch.sqrt(num_edges_expanded.reshape(-1, 1, 1)) / np.sqrt(
+                self.n_atom_basis
+            )
         else:
             norm = 1.0 / np.sqrt(self.n_atom_basis)
         attn = attn * norm
         self._alpha = attn
         attn = F.dropout(attn, p=self.dropout, training=self.training)
 
-        self_attn = attn * val_j.reshape(-1, self.num_heads, (self.n_atom_basis * 3) // self.num_heads)
+        self_attn = attn * val_j.reshape(
+            -1, self.num_heads, (self.n_atom_basis * 3) // self.num_heads
+        )
         SEA = self_attn.reshape(-1, 1, self.n_atom_basis * 3)
 
-        x = SEA + (r_ij.unsqueeze(1) * x_j * self.cutoff(d_ij.unsqueeze(-1).unsqueeze(-1)))
+        x = SEA + (
+            r_ij.unsqueeze(1) * x_j * self.cutoff(d_ij.unsqueeze(-1).unsqueeze(-1))
+        )
 
         o_s, o_d, o_t = torch.split(x, self.n_atom_basis, dim=-1)
         dmu = o_d * dir_ij[..., None] + o_t * ten_j
@@ -379,10 +407,14 @@ class GATA(MessagePassing):
     ) -> Tuple[torch.Tensor, torch.Tensor]:
         x, vec = features
         x = scatter(x, index, dim=self.node_dim, dim_size=dim_size, reduce=self.aggr)
-        vec = scatter(vec, index, dim=self.node_dim, dim_size=dim_size, reduce=self.aggr)
+        vec = scatter(
+            vec, index, dim=self.node_dim, dim_size=dim_size, reduce=self.aggr
+        )
         return x, vec
 
-    def update(self, inputs: Tuple[torch.Tensor, torch.Tensor]) -> Tuple[torch.Tensor, torch.Tensor]:
+    def update(
+        self, inputs: Tuple[torch.Tensor, torch.Tensor]
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
         return inputs
 
 
@@ -422,7 +454,9 @@ class EQFF(nn.Module):
         """Compute Equivariant Feed Forward output."""
 
         t_prime = self.w_vu(v)
-        t_prime_mag = torch.sqrt(torch.sum(t_prime**2, dim=-2, keepdim=True) + self.epsilon)
+        t_prime_mag = torch.sqrt(
+            torch.sum(t_prime**2, dim=-2, keepdim=True) + self.epsilon
+        )
         combined = [s, t_prime_mag]
         combined_tensor = torch.cat(combined, dim=-1)
         m12 = self.gamma_m(combined_tensor)
@@ -440,7 +474,7 @@ class GotenNet(nn.Module):
     def __init__(
         self,
         hidden_channels: int = 128,
-        num_layers: int = 8, 
+        num_layers: int = 8,
         radial_basis: Union[Callable, str] = "BesselBasis",
         n_rbf: int = 20,
         cutoff: float = 5.0,
@@ -496,7 +530,11 @@ class GotenNet(nn.Module):
             activation=activation,
         )
         self.edge_embedding = EdgeInit(
-            n_rbf, [self.hidden_dim // 2, self.hidden_dim], weight_init=weight_init, bias_init=bias_init, proj_ln=""
+            n_rbf,
+            [self.hidden_dim // 2, self.hidden_dim],
+            weight_init=weight_init,
+            bias_init=bias_init,
+            proj_ln="",
         )
 
         radial_basis = str2basis(radial_basis)
@@ -535,7 +573,13 @@ class GotenNet(nn.Module):
 
         self.eqff = nn.ModuleList(
             [
-                EQFF(n_atom_basis=self.n_atom_basis, activation=activation, epsilon=epsilon, weight_init=weight_init, bias_init=bias_init)
+                EQFF(
+                    n_atom_basis=self.n_atom_basis,
+                    activation=activation,
+                    epsilon=epsilon,
+                    weight_init=weight_init,
+                    bias_init=bias_init,
+                )
                 for i in range(self.n_interactions)
             ]
         )
@@ -571,7 +615,9 @@ class GotenNet(nn.Module):
 
         edge_attr = self.radial_basis(cutoff_edge_distance)
 
-        q = self.neighbor_embedding(z, q, cutoff_edge_index, cutoff_edge_distance, edge_attr)
+        q = self.neighbor_embedding(
+            z, q, cutoff_edge_index, cutoff_edge_distance, edge_attr
+        )
         edge_attr = self.edge_embedding(cutoff_edge_index, edge_attr, q)
         mask = cutoff_edge_index[0] != cutoff_edge_index[1]
         # direction vector
@@ -581,7 +627,12 @@ class GotenNet(nn.Module):
         cutoff_edge_vec = self.tensor_init(cutoff_edge_vec)
         equi_dim = ((self.tensor_init.l + 1) ** 2) - 1
         # count number of edges for each node
-        num_edges = scatter(torch.ones_like(cutoff_edge_distance), cutoff_edge_index[0], dim=0, reduce="sum")
+        num_edges = scatter(
+            torch.ones_like(cutoff_edge_distance),
+            cutoff_edge_index[0],
+            dim=0,
+            reduce="sum",
+        )
         # the shape of num edges is [num_nodes, 1], we want to expand this to [num_edges, 1]
         # Map num_edges back to the shape of attn using cutoff_edge_index
         num_edges_expanded = num_edges[cutoff_edge_index[0]]
@@ -615,7 +666,9 @@ class GotenNet(nn.Module):
         layer_outputs = torch.stack(layer_outputs, dim=-1)
 
         output_dict = {}
-        output_dict["embedding_0"] = layer_outputs.unsqueeze(2)  # [n_nodes, n_features, dimension of irrep, n_layers]
+        output_dict["embedding_0"] = layer_outputs.unsqueeze(
+            2
+        )  # [n_nodes, n_features, dimension of irrep, n_layers]
         # This is a scalar so a single irrep
 
         return output_dict
