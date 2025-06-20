@@ -148,6 +148,7 @@ Only one representative paper for each model is listed here. For a complete list
 - SMILES-SSED: ["A Mamba-based foundation model for materials" ](https://rdcu.be/ep5qn) (Nature npj Artificial Intelligence, 2025)
 - SELFIES-TED: ["SELF-BART: A Transformer-based Molecular Representation Model using SELFIES"](https://doi.org/10.48550/arXiv.2410.12348) (NeurIPS 2024, AI4Mat)
 - MHG-GNN: ["MHG-GNN: Combination of Molecular Hypergraph Grammar with Graph Neural Network"](https://arxiv.org/pdf/2309.16374)  (NeurIPS 2023, AI4Mat)
+- MOL-MOE: ["Multi-View Mixture-of-Experts for predicting molecular properties using SMILES, SELFIES, and graph-based representations"](https://iopscience.iop.org/article/10.1088/2632-2153/ade4ef) (Machine Learning: Science and Technology, 2025)
 - Overview: ["Foundation Model for Material Science"](https://ojs.aaai.org/index.php/AAAI/article/view/26793) (AAAI 2023, SMTP)
 
 ## Credits
