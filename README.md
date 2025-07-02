@@ -145,7 +145,7 @@ Stay updated on our upcoming events and join us to connect, learn, and engage!
 
 ## Related Publications
 Only one representative paper for each model is listed here. For a complete list of publications, please refer to each model’s README page.
-- SMILES-TED: ["A Large Encoder-Decoder Family of Foundation Models For Chemical Language" ](https://doi.org/10.48550/arXiv.2407.20267) (arXiv paper)
+- SMILES-TED: ["An open-source family of large encoder-decoder foundation models for chemistry" ](https://rdcu.be/eujAk) (Nature Communications Chemistry, 2025)
 - SMILES-SSED: ["A Mamba-based foundation model for materials" ](https://rdcu.be/ep5qn) (Nature npj Artificial Intelligence, 2025)
 - SELFIES-TED: ["SELF-BART: A Transformer-based Molecular Representation Model using SELFIES"](https://doi.org/10.48550/arXiv.2410.12348) (NeurIPS 2024, AI4Mat)
 - MHG-GNN: ["MHG-GNN: Combination of Molecular Hypergraph Grammar with Graph Neural Network"](https://arxiv.org/pdf/2309.16374)  (NeurIPS 2023, AI4Mat)
