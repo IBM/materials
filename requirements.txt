@@ -24,5 +24,4 @@ tqdm>=4.66.4
 mordred
 triton==2.2.0
 ase==3.24.0
-torch_scatter
 torch_nl==0.3

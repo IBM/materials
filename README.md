@@ -75,6 +75,8 @@ After activating your Conda environment, install the required packages using the
 ```bash
 # Install dependencies from requirements.txt
 pip install -r requirements.txt
+# Then install torch-scatter
+pip install torch-scatter -f https://data.pyg.org/whl/torch-2.4.0+cu122.html --no-cache-dir
 ```
 ### 3. Usages
 ### 3-1. Individual model access
