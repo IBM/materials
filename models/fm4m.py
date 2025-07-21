@@ -36,8 +36,8 @@ from models.mhg_model import load as mhg
 from models.smi_ted.smi_ted_light.load import load_smi_ted
 from models.pos_egnn.load import POSEGNN as pos
 
-# import mordred
-# from mordred import Calculator, descriptors
+import mordred
+from mordred import Calculator, descriptors
 from rdkit import Chem
 from rdkit.Chem import AllChem
 
