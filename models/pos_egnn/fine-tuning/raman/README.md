@@ -30,7 +30,7 @@ For more information, please reach out to ademir.ferreira@br.ibm.com.
 Getting Started
 Make sure to have Python 3.12 installed.
 Create a project folder. 
-Copy the folder Morningstar, requirements.txt and inference.ipynb, available on Github, to the project folder. 
+Copy the folder `model`, requirements.txt and inference.ipynb, available on Github, to the project folder. 
 Then, follow these steps below to replicate our environment and install the necessary libraries:
 •	Python3.12 -m venv env
 •	source env/bin/activate
