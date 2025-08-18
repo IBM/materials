@@ -30,7 +30,8 @@ class SELFIES(torch.nn.Module):
         self.tokenizer = None
         self.invalid = []
 
-    def smiles_to_selfies(self, smiles):
+    @staticmethod
+    def smiles_to_selfies(smiles):
         try:
             return sf.encoder(smiles.strip()).replace('][', '] [')
         except:
@@ -41,7 +42,9 @@ class SELFIES(torch.nn.Module):
                 return None
 
     def get_selfies(self, smiles_list):
-        selfies = [self.smiles_to_selfies(smi) for smi in smiles_list]
+         with Pool(cpu_count()) as pool:
+            selfies = list(pool.map(SELFIES.smiles_to_selfies, smiles_list))
+             
         self.invalid = [i for i, s in enumerate(selfies) if s is None]
         selfies = [s if s is not None else '[nop]' for s in selfies]
         return selfies
