@@ -21,8 +21,7 @@ zipp>=3.19.1
 umap-learn
 torch-optimizer
 tqdm>=4.66.4
-mordred
+mordred==1.2.0
 triton==2.2.0
 ase==3.24.0
-torch_scatter
 torch_nl==0.3
