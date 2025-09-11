@@ -75,7 +75,12 @@ After activating your Conda environment, install the required packages using the
 ```bash
 # Install dependencies from requirements.txt
 pip install -r requirements.txt
+
+# Install torch-scatter. Thanks to ahasson and jaronsgit for the pointers.
+pip install torch-scatter -f https://data.pyg.org/whl/torch-$(python -c "import torch; print(torch.__version__.split('+')[0])")+${CUDA}.html
 ```
+> where ${CUDA} should be replaced by either `cpu`, `cu118`, `cu124`, `cu126`, `cu128`, or `cu129` depending on your PyTorch installation. More instructions to install `torch-scatter` follow the [official repository](https://github.com/rusty1s/pytorch_scatter).
+
 ### 3. Usages
 ### 3-1. Individual model access
 One way to utilize FM4M is by accessing each uni-modal model individually. Within each model’s folder (e.g., SMI-TED), you’ll find comprehensive documentation and example notebooks to guide effective usage. This approach allows users to explore and apply each model’s specific functions in detail.
