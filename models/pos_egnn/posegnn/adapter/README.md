@@ -2,34 +2,6 @@
 
 This adapter injects LoRA into mergeable linear layers of **PosEGNN** and exports merged weights that load into a plain `PosEGNN` with `strict=True`.
 
-## Skipped layers
-
-These layers have a built-in activation inside their Dense block, which makes algebraic merging incorrect. They are always skipped so that merged exports match adapter-enabled outputs exactly.
-
-- `encoder.neighbor_embedding.combine.dense_layers.0`
-- `encoder.edge_embedding.edge_up.dense_layers.0`
-- `encoder.gata.0.gamma_s.0`
-- `encoder.gata.0.gamma_v.0`
-- `encoder.gata.0.phik_w_ra`
-- `encoder.gata.0.edge_attr_up.dense_layers.0`
-- `encoder.gata.1.gamma_s.0`
-- `encoder.gata.1.gamma_v.0`
-- `encoder.gata.1.phik_w_ra`
-- `encoder.gata.1.edge_attr_up.dense_layers.0`
-- `encoder.gata.2.gamma_s.0`
-- `encoder.gata.2.gamma_v.0`
-- `encoder.gata.2.phik_w_ra`
-- `encoder.gata.2.edge_attr_up.dense_layers.0`
-- `encoder.gata.3.gamma_s.0`
-- `encoder.gata.3.gamma_v.0`
-- `encoder.gata.3.phik_w_ra`
-- `encoder.eqff.0.gamma_m.0`
-- `encoder.eqff.1.gamma_m.0`
-- `encoder.eqff.2.gamma_m.0`
-- `encoder.eqff.3.gamma_m.0`
-
-Skipping only affects where LoRA is attached. The base model behavior is unchanged.
-
 ## Usage
 
 ```python
