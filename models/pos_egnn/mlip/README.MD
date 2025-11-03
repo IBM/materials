@@ -70,7 +70,7 @@ Currently, we provide one model:
 
 If you find a bug or have a proposal for a feature, please post it in the [Issues](https://github.com/IBM/geodite/issues).
 
-Please feel free to reach out to [thiagoreschutzegger@gmail.com](mailto:thiagoreschutzegger@gmail.com) or [fabian.thiemann@ibm.com](mailto:fabian.thiemann@ibm.com) for any questions.
+Please feel free to reach out to [thiagoreschutzegger@gmail.com](mailto:thiagoreschutzegger@gmail.com) or [f.l.thiemann@gmail.com](mailto:f.l.thiemann@gmail.com) for any questions.
 
 ## Citation
 
