@@ -1,0 +1,19 @@
+#!/bin/bash
+python finetune_regression.py \
+    --arch siglip \
+    --n_batch 8 \
+    --dropout 0.1 \
+    --lr_start 3e-5 \
+    --num_workers 16 \
+    --max_epochs 100 \
+    --ckpt_filename 'SMILESDFT-SigLIP_96.pt' \
+    --data_root '../data/datasets/moleculenet/qm9' \
+    --grid_path '../data/3d_grid/qm9' \
+    --dataset_name qm9 \
+    --measure_name 'u0' \
+    --loss_fn 'mae' \
+    --target_metric 'mae' \
+    --save_ckpt 1 \
+    --start_seed 0 \
+    --save_every_epoch 0 \
+    --restart_filename '' \
