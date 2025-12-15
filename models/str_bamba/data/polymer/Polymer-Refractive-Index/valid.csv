@@ -1,0 +1,5 @@
+Unnamed: 0,POLYMER SMILES,n,volume,alpha
+28,<polymer_spg>[*:1]CC([*:2])C(=O)NC(C)C;2->1,1.5,179.0223066,84.82724799
+4,<polymer_spg>[*:1]CC([*:2])CCCCCCCC;2->1,1.47,269.2162271,121.0085097
+30,<polymer_spg>[*:1]CC([*:2])C(=O)OC;2->1,1.475,116.740118,52.95105261
+25,<polymer_spg>[*:1]Oc1ccc(Oc2ccc(C(=O)c3ccc([*:2])cc3)cc2)cc1;2->1,1.67,378.5825903,227.8337615
