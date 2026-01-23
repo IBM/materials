@@ -1,4 +1,0 @@
-line-length = 140
-
-[lint]
-extend-select = ["I"]
