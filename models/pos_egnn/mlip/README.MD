@@ -26,9 +26,7 @@ For more details, please refer to our [preprint](#).
 Install Geodite and its dependencies using `uv`:
 
 ```bash
-git clone https://github.com/IBM/materials.git
-cd materials/models/pos_egnn/mlip
-uv pip install -e .
+uv pip install "git+https://github.com/IBM/materials.git#subdirectory=models/pos_egnn/mlip"
 ```
 
 ### Inference
