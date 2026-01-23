@@ -6,8 +6,7 @@ from torch import Tensor, nn
 from torch.jit import annotate
 from torch_geometric.data import Data
 
-from geodite.utils import DataInput
-
+from ...utils import DataInput
 from ...utils.graph import scatter
 from ._base_decoder import AbstractDecoder
 
@@ -90,7 +89,10 @@ class SnapshotDecoder(AbstractDecoder):
         self.stress_mean = torch.tensor(0)
         self.stress_std = torch.tensor(0)
 
-    def forward(self, data: DataInput, compute_stress: bool = False):
+    def compute_energy(self, t: Tensor, data: DataInput) -> float:
+        return scatter(self.shift_scale(t), data.batch, dim=0).cpu().detach().item()
+
+    def forward(self, data: DataInput, compute_stress: bool = False , split_energies: bool = False):
         node_e0 = self.e0[data.z]
 
         node_e_res_per_layer = self.readout(data.embedding_0)
@@ -103,6 +105,25 @@ class SnapshotDecoder(AbstractDecoder):
 
         output = self._compute_properties(total_energy, data, compute_stress)
         output.update({"total_energy": total_energy})
+
+        if split_energies and len(data.z) > 1:
+            e = self.compute_energy
+
+            result_dict: Dict[str, torch.Tensor] = {}
+            for name, tensor in [("repulsion_energy", node_e_repulsion), ("residual_energy", node_e_res)]:
+                val = self.compute_energy(tensor, data)
+                assert val is not None
+
+                if not isinstance(val, torch.Tensor):
+                    val = torch.tensor(val)
+
+                result_dict[name] = val
+
+            output.update(result_dict)
+            residual_energy_per_layer = {
+                f"layer_{i}": torch.tensor(e(layer.squeeze(-1), data)) for i, layer in enumerate(node_e_res_per_layer)
+            }
+            output.update({"residual_energy_per_layer": residual_energy_per_layer})
 
         return output
 
@@ -180,7 +201,6 @@ class SnapshotDecoder(AbstractDecoder):
     def store_constants(self, data):
         # NOTE: Using this is not ideal. It is recommended to provide E0s through a yaml
         # since linear regression might not be a good approximation
-        # NOT USED IN GEODITE-MP.
         dtype = torch.float64
         device = data.z.device
 

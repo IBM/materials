@@ -1,3 +1,13 @@
+"""
+This code was adapted from https://github.com/sarpaykent/GotenNet
+Copyright (c) 2025 Sarp Aykent
+MIT License
+
+GotenNet: Rethinking Efficient 3D Equivariant Graph Neural Networks
+Sarp Aykent and Tian Xia
+https://openreview.net/pdf?id=5wxCQDtbMo
+"""
+
 import math
 from functools import partial
 from typing import Callable, List, Optional, Tuple, Union
@@ -9,8 +19,7 @@ from torch import Tensor
 from torch_geometric.nn import MessagePassing
 from torch_geometric.typing import OptTensor
 
-from geodite.utils import DataInput
-
+from ....utils import DataInput
 from ....utils.graph import scatter
 from .._base_encoder import AbstractEncoder
 from .ops import (

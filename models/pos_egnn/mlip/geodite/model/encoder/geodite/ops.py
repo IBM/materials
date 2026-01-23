@@ -1,3 +1,13 @@
+"""
+This code was adapted from https://github.com/sarpaykent/GotenNet
+Copyright (c) 2025 Sarp Aykent
+MIT License
+
+GotenNet: Rethinking Efficient 3D Equivariant Graph Neural Networks
+Sarp Aykent and Tian Xia
+https://openreview.net/pdf?id=5wxCQDtbMo
+"""
+
 from __future__ import absolute_import, division, print_function
 
 import inspect

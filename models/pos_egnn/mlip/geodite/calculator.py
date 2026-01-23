@@ -3,11 +3,10 @@ from typing import Any
 
 import numpy as np
 import torch
+from ase import Atoms
 from ase.calculators.calculator import Calculator, all_changes
 from ase.data import atomic_numbers
 from torch_geometric.data.data import Data
-import requests
-from pathlib import Path
 
 from .model import GeoditeModule
 
@@ -22,7 +21,6 @@ class GeoditeCalculator(Calculator):
         fidelity: str = "MPtrj",
         precision: str = "32",
         compute_stress: bool = True,
-        download_path = ".",
         **kwargs: Any,
     ) -> None:
         super().__init__(**kwargs)
@@ -30,42 +28,24 @@ class GeoditeCalculator(Calculator):
         self.implemented_properties = ["energy", "forces"]
         self.implemented_properties += ["stress"] if compute_stress else []
 
+        split_energies = kwargs.get("split_energies", False)
+        if split_energies:
+            print("Enabling energy decomposition output.")
+            self.implemented_properties += ["repulsion_energy", "residual_energy", "residual_energy_per_layer"]
+        self.split_energies = split_energies
+
         self.device = device = torch.device(device)
         self.fidelity = f"{fidelity}_"
         self.compute_stress = compute_stress
 
-        if checkpoint == "MP":
-            url = "https://huggingface.co/ibm-research/materials.geodite/resolve/main/Geodite-MP.ckpt"
-
-            download_path = Path(download_path)  # change this to your folder
-            download_path.mkdir(parents=True, exist_ok=True)
-
-            file_path = download_path / "Geodite-MP.ckpt"
-
-            if file_path.exists():
-                print(f"File already exists: {file_path}")
-            else:
-                print(f"Downloading {url} to {file_path}...")
-                response = requests.get(url, stream=True)
-                response.raise_for_status()
-
-                with open(file_path, "wb") as f:
-                    for chunk in response.iter_content(chunk_size=8192):
-                        if chunk:
-                            f.write(chunk)
-
-                print(f"Download complete: {file_path}")
-
-            checkpoint = file_path
-
         model = GeoditeModule.load_from_checkpoint(checkpoint, strict=False, map_location=device, weights_only=True)
         model.SnapshotDecoder.set_context_state(self.fidelity)
-        try:
-            self.model = torch.compile(model, mode="default")
-            logging.info("Loading compiled model.")
-        except Exception as e:
-            logging.warning(f"Compiling failed for {checkpoint!r}: {e}. \nLoading checkpoint normally.")
-            self.model = model
+        # try:
+        #     self.model = torch.compile(model, mode="default")
+        #     logging.info("Loading compiled model.")
+        # except Exception as e:
+        #     logging.warning(f"Compiling failed for {checkpoint!r}: {e}. \nLoading checkpoint normally.")
+        self.model = model
 
         if precision == "64":
             self.model.double()
@@ -111,12 +91,27 @@ class GeoditeCalculator(Calculator):
         out = self.model(data)
 
         # Decoder Forward
-        out = self.model.SnapshotDecoder(out, compute_stress=self.compute_stress)
+        out = self.model.SnapshotDecoder(out, compute_stress=self.compute_stress, split_energies=self.split_energies)
 
         self.results = {"energy": out["total_energy"].cpu().detach().item(), "forces": out["force"].cpu().detach().numpy()}
 
         if self.compute_stress:
             self.results.update({"stress": -out["stress"].squeeze().cpu().detach().numpy()})
+
+        if self.split_energies and len(atoms) > 1:
+            self.results.update(
+                {
+                    "repulsion_energy": out["repulsion_energy"],
+                    "residual_energy": out["residual_energy"],
+                    "residual_energy_per_layer": out["residual_energy_per_layer"],
+                }
+            )
+
+    def get_repulsion_energy(self, atoms, **kwargs):
+        return self.results["repulsion_energy"]
+
+    def get_residual_energy(self, atoms, **kwargs):
+        return self.results["residual_energy"]
 
     def _build_data(self, atoms):
         np_dtype, torch_dtype = self.np_dtype, self.torch_dtype
@@ -147,3 +142,15 @@ class GeoditeCalculator(Calculator):
         attrs = self.default_attrs.copy() | attrs
 
         return Data(**attrs).to(self.device)
+
+def get_invariant_embeddings(self):
+    if self.calc is None:
+        raise RuntimeError("No calculator is set.")
+    else:
+        data = self.calc._build_data(self)
+        with torch.no_grad():
+            embeddings = self.calc.model(data)["embedding_0"].squeeze(2)
+        return embeddings
+
+
+Atoms.get_invariant_embeddings = get_invariant_embeddings
