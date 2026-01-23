@@ -17,7 +17,7 @@
 
 **Geodite** is an equivariant message-passing architecture for universal machine-learned interatomic potentials (MLIPs) that eliminates expensive Clebsch-Gordan tensor products while incorporating physical constraints. By avoiding tensor products, Geodite achieves computational efficiency without sacrificing accuracy or physical consistency.
 
-For more details, please refer to our [preprint](#).
+For more details, please refer to our [preprint](https://arxiv.org/abs/2601.15492).
 
 ## Getting started
 
@@ -68,13 +68,13 @@ Currently, we provide one model:
 
 ## How to contribute
 
-If you find a bug or have a proposal for a feature, please post it in the [Issues](https://github.com/IBM/geodite/issues).
+If you find a bug or have a proposal for a feature, please post it in the [Issues](https://github.com/IBM/materials/issues).
 
 Please feel free to reach out to [thiagoreschutzegger@gmail.com](mailto:thiagoreschutzegger@gmail.com) or [f.l.thiemann@gmail.com](mailto:f.l.thiemann@gmail.com) for any questions.
 
 ## Citation
 
-TODO
+Reschutzegger, Thiago, Sarp Aykent, Gabriel Jacob Perin, Bruno Henrique Nunes, Flaviu S. Cipcigan, Rodrigo Neumann Barros Ferreira, Mathias B. Steiner and Fabian L. Thiemann. “Equivariant Interatomic Potentials without Tensor Products.” (2026).
 
 ## License
 
