@@ -40,7 +40,7 @@ import numpy as np
 
 # Load the Geodite-MP model
 geodite = GeoditeCalculator(
-    "/path/to/checkpoint.ckpt",  
+    "MP",  
     device="cuda:0", 
     compute_stress=True
 )
