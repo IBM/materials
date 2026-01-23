@@ -53,7 +53,7 @@ class BatchedPeriodicDistance(nn.Module):
         cell = box[batch]
         cell_is_zero = (cell == 0).all(dim=(-2, -1))
 
-        cell_inv = torch.linalg.inv(cell)
+        cell_inv = torch.linalg.pinv(cell)
         # Convert to fractional coordinates
         frac_coords = torch.where(cell_is_zero.unsqueeze(-1), pos, torch.einsum("ni,nij->nj", pos, cell_inv))
 

@@ -18,8 +18,6 @@ from geodite.utils import DataInput
 from ..utils.graph import BatchedPeriodicDistance, get_symmetric_displacement
 from .decoder import TASK_TO_DECODER
 from .encoder import ENCODER_CLASS_MAP
-from .scalarizer import SCALARIZER_CLASS_MAP
-from .scheduler import SCHEDULER_CLASS_MAP
 
 OPTIMIZER_CLASS_MAP = {
     "AdamW": torch.optim.AdamW,
@@ -84,188 +82,6 @@ class GeoditeModule(LightningModule):
             data.embedding_1 = embedding_dict["embedding_1"]
 
         return data
-
-    def training_step(self, data: Dict[str, Dict[str, Dict[str, Batch]]]) -> Tensor:
-        if hasattr(self, "frozen_encoder"):
-            self.encoder.eval()
-        loss = self._compute_loss_and_log_metrics(data)
-        return loss
-
-    def validation_step(self, data: Dict[str, Dict[str, Dict[str, Batch]]]) -> Tensor:
-        loss = self._compute_loss_and_log_metrics(data)
-        return loss
-
-    def test_step(self, data: Dict[str, Dict[str, Dict[str, Batch]]]) -> Tensor:
-        loss = self._compute_loss_and_log_metrics(data)
-        return loss
-
-    def _compute_loss_and_log_metrics(self, data: Dict[str, Dict[str, Dict[str, Batch]]]):
-        losses_dict, metrics = self._get_losses(data)
-
-        losses = torch.stack(list(losses_dict.values()))
-
-        if self.scalarizer.dynamic:
-            self.trainer.strategy.reduce(losses, reduce_op="mean")
-            self.latest_task_losses = {name: loss.detach().item() for name, loss in losses_dict.items()}
-
-        loss = self.scalarizer(losses)
-
-        # Batch size independent of sampler
-        total_graphs = sum(batch.num_graphs for sub in data.values() for batch in sub.values())
-
-        self._log_metrics(loss, metrics, total_graphs)
-
-        return loss
-
-    def _get_losses(self, data: Dict[str, Dict[str, Dict[str, Batch]]]) -> Tuple[Dict[str, Tensor], List[Dict[str, Tensor]]]:
-        losses = self.losses_template.copy()  # A dict mapping the loss key to 0 tensor
-        metrics = []
-
-        new_data = {}
-        for ds in data.values():
-            for task, batches in ds.items():
-                new_data.setdefault(task, {}).update(batches)
-
-        data.clear()
-        data.update(new_data)
-
-        # Process each decoder only if its *declared* task is in the batch
-        for decoder in self.decoders.values():
-            task_name = decoder.task
-            if task_name not in data:
-                continue
-            task_batches = data[task_name]
-            if decoder._dataset_name:
-                # split‐mode: only handle the one fidelity that matches this decoder
-                fid = f"{decoder._dataset_name}_"
-                if fid not in task_batches:
-                    continue
-                selection = {fid: task_batches[fid]}
-            else:
-                # combine‐mode: handle all fidelities
-                selection = task_batches
-
-            for fidelity, batch in selection.items():
-                out = self.forward(batch)
-                d_loss, d_metrics = decoder.forward_loss(out, fidelity)
-                losses.update(d_loss)
-                metrics.append(d_metrics)
-
-        return losses, metrics
-
-    def _log_metrics(self, total_loss: Tensor, metrics: List[Dict[str, Tensor]], batch_size: int) -> None:
-        step_type = "Test" if self.trainer.testing else "Validation" if self.trainer.validating else "Train"
-        combined_dict = {f"Total loss/{step_type}": total_loss.detach()}
-        for dictionary in metrics:
-            for key, value in dictionary.items():
-                new_key = f"{key}{step_type}"
-                combined_dict[new_key] = value
-
-        self.log("Batch size", batch_size, batch_size=batch_size, sync_dist=True)
-        self.log_dict(combined_dict, sync_dist=True, batch_size=batch_size)
-
-    def configure_optimizers(self):
-        # Calling this here because it was the only hook between configure_model and on_fit_start
-        if not hasattr(self, "starting_from_checkpoint"):
-            self._register_datasets()
-
-        optimizer_class = OPTIMIZER_CLASS_MAP[self.hparams.optimizer["method"]]
-        optimizer = optimizer_class(self.parameters(), **self.hparams.optimizer["args"])
-
-        # Define scalarizer
-        if not hasattr(self, "scalarizer"):
-            n_tasks = len(self._init_decoder_losses())
-            scalarizer_method = SCALARIZER_CLASS_MAP[self.hparams.optimizer["scalarization"]["method"]]
-            self.scalarizer = scalarizer_method(n_tasks=n_tasks, device=self.device, **self.hparams.optimizer["scalarization"]["args"])
-
-        if "schedulers" in self.hparams["optimizer"]:
-            schedulers_list = []
-
-            for scheduler_config in self.hparams["optimizer"]["schedulers"]:
-                lr_method = SCHEDULER_CLASS_MAP[scheduler_config["method"]]
-                schedulers_list.append(
-                    {
-                        "scheduler": lr_method(optimizer, **scheduler_config["method_args"]),
-                    }
-                    | scheduler_config["monitor_args"]
-                )
-
-                print(f"Using {lr_method} as scheduler")
-
-            return [optimizer], schedulers_list
-        else:
-            return optimizer
-
-    def _init_decoder_losses(self):
-        datasets = self.hparams["dataset"]["datasets"]
-        task_to_datasets = defaultdict(list)
-        for dataset, tasks in datasets.items():
-            for task in tasks:
-                task_to_datasets[task].append(dataset)
-
-        losses = {}
-        for task, decoder in self.decoders.items():
-            for fidelity in decoder.context:
-                for loss in decoder.loss_keys:
-                    key = f"{fidelity}/{decoder.name}/{loss}/"
-                    losses[key] = torch.tensor(0.0, device=self.device)
-
-        sorted_losses = dict(sorted(losses.items(), key=lambda item: item[0]))
-        return sorted_losses
-
-    def on_fit_start(self):
-        self.losses_template = self._init_decoder_losses()
-        if not self.synced_buffers:  # This should only run when loading from checkpoint
-            self.sync_buffers()
-
-    def on_validation_model_eval(self) -> None:
-        torch.set_grad_enabled(True)
-
-    def _register_datasets(self):
-        if self.global_rank == 0:
-            if self.hparams.dataset.get("constants_path") is not None:
-                with open(self.hparams.dataset["constants_path"], "r") as file:
-                    constants = yaml.safe_load(file)
-            else:
-                for callback in self.trainer.callbacks:
-                    if isinstance(callback, ModelCheckpoint):
-                        checkpoint_callback = callback
-                        break
-                os.makedirs(checkpoint_callback.dirpath, exist_ok=True)
-                new_constants_path = join(checkpoint_callback.dirpath, "constants.yaml")
-                open(new_constants_path, "a+").close()
-                self.constants_file_path = new_constants_path
-
-            for _, decoder in (pbar := tqdm(self.decoders.items())):
-                task_name = decoder.task
-                pbar.set_description(f"Registering datasets for {decoder.id}")
-
-                if "max_elements_for_constants" in self.hparams.dataset:
-                    whole_batch = self.trainer.datamodule.batch_for_registering_task(task_name)
-                    self.encoder.register_datasets(dataset_batch=whole_batch, file_to_store_constants=new_constants_path)
-                    decoder.register_datasets(dataset_batch=whole_batch, file_to_store_constants=new_constants_path)
-                elif self.hparams.dataset.get("constants_path") is not None:
-                    assert task_name in constants, f"{task_name} is not included in constants file"
-                    self.encoder.register_datasets(precomputed_constants=constants[task_name])
-                    decoder.register_datasets(precomputed_constants=constants[task_name])
-                else:
-                    raise Exception("Please specify either constants_path or max_elements_for_constants")
-
-                decoder.to(self.device)
-            self.encoder.setup()
-            self.encoder.to(self.device)
-
-            if "max_elements_for_constants" in self.hparams.dataset:
-                with open(new_constants_path, "r") as file:
-                    existing_content = file.read()
-
-                with open(new_constants_path, "w") as file:
-                    file.write(
-                        f"# Constant file created with seed {self.hparams.general['seed']} and maximum dataset size of {self.hparams.dataset['max_elements_for_constants']} \n"
-                    )
-                    file.write(existing_content)
-
-        self.sync_buffers()
 
     def sync_buffers(self):
         if dist.is_initialized():
@@ -341,11 +157,6 @@ class GeoditeModule(LightningModule):
             decoder.to(self.device)
 
         # Load scalarization method
-        n_tasks = len(self._init_decoder_losses())
-        scalarizer_method = SCALARIZER_CLASS_MAP[self.hparams.optimizer["scalarization"]["method"]]
-        self.scalarizer = scalarizer_method(n_tasks=n_tasks, device=self.device, **self.hparams.optimizer["scalarization"]["args"])
-        scalarizer_state_dict = {k[len("scalarizer.") :]: v for k, v in scalarizer_keys.items() if k.startswith("scalarizer.")}
-        self.scalarizer.load_state_dict(scalarizer_state_dict, strict=False)
 
         self.starting_from_checkpoint = True
         self.strict_loading = False
@@ -353,31 +164,3 @@ class GeoditeModule(LightningModule):
     def get_constants_file_path(self):
         return self.constants_file_path
 
-    def on_train_batch_end(self, *args, **kwargs):
-        if self.scalarizer.dynamic:
-            with torch.no_grad():
-                losses = self.latest_task_losses
-                self.scalarizer.update(losses)
-
-                if hasattr(self.scalarizer, "weights"):
-                    for n, w in zip(self.latest_task_losses.keys(), self.scalarizer.weights):
-                        self.log(f"{n}/Weight", w, on_step=True, sync_dist=True)
-
-    def on_train_epoch_start(self) -> None:
-        freeze_epochs = self.hparams.get("fine-tuning", {}).get("freeze_epochs")
-        if hasattr(self, "frozen_encoder") and freeze_epochs == self.current_epoch:  # unfreeze model
-            self.configure_optimizers = self.unfreeze_configure_optimizers
-            self.trainer.strategy.setup_optimizers(self.trainer)
-
-    def unfreeze_configure_optimizers(self):
-        optimizer_class = OPTIMIZER_CLASS_MAP[self.hparams.optimizer["method"]]
-        new_lr = self.hparams.get("fine-tuning", {}).get("unfreeze_lr")
-        if new_lr is not None:
-            kwargs = {k: v for k, v in self.hparams.optimizer["args"].items() if k != "lr"}
-            optimizer = optimizer_class(self.parameters(), lr=new_lr, **kwargs)
-            print(f"unfreezing encoder with lr: {new_lr}")
-        else:
-            optimizer = optimizer_class(self.parameters(), **self.hparams.optimizer["args"])
-            print(f"unfreezing encoder with lr: {self.hparams.optimizer['args']['lr']}")
-
-        return optimizer

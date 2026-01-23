@@ -6,8 +6,6 @@ from torch import nn
 from torch_geometric.data import Batch, Data
 
 from ...utils.constants import ACT_CLASS_MAPPING
-from ...utils.yaml_utils import update_yaml
-
 
 class AbstractDecoder(nn.Module):
     def __init__(self, in_channels, num_residues, **kwargs):
@@ -68,69 +66,11 @@ class AbstractDecoder(nn.Module):
     def _mock_data(self, data, head_out):
         return Data(z=data.z, ptr=data.ptr, batch=data.batch, **head_out)
 
-    def forward_loss(self, target_data: Batch, fidelity: str) -> Tuple[Dict[str, torch.Tensor], Dict[str, torch.Tensor]]:
-        self.set_context_state(fidelity)
-
-        head_out = self.forward(target_data)
-        pred_data = self._mock_data(target_data, head_out)
-
-        metrics = {}
-
-        with torch.no_grad():
-            metrics.update(self.metric(pred_data, target_data))
-
-        if self.normalize_after_forward:
-            pred_data = self.normalize(pred_data)
-            target_data = self.normalize(target_data)
-
-        loss = self.loss(pred_data, target_data)
-
-        # Add detached loss values to logging metrics
-        metrics.update({name: value.detach().clone() for name, value in loss.items()})
-
-        for results_dict in [metrics, loss]:
-            items = list(results_dict.items())
-            for key, value in items:
-                new_key = f"{fidelity}/{self.name}/{key}/"
-                results_dict[new_key] = value
-                del results_dict[key]
-
-        return loss, metrics
-
     def set_context_state(self, fidelity: str):
         # Set the correct normalization constants to be used with a given fidelity
         if self.constants is not None:
             for constant_name, value in self.constants[fidelity].items():
                 setattr(self, constant_name, value)
-
-    def register_datasets(self, dataset_batch=None, precomputed_constants=None, file_to_store_constants=None):
-        context = set()
-        constants = {}
-
-        # Select active data source and determine processing method
-        constants_source = precomputed_constants or dataset_batch
-        is_precomputed = precomputed_constants is not None
-
-        for fidelity, item in constants_source.items():
-            # Process constants based on data source type
-            if is_precomputed:
-                # Just convert lists to tensors
-                processed_constants = {key: torch.tensor(value) if isinstance(value, list) else value for key, value in item.items()}
-            else:
-                processed_constants = self.store_constants(item)
-
-                update_yaml(file_to_store_constants, {self.task: {fidelity: processed_constants}})
-
-            # Update constants and context
-            constants.setdefault(fidelity, {})
-            constants[fidelity].update(processed_constants)
-            context.add(fidelity)
-
-            log_msg = f"{self.id}/{fidelity}{f' (N={item.num_graphs})' if not is_precomputed else ''}: {processed_constants}"
-            print(log_msg)
-
-        self.constants = constants
-        self.context = context
 
     def state_dict(self, **kwargs):
         state = super().state_dict(**kwargs)
