@@ -74,7 +74,17 @@ Please feel free to reach out to [thiagoreschutzegger@gmail.com](mailto:thiagore
 
 ## Citation
 
-Reschützegger, Thiago, Sarp Aykent, Gabriel Jacob Perin, Bruno Henrique Nunes, Flaviu Cipcigan, Rodrigo Neumann Barros Ferreira, Mathias Steiner, and Fabian L. Thiemann. "Equivariant Interatomic Potentials without Tensor Products." arXiv preprint arXiv:2601.15492, January 21, 2026. https://arxiv.org/abs/2601.15492.
+```
+@misc{reschützegger2026equivariantinteratomicpotentialstensor,
+      title={Equivariant Interatomic Potentials without Tensor Products}, 
+      author={Thiago Reschützegger and Sarp Aykent and Gabriel Jacob Perin and Bruno Henrique Nunes and Flaviu Cipcigan and Rodrigo Neumann Barros Ferreira and Mathias Steiner and Fabian L. Thiemann},
+      year={2026},
+      eprint={2601.15492},
+      archivePrefix={arXiv},
+      primaryClass={physics.comp-ph},
+      url={https://arxiv.org/abs/2601.15492}, 
+}
+```
 
 ## License
 
