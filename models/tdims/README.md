@@ -1,76 +1,159 @@
-# TDiMS (Topological Distance of intraMolecular Substructures)
+# TDiMS
 
-1. [Overview](#overview)
-2. [System Requirements](#system-requirements)
-3. [Setting Up the Development Environment](#setting-up-the-development-environment)
-4. [Example Code](#example-code)
-   - [Retrieving Full Embeddings](#retrieving-full-embeddings)
-   - [Retrieving Feature-Selected Embeddings](#retrieving-feature-selected-embeddings)
-   - [Parameters](#parameters)
+TDiMS (Topological Distance of intraMolecular Substructures) is a molecular descriptor designed to capture non-local intramolecular interactions by effectively summarizing enumerated pairwise topological distances between molecular substructures.
 
-## Overview
-TDiMS is a novel molecular descriptor designed to capture non-local interactions of molecules. Unlike conventional descriptors that either focus solely on local features or struggle to effectively learn long-distance intramolecular interactions, TDiMS overcomes these limitations by effectively summarizing enumerated pairwise topological distances between molecular substructures.
+This repository includes:
 
-The `tdims` Python package provides molecular embeddings using the TDiMS algorithm. The `tdims_ext` module extends this functionality by offering embeddings with or without feature selection, as well as hyperparameter optimization.
+- the TDiMS descriptor implementation
+- a minimal Python example
+- a Jupyter notebook example
+- experiment code for nested cross-validation used in the study
 
-## System Requirements
-This project requires the following libraries:
+## Repository structure
 
-- numpy>=1.26.1, <2.0.0
-- pandas>=1.5.3, <2.2.0
-- rdkit-pypi>=2022.9.4, <2023.9.6
-- scikit-learn>=1.2.0, <1.5.0
-- shap>=0.42.1, <0.43.0
-- matplotlib>=3.10.1, <3.11.0
-
-## Setting Up the Development Environment
-Follow these steps to set up the development environment:
-
-1. Create a new conda virtual environment named `tdims`
-*(Typical Install Time: ~15 seconds)*
-   ```sh
-   conda create -n tdims python=3.10
-   ```
-
-2. Activate the virtual environment
-   ```sh
-   conda activate tdims
-   ```
-
-3. Navigate to the project directory
-   ```sh
-   cd TDiMS
-   ```
-
-4. Install the required libraries from `requirements.txt`
-*(Typical Install Time: ~30 seconds)*
-   ```sh
-   pip install -r requirements.txt
-   ```
-
-## Example Code
-For basic operations, please refer to `example_notebook.ipynb`. For SHAP-based analysis used in the paper, please refer to `SHAP_analitics.ipynb`.
-
-> *Note: To run the example notebooks, please ensure you have a Jupyter environment such as [Jupyter Notebook](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io/). These are not included in the default requirements and should be installed separately if needed.*
-
-### Retrieving Full Embeddings
-To generate full embeddings for a given list of SMILES strings:
-```python
-emb, key_all = tdims_ext.get_representation(sm_list, radius=2, func_dis=-2, func_merge=max, fragment_set=True, atom_set=True, fingerprint_set=True)
+```text
+tdims/
+├── README.md
+├── requirements.txt
+├── data/
+│   ├── cmpCl3_200.csv
+├── examples/
+│   ├── example_basic.py
+│   └── example_notebook.ipynb
+├── experiments/
+│   └── run_nested_cv_experiment.py
+└── src/
+    └── tdims/
+        ├── __init__.py
+        ├── tdims_ext.py
+        ├── load.py
+        ├── sparse_transformers.py
+        └── ChemGenerator/
+            ├── __init__.py
+            └── ChemGraph.py
 ```
 
-### Retrieving Feature-Selected Embeddings
-To apply feature selection and retrieve optimized embeddings:
-```python
-x_slc, key_slc, key_all, optimized_param = tdims_ext.get_representation_with_fs_selection(sm_list, y, reg_model="Lasso", radius=1, func_dis=-1, func_merge=sum, fragment_set=False, atom_set=True, fingerprint_set=True)
+## Requirements
+
+Install the required packages with:
+
+```bash
+pip install -r requirements.txt
 ```
 
-### Parameters
-- `reg_model`: Choose from "Lasso", "Ridge", "ElasticNet", "RandomForest"
-- `radius`: Integer (≥1), sets the radius for MorganFingerprint substructures
-- `func_dis`: Method for calculating feature values from topological distances (e.g., `-1` results in `x^(-1)`)
-- `func_merge`: Aggregation method for identical pair distances at different locations (e.g., `sum`, `max`, `min`)
-- `fragment_set`: Boolean, whether to include CEP fragments
-- `fingerprint_set`: Boolean, whether to include circular fingerprints from Morgan Fingerprints
-- `atom_set`: Boolean, whether to include heteroatoms
+The main dependencies are:
 
+- numpy
+- pandas
+- RDKit
+- scikit-learn
+- shap
+- matplotlib
+
+## Quick start
+
+Run the basic example:
+
+```bash
+python examples/example_basic.py
+```
+
+This script generates TDiMS descriptors for a small set of SMILES strings and prints:
+
+- the descriptor matrix shape
+- example feature names
+
+## Usage
+
+The main entry point for descriptor generation is `tdims_ext.get_representation()`.
+
+```python
+from tdims import tdims_ext
+
+sm_list = ["CCO", "c1ccccc1", "CC(=O)O"]
+
+emb, key_all = tdims_ext.get_representation(
+    sm_list,
+    radius=1,
+    func_dis=-2,
+    func_merge=max,
+    fragment_set=False,
+    atom_set=True,
+    fingerprint_set=True,
+    display=True,
+)
+```
+
+To generate descriptors with feature selection:
+
+```python
+x_slc, key_slc, key_all = tdims_ext.get_representation_with_fs_selection(
+    sm_list,
+    y,
+    radius=1,
+    func_dis=-2,
+    func_merge=max,
+    fragment_set=False,
+    atom_set=True,
+    fingerprint_set=True,
+    display=True,
+)
+```
+
+## Using this repository in Jupyter Notebook
+
+If you are using the repository directly in a notebook without package installation, add `src` to `sys.path` before importing `tdims`:
+
+```python
+import sys
+from pathlib import Path
+
+src_path = (Path.cwd().resolve().parent / "src").resolve()
+if str(src_path) not in sys.path:
+    sys.path.insert(0, str(src_path))
+
+from tdims import tdims_ext
+```
+
+For a notebook-based example, see:
+
+- `examples/example_notebook.ipynb`
+
+## Main parameters
+
+Key arguments of `get_representation()` include:
+
+- `radius`: radius used for substructure extraction
+- `func_dis`: transformation applied to topological distance values
+- `func_merge`: aggregation function for repeated substructure-pair distances
+- `fragment_set`: whether fragment-based substructures are included
+- `fingerprint_set`: whether fingerprint-derived substructures are included
+- `atom_set`: whether atom-based substructures are included
+- `display`: if `True`, prints descriptor shape and elapsed time
+
+## Experiment code
+
+The main experiment script is:
+
+```bash
+python experiments/run_nested_cv_experiment.py
+```
+
+This script is intended for nested cross-validation experiments used in the study. It is separate from the minimal examples above and is provided for experiment-level reproduction.
+- `quick`: recommended for a first test run or lightweight debugging
+- `full`: used for the main journal-paper experiments
+
+
+## Notes
+
+- Internal imports inside `src/tdims/` are package-relative.
+- External usage from notebooks or scripts should use `from tdims import ...`.
+- If the repository is not package-installed, add `src/` to `sys.path` before import.
+
+## Citation
+
+If you use this repository in academic work, please cite the corresponding paper.
+
+## License
+
+This code is distributed under the Apache License 2.0 as part of the `IBM/materials` repository. See the `LICENSE` file in the root of the repository for details.

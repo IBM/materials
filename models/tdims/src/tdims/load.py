@@ -1,7 +1,8 @@
 from rdkit import Chem
 from rdkit.Chem import AllChem, BRICS
 
-from tdims.ChemGenerator.ChemGraph import AtomGraph
+
+from .ChemGenerator.ChemGraph import AtomGraph
 
 from rdkit import RDLogger
 RDLogger.DisableLog('rdApp.*')
