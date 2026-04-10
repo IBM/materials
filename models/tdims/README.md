@@ -15,6 +15,7 @@ This repository includes:
 tdims/
 ├── README.md
 ├── requirements.txt
+├── requirements-notebook.txt
 ├── data/
 │   ├── cmpCl3_200.csv
 ├── examples/
@@ -33,22 +34,28 @@ tdims/
             └── ChemGraph.py
 ```
 
-## Requirements
+## Installation
 
-Install the required packages with:
+### Minimal setup
+
+For the minimal descriptor code and Python example, install the required packages with:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-The main dependencies are:
+The minimal dependency set is intended for descriptor generation and core functionality.
 
-- numpy
-- pandas
-- RDKit
-- scikit-learn
-- shap
-- matplotlib
+### Notebook setup
+
+The notebook example uses SHAP. Depending on the platform, installing SHAP with `pip` may trigger `numba` / `llvmlite` build issues. A more stable approach is to install SHAP and its low-level dependencies with conda-forge first, and then install the remaining notebook dependencies.
+
+```bash
+conda create -n NCS python=3.10 -y
+conda activate NCS
+conda install -c conda-forge numba llvmlite shap
+pip install -r requirements-notebook.txt
+```
 
 ## Quick start
 
@@ -140,15 +147,17 @@ python experiments/run_nested_cv_experiment.py
 ```
 
 This script is intended for nested cross-validation experiments used in the study. It is separate from the minimal examples above and is provided for experiment-level reproduction.
+
 - `quick`: recommended for a first test run or lightweight debugging
 - `full`: used for the main journal-paper experiments
-
 
 ## Notes
 
 - Internal imports inside `src/tdims/` are package-relative.
 - External usage from notebooks or scripts should use `from tdims import ...`.
 - If the repository is not package-installed, add `src/` to `sys.path` before import.
+- `requirements.txt` is intended for minimal descriptor usage.
+- `requirements-notebook.txt` is intended for the notebook example and related plotting dependencies.
 
 ## Citation
 

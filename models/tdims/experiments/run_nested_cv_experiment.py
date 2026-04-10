@@ -581,14 +581,14 @@ def main(
 
 if __name__ == "__main__":
     main(
-        database="./data/cmpCl3_1000.csv",
+        database="./data/cmpCl3_200.csv",
         prop="Abs",
         desc_name="TDiMS",
         outer_random_state=0,
         outer_n_repeats=1,
         n_jobs=1,
-        out_dir="Table1",
-        etc="Table1_test_v2",
+        out_dir="result",
+        etc="test",
         save_cv_results=True,
         save_joblib=False,
         save_score=False,
