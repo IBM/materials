@@ -12,16 +12,6 @@ from typing import Optional
 
 
 class SparseFeatureFilterVCSR(BaseEstimator, TransformerMixin):
-    """
-    非ゼロサンプル数が少ない特徴量を除去（dense/sparse 両対応）
-
-    Parameters
-    ----------
-    min_samples : int
-        各特徴量が非ゼロとなるサンプル数が min_samples 未満なら除去
-    verbose : bool
-        fit時に特徴量数の変化をprintするか
-    """
     def __init__(self, min_samples: int = 30, verbose: bool = True):
         self.min_samples = min_samples
         self.verbose = verbose
@@ -52,9 +42,6 @@ class SparseFeatureFilterVCSR(BaseEstimator, TransformerMixin):
 
 
 class ToCSR(BaseEstimator, TransformerMixin):
-    """
-    入力を CSR sparse matrix に変換（すでに sparse なら .tocsr()）
-    """
     def fit(self, X, y=None):
         return self
 
@@ -64,7 +51,6 @@ class ToCSR(BaseEstimator, TransformerMixin):
         return csr_matrix(X)
 
 class ClipGreaterThanOneToZero(BaseEstimator, TransformerMixin):
-    """CSR（疎行列）を想定し、値が threshold より大きい要素を 0 にする。"""
     def __init__(self, threshold: float = 1.0):
         self.threshold = threshold
 
@@ -74,7 +60,7 @@ class ClipGreaterThanOneToZero(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # sparse
         if issparse(X):
-            X = X.tocsr(copy=True)  # 元を壊さない
+            X = X.tocsr(copy=True) 
             if X.nnz == 0:
                 return X
             mask = X.data > self.threshold
@@ -82,8 +68,6 @@ class ClipGreaterThanOneToZero(BaseEstimator, TransformerMixin):
                 X.data[mask] = 0.0
                 X.eliminate_zeros()
             return X
-
-        # denseが来た場合の保険（通常ここには来ない想定）
         X = np.array(X, copy=True)
         X[X > self.threshold] = 0.0
         return csr_matrix(X)
