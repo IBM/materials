@@ -32,7 +32,10 @@ class TDiMS():
             radius (int, optional): radius of finger print. Default to 1.
             func_dis (int, float, function, optional) : Calculation method for computing the feature value from bonds distance. Default to -2 (inverse square)
             func_merge (function, optional) :  Calculation method for merging feature values of distance in the same set of substructures. Default to sum.
-            fragment_set (bool, optional) : True if you want to include this substructure type to extract the distance. Default to True.
+            fragment_set (bool or list, optional):
+                If True, use the default CEP fragment list.
+                If False, do not use fragment-based features.
+                If a list/tuple/set of SMILES is given, use those fragments instead.
             atom_set (bool, optional) : Types True if you want to include this substructure type to extract the distance. Default to True
             fingerprint_set (bool, optional) : True if you want to include this substructure type to extract the distance. Default to True
         """
@@ -71,7 +74,7 @@ class TDiMS():
         return mfp_set
         
     def extract_mol_features(self, sm):
-        
+    
         topological_distance = dict()
         
         mol = Chem.MolFromSmiles(sm)
@@ -83,40 +86,56 @@ class TDiMS():
         mol_distance_matrix = Chem.rdmolops.GetDistanceMatrix(mol)
         eps = 1.0e-10
         
-         # atom index of Fragment
-        if self.fragment_set:
-            sm_list = ['C1C=CC=C1',
-                        'S1N=C2C=CN=CC2=N1',
-                        'S1N=C2C=CC=CC2=N1',
-                        'O1C=CC2=CSC=C12',
-                        'C1=CC=NC=C1',
-                        'C1=NC=NC=N1',
-                        'O1C=CC=C1',
-                        '[SiH2]1C=CC=C1',
-                        '[SiH2]1C=C2C=CC=CC2=C1',
-                        'N1C=CC2=CSC=C12',
-                        'C1=CC2=CC=CC=C2C=C1',
-                        'S1C=CC=C1',
-                        'S1C=C2SC=CC2=C1',
-                        'O1C=C2C=CC=CC2=C1',
-                        '[Se]1C=CC=C1',
-                        'N1C=C2C=CC=CC2=C1',
-                        'N1C=CC=C1',
-                        'S1C=C2C(=C1)C1=CC=CC=C1C1=CC=CC=C21',
-                        'C1=CC=CC=C1',
-                        'S1C=C2N=CC=NC2=C1',
-                        'S1C=CN=C1',
-                        '[SiH2]1C=CC2=CSC=C12',
-                        'S1C=C2C=CC=CC2=C1',
-                        'S1C=C2[Se]C=CC2=C1',
-                        'C1C=C2C=CC=CC2=C1',
-                        'C1C=CC2=CSC=C12']
-            
+        # atom index of Fragment
+        cep_fragment_smiles = [
+            'C1C=CC=C1',
+            'S1N=C2C=CN=CC2=N1',
+            'S1N=C2C=CC=CC2=N1',
+            'O1C=CC2=CSC=C12',
+            'C1=CC=NC=C1',
+            'C1=NC=NC=N1',
+            'O1C=CC=C1',
+            '[SiH2]1C=CC=C1',
+            '[SiH2]1C=C2C=CC=CC2=C1',
+            'N1C=CC2=CSC=C12',
+            'C1=CC2=CC=CC=C2C=C1',
+            'S1C=CC=C1',
+            'S1C=C2SC=CC2=C1',
+            'O1C=C2C=CC=CC2=C1',
+            '[Se]1C=CC=C1',
+            'N1C=C2C=CC=CC2=C1',
+            'N1C=CC=C1',
+            'S1C=C2C(=C1)C1=CC=CC=C1C1=CC=CC=C21',
+            'C1=CC=CC=C1',
+            'S1C=C2N=CC=NC2=C1',
+            'S1C=CN=C1',
+            '[SiH2]1C=CC2=CSC=C12',
+            'S1C=C2C=CC=CC2=C1',
+            'S1C=C2[Se]C=CC2=C1',
+            'C1C=C2C=CC=CC2=C1',
+            'C1C=CC2=CSC=C12'
+        ]
+
+        fragment_smiles_list = None
+        if self.fragment_set is True:
+            fragment_smiles_list = cep_fragment_smiles
+        elif isinstance(self.fragment_set, (list, tuple, set)):
+            fragment_smiles_list = list(self.fragment_set)
+
+        if fragment_smiles_list:
             fragment_atomidx_dic = defaultdict(list)
-            for smiles in sm_list:
-                atm_set=mol.GetSubstructMatches(Chem.MolFromSmiles(smiles))
+            for frag_smiles in fragment_smiles_list:
+                frag_mol = Chem.MolFromSmiles(frag_smiles)
+                if frag_mol is None:
+                    logger.warning(f"Invalid fragment SMILES was skipped: {frag_smiles}")
+                    continue
+
+                atm_set = mol.GetSubstructMatches(frag_mol)
                 if atm_set != ():
-                    fragment_atomidx_dic[f'{smiles}_CEPfrag']=[list(atm_idx) for atm_idx in atm_set]
+                    suffix = "CEPfrag" if self.fragment_set is True else "frag"
+                    fragment_atomidx_dic[f"{frag_smiles}_{suffix}"] = [
+                        list(atm_idx) for atm_idx in atm_set
+                    ]
             all_dic.update(fragment_atomidx_dic)
 
         # atom index of HeavyAtom
@@ -170,11 +189,11 @@ class TDiMS():
 
             all_dic.update(sub_atomidx_dic_slc)
 
-                        
         dis_dic = defaultdict(list)
 
         for (sm1, sm2) in itertools.combinations_with_replacement(sorted(all_dic.keys(), key=len, reverse=True), 2):
-            sub_pair = f'{sm1} & {sm2}'
+            
+            sub_pair = f"tdims_{sm1}__{sm2}"
             
             # collect each pair of substracture distance
             target1 = all_dic[sm1]
@@ -190,7 +209,6 @@ class TDiMS():
 
                         if isinstance(self.func_dis, types.FunctionType):
                             calc_dis = self.func_dis(av_dis)
-
                         else:
                             calc_dis = av_dis**self.func_dis
 
@@ -207,22 +225,18 @@ class TDiMS():
 
                         if isinstance(self.func_dis,types.FunctionType):
                             calc_dis = self.func_dis(av_dis)
-
                         else:
                             calc_dis = av_dis ** self.func_dis
 
                         dis_dic[sub_pair].append(calc_dis)
-        
 
             if dis_dic[sub_pair] == []:
                 distance_final = 0
             else:
                 distance_final = self.func_merge(dis_dic[sub_pair])
 
-
             if distance_final-eps > 0:
                 topological_distance[sub_pair] = distance_final
-
             elif distance_final < 0:
                 logger.error(f'Minus feature for mol:{Chem.MolToSmiles(mol)} feature:{sub_pair}')
 
