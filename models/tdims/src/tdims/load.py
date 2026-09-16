@@ -12,7 +12,6 @@ import itertools
 
 import pandas as pd
 from collections import defaultdict
-import types
 
 import warnings
 warnings.simplefilter('ignore')
