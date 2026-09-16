@@ -48,6 +48,7 @@ class TDiMS():
         self.atom_set = atom_set
         self.fingerprint_set = fingerprint_set
         self.nBit = nBit
+        self.failed_smiles = []
         
     def mfp_subset(self, mol):
         
@@ -79,7 +80,8 @@ class TDiMS():
         
         mol = Chem.MolFromSmiles(sm)
         if mol is None:
-            print(f"RDKit failed to read SMILES: {sm}")
+            logger.debug(f"RDKit failed to read SMILES: {sm}")
+            self.failed_smiles.append(sm)
             return topological_distance
         
         all_dic = dict()
@@ -193,7 +195,7 @@ class TDiMS():
 
         for (sm1, sm2) in itertools.combinations_with_replacement(sorted(all_dic.keys(), key=len, reverse=True), 2):
             
-            sub_pair = f"tdims_{sm1}__{sm2}"
+            sub_pair = f'{sm1} & {sm2}'
             
             # collect each pair of substracture distance
             target1 = all_dic[sm1]
@@ -207,7 +209,7 @@ class TDiMS():
                                 distance_tmp.append(mol_distance_matrix[x][y])
                         av_dis = sum(distance_tmp)/len(distance_tmp)
 
-                        if isinstance(self.func_dis, types.FunctionType):
+                        if callable(self.func_dis):
                             calc_dis = self.func_dis(av_dis)
                         else:
                             calc_dis = av_dis**self.func_dis
@@ -223,7 +225,7 @@ class TDiMS():
                                 distance_tmp.append(mol_distance_matrix[x][y])
                         av_dis = sum(distance_tmp) / len(distance_tmp)
 
-                        if isinstance(self.func_dis,types.FunctionType):
+                        if callable(self.func_dis):
                             calc_dis = self.func_dis(av_dis)
                         else:
                             calc_dis = av_dis ** self.func_dis
@@ -246,11 +248,18 @@ class TDiMS():
         
         key_all={}
         dic_all=[]
+        self.failed_smiles = []
         for sm in self.sm_list:
             tdims_dic = self.extract_mol_features(sm)
             dic_all.append(tdims_dic)
             key_all = {**key_all, **tdims_dic}
-        
+
+        if self.failed_smiles:
+            logger.warning(
+                f"{len(self.failed_smiles)} of {len(dic_all)} SMILES could not be parsed by RDKit "
+                f"and produced all-zero feature rows. See TDiMS.failed_smiles for the list."
+            )
+
         X=[]
         for dic in dic_all:
             x = [dic.get(key, 0) for key in key_all]
