@@ -36,6 +36,9 @@ tdims/
 
 ## Installation
 
+Python 3.9-3.11 is required. Python 3.12 and later are not supported, because
+the pinned `pandas` and `rdkit-pypi` versions provide no wheels for them.
+
 ### Minimal setup
 
 For the minimal descriptor code and Python example, install the required packages with:
@@ -51,8 +54,8 @@ The minimal dependency set is intended for descriptor generation and core functi
 The notebook example uses SHAP. Depending on the platform, installing SHAP with `pip` may trigger `numba` / `llvmlite` build issues. A more stable approach is to install SHAP and its low-level dependencies with conda-forge first, and then install the remaining notebook dependencies.
 
 ```bash
-conda create -n NCS python=3.10 -y
-conda activate NCS
+conda create -n tdims python=3.10 -y
+conda activate tdims
 conda install -c conda-forge numba llvmlite shap
 pip install -r requirements-notebook.txt
 ```
@@ -91,12 +94,16 @@ emb, key_all = tdims_ext.get_representation(
 )
 ```
 
-To generate descriptors with feature selection:
+To generate descriptors with feature selection, pass the target property
+values (the regression target) alongside the SMILES list:
 
 ```python
+# Measured property value for each molecule in sm_list
+prop = [78.4, 80.1, 118.1]
+
 x_slc, key_slc, key_all = tdims_ext.get_representation_with_fs_selection(
     sm_list,
-    y,
+    prop,
     radius=1,
     func_dis=-2,
     func_merge=max,
@@ -148,8 +155,10 @@ python experiments/run_nested_cv_experiment.py
 
 This script is intended for nested cross-validation experiments used in the study. It is separate from the minimal examples above and is provided for experiment-level reproduction.
 
-- `quick`: recommended for a first test run or lightweight debugging
-- `full`: used for the main journal-paper experiments
+- `quick`: reduced search space for a first test run or lightweight debugging.
+  Depending on the environment, this can still take several tens of minutes.
+- `full`: used for the main journal-paper experiments. Considerably slower than
+  `quick`; running it on a compute node is recommended.
 
 ## Notes
 

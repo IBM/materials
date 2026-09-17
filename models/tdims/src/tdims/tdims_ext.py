@@ -51,6 +51,9 @@ def get_representation_with_fs_selection(sm_list, y, model="tdims", radius=1, fu
                 
         return x_slc, list(key_slc), key_all
 
+    else:
+        raise ValueError("Invalid model input")
+
 
 
 def run_tdims_regression_cv(
