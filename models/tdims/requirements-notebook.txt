@@ -4,14 +4,15 @@
 # so you do not need to install requirements.txt separately.
 #
 # Recommended setup (see README.md):
-#   conda create -n NCS python=3.10 -y
-#   conda activate NCS
+#   conda create -n tdims python=3.10 -y
+#   conda activate tdims
 #   conda install -c conda-forge numba llvmlite shap
 #   pip install -r requirements-notebook.txt
 #
-# Installing shap from conda-forge first avoids numba / llvmlite build
-# failures on some platforms. If shap is already present, pip keeps the
-# existing (conda) build instead of rebuilding it.
+# shap, numba and llvmlite are intentionally NOT listed here: they are
+# installed from conda-forge in the step above, which avoids the numba /
+# llvmlite build failures seen with pip on some platforms. Listing them
+# here would make pip replace those conda builds.
 
 -r requirements.txt
 
@@ -20,8 +21,3 @@ jupyterlab>=4.0,<5.0
 notebook>=7.0,<8.0
 ipykernel>=6.20,<7.0
 ipywidgets>=8.0,<9.0
-
-# Feature importance analysis (SHAP section of the notebook)
-shap>=0.44,<0.46
-numba>=0.57,<0.61
-llvmlite>=0.40,<0.44
